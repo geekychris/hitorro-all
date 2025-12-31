@@ -1,0 +1,6 @@
+{
+  "log4j": {
+    "loggerFactory": "com.hitorro.util.log.LoggerFactory",
+    "rootLogger": "INFO"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "build": {
+    "comments": "None",
+    "component": "HiTorro",
+    "date": "2011-05-12_23-58",
+    "machine": "env.HOSTNAME",
+    "major": "1",
+    "minor": "0",
+    "number": "201105122358",
+    "osversion": "Mac OS X",
+    "patch": "0",
+    "version": "1.0.0"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "dbconfig": {
+    "hibernate": {
+      "bytecode": {
+        "provider": "javassist"
+      },
+      "c3p0": {
+        "acquire_increment": "2",
+        "idle_test_period": "300",
+        "initialSize": "4",
+        "max_size": "80",
+        "min_size": "4",
+        "timeout": "600",
+        "validate": "false"
+      },
+      "connection": {
+        "driver_class": "com.mysql.cj.jdbc.Driver",
+        "password": "<password>",
+        "pool_size": "80",
+        "url": "jdbc:mysql:///test",
+        "username": "<username>"
+      },
+      "default_batch_fetch_size": "8",
+      "dialect": "org.hibernate.dialect.MySQLDialect",
+      "jdbc": {
+        "batch_versioned_data": "true",
+        "use_streams_for_binary": "true"
+      },
+      "max_fetch_depth": "1",
+      "order_updates": "true",
+      "proxool": {
+        "pool_alias": "pool1"
+      },
+      "query": {
+        "substitutions": "true 1, false 0, yes 'Y', no 'N'"
+      }
+    }
+  },
+  "dbconfigderby": {
+    "hibernate": {
+      "connection": {
+        "driver_class": "org.apache.derby.jdbc.EmbeddedDriver",
+        "password": "<password>",
+        "url": "jdbc:derby:<dbname>;create=true",
+        "username": "<username>"
+      },
+      "dialect": "org.hibernate.dialect.DerbyDialect",
+      "use_sql_comments": "false"
+    }
+  },
+  "javax": {
+    "persistence": {
+      "provider": "org.hibernate.ejb.HibernatePersistence",
+      "transactionType": "RESOURCE_LOCAL",
+      "validation": {
+        "factory": "org.hibernate.validator.HibernateValidator"
+      }
+    }
+  }
+}

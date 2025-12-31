@@ -1,0 +1,5 @@
+name,storetype,rootpath,docroot,default,public
+blob,blob,,,false,false
+fs_store1,file,${HT_STORE_ROOT}/store/fs_store1,"http://locahost/content/fs_store1",true,true
+unmanaged_store1,unmanaged,${HT_STORE_ROOT}/training,"http://locahost/unmanagedstore",true,true
+link,link,,,false,false

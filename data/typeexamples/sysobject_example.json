@@ -1,0 +1,23 @@
+{
+  "id": {
+    "domain": "sysobject",
+    "did": "1234"
+  },
+  "type": "core_sysobject",
+  "dates": {
+    "created": "2018-04-23T18:25:43Z",
+    "modified": "2018-04-23T18:25:43Z"
+  },
+  "title": {
+    "mls": [
+      {
+        "lang": "en",
+        "text": "<HTML>The quick brown fox jumped over the lazy dogs. <B>Mary had a little lamb she tied it to a pylon.  What time is it in london?  Who are you?  where are you going?  How much is that?  Please create an appointment with Bob and Stacey at eleven thirty in mount st helens.</HTML>"
+      },
+      {
+        "lang": "de",
+        "text": "Der schnelle braune Fuchs sprang über die faulen Hunde. Mary hatte ein kleines Lamm, das sie an einen Pylon band."
+      }
+    ]
+  }
+}

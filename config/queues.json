@@ -1,0 +1,124 @@
+{
+  "filesetmanagement": {
+    "creds": {
+      "ftpriken": {
+        "cptype": "ftpconfig",
+        "host": "ftp.riken.jp",
+        "password": "chris@hitorro.com",
+        "username": "anonymous"
+      },
+      "s3twitterqueue": {
+        "accesskey": "AKIAJBVLZVO3NXFF5QKQ",
+        "bucketname": "twitterqueue",
+        "cptype": "s3config",
+        "secretaccesskey": "Pmt9N/PBTohGx9+QPSyD5hBfkVvqfi7ZSaakVjcU"
+      }
+    },
+    "dataaquisition": {
+    },
+    "default": {
+      "processed": {
+        "twitter": {
+          "inceptdate": "101201",
+          "path": "/queues/processed/twitter"
+        }
+      },
+      "raw": {
+        "facebookraw": {
+          "inbox": "true",
+          "inceptdate": "101201",
+          "isqueue": "true",
+          "path": "/queues/raw/facebook/${ht_home}",
+          "queuewriter": {
+            "merger": {
+              "factory": "com.hitorro.dataaquisition.twitter.TwitterUtil#twitterHTSerBagFactory",
+              "inputmap": "com.hitorro.util.basefile.tools.BaseFileUtil#bf2htser"
+            },
+            "sorter": {
+              "factory": "com.hitorro.dataaquisition.twitter.TwitterUtil#twitterHTSerBagFactory",
+              "inputmap": "com.hitorro.util.basefile.tools.BaseFileUtil#bf2htser"
+            }
+          }
+        },
+        "twitterlocal": {
+          "extensions": "json,json.gz",
+          "inceptdate": "101201",
+          "isqueue": "true",
+          "iterator": "com.hitorro.util.basefile.tools.BaseFileUtil#bf2json",
+          "mapto": {
+            "bag": {
+              "mapper": "com.hitorro.dataaquisition.importing.twitter.Twitter2Bag#twitter2bag"
+            }
+          },
+          "path": "file://Users/chris/queue/twitter"
+        },
+        "twitterraw": {
+          "extensions": "json,json.gz",
+          "inceptdate": "101201",
+          "isqueue": "true",
+          "iterator": "com.hitorro.util.basefile.tools.BaseFileUtil#bf2twitter_json",
+          "mapto": {
+            "bag": {
+              "mapper": "com.hitorro.dataaquisition.importing.twitter.Twitter2Bag#twitter2bag"
+            }
+          },
+          "path": "/queues/raw/twitter_spritzer"
+        },
+        "twitterraw2": {
+          "extensions": "json,json.gz",
+          "inceptdate": "101201",
+          "isqueue": "true",
+          "iterator": "com.hitorro.util.basefile.tools.BaseFileUtil#bf2json",
+          "mapto": {
+            "bag": {
+              "mapper": "com.hitorro.dataaquisition.importing.twitter.Twitter2Bag#twitter2bag"
+            }
+          },
+          "path": "/queue/twitter"
+        }
+      },
+      "sinks": {
+        "bag2keyframe": {
+          "description": "write bags out to a keyframe file format.  Should be sorted for the purposes of slab file format",
+          "sink": "com.hitorro.util.bagio.BagKeyFrameSink"
+        },
+        "bag2xml": {
+          "description": "write a bag out in xml format",
+          "sink": "com.hitorro.util.bagio.XML2BagWriter"
+        },
+        "baglongfield": {
+          "description": "pluck out a long field and a string value field and store them in a apply.  provides unique set by long field",
+          "sink": "com.hitorro.util.bagio.BagLongObjectBaseFileStateSink"
+        },
+        "collectuniquestring": {
+          "description": "iterator of strings, collect a unique set of strings and optionally count their frequency",
+          "sink": "com.hitorro.util.file.fs.sinks.StringSetBaseFileStateSink"
+        },
+        "csv": {
+          "description": "Given an iterator of string[] output those rows to a csv file",
+          "sink": "com.hitorro.util.io.csv.CSVSink"
+        },
+        "enqueue": {
+          "description": "enqueue an object to get written over the wire",
+          "sink": "com.hitorro..basedms.docprocessing.ECSinkTarget"
+        },
+        "features": {
+          "description": "given an iterator of features writes features out in order to a dict/index format.",
+          "sink": "com.hitorro..features.index.FeatureIndexer"
+        },
+        "ht": {
+          "description": "write out ht serializable objects to a file",
+          "sink": "com.hitorro.util.io.largedata.iterator.HTSerializableSink"
+        },
+        "indexer": {
+          "description": "Given an iterator of BaseType objects create or append to a lucene index",
+          "sink": "com.hitorro.basetext.text.indexer.DocumentIndexer"
+        },
+        "text2phrase": {
+          "description": "taking an iterator of strings, tokenize them and generate a set of phrases using a sliding window.  Output are phrase elements",
+          "sink": "TextToPhraseSink"
+        }
+      }
+    }
+  }
+}

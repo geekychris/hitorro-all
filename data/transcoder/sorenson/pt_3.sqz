@@ -1,0 +1,163 @@
+<!DOCTYPE squeeze_project>
+<Project StartOnLoad="False" Version="4.0">
+    <Job Name="Job [14:48:05.917 - 04:25:07]" OutputDirectory="">
+        <Source FileName="/pthome/transcoding/128K_MP3">
+            <DisplayAspectRatio Value="1"/>
+            <IsCustomDestination Value="False"/>
+            <Output DefaultName="MP3_128K_1.xss" Id="80666112" IsMBR="False" Name="128K_MP3"
+                    OutputFormat="MP3OutputFormat" SubOutputFormat="None" UsingCustomFilter="False">
+                <FileName Value="/Users/kevine/Desktop/PodTech_Watcher/128K_MP3/CompressedOutput/_128K_KJE.mp3"/>
+                <Status Value="Ready"/>
+                <UseCustomVideo Value="False"/>
+                <UseCustomAudio Value="False"/>
+                <UseCustomFilter Value="False"/>
+                <UseCustomPlayerOptions Value="False"/>
+                <UseCustomDestinations Value="Global"/>
+                <UseCustomMarkers Value="False"/>
+                <UseCustomMarkers Value="False"/>
+                <EncodeVideo Value="False"/>
+                <EncodeAudio Value="True"/>
+                <UsePreFilter Value="False"/>
+                <UsePlaybackConfiguration Value="False"/>
+                <UseFilesizeConstraint Value="False"/>
+                <FileSizeConstraint Value="0"/>
+                <Broadcast Enable="False" Port="0"/>
+                <Filter name="">
+                </Filter>
+                <PlayerOptions Name="" OutputFormat="MP3OutputFormat">
+                    <VideoLocation Value="LinkedFlv"/>
+                    <LinkedFlvPath Value=""/>
+                </PlayerOptions>
+                <AudioCompressor codec="Fraunhofer MP3">
+                    <DataRate Value="128000"/>
+                    <SampleRate Value="44100"/>
+                    <SampleSize Value="16"/>
+                    <ChannelMode Value="ChannelModeStereo"/>
+                    <CodecFourCC Value="1836253269"/>
+                    <PacketSizeEnable Value="False"/>
+                    <PacketSize Value="1450"/>
+                    <MediaKeyEnable Value="False"/>
+                    <MediaKey Value=""/>
+                </AudioCompressor>
+            </Output>
+        </Source>
+
+        <Source FileName="/pthome/transcoding/512K_FLV">
+            <DisplayAspectRatio Value="1"/>
+            <IsCustomDestination Value="False"/>
+            <Output DefaultName="FLV_512K_Stream_1.xss" Id="82480128" IsMBR="False" Name="512K_FLV"
+                    OutputFormat="FLVOutputFormat" SubOutputFormat="None" UsingCustomFilter="False">
+                <FileName Value="/Users/kevine/Desktop/PodTech_Watcher/512K_FLV/CompressedOutput/_512K_KJE.flv"/>
+                <Status Value="Ready"/>
+                <UseCustomVideo Value="False"/>
+                <UseCustomAudio Value="False"/>
+                <UseCustomFilter Value="False"/>
+                <UseCustomPlayerOptions Value="False"/>
+                <UseCustomDestinations Value="Global"/>
+                <UseCustomMarkers Value="False"/>
+                <UseCustomMarkers Value="False"/>
+                <EncodeVideo Value="True"/>
+                <EncodeAudio Value="True"/>
+                <UsePreFilter Value="True"/>
+                <UsePlaybackConfiguration Value="False"/>
+                <UseFilesizeConstraint Value="False"/>
+                <FileSizeConstraint Value="0"/>
+                <Broadcast Enable="False" Port="0"/>
+                <Filter name="">
+                </Filter>
+                <PlayerOptions Name="" OutputFormat="FLVOutputFormat">
+                    <VideoLocation Value="LinkedFlv"/>
+                    <LinkedFlvPath Value=""/>
+                </PlayerOptions>
+                <AudioCompressor codec="Fraunhofer MP3">
+                    <DataRate Value="64000"/>
+                    <SampleRate Value="44100"/>
+                    <SampleSize Value="16"/>
+                    <ChannelMode Value="ChannelModeMono"/>
+                    <CodecFourCC Value="1836253269"/>
+                    <PacketSizeEnable Value="False"/>
+                    <PacketSize Value="1450"/>
+                    <MediaKeyEnable Value="False"/>
+                    <MediaKey Value=""/>
+                </AudioCompressor>
+                <VideoCompressor codec="SPARKVideoCodec">
+                    <DataRate Value="458752"/>
+                    <FrameRate Value="30"/>
+                    <OutputSize Height="320" Width="320"/>
+                    <MaintainSourceAspectRatioEnable Value="True"/>
+                    <LetterBoxOrPillarEnable Value="False"/>
+                    <BitRateMode Value="BitRateModeSorensonOnePassVBR"/>
+                    <NumDisposableFrames Value="0"/>
+                    <CompressionSpeed Value="0"/>
+                    <DropFramesEnable Value="False"/>
+                    <KeyFrameRate Value="30"/>
+                    <AutoKeyFrameEnable Value="True"/>
+                    <AutoKeyFrameSensitivity Value="50"/>
+                    <MinQualityEnable Value="True"/>
+                    <MinQualityValue Value="100"/>
+                    <ImageSmoothingEnable Value="False"/>
+                </VideoCompressor>
+            </Output>
+        </Source>
+        <Source FileName="/pthome/transcoding/ipod_mp4">
+            <DisplayAspectRatio Value="1"/>
+            <IsCustomDestination Value="False"/>
+            <Output DefaultName="MP4_iPod_Hi_1.xss" Id="81371136" IsMBR="False" Name="ipod_mp4"
+                    OutputFormat="MP4OutputFormat" SubOutputFormat="None" UsingCustomFilter="False">
+                <FileName Value="/Users/kevine/Desktop/PodTech_Watcher/ipod_mp4/CompressedOutput/_iPod_KJE.mp4"/>
+                <Status Value="Ready"/>
+                <UseCustomVideo Value="False"/>
+                <UseCustomAudio Value="False"/>
+                <UseCustomFilter Value="False"/>
+                <UseCustomPlayerOptions Value="False"/>
+                <UseCustomDestinations Value="Global"/>
+                <UseCustomMarkers Value="False"/>
+                <UseCustomMarkers Value="False"/>
+                <EncodeVideo Value="True"/>
+                <EncodeAudio Value="True"/>
+                <UsePreFilter Value="True"/>
+                <UsePlaybackConfiguration Value="False"/>
+                <UseFilesizeConstraint Value="False"/>
+                <FileSizeConstraint Value="0"/>
+                <Broadcast Enable="False" Port="0"/>
+                <Filter name="">
+                </Filter>
+                <PlayerOptions Name="" OutputFormat="MP4OutputFormat">
+                    <AddHintTrack Value="False"/>
+                    <VideoLocation Value="LinkedFlv"/>
+                    <LinkedFlvPath Value=""/>
+                </PlayerOptions>
+                <AudioCompressor codec="Coding Technologies aac">
+                    <DataRate Value="64000"/>
+                    <SampleRate Value="44100"/>
+                    <SampleSize Value="16"/>
+                    <ChannelMode Value="ChannelModeMono"/>
+                    <SubOutputFormat Value="None"/>
+                    <PacketSizeEnable Value="False"/>
+                    <PacketSize Value="1450"/>
+                    <MediaKeyEnable Value="False"/>
+                    <MediaKey Value=""/>
+                </AudioCompressor>
+                <VideoCompressor codec="SMEDAAVC">
+                    <DataRate Value="458752"/>
+                    <FrameRate Value="30"/>
+                    <OutputSize Height="480" Width="480"/>
+                    <MaintainSourceAspectRatioEnable Value="True"/>
+                    <LetterBoxOrPillarEnable Value="False"/>
+                    <BitRateMode Value="BitRateModeOnePass"/>
+                    <DropFramesEnable Value="False"/>
+                    <KeyFrameRateEnable Value="True"/>
+                    <KeyFrameRate Value="120"/>
+                    <AutoKeyFrameSensitivity Value="120"/>
+                    <ExtendedPluginSettings>
+                        <Quality Value="False"/>
+                        <MinimumQuality Value="100"/>
+                        <AutoKeyFrames Value="True"/>
+                        <ForceKeyFrameEvery Value="120"/>
+                        <BFrames Value="Off"/>
+                    </ExtendedPluginSettings>
+                </VideoCompressor>
+            </Output>
+        </Source>
+    </Job>
+</Project>

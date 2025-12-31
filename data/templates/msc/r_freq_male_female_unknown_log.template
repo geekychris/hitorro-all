@@ -1,0 +1,16 @@
+jpeg("${output_jpg}")
+m_wc = read.table("${output_path}/male-${name}.csv", header = TRUE, sep=",")
+f_wc = read.table("${output_path}/female-${name}.csv", header = TRUE, sep=",")
+u_wc = read.table("${output_path}/unknown-${name}.csv", header = TRUE, sep=",")
+plot(log(f_wc$ord), log(f_wc$freq), type="o", log = "y", col="green", xlab="${x_label}", ylab="${y_label}", main="${main_label}")
+lines(log(u_wc$ord), log(u_wc$freq), type="o", log = "y", col="red")
+lines(log(m_wc$ord), log(m_wc$freq), type="o", log = "y", col="blue")
+legend(1, 1, c("male", "female", "unknown"), cex=0.8, col=c("blue","green", "red"), pch=21:22, lty=1:2);
+ulm=lm(u_wc$ord~u_wc$freq)
+abline(ulm, col="red")
+mlm=lm(m_wc$ord~m_wc$freq)
+abline(mlm, col="blue")
+flm=lm(f_wc$ord~f_wc$freq)
+abline(flm, col="green")
+dev.off()
+

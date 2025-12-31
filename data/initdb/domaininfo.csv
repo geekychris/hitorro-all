@@ -1,0 +1,13 @@
+domain,displayname,description,valuemapimpl
+htcategory,"HiTorro Categories","","com.hitorro.util.core.valuemap.FlatValueMap"
+htcategoryexternal,"External post categories","","com.hitorro.util.core.valuemap.NonValidatedFlatValueMap"
+label,"System Object Labels","","com.hitorro.util.core.valuemap.LabelValueMap"
+testcat,"System Object Labels","","com.hitorro.util.core.valuemap.NonValidatedFlatValueMap"
+docparts,"Document Parts","semantic parts of documents","com.hitorro.util.core.valuemap.NonValidatedFlatValueMap"
+conversationtype,"Conversation type","Type of conversation","com.hitorro.util.core.valuemap.NonValidatedFlatValueMap"
+tags,"Conversation tags","textual tags attached to versionableobject","com.hitorro.util.core.valuemap.NonValidatedFlatValueMap"
+transformmethod,"Transormation Method","","com.hitorro.util.core.valuemap.NonValidatedFlatValueMap"
+htanchor,"HiTorro Anchor Channels","","com.hitorro.util.core.valuemap.FlatValueMap"
+htposttype,"HiTorro Post Types","","com.hitorro.util.core.valuemap.FlatValueMap"
+htcontentassettype,"Type of asset a piece of content is","","com.hitorro.util.core.valuemap.FlatValueMap"
+persisted,"persisted stuff","persisted stuff","com.hitorro.util.core.valuemap.NonValidatedFlatValueMap"

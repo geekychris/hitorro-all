@@ -1,0 +1,62 @@
+code,description,parent,isphrase
+CC,"coordinating conjunction", null, false
+CD,"cardinal number", null, false
+DT,"determiner", null, false
+EX,"existential there", null, false
+FW,"foreign word", null, false
+IN,"preposition", null, false
+JJ,"adjective", null, false
+JJR,"adjective, compartive", JJ, false
+JJS,"adjective, superlative", JJ, false
+LS,"list item", null, false
+MD,"modal", null, false
+NN,"noun", null, false
+NNS,"noun, plural", NN, false
+NNP,"proper noun", NN, false
+NNPS,"proper noun plural", NN, false
+PDT,"predeterminer", null, false
+POS,"possessive ending", null, false
+PRP,"personal pronoun", null, false
+PRP$,"possessive pronoun", PRP, false
+RB,"adverb", null, false
+RBR,"adverb, comparative", RB, false
+RBS,"adverb, superlative", RB, false
+RP,"particle", null, false
+SYM,"symbol", null, false
+TO,"to", null, false
+UH,"interjection", null, false
+VB,"verb, base form", null, false
+VBD,"verb, past tense", VB, false
+VBG,"verb, gerund or present participle", VB, false
+VBN,"verb, past particple", VB, false
+VBP,"verb, non-3rd person singular present", VB, false
+VBZ,"verb, 3rd person singular present", VB, false
+WDT,"wh-determiner", null, false
+WP,"wh-pronoun", null, false
+WP$,"possessive wh-pronoun", WP, false
+WRB,"wh-adverb", null, false
+S, "Sentence",null,true
+ROOT,"ROOT above sentence",NULL,true
+ADJP,"Adjective Phrase.", null, true
+ADVP,"Adverb Phrase.", null, true
+CONJP,"Conjunction Phrase.", null, true
+FRAG,"Fragment.", null, true
+INTJ,"Interjection. Corresponds approximately to the part-of-speech tag UH.", null, true
+LST,"List marker. Includes surrounding punctuation.", null, true
+NAC,"Not a Constituent; used to show the scope of certain prenominal modifiers within an NP.", null, true
+NP,"Noun Phrase. ", null, true
+NX,"Used within certain complex NPs to mark the head of the NP. Corresponds very roughly to N-bar level but used quite differently.", null, true
+PP,"Prepositional Phrase.", null, true
+PRN,"Parenthetical.", null, true
+PRT,"Particle. Category for words that should be tagged RP.", null, true
+QP,"Quantifier Phrase (i.e. complex measure/amount phrase); used within NP.", null, true
+RRC,"Reduced Relative Clause.", null, true
+UCP,"Unlike Coordinated Phrase. ", null, true
+VP,"Vereb Phrase.", null, true
+WHADJP,"Wh-adjective Phrase. Adjectival phrase containing a wh-adverb, as in how hot.", null, true
+WHAVP,"Wh-adverb Phrase. Introduces a clause with an NP gap. May be null (containing the 0 complementizer) or lexical, containing a wh-adverb such as how or why.", null, true
+WHNP,"Wh-noun Phrase. Introduces a clause with an NP gap. May be null (containing the 0 complementizer) or lexical, containing some wh-word, e.g. who, which book, whose daughter, none of which, or how many leopards.", null, true
+WHPP,"Wh-prepositional Phrase. Prepositional phrase containing a wh-noun phrase (such as of which or by whose authority) that either introduces a PP gap or is contained by a WHNP.", null, true
+X,"Unknown, uncertain, or unbracketable. X is often used for bracketing typos and in bracketing the...the-constructions.", null, true
+
+

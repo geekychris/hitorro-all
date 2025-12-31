@@ -1,0 +1,8 @@
+domain,value,displayname,description,parent,externalid,
+htcontentassettype,largeimage,Large Image, ""
+htcontentassettype,thumbnailimage,Thumbnail Image, ""
+htcontentassettype,video,Video, ""
+htcontentassettype,audio,Video, ""
+htcontentassettype,transcription,Transcription, ""
+htcontentassettype,transwithtime,Transcription with timebasis, ""
+htcontentassettype,enclosure,media enclosure, ""

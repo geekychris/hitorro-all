@@ -1,0 +1,17 @@
+{
+  "defaultdb": {
+    "password": "htcms",
+    "url": "jdbc:mysql://localhost/htcms?autoReconnect=true&useUnicode=yes&characterEncoding=UTF-8&serverTimezone=UTC",
+    "username": "htcms"
+  },
+  "derbydb": {
+    "password": "Htcms@1htcms",
+    "url": "jdbc:derby:${db.embedded.name};create=true",
+    "username": "htcms"
+  },
+  "testdb": {
+    "password": "htcms",
+    "url": "jdbc:mysql://localhost/htcms_test?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8",
+    "username": "htcms"
+  }
+}

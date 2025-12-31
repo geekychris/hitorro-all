@@ -1,0 +1,31 @@
+{
+  "front": [
+    {
+      "class": "com.hitorro.obj.core.solr.retrievalmodules.solr.SolrRetriever"
+    },
+    {
+      "class": "com.hitorro.obj.core.solr.retrievalmodules.object.ObjectRetriever"
+    },
+    {
+      "class": "com.hitorro.obj.core.solr.retrievalmodules.summarizer.SummarizerRetriever"
+    },
+    {
+      "class": "com.hitorro.analysis.access.sentenceenum.SentenceEnumeratorRetriever"
+    },
+    {
+      "class": "com.hitorro.analysis.access.vector.VectorizerRetriever"
+    },
+    {
+      "class": "com.hitorro.obj.core.solr.retrievalmodules.fixup.FixupRetriever"
+    },
+    {
+      "class": "com.hitorro.obj.core.solr.retrievalmodules.cluster.ClusteringRetreiver"
+    },
+    {
+      "class": "com.hitorro.obj.core.solr.retrievalmodules.pagination.PaginationRetriever"
+    },
+    {
+      "class": "com.hitorro.obj.core.solr.retrievalmodules.facet.FacetRetriever"
+    }
+  ]
+}

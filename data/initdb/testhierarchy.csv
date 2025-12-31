@@ -1,0 +1,9 @@
+domain,value,displayname,parent,description,externalid
+testcat,A,A,A,A
+testcat,B,B,B,B
+testcat,C,C,C,C
+testcat,D,D,D,D
+testcat,A:B,A:B,A,A:B,A:B
+testcat,A:C,A:C,A,A:C,A:C
+testcat,A:D,A:D,A,A:D,A:D
+testcat,A:D:A,A:D:A,A:D,A:D:A,A:D:A

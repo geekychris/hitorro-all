@@ -1,0 +1,59 @@
+<parameters>
+    <parameter name="incomingsocket" type="int" required="true"/>
+    <parameter name="logging" type="composite" required="false">
+        <parameter name="debug" type="vector" required="false">
+            <vectorcontent type="string"/>
+        </parameter>
+        <parameter name="info" type="vector" required="false">
+            <vectorcontent type="string"/>
+        </parameter>
+        <parameter name="warn" type="vector" required="false">
+            <vectorcontent type="string"/>
+        </parameter>
+    </parameter>
+    <parameter name="outgoinghost" type="string" required="false"/>
+    <parameter name="outgoingsocket" type="int" required="true"/>
+    <parameter name="promptqueue" type="string" required="false"/>
+    <parameter name="servername" type="string" required="true"/>
+    <parameter name="streamerhost" type="string" required="true"/>
+    <parameter name="subsystems" type="vector" required="false">
+
+        <vectorcontent type="string"/>
+    </parameter>
+    <parameter name="streamer" type="composite" required="false">
+        <parameter name="pollerthreads" type="int" required="false"/>
+        <parameter name="pollingdirectory" type="string" required="false"/>
+        <parameter name="mapping" type="composite" required="false">
+            <parameter name="stringformatters" type="vector" required="false">
+                <vectorcontent type="string"/>
+            </parameter>
+        </parameter>
+    </parameter>
+    <parameter name="filters" type="composite" required="true">
+        <parameter name="directory" type="string" required="true"/>
+        <parameter name="extension" type="string" required="true"/>
+    </parameter>
+    <!-- example
+    <parameter type="int" name="i1" required="true"/>
+    <parameter type="string" name="s1" required="true"/>
+    <parameter type="boolean" name="b1" required="false"/>
+    <parameter type="vector" name="v0" required="false">
+        <vectorcontent type="int"/>
+    </parameter>
+    <parameter type="vector" name="v1" required="true">
+        <vectorcontent type="vector">
+            <vectorcontent type="string"/>
+        </vectorcontent>
+    </parameter>
+    <parameter type="object" name="o1" required="false">
+        <objectcontent classname="java.io.Serializable"/>
+    </parameter>
+    <parameter type="composite" name="system" required="true">
+        <parameter type="string" name="s2" required="false"/>
+        <parameter type="composite" name="logging" required="true">
+            <parameter type="boolean" name="b2" required="true"/>
+        </parameter>
+    </parameter>
+    <parameter type="string" name="s4" required="false"/>
+    -->
+</parameters>

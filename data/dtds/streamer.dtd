@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Definition of the adapter source -->
+<!ELEMENT  StreamerAdapterSource (Name, ExpressionDefinition, LogicalMappingFile, TableReader, TableData)>
+<!ELEMENT  Name (#PCDATA)>
+<!ELEMENT  ExpressionDefinition (#PCDATA)>
+<!ELEMENT  LogicalMappingFile (#PCDATA)>
+<!ELEMENT  TableReader (#PCDATA)>
+<!ELEMENT  TableData (#PCDATA)>
+
+<!ELEMENT  LogicalMapping (LogicalColumnDefinition+)>
+<!ATTLIST LogicalMapping
+name              CDATA    #REQUIRED
+>
+
+<!-- logical field definitions -->
+<!ELEMENT  LogicalColumnDefinition (Formatter, Field+, Seperator?)>
+<!ATTLIST LogicalColumnDefinition
+name              CDATA    #REQUIRED
+>
+<!ELEMENT Field (#PCDATA)>
+<!ELEMENT Seperator (#PCDATA)>
+
+<!ELEMENT Formatter (Name, Argument)>
+<!ELEMENT Name (#PCDATA)>
+<!ELEMENT Argument (#PCDATA)>
+<!ATTLIST Argument
+name              CDATA    #REQUIRED
+>
+<!ELEMENT Description (#PCDATA)>
+<!ATTLIST Description
+language              CDATA    #REQUIRED
+>
+
+
+<!-- expression defintion -->
+
+<!ELEMENT PSum (Comment?, Description*, PSumOperand+)>
+<!ATTLIST PSum
+failScore              CDATA    #REQUIRED
+>
+<!ELEMENT Comment (#PCDATA)>
+<!ELEMENT PSumOperand (Comment?, Description*, (NextToOrdered | NextTo| NearOrdered | Near | And | Or | Not))>
+<!ATTLIST PSumOperand
+score              CDATA    #REQUIRED
+>
+<!ELEMENT And (Comment?, Description*, (NextToOrdered | NextTo| NearOrdered | Near | And | Or | Not)+)>
+<!ELEMENT Or  (Comment?, Description*, (NextToOrdered | NextTo | NearOrdered | Near | And | Or | Not)+)>
+<!ELEMENT Not (Comment?, Description*, (NextToOrdered | NextTo| NearOrdered | Near | And | Or | Not))>
+<!ELEMENT NextToOrdered (Comment?, Description*, Field)>
+<!ELEMENT NextTo (Comment?, Description*, Field)>
+<!ELEMENT Near (Comment?, Description*, Field, Score)>
+<!ELEMENT NearOrdered (Comment?, Description*, Field, Score)>
+<!ELEMENT Score (#PCDATA)>
+<!ELEMENT Proximity (#PCDATA)>
+

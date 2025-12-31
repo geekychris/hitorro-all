@@ -1,0 +1,4 @@
+name,storename,rootpath
+blob,blob,${HT_HOME}/store/blob/index
+fs_store1,fs_store1,${HT_HOME}/store/fs_store1/index
+link,link,${HT_HOME}/store/blob/index

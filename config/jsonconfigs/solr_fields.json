@@ -1,0 +1,39 @@
+{
+  "fields": [
+    {
+      "i18n": true,
+      "isid": true,
+      "name": "text"
+    },
+    {
+      "i18n": false,
+      "isid": false,
+      "name": "identifier"
+    },
+    {
+      "i18n": false,
+      "isid": false,
+      "name": "long"
+    },
+    {
+      "i18n": false,
+      "isid": false,
+      "name": "int"
+    },
+    {
+      "i18n": false,
+      "isid": false,
+      "name": "double"
+    },
+    {
+      "i18n": false,
+      "isid": false,
+      "name": "date"
+    },
+    {
+      "i18n": true,
+      "isid": false,
+      "name": "textmarkup"
+    }
+  ]
+}

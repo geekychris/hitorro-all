@@ -1,0 +1,8 @@
+{
+  "fetching": {
+    "twitter": {
+      "queuedir": "file://${ht_home}/twitterqueuepath/",
+      "tmpdir": "${ht_home}/tmptwitterqueuepath"
+    }
+  }
+}

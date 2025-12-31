@@ -1,0 +1,4 @@
+name,description
+administer,Can run any of the administration pages
+approvePosts,Can approve all posts
+createClientPosts,Can create corporate client posts

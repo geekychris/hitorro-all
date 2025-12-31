@@ -1,0 +1,6 @@
+rolename,permissionname
+Administrator,administer
+Administrator,approvePosts
+Administrator,createClientPosts
+CreateClientPosts,createClientPosts
+ApprovePosts,approvePosts

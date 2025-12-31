@@ -1,0 +1,214 @@
+Se denomina telescopio (del prefijo tele- y el sufijo -scopio, y estos del prefijo griego τηλε- [tele-], ‘lejos’, y la raíz griega σκοπ- [skop-], ‘ver’)1​ al instrumento óptico que permite observar objetos lejanos con mucho más detalle que a simple vista al captar radiación electromagnética, tal como la luz. Es una herramienta fundamental en astronomía, y cada desarrollo o perfeccionamiento de este instrumento ha permitido avances en nuestra comprensión del Universo.
+
+Gracias al telescopio —desde que Galileo Galilei en 1610 lo usó para mirar la Luna, el planeta Júpiter y las estrellas— el ser humano pudo, por fin, empezar a conocer la verdadera naturaleza de los cuerpos celestes que nos rodean y nuestra ubicación en el universo.
+
+
+Históricamente, se atribuye su invención a Hans Lippershey en el año 1608, un fabricante de lentes alemán, pero recientes investigaciones del informático Nick Pelling divulgadas en la revista británica History Today,2​3​4​5​ atribuyen la autoría a un gerundense llamado Juan Roget en 1590, cuyo invento habría sido copiado (según esta investigación) por Zacharias Janssen, quien el día 17 de octubre de 1608 (dos semanas después de que lo patentara Lippershey) intentó patentarlo. Poco antes, el día 14, Jacob Metius también había intentado patentarlo. Fueron estos hechos los que despertaron las suspicacias de Nick Pelling quien, basándose en las pesquisas de José María Simón de Guilleuma (1886-1965), sugiere que el legítimo inventor fue Juan Roget. En varios países se ha difundido la idea errónea de que el inventor fue el holandés Christiaan Huygens, quien nació mucho tiempo después.
+
+Galileo Galilei, al recibir noticias de este invento, decidió diseñar y construir uno. En 1609 mostró el primer telescopio astronómico registrado. Gracias a él, hizo grandes descubrimientos en astronomía, entre los que destaca la observación, el 7 de enero de 1610, de cuatro de las lunas de Júpiter girando en una órbita en torno a este planeta.
+
+Conocido hasta entonces como la lente espía, el nombre «telescopio» fue propuesto por el matemático griego Giovanni Demisiani el 14 de abril de 1611, durante una cena en Roma en honor de Galileo, una reunión en la que los asistentes pudieron observar las lunas de Júpiter por medio del aparato que el célebre astrónomo había traído consigo.
+
+Existen varios tipos de telescopio: refractores, que utilizan lentes; reflectores, que tienen un espejo cóncavo en lugar de la lente del objetivo, y catadióptricos, que poseen un espejo cóncavo y una lente correctora que sostiene además un espejo secundario. El telescopio reflector fue inventado por Isaac Newton en 1688 y constituyó un importante avance sobre los telescopios de su época al corregir fácilmente la aberración cromática característica de los telescopios refractores.
+Características
+
+El parámetro más importante de un telescopio es el diámetro de su «lente objetivo». Un telescopio de aficionado generalmente tiene entre 76 y 150 mm de diámetro y permite observar algunos detalles planetarios y muchos objetos del cielo profundo (cúmulos, nebulosas y algunas galaxias). Los telescopios que superan los 200 mm de diámetro permiten ver detalles lunares finos, detalles planetarios importantes y una gran cantidad de cúmulos, nebulosas y galaxias brillantes.
+
+Para caracterizar un telescopio y utilizarlo se emplean una serie de parámetros y accesorios:
+
+    Distancia focal: es la longitud focal del telescopio, que se define como la distancia desde el espejo o la lente principal hasta el foco o punto donde se sitúa el ocular.
+    Diámetro del objetivo: diámetro del espejo o lente primaria del telescopio.
+    Ocular: accesorio pequeño que colocado en el foco del telescopio permite magnificar la imagen de los objetos.
+    Lente de Barlow: lente que generalmente duplica o triplica los aumentos del ocular cuando se observan los astros.
+    Filtro: pequeño accesorio que generalmente opaca la imagen del astro pero que dependiendo de su color y material permite mejorar la observación. Se ubica delante del ocular, y los más usados son el lunar (verde-azulado, mejora el contraste en la observación de nuestro satélite), y el solar, con gran poder de absorción de la luz del Sol para no lesionar la retina del ojo.
+    Razón Focal: es el cociente entre la distancia focal (mm) y el diámetro (mm). (f/ratio)
+    Magnitud límite: es la magnitud máxima que teóricamente puede observarse con un telescopio dado, en condiciones de observación ideales. La fórmula para su cálculo es: m(límite) = 6,8 + 5log(D) (siendo D el diámetro en centímetros de la lente o el espejo del telescopio).
+    Aumentos: Es la cantidad de veces que un instrumento multiplica el tamaño aparente de los objetos observados. Equivale a la relación entre la longitud focal del telescopio y la longitud focal del ocular (DF/df). Por ejemplo, un telescopio de 1000 mm de distancia focal, con un ocular de 10mm de df. proporcionará un aumento de 100 (se expresa también como 100X).
+    Trípode: conjunto de tres patas generalmente metálicas que le dan soporte y estabilidad al telescopio.
+    Portaocular: orificio donde se colocan el ocular, reductores o multiplicadores de focal (p. ej. lentes de Barlow) o fotográficas.
+
+Monturas
+Montura altazimutal
+
+Una montura de telescopio sencilla es la montura altitud-azimut o altazimutal. Es similar a la de un teodolito. Una parte gira en acimut (en el plano horizontal), y otro eje sobre esta parte giratoria permite además variar la inclinación del telescopio para cambiar la altitud (en el plano vertical). Una montura Dobson es un tipo de montura altazimutal que es muy popular dado que resulta sencilla y barata de construir.
+Montura ecuatorial
+Telescopio ecuatorial de la Facultad de Ciencias Astronómicas y Geofísicas de la Universidad Nacional de La Plata.
+
+El principal problema de usar una montura altazimutal es que ambos ejes tienen que ajustarse continuamente para compensar la rotación de la Tierra. Incluso haciendo esto controlado por computadora, la imagen gira a una tasa que varía dependiendo del ángulo de la estrella con el polo celeste (declinación). Este efecto (conocido como rotación de campo) hace que una montura altazimutal resulte poco práctica para realizar fotografías de larga exposición con pequeños telescopios.
+
+La mejor solución para telescopios astronómicos pequeños consiste en inclinar la montura altazimutal de forma que el eje de azimut resulte paralelo al eje de rotación de la Tierra; a esta se la denomina una montura ecuatorial.
+
+Existen varios tipos de montura ecuatorial, entre los que se pueden destacar la alemana y la de horquilla.
+Otras monturas
+
+Los grandes telescopios modernos usan monturas altazimutales controladas por ordenador que, para exposiciones de larga duración, o bien hacen girar los instrumentos, o tienen rotadores de imagen de tasa variable en una imagen de la pupila del telescopio.
+
+Hay monturas incluso más sencillas que la altazimutal, generalmente para instrumentos especializados. Algunos son: de tránsito meridiano (solo altitud); fijo con un espejo plano móvil para la observación solar; de rótula (obsoleto e inútil para astronomía).
+Tipos de telescopios
+Véase también: Anexo:Tipos de telescopios
+Refractor
+Artículo principal: Telescopio refractor
+
+Un telescopio refractor es un sistema óptico centrado, que capta imágenes de objetos lejanos utilizando un sistema de lentes convergentes en los que la luz se refracta. La refracción de la luz en la lente del objetivo hace que los rayos paralelos, procedentes de un objeto muy alejado (en el infinito), converjan sobre un punto del plano focal. Esto permite mostrar los objetos lejanos mayores y más brillantes.
+Reflector
+Artículo principal: Telescopio reflector
+
+El diseño del telescopio reflector, se lo debemos a Isaac Newton, quien diseño el primer telescopio reflector (newtoniano) en el siglo XVII.
+
+Un telescopio reflector es un telescopio óptico que utiliza espejos en lugar de lentes para enfocar la luz y formar imágenes. Los telescopios reflectores o Newtonianos utilizan dos espejos, uno en el extremo del tubo (espejo primario), que refleja la luz y la envía al espejo secundario y este la envía al ocular.
+
+Este tipo de telescopio tiene varias ventajas con respecto a los refractores, entre ellas la ausencia de aberración por cromatismo y el menor peso a similar distancia focal.
+
+En cambio en reflectores de baja calidad (basados en espejos esféricos) la aberracíon por coma es bastante habitual. Además la necesidad de un espejo secundario para desviar la luz al ocular incide negativamente en el contraste de la imagen.
+
+Pero la principal virtud es la relación entre calidad, apertura y precio. Un reflector newtoniano de calidad medio-alta es más sencillo de fabricar y por lo tanto mucho más económico que un refractor de calidad y apertura similar.
+Catadióptrico
+Artículo principal: Telescopio catadióptrico
+
+Es básicamente un telescopio compuesto que utiliza tanto lentes como espejos.
+
+Existen varios diseños. En concreto este se trata del sistema Schmidt-Cassegrain. La luz penetra en el tubo a través de una lente correctora, viaja hasta el fondo del tubo, donde es reflejada por un espejo, y vuelve hasta la "boca" del tubo. Aquí, es de nuevo reflejada por otro espejo y enviada al fondo del tubo. Pasa a través de un orificio que posee el espejo primario e incide en el ocular, colocado detrás.
+
+Su ventaja radica en su relativo pequeño tamaño en relación a su distancia focal.
+Cassegrain
+Artículo principal: Telescopio de Cassegrain
+Diagrama del recorrido de la luz en un telescopio de tipo Cassegrain.
+
+El Cassegrain es un tipo de telescopio reflector que utiliza tres espejos. El principal es el que se encuentra en la parte posterior del cuerpo del mismo. Generalmente posee forma cóncava paraboloidal, ya que ese espejo debe concentrar toda la luz que recoge en un punto que se denomina foco. La distancia focal puede ser mucho mayor que el largo total del telescopio.
+
+El segundo espejo es convexo se encuentra en la parte delantera del telescopio, tiene forma hiperbólica y se encarga de reflejar nuevamente la imagen hacia el espejo principal, que se refleja, en otro espejo plano inclinado a 45 grados, enviando la luz hacia la parte superior del tubo, donde está montado el objetivo.
+
+En otras versiones modificadas el tercer espejo, está detrás del espejo principal, en el cual hay practicado un orificio central por donde la luz pasa. El foco, en este caso, se encuentra en el exterior de la cámara formada por ambos espejos, en la parte posterior del cuerpo.
+Telescopios famosos
+El telescopio espacial Hubble visto desde el Transbordador espacial Discovery durante la misión STS-82.
+La vista de los 4 telescopios que componen al Very Large Telescope.
+
+    El telescopio espacial Hubble se encuentra en órbita fuera de la atmósfera terrestre, para evitar que las imágenes sean distorsionadas por la refracción. De este modo el telescopio trabaja siempre al límite de difracción y puede ser usado para observaciones en el infrarrojo y en el ultravioleta.
+    El Very Large Telescope (VLT) es en la actualidad (2004) el más grande en existencia, compuesto por cuatro telescopios cada uno de 8 m de diámetro. Pertenece al Observatorio Europeo del Sur y fue construido en el Desierto de Atacama, al norte de Chile. Puede funcionar como cuatro telescopios separados o como uno solo, combinando la luz proveniente de los cuatro espejos.
+    El espejo individual más grande es el del Gran Telescopio Canarias, con un diámetro de 10,4 metros. Se compone, a su vez, de 36 segmentos más pequeños.
+    Existen muchos proyectos para fabricar telescopios aún más grandes, por ejemplo el Overwhelmingly Large Telescope (telescopio abrumadoramente grande), comúnmente llamado OWL, con un espejo de 100 metros de diámetro, sustituido finalmente por el E-ELT Telescopio Europeo Extremadamente Grande, de 39,6 metros.
+    El telescopio Hale construido sobre el Monte Palomar, con un espejo de 5 metros de diámetro, fue el más grande por mucho tiempo. Tiene un único espejo de silicato de boro (Pyrex (tm)), que fue notoriamente difícil de construir.
+    El telescopio del Monte Wilson, con 2,5 metros, fue usado por Edwin Hubble para probar la existencia de las galaxias y para analizar el desplazamiento al rojo que experimentan.
+    El refractor de 102 cm (1 m) del Observatorio Yerkes en el estado de Wisconsin, Estados Unidos, es el refractor orientable más grande del mundo.
+    El telescopio espacial SOHO es un coronógrafo situado en una órbita entre la Tierra y el Sol observando ininterrumpidamente al Sol.
+
+    La empresa alemana G. & S. Merz (Georg y Joseph Merz) estuvo activa con distintos nombres entre 1793 y 1867, dedicada a la producción de telescopios.6​7​8​9​10​11​12​ Sus instrumentos figuran en el Observatorio Astronómico de Quito 13​ (telescopio refractor de 24 cm de la Escuela Politécnica Nacional); en el Observatorio de Cincinnati14​ (refractor de 27.94 cm, instalado en 1845);15​16​17​ en el Real Observatorio de Greenwich18​ (refractor de 31.75 cm desde 1858);19​ y en el Observatorio Astronómico de Brera20​ (un refractor de 218 mm desde 1862).
+
+    Antique Telescope at the Quito Astronomical Observatory 001.JPG
+    Antique Telescope at the Quito Astronomical Observatory 002.JPG
+    Antique Telescope at the Quito Astronomical Observatory 005.JPG
+
+Véase también
+
+    Anexo:Mayores telescopios reflectores ópticos
+    Astrofotografía
+    Astrógrafo
+    Hans Lippershey
+    Observatorio
+    Radiotelescopio
+    Observatorio espacial
+
+Referencias
+
+«telescopio», «tele-», y «-scopio», Diccionario de la lengua española (vigésima segunda edición), Real Academia Española, 2001.
+Who Invented the Telescope?
+El telescopi es va inventar a Girona, 3cat24.
+Simón de Guilleuma, José Maria; Notas bibliográficas; .pdf[1]
+Sirturi, Girolamo; Telescopium, pp. 25-26.(en latín)
+«Amateur Astronomers restore antique telescope». Columbia Daily Tribune. Consultado el 20 décembre 2014.
+«Bonhams: MERZ, G. & S. A 2-inch refracting telescope, c. 1865,». Bonhams.com. Consultado el 20 de diciembre de 2014.
+Shetty, Deepika. «Auction house Bonhams opens Singapore office». The Straits Times. Consultado el 8 de abril de 2014.
+«Astronomical Museum - Botanical Garden - The Merz refractor telescope». Brera.unimi.it. Consultado el 20 de diciembre de 2014.
+«Brass Refracting Telescope – G&S Merz 1865 ca.». Fleaglass.com. Consultado el 20 de diciembre de 2014.
+«The Great Equatorial Telescope». Rmg.co.uk. Archivado desde el original el 20 de diciembre de 2014. Consultado el 20 de diciembre de 2014.
+http://adsabs.harvard.edu/full/1992IrAJ...20..102A harvard.edu, info on Merz Telescopes.
+Observatorio Astronómico de Quito Sitio web oficial
+Observatorio de Cincinnati Sitio web oficial
+Felix Winternitz & Sacha DeVroomen Bellman (2007). Insiders' Guide to Cincinnati. Globe Pequot. p. 164. Consultado el 8 de mayo de 2013.
+http://www.tripadvisor.co/Attraction_Review-g60993-d281506-Reviews-Cincinnati_Observatory-Cincinnati_Ohio.html
+http://www.yelp.com/biz/cincinnati-observatory-cincinnati
+[2] Real Observatorio de Greenwich.
+Heather Couper; Nigel Henbest; Arthur C. (FRW) Clarke (November 2008). Historia de la Astronomia. Editorial Paidós. pp. 167-. ISBN 9788449321375. Consultado el 4 de mayo de 2011.
+
+    «Copia archivada». Archivado desde el original el 16 de octubre de 1997. Consultado el 24 de octubre de 2005. Observatorio Astronómico de Brera.
+
+Enlaces externos
+
+    Wikimedia Commons alberga una galería multimedia sobre Telescopio.
+    Wikiquote alberga frases célebres de o sobre Telescopio.
+    Wikcionario tiene definiciones y otra información sobre telescopio.
+
+    El Diccionario de la Real Academia Española tiene una definición para telescopio.
+    Los mayores telescopios ópticos del mundo (en inglés).
+    Características de los telescopios.
+
+Categorías:
+
+    Instrumentos ópticosTelescopiosInstrumentos científicos históricos
+
+Menú de navegación
+
+    No has accedido
+    Discusión
+    Contribuciones
+    Crear una cuenta
+    Acceder
+
+    Artículo
+    Discusión
+
+    Leer
+    Editar
+    Ver historial
+
+Buscar
+
+    Portada
+    Portal de la comunidad
+    Actualidad
+    Cambios recientes
+    Páginas nuevas
+    Página aleatoria
+    Ayuda
+    Donaciones
+    Notificar un error
+
+Imprimir/exportar
+
+    Crear un libro
+    Descargar como PDF
+    Versión para imprimir
+
+En otros proyectos
+
+    Wikimedia Commons
+    Wikiquote
+
+Herramientas
+
+    Lo que enlaza aquí
+    Cambios en enlazadas
+    Subir archivo
+    Páginas especiales
+    Enlace permanente
+    Información de la página
+    Elemento de Wikidata
+    Citar esta página
+
+En otros idiomas
+
+    Deutsch
+    English
+    Français
+    Italiano
+    한국어
+    Русский
+    Tagalog
+    Tiếng Việt
+    中文
+
+Editar enlaces
+
+    Se editó esta página por última vez el 19 may 2018 a las 19:19.
+    El texto está disponible bajo la Licencia Creative Commons Atribución Compartir Igual 3.0; pueden aplicarse cláusulas adicionales. Al usar este sitio, usted acepta nuestros términos de uso y nuestra política de privacidad.
+    Wikipedia® es una marca registrada de la Fundación Wikimedia, Inc., una organización sin ánimo de lucro.

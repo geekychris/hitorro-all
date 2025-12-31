@@ -1,0 +1,7 @@
+MimeFrom,MimeTo,Transformer,Method,MethodArgs
+*, video/mp4, sorenson, ipod_mp4,
+*, application/x-shockwave-flash, sorenson, 512K_FLV,
+*, audio/mpeg, sorenson, 128K_MP3,
+
+
+

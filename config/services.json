@@ -1,0 +1,104 @@
+{
+  "services": {
+    "dms": [
+      "com.hitorro.basedms.RichDMSService",
+      "com.hitorro.basetext.text.indexer.IndexerService",
+      "com.hitorro.ui.tapestry.TapestryService",
+      "com.hitorro.network.servlet.xmlrpchandlers.XmlRPCService"
+    ],
+    "dmsmax": [
+      "com.hitorro.basedms.transformer.TransformerService",
+      "com.hitorro.basedms.scheduler.SchedulerService",
+      "com.hitorro.basedms.RichDMSService",
+      "com.hitorro.basetext.text.indexer.IndexerService",
+      "com.hitorro.features.FeatureService",
+      "com.hitorro.features.pipeline.ExtractionProcessingService",
+      "com.hitorro.base.docprocessing.blockqueue.QueueService",
+      "com.hitorro.base.docprocessing.EnqueueService",
+      "com.hitorro.language.PartsOfSpeechService",
+      "com.hitorro.ui.tapestry.TapestryService",
+      "com.hitorro.network.servlet.ServletService"
+    ],
+    "fetcher": [
+      "com.hitorro.dataaquisition.fetcher.FetcherService"
+    ],
+    "hello": [
+      null,
+      "com.hitorro.util.cmdline.HelloWorldService"
+    ],
+    "logtest": [
+      "com.hitorro.logdigest.LogDigesterTestService"
+    ],
+    "nanny": [
+      null,
+      "com.hitorro.basedms.nanny.NannyService"
+    ],
+    "nodb": [
+      "com.hitorro.unittime.UnitTimeService",
+      "com.hitorro.basedms.service.BasicService",
+      "com.hitorro.features.FeatureService",
+      "com.hitorro.language.PartsOfSpeechService",
+      "com.hitorro.ui.tapestry.TapestryService"
+    ],
+    "notest": [
+      "com.hitorro.network.servlet.xmlrpchandlers.XmlRPCService",
+      "com.hitorro.basedms.ssh.FileTransferService",
+      "com.hitorro.basedms.scheduler.SchedulerService",
+      "com.hitorro.ui.tapestry.TapestryService",
+      "com.hitorro.basedms.RichDMSService",
+      "com.hitorro.basetext.text.indexer.IndexerService",
+      "com.hitorro.basedms.transformer.TransformerService",
+      "com.hitorro.basedms.transformer.squeeze.SqueezeService"
+    ],
+    "pipeline": [
+      "com.hitorro.language.PartsOfSpeechService",
+      "com.hitorro.basedms.scheduler.SchedulerService",
+      "com.hitorro.basedms.RichDMSService",
+      "com.hitorro.basetext.text.indexer.IndexerService",
+      "com.hitorro.basedms.transformer.TransformerService",
+      "com.hitorro.basedms.ssh.FileTransferService",
+      "com.hitorro.features.FeatureService",
+      "com.hitorro.features.pipeline.ExtractionProcessingService",
+      "com.hitorro.base.docprocessing.blockqueue.QueueService",
+      "com.hitorro.base.docprocessing.EnqueueService"
+    ],
+    "schedulertest": [
+      "com.hitorro.basedms.scheduler.SchedulerService"
+    ],
+    "servlettest": [
+      null,
+      "com.hitorro.ui.servlet.ServletService"
+    ],
+    "tapestrytest": [
+      "com.hitorro.ui.tapestry.TapestryService"
+    ],
+    "test": [
+      "com.hitorro.util.testframework.TestServerService",
+      "com.hitorro.unittime.UnitTimeService",
+      "com.hitorro.basedms.scheduler.SchedulerService",
+      "com.hitorro.basedms.RichDMSService",
+      "com.hitorro.basetext.text.indexer.IndexerService",
+      "com.hitorro.basedms.transformer.TransformerService",
+      "com.hitorro.basedms.transformer.squeeze.SqueezeService",
+      "com.hitorro.basedms.ssh.FileTransferService",
+      "com.hitorro.features.FeatureService",
+      "com.hitorro.features.pipeline.ExtractionProcessingService",
+      "com.hitorro.base.docprocessing.blockqueue.QueueService",
+      "com.hitorro.base.docprocessing.EnqueueService",
+      "com.hitorro.language.PartsOfSpeechService",
+      "com.hitorro.ui.tapestry.TapestryService"
+    ],
+    "testnodb": [
+      "TextService",
+      "com.hitorro.util.testframework.TestServerService",
+      "com.hitorro.basedms.service.BasicService",
+      "com.hitorro.features.FeatureService",
+      "com.hitorro.language.PartsOfSpeechService",
+      "com.hitorro.ui.tapestry.TapestryService",
+      "com.hitorro.network.servlet.xmlrpchandlers.XmlRPCService",
+      "com.hitorro.unittime.UnitTimeService",
+      "com.hitorro.basedms.sshdaemon.SshDaemonService",
+      "com.hitorro.dataaquisition.BaseDataAquisitionService"
+    ]
+  }
+}

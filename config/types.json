@@ -1,0 +1,856 @@
+{
+  "types": {
+    "blogpost": {
+      "classmeta": {
+        "isdynamic": "true",
+        "isview": "false",
+        "shortname": "blogpost"
+      },
+      "extends": "webdoc"
+    },
+    "sql_test": {
+      "classmeta": {
+        "isdynamic": "true",
+        "isview": "false",
+        "shortname": "sql_test"
+      },
+      "fields": {
+        "age": {
+          "class": "java.lang.Integer"
+        },
+        "first_name": {
+          "class": "java.lang.String"
+        },
+        "height": {
+          "class": "java.lang.Float"
+        },
+        "id": {
+          "class": "java.lang.Long",
+          "ft": {
+            "displayname": "id",
+            "fulltext": "true",
+            "lucenefield": "id",
+            "stored": "true"
+          },
+          "mapper": {
+            "canonical": "false",
+            "class": "com.hitorro.util.typesystem.valuesource.mapper.UrlHashMapper",
+            "srcfield": "user.profile_background_image_url"
+          }
+        },
+        "last_name": {
+          "class": "java.lang.String"
+        },
+        "location": {
+          "class": "java.lang.String"
+        }
+      }
+    },
+    "twitter": {
+      "classmeta": {
+        "isdynamic": "true",
+        "isview": "false",
+        "shortname": "twitter"
+      },
+      "extends": "webdoc",
+      "fields": {
+        "favoritescount": {
+          "class": "java.lang.Long",
+          "ft": {
+            "displayname": "favoritescount",
+            "fulltext": "true",
+            "lucenefield": "favoritescount"
+          }
+        },
+        "followerscount": {
+          "class": "java.lang.Long",
+          "ft": {
+            "displayname": "followerscount",
+            "fulltext": "true",
+            "lucenefield": "followerscount"
+          }
+        },
+        "friendscount": {
+          "class": "java.lang.Long",
+          "ft": {
+            "displayname": "friendscount",
+            "fulltext": "true",
+            "lucenefield": "friendscount"
+          }
+        },
+        "retweeted": {
+          "class": "java.lang.Boolean",
+          "ft": {
+            "displayname": "retweeted",
+            "fulltext": "true",
+            "lucenefield": "retweeted"
+          }
+        },
+        "statuscount": {
+          "class": "java.lang.Long",
+          "ft": {
+            "displayname": "statuscount",
+            "fulltext": "true",
+            "lucenefield": "statuscount"
+          }
+        },
+        "twitterid": {
+          "class": "java.lang.Long",
+          "ft": {
+            "displayname": "twitterid",
+            "fulltext": "true",
+            "lucenefield": "twitterid"
+          }
+        },
+        "usertimezone": {
+          "class": "java.lang.String",
+          "ft": {
+            "displayname": "usertimezone",
+            "fulltext": "true",
+            "lucenefield": "usertimezone"
+          }
+        }
+      }
+    },
+    "twitter_co": {
+      "classmeta": {
+        "isdynamic": "true",
+        "isview": "false",
+        "shortname": "twitter_co"
+      },
+      "fields": {
+        "coordinates---type": {
+          "class": "java.lang.String"
+        },
+        "created_at": {
+          "class": "java.lang.String"
+        },
+        "delete---status---id": {
+          "class": "java.lang.Long"
+        },
+        "delete---status---id_str": {
+          "class": "java.lang.String"
+        },
+        "delete---status---user_id": {
+          "class": "java.lang.Long"
+        },
+        "delete---status---user_id_str": {
+          "class": "java.lang.String"
+        },
+        "docid": {
+          "class": "java.lang.Long",
+          "ft": {
+            "displayname": "id",
+            "fulltext": "true",
+            "lucenefield": "id",
+            "stored": "true"
+          },
+          "mapper": {
+            "canonical": "false",
+            "class": "com.hitorro.util.typesystem.valuesource.mapper.UrlHashMapper",
+            "srcfield": "user.profile_background_image_url"
+          }
+        },
+        "favorited": {
+          "class": "java.lang.Boolean"
+        },
+        "geo---type": {
+          "class": "java.lang.String"
+        },
+        "id": {
+          "class": "java.lang.Long"
+        },
+        "id_str": {
+          "class": "java.lang.String"
+        },
+        "in_reply_to_screen_name": {
+          "class": "java.lang.String"
+        },
+        "in_reply_to_status_id": {
+          "class": "java.lang.Long"
+        },
+        "in_reply_to_status_id_str": {
+          "class": "java.lang.String"
+        },
+        "in_reply_to_user_id": {
+          "class": "java.lang.Long"
+        },
+        "in_reply_to_user_id_str": {
+          "class": "java.lang.String"
+        },
+        "place---attributes---locality": {
+          "class": "java.lang.String"
+        },
+        "place---attributes---region": {
+          "class": "java.lang.String"
+        },
+        "place---attributes---street_address": {
+          "class": "java.lang.String"
+        },
+        "place---bounding_box---type": {
+          "class": "java.lang.String"
+        },
+        "place---country": {
+          "class": "java.lang.String"
+        },
+        "place---country_code": {
+          "class": "java.lang.String"
+        },
+        "place---full_name": {
+          "class": "java.lang.String"
+        },
+        "place---id": {
+          "class": "java.lang.String"
+        },
+        "place---name": {
+          "class": "java.lang.String"
+        },
+        "place---place_type": {
+          "class": "java.lang.String"
+        },
+        "place---url": {
+          "class": "java.lang.String"
+        },
+        "retweet_count": {
+          "class": "java.lang.Long"
+        },
+        "retweeted": {
+          "class": "java.lang.Boolean"
+        },
+        "retweeted_status---created_at": {
+          "class": "java.lang.String"
+        },
+        "retweeted_status---favorited": {
+          "class": "java.lang.Boolean"
+        },
+        "retweeted_status---id": {
+          "class": "java.lang.Long"
+        },
+        "retweeted_status---id_str": {
+          "class": "java.lang.String"
+        },
+        "retweeted_status---in_reply_to_screen_name": {
+          "class": "java.lang.String"
+        },
+        "retweeted_status---in_reply_to_status_id": {
+          "class": "java.lang.Long"
+        },
+        "retweeted_status---in_reply_to_status_id_str": {
+          "class": "java.lang.String"
+        },
+        "retweeted_status---in_reply_to_user_id": {
+          "class": "java.lang.Long"
+        },
+        "retweeted_status---in_reply_to_user_id_str": {
+          "class": "java.lang.String"
+        },
+        "retweeted_status---retweet_count": {
+          "class": "java.lang.Integer"
+        },
+        "retweeted_status---retweeted": {
+          "class": "java.lang.Boolean"
+        },
+        "retweeted_status---source": {
+          "class": "java.lang.String"
+        },
+        "retweeted_status---text": {
+          "class": "java.lang.String"
+        },
+        "retweeted_status---truncated": {
+          "class": "java.lang.Boolean"
+        },
+        "retweeted_status---user---contributors_enabled": {
+          "class": "java.lang.Boolean"
+        },
+        "retweeted_status---user---created_at": {
+          "class": "java.lang.String"
+        },
+        "retweeted_status---user---description": {
+          "class": "java.lang.String"
+        },
+        "retweeted_status---user---favourites_count": {
+          "class": "java.lang.Long"
+        },
+        "retweeted_status---user---followers_count": {
+          "class": "java.lang.Integer"
+        },
+        "retweeted_status---user---friends_count": {
+          "class": "java.lang.Integer"
+        },
+        "retweeted_status---user---geo_enabled": {
+          "class": "java.lang.Boolean"
+        },
+        "retweeted_status---user---id": {
+          "class": "java.lang.Long"
+        },
+        "retweeted_status---user---id_str": {
+          "class": "java.lang.String"
+        },
+        "retweeted_status---user---is_translator": {
+          "class": "java.lang.Boolean"
+        },
+        "retweeted_status---user---lang": {
+          "class": "java.lang.String"
+        },
+        "retweeted_status---user---listed_count": {
+          "class": "java.lang.Integer"
+        },
+        "retweeted_status---user---location": {
+          "class": "java.lang.String"
+        },
+        "retweeted_status---user---name": {
+          "class": "java.lang.String"
+        },
+        "retweeted_status---user---profile_background_color": {
+          "class": "java.lang.String"
+        },
+        "retweeted_status---user---profile_background_image_url": {
+          "class": "java.lang.String"
+        },
+        "retweeted_status---user---profile_background_tile": {
+          "class": "java.lang.Boolean"
+        },
+        "retweeted_status---user---profile_image_url": {
+          "class": "java.lang.String"
+        },
+        "retweeted_status---user---profile_link_color": {
+          "class": "java.lang.String"
+        },
+        "retweeted_status---user---profile_sidebar_border_color": {
+          "class": "java.lang.String"
+        },
+        "retweeted_status---user---profile_sidebar_fill_color": {
+          "class": "java.lang.String"
+        },
+        "retweeted_status---user---profile_text_color": {
+          "class": "java.lang.String"
+        },
+        "retweeted_status---user---profile_use_background_image": {
+          "class": "java.lang.Boolean"
+        },
+        "retweeted_status---user---protected": {
+          "class": "java.lang.Boolean"
+        },
+        "retweeted_status---user---screen_name": {
+          "class": "java.lang.String"
+        },
+        "retweeted_status---user---show_all_inline_media": {
+          "class": "java.lang.Boolean"
+        },
+        "retweeted_status---user---statuses_count": {
+          "class": "java.lang.Integer"
+        },
+        "retweeted_status---user---time_zone": {
+          "class": "java.lang.String"
+        },
+        "retweeted_status---user---url": {
+          "class": "java.lang.String"
+        },
+        "retweeted_status---user---utc_offset": {
+          "class": "java.lang.Long"
+        },
+        "retweeted_status---user---verified": {
+          "class": "java.lang.Boolean"
+        },
+        "source": {
+          "class": "java.lang.String"
+        },
+        "text": {
+          "class": "java.lang.String"
+        },
+        "truncated": {
+          "class": "java.lang.Boolean"
+        },
+        "user---contributors_enabled": {
+          "class": "java.lang.Boolean"
+        },
+        "user---created_at": {
+          "class": "java.lang.String"
+        },
+        "user---description": {
+          "class": "java.lang.String"
+        },
+        "user---favourites_count": {
+          "class": "java.lang.Long"
+        },
+        "user---followers_count": {
+          "class": "java.lang.Integer"
+        },
+        "user---friends_count": {
+          "class": "java.lang.Integer"
+        },
+        "user---geo_enabled": {
+          "class": "java.lang.Boolean"
+        },
+        "user---id": {
+          "class": "java.lang.Long"
+        },
+        "user---id_str": {
+          "class": "java.lang.String"
+        },
+        "user---is_translator": {
+          "class": "java.lang.Boolean"
+        },
+        "user---lang": {
+          "class": "java.lang.String"
+        },
+        "user---listed_count": {
+          "class": "java.lang.Long"
+        },
+        "user---location": {
+          "class": "java.lang.String"
+        },
+        "user---name": {
+          "class": "java.lang.String"
+        },
+        "user---profile_background_color": {
+          "class": "java.lang.String"
+        },
+        "user---profile_background_image_url": {
+          "class": "java.lang.String"
+        },
+        "user---profile_background_tile": {
+          "class": "java.lang.Boolean"
+        },
+        "user---profile_image_url": {
+          "class": "java.lang.String"
+        },
+        "user---profile_link_color": {
+          "class": "java.lang.String"
+        },
+        "user---profile_sidebar_border_color": {
+          "class": "java.lang.String"
+        },
+        "user---profile_sidebar_fill_color": {
+          "class": "java.lang.String"
+        },
+        "user---profile_text_color": {
+          "class": "java.lang.String"
+        },
+        "user---profile_use_background_image": {
+          "class": "java.lang.Boolean"
+        },
+        "user---protected": {
+          "class": "java.lang.Boolean"
+        },
+        "user---screen_name": {
+          "class": "java.lang.String"
+        },
+        "user---show_all_inline_media": {
+          "class": "java.lang.Boolean"
+        },
+        "user---statuses_count": {
+          "class": "java.lang.Long"
+        },
+        "user---time_zone": {
+          "class": "java.lang.String"
+        },
+        "user---url": {
+          "class": "java.lang.String"
+        },
+        "user---utc_offset": {
+          "class": "java.lang.Integer"
+        },
+        "user---verified": {
+          "class": "java.lang.Boolean"
+        },
+        "user": {
+          "class": "java.lang.Object"
+        }
+      }
+    },
+    "twitterdelete": {
+      "classmeta": {
+        "isdynamic": "true",
+        "isview": "false",
+        "shortname": "twitterdelete"
+      },
+      "fields": {
+        "created": {
+          "class": "java.lang.Long"
+        },
+        "id": {
+          "class": "java.lang.Long",
+          "mapper": {
+            "canonical": "false",
+            "class": "com.hitorro.util.typesystem.valuesource.mapper.UrlHashMapper",
+            "srcfield": "url"
+          }
+        },
+        "srcfile": {
+          "class": "java.lang.String"
+        },
+        "twitterid": {
+          "class": "java.lang.Long",
+          "ft": {
+            "displayname": "twitterid",
+            "fulltext": "true",
+            "lucenefield": "twitterid"
+          }
+        },
+        "userid": {
+          "class": "java.lang.Long",
+          "ft": {
+            "displayname": "twitterid",
+            "fulltext": "true",
+            "lucenefield": "userid"
+          }
+        }
+      }
+    },
+    "webdoc": {
+      "classmeta": {
+        "isdynamic": "true",
+        "isview": "false",
+        "shortname": "webdoc"
+      },
+      "fields": {
+        "authoemail": {
+          "class": "java.lang.String",
+          "ft": {
+            "displayname": "authoemail",
+            "fulltext": "true",
+            "lucenefield": "authoemail"
+          }
+        },
+        "author": {
+          "class": "java.lang.String",
+          "ft": {
+            "displayname": "author",
+            "fulltext": "true",
+            "lucenefield": "author"
+          }
+        },
+        "authoreddate": {
+          "class": "java.lang.Long"
+        },
+        "authorurl": {
+          "class": "java.lang.String",
+          "ft": {
+            "displayname": "authorurl",
+            "fulltext": "true",
+            "lucenefield": "authorurl"
+          }
+        },
+        "avatarurl": {
+          "class": "java.lang.String",
+          "ft": {
+            "displayname": "avatarurl",
+            "fulltext": "true",
+            "lucenefield": "avatarurl"
+          }
+        },
+        "body": {
+          "class": "java.lang.String",
+          "ft": {
+            "displayname": "bodydisplay",
+            "fulltext": "true",
+            "lucenefield": "body"
+          }
+        },
+        "classgender": {
+          "mapper": {
+            "class": "com.hitorro.util.typesystem.mappers.MapValueMapMapper",
+            "mapper": "com.hitorro.analysis.classifier.gender.GenderMapper#GenderCompositeMapper",
+            "srcfield": "cleanusername"
+          }
+        },
+        "cleanusername": {
+          "class": "java.lang.String",
+          "mapper": {
+            "class": "com.hitorro.util.typesystem.mappers.MapValueMapMapper",
+            "mapper": "com.hitorro.util.core.iterator.mappers.ConditionStringMapper#alpha",
+            "srcfield": "username"
+          }
+        },
+        "content": {
+          "class": "java.lang.String",
+          "ft": {
+            "displayname": "content",
+            "fulltext": "true",
+            "lucenefield": "content"
+          }
+        },
+        "created": {
+          "class": "java.lang.Long"
+        },
+        "id": {
+          "class": "java.lang.Long",
+          "ft": {
+            "displayname": "id",
+            "fulltext": "true",
+            "lucenefield": "id",
+            "stored": "true"
+          },
+          "mapper": {
+            "canonical": "false",
+            "class": "com.hitorro.util.typesystem.valuesource.mapper.UrlHashMapper",
+            "srcfield": "url"
+          }
+        },
+        "keywords": {
+          "class": "java.lang.String",
+          "ft": {
+            "displayname": "keywords",
+            "fulltext": "true",
+            "lucenefield": "keywords"
+          }
+        },
+        "lang": {
+          "class": "java.lang.String"
+        },
+        "lang639": {
+          "class": "java.lang.String",
+          "mapper": {
+            "class": "com.hitorro.util.bagio.LanguageIdMapper",
+            "srcfield": "body"
+          }
+        },
+        "location": {
+          "class": "java.lang.String",
+          "ft": {
+            "displayname": "location",
+            "fulltext": "true",
+            "lucenefield": "location"
+          }
+        },
+        "partitiondate": {
+          "class": "java.lang.Integer",
+          "ft": {
+            "displayname": "partitiondate",
+            "fulltext": "true",
+            "lucenefield": "cd",
+            "stored": "true"
+          },
+          "mapper": {
+            "class": "com.hitorro.util.typesystem.valuesource.mapper.LongToIntTimeMapper",
+            "srcfield": "created"
+          }
+        },
+        "screenname": {
+          "class": "java.lang.String",
+          "ft": {
+            "displayname": "screenname",
+            "fulltext": "true",
+            "lucenefield": "screenname"
+          }
+        },
+        "srcfile": {
+          "class": "java.lang.String"
+        },
+        "srcid": {
+          "class": "java.lang.Long",
+          "ft": {
+            "displayname": "srcid",
+            "fulltext": "true",
+            "lucenefield": "id",
+            "stored": "true"
+          },
+          "mapper": {
+            "canonical": "false",
+            "class": "com.hitorro.util.typesystem.valuesource.mapper.UrlHashMapper",
+            "srcfield": "srcurl"
+          }
+        },
+        "srcurl": {
+          "class": "java.lang.String",
+          "ft": {
+            "displayname": "srcurldisplay",
+            "fulltext": "true",
+            "lucenefield": "srcurl"
+          }
+        },
+        "title": {
+          "class": "java.lang.String",
+          "ft": {
+            "displayname": "title",
+            "fulltext": "true",
+            "lucenefield": "title"
+          }
+        },
+        "url": {
+          "class": "java.lang.String",
+          "ft": {
+            "displayname": "urldisplay",
+            "fulltext": "true",
+            "lucenefield": "url"
+          }
+        },
+        "user": {
+          "class": "java.lang.String"
+        },
+        "userdescription": {
+          "class": "java.lang.String",
+          "ft": {
+            "displayname": "userdescription",
+            "fulltext": "true",
+            "lucenefield": "userdescription"
+          }
+        },
+        "username": {
+          "class": "java.lang.String",
+          "ft": {
+            "displayname": "username",
+            "fulltext": "true",
+            "lucenefield": "username"
+          }
+        }
+      }
+    },
+    "webpage": {
+      "classmeta": {
+        "isdynamic": "true",
+        "isview": "false",
+        "shortname": "webpage"
+      },
+      "fields": {
+        "author": {
+          "class": "java.lang.String",
+          "ft": {
+            "displayname": "author",
+            "fulltext": "true",
+            "lucenefield": "author"
+          }
+        },
+        "authoreddate": {
+          "class": "java.lang.Long"
+        },
+        "body": {
+          "class": "java.lang.String",
+          "ft": {
+            "displayname": "bodydisplay",
+            "fulltext": "true",
+            "lucenefield": "body"
+          }
+        },
+        "created": {
+          "class": "java.lang.Long"
+        },
+        "id": {
+          "class": "java.lang.Long",
+          "mapper": {
+            "canonical": "false",
+            "class": "com.hitorro.util.typesystem.valuesource.mapper.UrlHashMapper",
+            "srcfield": "url"
+          }
+        },
+        "keywords": {
+          "class": "java.lang.String",
+          "ft": {
+            "displayname": "keywords",
+            "fulltext": "true",
+            "lucenefield": "keywords"
+          }
+        },
+        "title": {
+          "class": "java.lang.String",
+          "ft": {
+            "displayname": "titledisplay",
+            "fulltext": "true",
+            "lucenefield": "title"
+          }
+        },
+        "url": {
+          "class": "java.lang.String",
+          "ft": {
+            "displayname": "urldisplay",
+            "fulltext": "true",
+            "lucenefield": "url"
+          }
+        }
+      }
+    },
+    "wikipage": {
+      "classmeta": {
+        "isdynamic": "true",
+        "isview": "false",
+        "shortname": "wikipage"
+      },
+      "fields": {
+        "author": {
+          "class": "java.lang.String",
+          "ft": {
+            "displayname": "author",
+            "fulltext": "true",
+            "lucenefield": "author"
+          }
+        },
+        "authoreddate": {
+          "class": "java.lang.Long"
+        },
+        "body": {
+          "class": "java.lang.String",
+          "ft": {
+            "displayname": "bodydisplay",
+            "fulltext": "true",
+            "lucenefield": "body"
+          }
+        },
+        "comment": {
+          "class": "java.lang.String",
+          "ft": {
+            "displayname": "comment",
+            "fulltext": "true",
+            "lucenefield": "comment"
+          }
+        },
+        "created": {
+          "class": "java.lang.Long"
+        },
+        "id": {
+          "class": "java.lang.Long",
+          "ft": {
+            "displayname": "id",
+            "fulltext": "true",
+            "lucenefield": "id",
+            "stored": "true"
+          },
+          "mapper": {
+            "canonical": "false",
+            "class": "com.hitorro.util.typesystem.valuesource.mapper.UrlHashMapper",
+            "srcfield": "url"
+          }
+        },
+        "keywords": {
+          "class": "java.lang.String",
+          "ft": {
+            "displayname": "keywords",
+            "fulltext": "true",
+            "lucenefield": "keywords"
+          }
+        },
+        "lang": {
+          "class": "java.lang.String"
+        },
+        "pageid": {
+          "class": "java.lang.Long"
+        },
+        "redirect": {
+          "class": "java.lang.Boolean"
+        },
+        "srcfile": {
+          "class": "java.lang.String"
+        },
+        "title": {
+          "class": "java.lang.String",
+          "ft": {
+            "displayname": "titledisplay",
+            "fulltext": "true",
+            "lucenefield": "title"
+          }
+        },
+        "url": {
+          "class": "java.lang.String",
+          "ft": {
+            "displayname": "urldisplay",
+            "fulltext": "true",
+            "lucenefield": "url"
+          }
+        },
+        "user": {
+          "class": "java.lang.String"
+        }
+      }
+    }
+  }
+}

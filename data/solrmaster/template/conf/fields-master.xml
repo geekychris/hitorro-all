@@ -1,0 +1,677 @@
+<dynamicField name="*.string${cardinality}" type="string" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.stringstore${cardinality}" type="string" indexed="false" stored="true" multiValued="${ismulti}"/>
+<dynamicField name="*.identifier${cardinality}" type="string" indexed="true" stored="true" multiValued="${ismulti}"/>
+
+<dynamicField name="*.tint${cardinality}" type="tint" indexed="true" stored="true" multiValued="${ismulti}"/>
+<dynamicField name="*.tlong${cardinality}" type="tlong" indexed="true" stored="true" multiValued="${ismulti}"/>
+<dynamicField name="*.boolean${cardinality}" type="boolean" indexed="true" stored="true" multiValued="${ismulti}"/>
+<dynamicField name="*.tfloat${cardinality}" type="tfloat" indexed="true" stored="true" multiValued="${ismulti}"/>
+<dynamicField name="*.tdouble${cardinality}" type="tdouble" indexed="true" stored="true" multiValued="${ismulti}"/>
+<dynamicField name="*.date${cardinality}" type="date" indexed="true" stored="true" multiValued="${ismulti}"/>
+<dynamicField name="*.int${cardinality}" type="int" indexed="true" stored="true" multiValued="${ismulti}"/>
+<dynamicField name="*.long${cardinality}" type="long" indexed="true" stored="true" multiValued="${ismulti}"/>
+<dynamicField name="*.float${cardinality}" type="float" indexed="true" stored="true" multiValued="${ismulti}"/>
+<dynamicField name="*.double${cardinality}" type="double" indexed="true" stored="true" multiValued="${ismulti}"/>
+
+<dynamicField name="*.text_general${cardinality}" type="text_general" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+
+<dynamicField name="*.url${cardinality}" type="customUrlType" indexed="true" stored="false" multiValued="${ismulti}"/>
+
+
+<dynamicField name="*.text_suggest_ngram_ar${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ngram_bg${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ngram_ca${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ngram_ja${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ngram_zh${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ngram_ko${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ngram_cz${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ngram_da${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ngram_de${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ngram_el${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ngram_en${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ngram_es${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ngram_eu${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ngram_fa${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ngram_fi${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ngram_fr${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ngram_ga${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ngram_gl${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ngram_hi${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ngram_hu${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ngram_hy${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ngram_id${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ngram_it${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ngram_lv${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ngram_nl${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ngram_no${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ngram_pt${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ngram_ro${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ngram_ru${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ngram_sv${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ngram_th${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ngram_tr${cardinality}" type="text_suggest_ngram" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+
+
+<dynamicField name="*.alphaNumericSort_ar${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.alphaNumericSort_bg${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.alphaNumericSort_ca${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.alphaNumericSort_ja${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.alphaNumericSort_zh${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.alphaNumericSort_ko${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.alphaNumericSort_cz${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.alphaNumericSort_da${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.alphaNumericSort_de${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.alphaNumericSort_el${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.alphaNumericSort_en${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.alphaNumericSort_es${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.alphaNumericSort_eu${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.alphaNumericSort_fa${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.alphaNumericSort_fi${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.alphaNumericSort_fr${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.alphaNumericSort_ga${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.alphaNumericSort_gl${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.alphaNumericSort_hi${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.alphaNumericSort_hu${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.alphaNumericSort_hy${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.alphaNumericSort_id${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.alphaNumericSort_it${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.alphaNumericSort_lv${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.alphaNumericSort_nl${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.alphaNumericSort_no${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.alphaNumericSort_pt${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.alphaNumericSort_ro${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.alphaNumericSort_ru${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.alphaNumericSort_sv${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.alphaNumericSort_th${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.alphaNumericSort_tr${cardinality}" type="alphaNumericSort" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+
+
+<dynamicField name="*.text_suggest_edge_ar${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_edge_bg${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_edge_ca${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_edge_ja${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_edge_zh${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_edge_ko${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_edge_cz${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_edge_da${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_edge_de${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_edge_el${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_edge_en${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_edge_es${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_edge_eu${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_edge_fa${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_edge_fi${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_edge_fr${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_edge_ga${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_edge_gl${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_edge_hi${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_edge_hu${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_edge_hy${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_edge_id${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_edge_it${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_edge_lv${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_edge_nl${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_edge_no${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_edge_pt${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_edge_ro${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_edge_ru${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_edge_sv${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_edge_th${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_edge_tr${cardinality}" type="text_suggest_edge" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+
+<dynamicField name="*.text_suggest_ar${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_bg${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ca${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ja${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_zh${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ko${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_cz${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_da${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_de${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_el${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_en${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_es${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_eu${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_fa${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_fi${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_fr${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ga${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_gl${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_hi${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_hu${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_hy${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_id${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_it${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_lv${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_nl${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_no${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_pt${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ro${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_ru${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_sv${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_th${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_suggest_tr${cardinality}" type="text_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+
+
+<dynamicField name="*.string_suggest_ar${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.string_suggest_bg${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.string_suggest_ca${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.string_suggest_ja${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.string_suggest_zh${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.string_suggest_ko${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.string_suggest_cz${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.string_suggest_da${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.string_suggest_de${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.string_suggest_el${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.string_suggest_en${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.string_suggest_es${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.string_suggest_eu${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.string_suggest_fa${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.string_suggest_fi${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.string_suggest_fr${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.string_suggest_ga${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.string_suggest_gl${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.string_suggest_hi${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.string_suggest_hu${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.string_suggest_hy${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.string_suggest_id${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.string_suggest_it${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.string_suggest_lv${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.string_suggest_nl${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.string_suggest_no${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.string_suggest_pt${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.string_suggest_ro${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.string_suggest_ru${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.string_suggest_sv${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.string_suggest_th${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.string_suggest_tr${cardinality}" type="string_suggest" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+
+<dynamicField name="*.text_stopped_ar${cardinality}" type="text_stopped_ar" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_stopped_bg${cardinality}" type="text_stopped_bg" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_stopped_ca${cardinality}" type="text_stopped_ca" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_stopped_ja${cardinality}" type="text_stopped_ja" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_stopped_zh${cardinality}" type="text_stopped_zh" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_stopped_ko${cardinality}" type="text_stopped_ko" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_stopped_cz${cardinality}" type="text_stopped_cz" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_stopped_da${cardinality}" type="text_stopped_da" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_stopped_de${cardinality}" type="text_stopped_de" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_stopped_el${cardinality}" type="text_stopped_el" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_stopped_en${cardinality}" type="text_stopped_en" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_stopped_es${cardinality}" type="text_stopped_es" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_stopped_eu${cardinality}" type="text_stopped_eu" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_stopped_fa${cardinality}" type="text_stopped_fa" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_stopped_fi${cardinality}" type="text_stopped_fi" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_stopped_fr${cardinality}" type="text_stopped_fr" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_stopped_ga${cardinality}" type="text_stopped_ga" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_stopped_gl${cardinality}" type="text_stopped_gl" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_stopped_hi${cardinality}" type="text_stopped_hi" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_stopped_hu${cardinality}" type="text_stopped_hu" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_stopped_hy${cardinality}" type="text_stopped_hy" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_stopped_id${cardinality}" type="text_stopped_id" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_stopped_it${cardinality}" type="text_stopped_it" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_stopped_lv${cardinality}" type="text_stopped_lv" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_stopped_nl${cardinality}" type="text_stopped_nl" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_stopped_no${cardinality}" type="text_stopped_no" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_stopped_pt${cardinality}" type="text_stopped_pt" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_stopped_ro${cardinality}" type="text_stopped_ro" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_stopped_ru${cardinality}" type="text_stopped_ru" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_stopped_sv${cardinality}" type="text_stopped_sv" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_stopped_th${cardinality}" type="text_stopped_th" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_stopped_tr${cardinality}" type="text_stopped_tr" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+
+<dynamicField name="*.textmarkup_ar${cardinality}" type="text_markup_ar" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.textmarkup_bg${cardinality}" type="text_markup_bg" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.textmarkup_ca${cardinality}" type="text_markup_ca" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.textmarkup_zh${cardinality}" type="text_markup_zh" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.textmarkup_ja${cardinality}" type="text_markup_ja" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.textmarkup_ko${cardinality}" type="text_markup_ko" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.textmarkup_cz${cardinality}" type="text_markup_cz" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.textmarkup_da${cardinality}" type="text_markup_da" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.textmarkup_de${cardinality}" type="text_markup_de" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.textmarkup_el${cardinality}" type="text_markup_el" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.textmarkup_en${cardinality}" type="text_markup_el" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.textmarkup_es${cardinality}" type="text_markup_es" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.textmarkup_eu${cardinality}" type="text_markup_eu" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.textmarkup_fa${cardinality}" type="text_markup_fa" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.textmarkup_fi${cardinality}" type="text_markup_fi" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.textmarkup_fr${cardinality}" type="text_markup_fr" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.textmarkup_ga${cardinality}" type="text_markup_ga" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.textmarkup_gl${cardinality}" type="text_markup_gl" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.textmarkup_hi${cardinality}" type="text_markup_hi" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.textmarkup_hu${cardinality}" type="text_markup_hu" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.textmarkup_hy${cardinality}" type="text_markup_hy" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.textmarkup_id${cardinality}" type="text_markup_id" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.textmarkup_it${cardinality}" type="text_markup_it" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.textmarkup_lv${cardinality}" type="text_markup_lv" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.textmarkup_nl${cardinality}" type="text_markup_nl" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.textmarkup_no${cardinality}" type="text_markup_no" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.textmarkup_pt${cardinality}" type="text_markup_pt" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.textmarkup_ro${cardinality}" type="text_markup_ro" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.textmarkup_ru${cardinality}" type="text_markup_ru" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.textmarkup_sv${cardinality}" type="text_markup_sv" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.textmarkup_th${cardinality}" type="text_markup_th" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.textmarkup_tr${cardinality}" type="text_markup_tr" indexed="true" stored="false" multiValued="${ismulti}"/>
+
+
+<dynamicField name="*.text_ar${cardinality}" type="text_ar" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_bg${cardinality}" type="text_bg" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_ca${cardinality}" type="text_ca" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_ja${cardinality}" type="text_ja" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_zh${cardinality}" type="text_zh" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_ko${cardinality}" type="text_ko" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_cz${cardinality}" type="text_cz" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_da${cardinality}" type="text_da" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_de${cardinality}" type="text_de" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_el${cardinality}" type="text_el" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_en${cardinality}" type="text_en" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_es${cardinality}" type="text_es" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_eu${cardinality}" type="text_eu" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_fa${cardinality}" type="text_fa" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_fi${cardinality}" type="text_fi" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_fr${cardinality}" type="text_fr" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_ga${cardinality}" type="text_ga" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_gl${cardinality}" type="text_gl" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_hi${cardinality}" type="text_hi" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_hu${cardinality}" type="text_hu" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_hy${cardinality}" type="text_hy" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_id${cardinality}" type="text_id" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_it${cardinality}" type="text_it" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_lv${cardinality}" type="text_lv" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_nl${cardinality}" type="text_nl" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_no${cardinality}" type="text_no" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_pt${cardinality}" type="text_pt" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_ro${cardinality}" type="text_ro" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_ru${cardinality}" type="text_ru" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_sv${cardinality}" type="text_sv" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_th${cardinality}" type="text_th" indexed="true" stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_tr${cardinality}" type="text_tr" indexed="true" stored="false" multiValued="${ismulti}"/>
+
+<dynamicField name="*.text_synonym_ar${cardinality}" type="text_synonym_ar" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_synonym_bg${cardinality}" type="text_synonym_bg" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_synonym_ca${cardinality}" type="text_synonym_ca" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_synonym_ja${cardinality}" type="text_synonym_ja" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_synonym_zh${cardinality}" type="text_synonym_zh" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_synonym_ko${cardinality}" type="text_synonym_ko" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_synonym_cz${cardinality}" type="text_synonym_cz" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_synonym_da${cardinality}" type="text_synonym_da" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_synonym_de${cardinality}" type="text_synonym_de" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_synonym_el${cardinality}" type="text_synonym_el" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_synonym_en${cardinality}" type="text_synonym_en" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_synonym_es${cardinality}" type="text_synonym_es" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_synonym_eu${cardinality}" type="text_synonym_eu" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_synonym_fa${cardinality}" type="text_synonym_fa" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_synonym_fi${cardinality}" type="text_synonym_fi" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_synonym_fr${cardinality}" type="text_synonym_fr" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_synonym_ga${cardinality}" type="text_synonym_ga" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_synonym_gl${cardinality}" type="text_synonym_gl" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_synonym_hi${cardinality}" type="text_synonym_hi" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_synonym_hu${cardinality}" type="text_synonym_hu" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_synonym_hy${cardinality}" type="text_synonym_hy" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_synonym_id${cardinality}" type="text_synonym_id" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_synonym_it${cardinality}" type="text_synonym_it" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_synonym_lv${cardinality}" type="text_synonym_lv" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_synonym_nl${cardinality}" type="text_synonym_nl" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_synonym_no${cardinality}" type="text_synonym_no" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_synonym_pt${cardinality}" type="text_synonym_pt" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_synonym_ro${cardinality}" type="text_synonym_ro" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_synonym_ru${cardinality}" type="text_synonym_ru" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_synonym_sv${cardinality}" type="text_synonym_sv" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_synonym_th${cardinality}" type="text_synonym_th" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.text_synonym_tr${cardinality}" type="text_synonym_tr" indexed="true" stored="false"
+              multiValued="${ismulti}"/>
+
+
+<dynamicField name="*.text_stemmed_synonym_ar${cardinality}" type="text_stemmed_synonym_ar" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_stemmed_synonym_bg${cardinality}" type="text_stemmed_synonym_bg" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_stemmed_synonym_ca${cardinality}" type="text_stemmed_synonym_ca" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_stemmed_synonym_ja${cardinality}" type="text_stemmed_synonym_ja" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_stemmed_synonym_zh${cardinality}" type="text_stemmed_synonym_zh" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_stemmed_synonym_ko${cardinality}" type="text_stemmed_synonym_ko" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_stemmed_synonym_cz${cardinality}" type="text_stemmed_synonym_cz" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_stemmed_synonym_da${cardinality}" type="text_stemmed_synonym_da" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_stemmed_synonym_de${cardinality}" type="text_stemmed_synonym_de" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_stemmed_synonym_el${cardinality}" type="text_stemmed_synonym_el" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_stemmed_synonym_en${cardinality}" type="text_stemmed_synonym_en" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_stemmed_synonym_es${cardinality}" type="text_stemmed_synonym_es" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_stemmed_synonym_eu${cardinality}" type="text_stemmed_synonym_eu" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_stemmed_synonym_fa${cardinality}" type="text_stemmed_synonym_fa" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_stemmed_synonym_fi${cardinality}" type="text_stemmed_synonym_fi" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_stemmed_synonym_fr${cardinality}" type="text_stemmed_synonym_fr" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_stemmed_synonym_ga${cardinality}" type="text_stemmed_synonym_ga" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_stemmed_synonym_gl${cardinality}" type="text_stemmed_synonym_gl" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_stemmed_synonym_hi${cardinality}" type="text_stemmed_synonym_hi" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_stemmed_synonym_hu${cardinality}" type="text_stemmed_synonym_hu" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_stemmed_synonym_hy${cardinality}" type="text_stemmed_synonym_hy" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_stemmed_synonym_id${cardinality}" type="text_stemmed_synonym_id" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_stemmed_synonym_it${cardinality}" type="text_stemmed_synonym_it" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_stemmed_synonym_lv${cardinality}" type="text_stemmed_synonym_lv" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_stemmed_synonym_nl${cardinality}" type="text_stemmed_synonym_nl" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_stemmed_synonym_no${cardinality}" type="text_stemmed_synonym_no" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_stemmed_synonym_pt${cardinality}" type="text_stemmed_synonym_pt" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_stemmed_synonym_ro${cardinality}" type="text_stemmed_synonym_ro" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_stemmed_synonym_ru${cardinality}" type="text_stemmed_synonym_ru" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_stemmed_synonym_sv${cardinality}" type="text_stemmed_synonym_sv" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_stemmed_synonym_th${cardinality}" type="text_stemmed_synonym_th" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+<dynamicField name="*.text_stemmed_synonym_tr${cardinality}" type="text_stemmed_synonym_tr" indexed="true"
+              stored="false" multiValued="${ismulti}"/>
+
+<dynamicField name="*.stored_text_ar${cardinality}" type="text_ar" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.stored_text_bg${cardinality}" type="text_bg" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.stored_text_ca${cardinality}" type="text_ca" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.stored_text_ja${cardinality}" type="text_ja" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.stored_text_zh${cardinality}" type="text_zh" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.stored_text_ko${cardinality}" type="text_ko" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.stored_text_cz${cardinality}" type="text_cz" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.stored_text_da${cardinality}" type="text_da" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.stored_text_de${cardinality}" type="text_de" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.stored_text_el${cardinality}" type="text_el" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.stored_text_en${cardinality}" type="text_en" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.stored_text_es${cardinality}" type="text_es" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.stored_text_eu${cardinality}" type="text_eu" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.stored_text_fa${cardinality}" type="text_fa" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.stored_text_fi${cardinality}" type="text_fi" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.stored_text_fr${cardinality}" type="text_fr" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.stored_text_ga${cardinality}" type="text_ga" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.stored_text_gl${cardinality}" type="text_gl" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.stored_text_hi${cardinality}" type="text_hi" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.stored_text_hu${cardinality}" type="text_hu" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.stored_text_hy${cardinality}" type="text_hy" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.stored_text_id${cardinality}" type="text_id" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.stored_text_it${cardinality}" type="text_it" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.stored_text_lv${cardinality}" type="text_lv" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.stored_text_nl${cardinality}" type="text_nl" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.stored_text_no${cardinality}" type="text_no" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.stored_text_pt${cardinality}" type="text_pt" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.stored_text_ro${cardinality}" type="text_ro" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.stored_text_ru${cardinality}" type="text_ru" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.stored_text_sv${cardinality}" type="text_sv" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.stored_text_th${cardinality}" type="text_th" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+<dynamicField name="*.stored_text_tr${cardinality}" type="text_tr" indexed="true" stored="true"
+              multiValued="${ismulti}"/>
+

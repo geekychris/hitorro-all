@@ -1,0 +1,170 @@
+{
+  "conversationtracker": {
+    "conv1": {
+      "class": "com.hitorro.sampleapp.ConversationCalculationJob",
+      "name": "technologyconversation",
+      "properties": {
+        "areaname": "Technology"
+      },
+      "schedulecron": "0 0/60 * * * ?"
+    },
+    "optimize": {
+      "class": "com.hitorro.basedms.debugcommand.ActionDebugJob",
+      "name": "technologyconversation",
+      "properties": {
+        "action": "indexoptimize",
+        "parameters": "index=fs_store1"
+      },
+      "schedulecron": "1 0 * * * ?"
+    }
+  },
+  "env": {
+    "loglevel": {
+      "basic": "com.hitorro.util:info,log4j.logger.org.hibernate.hql.ast.AST:info,ht.dmssession:info,ht.base.workflow:debug",
+      "hibernate": "org.hibernate:error",
+      "hibernate2": "org.hibernate.event.def.AbstractFlushingEventListener:FATAL,org.hibernate.jdbc.BatchingBatcher:FATAL,org.hibernate.jdbc.AbstractBatcher"
+    }
+  },
+  "globalid": "310687",
+  "ht_store_root": "file://${HT_HOME}",
+  "indexer": {
+    "indexer": {
+      "class": "com.hitorro.basetext.text.indexer.IndexerScheduledJob",
+      "name": "fs_store1_indexer",
+      "properties": {
+        "name": "fs_store1"
+      },
+      "schedulecron": "0 0/5 * * * ?"
+    }
+  },
+  "integration": {
+    "events": {
+      "client": {
+        "consumer": "com.hitorro.basedms.objects.csvconsumers.ClientCSVConsumer",
+        "filename": "${HT_BIN}/data/initdb/htclient.csv",
+        "integrator": "com.hitorro.basedms.integrationevents.CSVHibernateIntegrator"
+      },
+      "conversationtype": {
+        "consumer": "com.hitorro.basedms.csvconsumers.CategoryCSVConsumer",
+        "filename": "${HT_BIN}/data/initdb/conversationtype.csv",
+        "integrator": "com.hitorro.basedms.integrationevents.CSVHibernateIntegrator"
+      },
+      "docparts": {
+        "consumer": "com.hitorro.basedms.csvconsumers.CategoryCSVConsumer",
+        "filename": "${HT_BIN}/data/initdb/docparts.csv",
+        "integrator": "com.hitorro.basedms.integrationevents.CSVHibernateIntegrator"
+      },
+      "domaininfo": {
+        "consumer": "com.hitorro.basedms.csvconsumers.DomainInfoCSVConsumer",
+        "filename": "${HT_BIN}/data/initdb/domaininfo.csv",
+        "integrator": "com.hitorro.basedms.integrationevents.CSVHibernateIntegrator"
+      },
+      "htanchor": {
+        "consumer": "com.hitorro.basedms.csvconsumers.CategoryCSVConsumer",
+        "filename": "${HT_BIN}/data/initdb/htanchor.csv",
+        "integrator": "com.hitorro.basedms.integrationevents.CSVHibernateIntegrator"
+      },
+      "htcategory": {
+        "consumer": "com.hitorro.basedms.csvconsumers.CategoryCSVConsumer",
+        "filename": "${HT_BIN}/data/initdb/htcategory.csv",
+        "integrator": "com.hitorro.basedms.integrationevents.CSVHibernateIntegrator"
+      },
+      "htcontentassettype": {
+        "consumer": "com.hitorro.basedms.csvconsumers.CategoryCSVConsumer",
+        "filename": "${HT_BIN}/data/initdb/htcontentassettype.csv",
+        "integrator": "com.hitorro.basedms.integrationevents.CSVHibernateIntegrator"
+      },
+      "htposttype": {
+        "consumer": "com.hitorro.basedms.csvconsumers.CategoryCSVConsumer",
+        "filename": "${HT_BIN}/data/initdb/htposttype.csv",
+        "integrator": "com.hitorro.basedms.integrationevents.CSVHibernateIntegrator"
+      },
+      "index": {
+        "consumer": "com.hitorro.basetext.text.indexer.csvconsumers.IndexCSVConsumer",
+        "filename": "${HT_BIN}/data/initdb/index.csv",
+        "integrator": "com.hitorro.basedms.integrationevents.CSVHibernateIntegrator"
+      },
+      "permissions": {
+        "consumer": "com.hitorro.basedms.csvconsumers.PermissionCSVConsumer",
+        "filename": "${HT_BIN}/data/initdb/permissions.csv",
+        "integrator": "com.hitorro.basedms.integrationevents.CSVHibernateIntegrator"
+      },
+      "rolepermissionlist": {
+        "consumer": "com.hitorro.basedms.csvconsumers.RolePermissionListCSVConsumer",
+        "filename": "${HT_BIN}/data/initdb/rolepermissionlist.csv",
+        "integrator": "com.hitorro.basedms.integrationevents.CSVHibernateIntegrator"
+      },
+      "roles": {
+        "consumer": "com.hitorro.basedms.csvconsumers.RoleCSVConsumer",
+        "filename": "${HT_BIN}/data/initdb/roles.csv",
+        "integrator": "com.hitorro.basedms.integrationevents.CSVHibernateIntegrator"
+      },
+      "stores": {
+        "consumer": "com.hitorro.basedms.csvconsumers.StoreCSVConsumer",
+        "filename": "${HT_BIN}/data/initdb/stores.csv",
+        "integrator": "com.hitorro.basedms.integrationevents.CSVHibernateIntegrator"
+      },
+      "testhierarchycat": {
+        "consumer": "com.hitorro.basedms.csvconsumers.CategoryCSVConsumer",
+        "filename": "${HT_BIN}/data/initdb/testhierarchy.csv",
+        "integrator": "com.hitorro.basedms.integrationevents.CSVHibernateIntegrator"
+      },
+      "userrolelist": {
+        "consumer": "com.hitorro.basedms.csvconsumers.UserRoleListCSVConsumer",
+        "filename": "${HT_BIN}/data/initdb/userrolelist.csv",
+        "integrator": "com.hitorro.basedms.integrationevents.CSVHibernateIntegrator"
+      },
+      "users": {
+        "consumer": "com.hitorro.basedms.csvconsumers.UserCSVConsumer",
+        "filename": "${HT_BIN}/data/initdb/users.csv",
+        "integrator": "com.hitorro.basedms.integrationevents.CSVHibernateIntegrator"
+      }
+    },
+    "initdblist": "users, permissions, roles, rolepermissionlist, userrolelist, testhierarchycat, docparts, htcategory, conversationtype, htcontentassettype, client, rssinfeeds, personalities, htanchor, htposttype"
+  },
+  "monitor": {
+    "email": {
+      "address": "chris@hitorro.com",
+      "password": "alpha4beta",
+      "smtp": {
+        "host": "smtp.mail.yahoo.com",
+        "port": "465"
+      },
+      "ssl": "true",
+      "username": "chris_j_collins"
+    }
+  },
+  "nodeid": "0",
+  "resourcecache": {
+    "resourcecachepoll": {
+      "class": "com.hitorro.network.resourcecache.ResourceServiceScheduledPollJob",
+      "name": "resourcepoll",
+      "properties": {
+        "name": "all"
+      },
+      "schedulecron": "0 0/10 * * * ?"
+    }
+  },
+  "roottasks": {
+    "logpurger": {
+      "class": "com.hitorro.util.core.events.EventSchedulerJob",
+      "name": "logpurger",
+      "properties": {
+        "event": "checklogevent",
+        "subtopic": "checklogeventtopic"
+      },
+      "schedulecron": "0 0/30 * * * ?"
+    }
+  },
+  "serverid": "${servertype}-${nodeid}",
+  "wordpress": {
+    "wordpresspull": {
+      "class": "com.hitorro.wordpress.WordpressPullJob",
+      "name": "wordpress_pull_job",
+      "properties": {
+        "name": "all"
+      },
+      "schedulecron": "0 0/60 * * * ?"
+    }
+  }
+}

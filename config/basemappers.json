@@ -1,0 +1,20 @@
+{
+  "basemappers": {
+    "description": "Base set of mappers not domain specific",
+    "functions": {
+      "bf2writer": {
+        "class": "com.hitorro.util.file.fs.BaseFileUtil#bf2utf8Writer"
+      },
+      "toint": {
+        "class": "com.hitorro.util.core.iterator.mapchains.ToIntMapStep"
+      },
+      "tostring": {
+        "class": "com.hitorro.util.core.iterator.mapchains.ToStringMapStep"
+      },
+      "trim": {
+        "class": "com.hitorro.util.core.iterator.mapchains.TrimMapStep"
+      }
+    },
+    "name": "base"
+  }
+}

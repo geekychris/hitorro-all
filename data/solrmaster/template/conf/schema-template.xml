@@ -1,0 +1,2363 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Adapted from SOLR schema.  This template is input along with fiels-master to generate a schema config.
+
+-->
+
+<!--
+ This is the Solr schema file. This file should be named "schema_template.xml" and
+ should be in the conf directory under the solr home
+ (i.e. ./solr/conf/schema_template.xml by default)
+ or located where the classloader for the Solr webapp can find it.
+
+ This example schema is the recommended starting point for users.
+ It should be kept correct and concise, usable out-of-the-box.
+
+ For more information, on how to customize this file, please see
+ http://wiki.apache.org/solr/SchemaXml
+
+ PERFORMANCE NOTE: this schema includes many optional features and should not
+ be used for benchmarking.  To improve performance one could
+  - set stored="false" for all fields possible (esp large fields) when you
+    only need to search on the field but don't need to return the text
+    value.
+  - set indexed="false" if you don't need to search on the field, but only
+    return the field as a result of searching on other indexed fields.
+  - remove all unneeded copyField statements
+  - for best index size and searching performance, set "index" to false
+    for all general text fields, use copyField to copy them to the
+    catchall "text" field, and use that for searching.
+  - For maximum indexing performance, use the StreamingUpdateSolrServer
+    java client.
+  - Remember to run the JVM in server mode, and use a higher logging level
+    that avoids logging every request
+-->
+
+<schema name="example" version="1.5">
+    <!-- attribute "name" is the name of this schema and is only used for display purposes.
+      Applications should change this to reflect the nature of the search collection.
+      version="1.2" is Solr's version number for the schema syntax and semantics.  It should
+      not normally be changed by applications.
+      1.0: multiValued attribute did not exist, all fields are multiValued by nature
+      1.1: multiValued attribute introduced, false by default
+      1.2: omitTermFreqAndPositions attribute introduced, true by default except for text fields.
+      1.3: removed optional field compress feature
+    -->
+
+    <types>
+        <!-- field type definitions. The "name" attribute is
+           just a label to be used by field definitions.  The "class"
+           attribute and any other attributes determine the real
+           behavior of the fieldType.
+             Class names starting with "solr" refer to java classes in the
+           org.apache.solr.analysis package.
+        -->
+
+        <!-- The StrField type is not analyzed, but indexed/stored verbatim. -->
+        <fieldType name="string" class="solr.StrField" sortMissingLast="true" omitNorms="true"/>
+
+        <!-- boolean type: "true" or "false" -->
+        <fieldType name="boolean" class="solr.BoolField" sortMissingLast="true" omitNorms="true"/>
+        <!--Binary data type. The data should be sent/retrieved in as Base64 encoded Strings -->
+        <fieldtype name="binary" class="solr.BinaryField"/>
+
+        <!-- The optional sortMissingLast and sortMissingFirst attributes are
+             currently supported on types that are sorted internally as strings.
+               This includes "string","boolean","sint","slong","sfloat","sdouble","pdate"
+           - If sortMissingLast="true", then a sort on this field will cause documents
+             without the field to come after documents with the field,
+             regardless of the requested sort order (asc or desc).
+           - If sortMissingFirst="true", then a sort on this field will cause documents
+             without the field to come before documents with the field,
+             regardless of the requested sort order.
+           - If sortMissingLast="false" and sortMissingFirst="false" (the default),
+             then default lucene sorting will be used which places docs without the
+             field first in an ascending sort and last in a descending sort.
+        -->
+
+        <!--
+          Default numeric field types. For faster range queries, consider the tint/tfloat/tlong/tdouble types.
+        -->
+        <fieldType name="int" class="solr.TrieIntField" precisionStep="0" omitNorms="true" positionIncrementGap="0"/>
+        <fieldType name="float" class="solr.TrieFloatField" precisionStep="0" omitNorms="true"
+                   positionIncrementGap="0"/>
+        <fieldType name="long" class="solr.TrieLongField" precisionStep="0" omitNorms="true" positionIncrementGap="0"/>
+        <fieldType name="double" class="solr.TrieDoubleField" precisionStep="0" omitNorms="true"
+                   positionIncrementGap="0"/>
+
+        <!--
+         Numeric field types that index each value at various levels of precision
+         to accelerate range queries when the number of values between the range
+         endpoints is large. See the javadoc for NumericRangeQuery for internal
+         implementation details.
+
+         Smaller precisionStep values (specified in bits) will lead to more tokens
+         indexed per value, slightly larger index size, and faster range queries.
+         A precisionStep of 0 disables indexing at different precision levels.
+        -->
+        <fieldType name="tint" class="solr.TrieIntField" precisionStep="8" omitNorms="true" positionIncrementGap="0"/>
+        <fieldType name="tfloat" class="solr.TrieFloatField" precisionStep="8" omitNorms="true"
+                   positionIncrementGap="0"/>
+        <fieldType name="tlong" class="solr.TrieLongField" precisionStep="8" omitNorms="true" positionIncrementGap="0"/>
+        <fieldType name="tdouble" class="solr.TrieDoubleField" precisionStep="8" omitNorms="true"
+                   positionIncrementGap="0"/>
+
+        <!-- The format for this date field is of the form 1995-12-31T23:59:59Z, and
+           is a more restricted form of the canonical representation of dateTime
+           http://www.w3.org/TR/xmlschema-2/#dateTime
+           The trailing "Z" designates UTC time and is mandatory.
+           Optional fractional seconds are allowed: 1995-12-31T23:59:59.999Z
+           All other components are mandatory.
+
+           Expressions can also be used to denote calculations that should be
+           performed relative to "NOW" to determine the value, ie...
+
+                 NOW/HOUR
+                    ... Round to the start of the current hour
+                 NOW-1DAY
+                    ... Exactly 1 day prior to now
+                 NOW/DAY+6MONTHS+3DAYS
+                    ... 6 months and 3 days in the future from the start of
+                        the current day
+
+           Consult the DateField javadocs for more information.
+
+           Note: For faster range queries, consider the tdate type
+        -->
+        <fieldType name="date" class="solr.TrieDateField" omitNorms="true" precisionStep="0" positionIncrementGap="0"/>
+
+        <!-- A Trie based date field for faster date range queries and date faceting. -->
+        <fieldType name="tdate" class="solr.TrieDateField" omitNorms="true" precisionStep="6" positionIncrementGap="0"/>
+
+        <!-- The "RandomSortField" is not used to store or search any
+            data.  You can declare fields of this type it in your schema
+            to generate pseudo-random orderings of your docs for sorting
+            purposes.  The ordering is generated based on the field name
+            and the version of the index, As long as the index version
+            remains unchanged, and the same field name is reused,
+            the ordering of the docs will be consistent.
+            If you want different psuedo-random orderings of documents,
+            for the same version of the index, use a dynamicField and
+            change the name
+        -->
+        <fieldType name="random" class="solr.RandomSortField" indexed="true"/>
+
+        <!-- solr.TextField allows the specification of custom text analyzers
+            specified as a tokenizer and a list of token filters. Different
+            analyzers may be specified for indexing and querying.
+
+            The optional positionIncrementGap puts space between multiple fields of
+            this type on the same document, with the purpose of preventing false phrase
+            matching across fields.
+
+            For more info on customizing your analyzer chain, please see
+            http://wiki.apache.org/solr/AnalyzersTokenizersTokenFilters
+        -->
+
+        <!-- One can also specify an existing Analyzer class that has a
+             default constructor via the class attribute on the analyzer element
+        <fieldType name="text_greek" class="solr.TextField">
+          <analyzer class="org.apache.lucene.analysis.el.GreekAnalyzer"/>
+        </fieldType>
+        -->
+
+        <!-- A text field that only splits on whitespace for exact matching of words -->
+        <fieldType name="text_ws" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+            </analyzer>
+        </fieldType>
+
+
+        <fieldType name="text_general" class="solr.TextField" positionIncrementGap="100">
+            <analyzer type="index">
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt"/>
+                <!-- in this example, we will only use synonyms at query time
+                <filter class="solr.SynonymFilterFactory" synonyms="index_synonyms.txt" ignoreCase="true" expand="false"/>
+                -->
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+            <analyzer type="query">
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt"/>
+                <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+        <fieldType name="customUrlType" class="solr.TextField" positionIncrementGap="100">
+            <analyzer type="index">
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="solr.WordDelimiterFilterFactory" generateWordParts="1" generateNumberParts="1"
+                        catenateWords="0" catenateNumbers="0" catenateAll="0" splitOnCaseChange="0"
+                        preserveOriginal="1"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+            <analyzer type="query">
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="solr.WordDelimiterFilterFactory" generateWordParts="1" generateNumberParts="1"
+                        catenateWords="0" catenateNumbers="0" catenateAll="0" splitOnCaseChange="0"
+                        preserveOriginal="0"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- A text field with defaults appropriate for English: it
+   tokenizes with StandardTokenizer, removes English stop words
+   (lang/stopwords_en.txt), down cases, protects words from protwords.txt, and
+   finally applies Porter's stemming.  The query time analyzer
+   also applies synonyms from synonyms.txt. -->
+        <fieldType name="text_stopped_en" class="solr.TextField" positionIncrementGap="100">
+            <analyzer type="index">
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- in this example, we will only use synonyms at query time
+                <filter class="solr.SynonymFilterFactory" synonyms="index_synonyms.txt" ignoreCase="true" expand="false"/>
+                -->
+                <!-- Case insensitive stop word removal.
+                  add enablePositionIncrements=true in both the index and query
+                  analyzers to leave a 'gap' for more accurate phrase queries.
+                -->
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.EnglishPossessiveFilterFactory"/>
+                <filter class="solr.KeywordMarkerFilterFactory" protected="protwords.txt"/>
+                <!-- Optionally you may want to use this less aggressive stemmer instead of PorterStemFilterFactory:
+            <filter class="solr.EnglishMinimalStemFilterFactory"/>
+        -->
+                <filter class="solr.PorterStemFilterFactory"/>
+            </analyzer>
+            <analyzer type="query">
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.EnglishPossessiveFilterFactory"/>
+                <filter class="solr.KeywordMarkerFilterFactory" protected="protwords.txt"/>
+                <!-- Optionally you may want to use this less aggressive stemmer instead of PorterStemFilterFactory:
+            <filter class="solr.EnglishMinimalStemFilterFactory"/>
+        -->
+                <filter class="solr.PorterStemFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <fieldType name="text_en" class="solr.TextField" positionIncrementGap="100">
+            <analyzer type="index">
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <!-- <filter class="solr.PorterStemFilterFactory"/> -->
+            </analyzer>
+            <analyzer type="query">
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <!--<filter class="solr.EnglishPossessiveFilterFactory"/>-->
+            </analyzer>
+        </fieldType>
+
+
+        <!-- Less flexible matching, but less false matches.  Probably not ideal for product names,
+but may be good for SKUs.  Can insert dashes in the wrong place and still match. -->
+        <fieldType name="textTight" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="false"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt"/>
+                <filter class="solr.WordDelimiterFilterFactory" generateWordParts="0" generateNumberParts="0"
+                        catenateWords="1" catenateNumbers="1" catenateAll="0"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.KeywordMarkerFilterFactory" protected="protwords.txt"/>
+                <filter class="solr.EnglishMinimalStemFilterFactory"/>
+                <!-- this filter can remove any duplicate tokens that appear at the same position - sometimes
+         possible with WordDelimiterFilter in conjuncton with stemming. -->
+                <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+
+        <!-- type ahead fields -->
+
+
+        <fieldType name="text_suggest_ngram" class="solr.TextField">
+            <analyzer type="index">
+                <charFilter class="solr.MappingCharFilterFactory" mapping="mapping-ISOLatin1Accent.txt"/>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.WordDelimiterFilterFactory" generateWordParts="1" generateNumberParts="1"
+                        catenateWords="0" catenateNumbers="0" catenateAll="0" splitOnCaseChange="1"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.EdgeNGramFilterFactory" maxGramSize="20" minGramSize="1"/>
+                <filter class="solr.PatternReplaceFilterFactory" pattern="([^\w\d\*æøåÆØÅ ])" replacement=""
+                        replace="all"/>
+            </analyzer>
+            <analyzer type="query">
+                <charFilter class="solr.MappingCharFilterFactory" mapping="mapping-ISOLatin1Accent.txt"/>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.WordDelimiterFilterFactory" generateWordParts="0" generateNumberParts="0"
+                        catenateWords="0" catenateNumbers="0" catenateAll="0" splitOnCaseChange="0"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.PatternReplaceFilterFactory" pattern="([^\w\d\*æøåÆØÅ ])" replacement=""
+                        replace="all"/>
+                <filter class="solr.PatternReplaceFilterFactory" pattern="^(.{20})(.*)?" replacement="$1"
+                        replace="all"/>
+            </analyzer>
+        </fieldType>
+
+        <fieldType name="alphaNumericSort" class="solr.TextField" sortMissingLast="true" omitNorms="true">
+            <analyzer>
+                <tokenizer class="solr.KeywordTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.TrimFilterFactory"/>
+                <filter class="solr.PatternReplaceFilterFactory"
+                        pattern="^(a |the |les |la |le |l'|de la |du |des )" replacement="" replace="all"
+                />
+                <filter class="solr.PatternReplaceFilterFactory"
+                        pattern="([^a-z0-9])" replacement="" replace="all"
+                />
+            </analyzer>
+        </fieldType>
+
+        <fieldType name="string_suggest" class="solr.TextField" sortMissingLast="true" omitNorms="true">
+            <analyzer>
+                <tokenizer class="solr.KeywordTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.TrimFilterFactory"/>
+                <filter class="solr.PatternReplaceFilterFactory"
+                        pattern="^(a |the |les |la |le |l'|de la |du |des )" replacement="" replace="all"
+                />
+                <filter class="solr.PatternReplaceFilterFactory"
+                        pattern="([^a-z0-9 ])" replacement="" replace="all"
+                />
+            </analyzer>
+        </fieldType>
+
+        <fieldType name="text_suggest_edge" class="solr.TextField">
+            <analyzer type="index">
+                <charFilter class="solr.MappingCharFilterFactory" mapping="mapping-ISOLatin1Accent.txt"/>
+                <tokenizer class="solr.KeywordTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.PatternReplaceFilterFactory" pattern="([\.,;:-_])" replacement=" " replace="all"/>
+                <filter class="solr.EdgeNGramFilterFactory" maxGramSize="30" minGramSize="1"/>
+                <filter class="solr.PatternReplaceFilterFactory" pattern="([^\w\d\*æøåÆØÅ ])" replacement=""
+                        replace="all"/>
+            </analyzer>
+            <analyzer type="query">
+                <charFilter class="solr.MappingCharFilterFactory" mapping="mapping-ISOLatin1Accent.txt"/>
+                <tokenizer class="solr.KeywordTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.PatternReplaceFilterFactory" pattern="([\.,;:-_])" replacement=" " replace="all"/>
+                <filter class="solr.PatternReplaceFilterFactory" pattern="([^\w\d\*æøåÆØÅ ])" replacement=""
+                        replace="all"/>
+                <filter class="solr.PatternReplaceFilterFactory" pattern="^(.{30})(.*)?" replacement="$1"
+                        replace="all"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- text_suggest : Matches whole terms in the suggest text  -->
+        <fieldType name="text_suggest" class="solr.TextField" positionIncrementGap="100">
+            <analyzer type="index">
+                <charFilter class="solr.MappingCharFilterFactory" mapping="mapping-ISOLatin1Accent.txt"/>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.WordDelimiterFilterFactory"
+                        generateWordParts="1"
+                        generateNumberParts="1"
+                        catenateWords="1"
+                        catenateNumbers="1"
+                        catenateAll="1"
+                        splitOnCaseChange="1"
+                        splitOnNumerics="1"
+                        preserveOriginal="1"
+                />
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.PatternReplaceFilterFactory" pattern="([^\w\d\*æøåÆØÅ ])" replacement=" "
+                        replace="all"/>
+            </analyzer>
+            <analyzer type="query">
+                <charFilter class="solr.MappingCharFilterFactory" mapping="mapping-ISOLatin1Accent.txt"/>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.WordDelimiterFilterFactory"
+                        generateWordParts="0"
+                        generateNumberParts="0"
+                        catenateWords="0"
+                        catenateNumbers="0"
+                        catenateAll="0"
+                        splitOnCaseChange="0"
+                        splitOnNumerics="0"
+                />
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.PatternReplaceFilterFactory" pattern="([^\w\d\*æøåÆØÅ ])" replacement=" "
+                        replace="all"/>
+            </analyzer>
+        </fieldType>
+
+
+        <!-- type ahead fields end -->
+
+
+        <fieldType name="text_spell" class="solr.TextField" positionIncrementGap="100">
+            <analyzer type="index">
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt"/>
+                <filter class="solr.WordDelimiterFilterFactory" generateWordParts="1" generateNumberParts="1"
+                        catenateWords="1"
+                        catenateNumbers="1" catenateAll="0" splitOnCaseChange="1"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+            </analyzer>
+            <analyzer type="query">
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt"/>
+                <filter class="solr.WordDelimiterFilterFactory" generateWordParts="1" generateNumberParts="1"
+                        catenateWords="0"
+                        catenateNumbers="0" catenateAll="0" splitOnCaseChange="1"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <fieldtype name="payloads" stored="false" indexed="true" class="solr.TextField">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <!--
+               The DelimitedPayloadTokenFilter can put payloads on tokens... for example,
+               a token of "foo|1.4"  would be indexed as "foo" with a payload of 1.4f
+               Attributes of the DelimitedPayloadTokenFilterFactory :
+                "delimiter" - a one character delimiter. Default is | (pipe)
+            "encoder" - how to encode the following value into a playload
+               float -> org.apache.lucene.analysis.payloads.FloatEncoder,
+               integer -> o.a.l.a.p.IntegerEncoder
+               identity -> o.a.l.a.p.IdentityEncoder
+                   Fully Qualified class name implementing PayloadEncoder, Encoder must have a no arg constructor.
+                -->
+                <filter class="solr.DelimitedPayloadTokenFilterFactory" encoder="float"/>
+            </analyzer>
+        </fieldtype>
+
+        <!-- Arabic -->
+        <fieldType name="text_stopped_ar" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- for any non-arabic -->
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_ar.txt"
+                />
+                <!-- normalizes ﻯ to ﻱ, etc -->
+                <filter class="solr.ArabicNormalizationFilterFactory"/>
+                <filter class="solr.ArabicStemFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Bulgarian -->
+        <fieldType name="text_stopped_bg" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_bg.txt"
+                />
+                <filter class="solr.BulgarianStemFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Catalan -->
+        <fieldType name="text_stopped_ca" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- removes l', etc -->
+                <filter class="solr.ElisionFilterFactory" ignoreCase="true" articles="lang/contractions_ca.txt"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_ca.txt"
+                />
+                <filter class="solr.SnowballPorterFilterFactory" language="Catalan"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- CJK bigram (see text_ja for a Japanese configuration using morphological analysis) -->
+        <fieldType name="text_stopped_zh" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- normalize width before bigram, as e.g. half-width dakuten combine  -->
+                <filter class="solr.CJKWidthFilterFactory"/>
+                <!-- for any non-CJK -->
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.CJKBigramFilterFactory"/>
+            </analyzer>
+        </fieldType>
+        <fieldType name="text_stopped_ko" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- normalize width before bigram, as e.g. half-width dakuten combine  -->
+                <filter class="solr.CJKWidthFilterFactory"/>
+                <!-- for any non-CJK -->
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.CJKBigramFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Czech -->
+        <fieldType name="text_stopped_cz" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_cz.txt"
+                />
+                <filter class="solr.CzechStemFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Danish -->
+        <fieldType name="text_stopped_da" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_da.txt" format="snowball"
+                />
+                <filter class="solr.SnowballPorterFilterFactory" language="Danish"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- German -->
+        <fieldType name="text_stopped_de" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_de.txt" format="snowball"
+                />
+                <filter class="solr.GermanNormalizationFilterFactory"/>
+                <filter class="solr.GermanLightStemFilterFactory"/>
+                <!-- less aggressive: <filter class="solr.GermanMinimalStemFilterFactory"/> -->
+                <!-- more aggressive: <filter class="solr.SnowballPorterFilterFactory" language="German2"/> -->
+            </analyzer>
+        </fieldType>
+
+        <!-- Greek -->
+        <fieldType name="text_stopped_el" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- greek specific lowercase for sigma -->
+                <filter class="solr.GreekLowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="false" words="lang/stopwords_el.txt"
+                />
+                <filter class="solr.GreekStemFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Spanish -->
+        <fieldType name="text_stopped_es" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_es.txt" format="snowball"
+                />
+                <filter class="solr.SpanishLightStemFilterFactory"/>
+                <!-- more aggressive: <filter class="solr.SnowballPorterFilterFactory" language="Spanish"/> -->
+            </analyzer>
+        </fieldType>
+
+        <!-- Basque -->
+        <fieldType name="text_stopped_eu" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_eu.txt"
+                />
+                <filter class="solr.SnowballPorterFilterFactory" language="Basque"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Persian -->
+        <fieldType name="text_stopped_fa" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <!-- for ZWNJ -->
+                <charFilter class="solr.PersianCharFilterFactory"/>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.ArabicNormalizationFilterFactory"/>
+                <filter class="solr.PersianNormalizationFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_fa.txt"
+                />
+            </analyzer>
+        </fieldType>
+
+        <!-- Finnish -->
+        <fieldType name="text_stopped_fi" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_fi.txt" format="snowball"
+                />
+                <filter class="solr.SnowballPorterFilterFactory" language="Finnish"/>
+                <!-- less aggressive: <filter class="solr.FinnishLightStemFilterFactory"/> -->
+            </analyzer>
+        </fieldType>
+
+        <!-- French -->
+        <fieldType name="text_stopped_fr" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- removes l', etc -->
+                <filter class="solr.ElisionFilterFactory" ignoreCase="true" articles="lang/contractions_fr.txt"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_fr.txt" format="snowball"
+                />
+                <filter class="solr.FrenchLightStemFilterFactory"/>
+                <!-- less aggressive: <filter class="solr.FrenchMinimalStemFilterFactory"/> -->
+                <!-- more aggressive: <filter class="solr.SnowballPorterFilterFactory" language="French"/> -->
+            </analyzer>
+        </fieldType>
+
+        <!-- Irish -->
+        <fieldType name="text_stopped_ga" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- removes d', etc -->
+                <filter class="solr.ElisionFilterFactory" ignoreCase="true" articles="lang/contractions_ga.txt"/>
+                <!-- removes n-, etc. position increments is intentionally false! -->
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/hyphenations_ga.txt"/>
+                <filter class="solr.IrishLowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_ga.txt"
+                />
+                <filter class="solr.SnowballPorterFilterFactory" language="Irish"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Galician -->
+        <fieldType name="text_stopped_gl" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_gl.txt"
+                />
+                <filter class="solr.GalicianStemFilterFactory"/>
+                <!-- less aggressive: <filter class="solr.GalicianMinimalStemFilterFactory"/> -->
+            </analyzer>
+        </fieldType>
+
+        <!-- Hindi -->
+        <fieldType name="text_stopped_hi" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <!-- normalizes unicode representation -->
+                <filter class="solr.IndicNormalizationFilterFactory"/>
+                <!-- normalizes variation in spelling -->
+                <filter class="solr.HindiNormalizationFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_hi.txt"
+                />
+                <filter class="solr.HindiStemFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Hungarian -->
+        <fieldType name="text_stopped_hu" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_hu.txt" format="snowball"
+                />
+                <filter class="solr.SnowballPorterFilterFactory" language="Hungarian"/>
+                <!-- less aggressive: <filter class="solr.HungarianLightStemFilterFactory"/> -->
+            </analyzer>
+        </fieldType>
+
+        <!-- Armenian -->
+        <fieldType name="text_stopped_hy" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_hy.txt"
+                />
+                <filter class="solr.SnowballPorterFilterFactory" language="Armenian"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Indonesian -->
+        <fieldType name="text_stopped_id" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_id.txt"
+                />
+                <!-- for a less aggressive approach (only inflectional suffixes), set stemDerivational to false -->
+                <filter class="solr.IndonesianStemFilterFactory" stemDerivational="true"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Italian -->
+        <fieldType name="text_stopped_it" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- removes l', etc -->
+                <filter class="solr.ElisionFilterFactory" ignoreCase="true" articles="lang/contractions_it.txt"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_it.txt" format="snowball"
+                />
+                <filter class="solr.ItalianLightStemFilterFactory"/>
+                <!-- more aggressive: <filter class="solr.SnowballPorterFilterFactory" language="Italian"/> -->
+            </analyzer>
+        </fieldType>
+
+        <!-- Japanese using morphological analysis (see text_cjk for a configuration using bigramming)
+
+             NOTE: If you want to optimize search for precision, use default operator AND in your query
+             parser config with <solrQueryParser defaultOperator="AND"/> further down in this file.  Use
+             OR if you would like to optimize for recall (default).
+        -->
+        <fieldType name="text_stopped_ja" class="solr.TextField" positionIncrementGap="100"
+                   autoGeneratePhraseQueries="false">
+            <analyzer>
+                <!-- Kuromoji Japanese morphological analyzer/tokenizer (JapaneseTokenizer)
+
+                   Kuromoji has a search mode (default) that does segmentation useful for search.  A heuristic
+                   is used to segment compounds into its parts and the compound itself is kept as synonym.
+
+                   Valid values for attribute mode are:
+                      normal: regular segmentation
+                      search: segmentation useful for search with synonyms compounds (default)
+                    extended: same as search mode, but unigrams unknown words (experimental)
+
+                   For some applications it might be good to use search mode for indexing and normal mode for
+                   queries to reduce recall and prevent parts of compounds from being matched and highlighted.
+                   Use <analyzer type="index"> and <analyzer type="query"> for this and mode normal in query.
+
+                   Kuromoji also has a convenient user dictionary feature that allows overriding the statistical
+                   model with your own entries for segmentation, part-of-speech tags and readings without a need
+                   to specify weights.  Notice that user dictionaries have not been subject to extensive testing.
+
+                   User dictionary attributes are:
+                             userDictionary: user dictionary filename
+                     userDictionaryEncoding: user dictionary encoding (default is UTF-8)
+
+                   See lang/userdict_ja.txt for a sample user dictionary file.
+
+                   See http://wiki.apache.org/solr/JapaneseLanguageSupport for more on Japanese language support.
+                -->
+                <tokenizer class="solr.JapaneseTokenizerFactory" mode="search"/>
+                <!--<tokenizer class="solr.JapaneseTokenizerFactory" mode="search" userDictionary="lang/userdict_ja.txt"/>-->
+                <!-- Reduces inflected verbs and adjectives to their base/dictionary forms (辞書形) -->
+                <filter class="solr.JapaneseBaseFormFilterFactory"/>
+                <!-- Removes tokens with certain part-of-speech tags -->
+                <filter class="solr.JapanesePartOfSpeechStopFilterFactory" tags="lang/stoptags_ja.txt"
+                />
+                <!-- Normalizes full-width romaji to half-width and half-width kana to full-width (Unicode NFKC subset) -->
+                <filter class="solr.CJKWidthFilterFactory"/>
+                <!-- Removes common tokens typically not useful for search, but have a negative effect on ranking -->
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_ja.txt"
+                />
+                <!-- Normalizes common katakana spelling variations by removing any last long sound character (U+30FC) -->
+                <filter class="solr.JapaneseKatakanaStemFilterFactory" minimumLength="4"/>
+                <!-- Lower-cases romaji characters -->
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Latvian -->
+        <fieldType name="text_stopped_lv" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_lv.txt"
+                />
+                <filter class="solr.LatvianStemFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Dutch -->
+        <fieldType name="text_stopped_nl" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_nl.txt" format="snowball"
+                />
+                <filter class="solr.StemmerOverrideFilterFactory" dictionary="lang/stemdict_nl.txt" ignoreCase="false"/>
+                <filter class="solr.SnowballPorterFilterFactory" language="Dutch"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Norwegian -->
+        <fieldType name="text_stopped_no" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_no.txt" format="snowball"
+                />
+                <filter class="solr.SnowballPorterFilterFactory" language="Norwegian"/>
+                <!-- less aggressive: <filter class="solr.NorwegianLightStemFilterFactory"/> -->
+                <!-- singular/plural: <filter class="solr.NorwegianMinimalStemFilterFactory"/> -->
+            </analyzer>
+        </fieldType>
+
+        <!-- Portuguese -->
+        <fieldType name="text_stopped_pt" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_pt.txt" format="snowball"
+                />
+                <filter class="solr.PortugueseLightStemFilterFactory"/>
+                <!-- less aggressive: <filter class="solr.PortugueseMinimalStemFilterFactory"/> -->
+                <!-- more aggressive: <filter class="solr.SnowballPorterFilterFactory" language="Portuguese"/> -->
+                <!-- most aggressive: <filter class="solr.PortugueseStemFilterFactory"/> -->
+            </analyzer>
+        </fieldType>
+
+        <!-- Romanian -->
+        <fieldType name="text_stopped_ro" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_ro.txt"
+                />
+                <filter class="solr.SnowballPorterFilterFactory" language="Romanian"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Russian -->
+        <fieldType name="text_stopped_ru" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_ru.txt" format="snowball"
+                />
+                <filter class="solr.SnowballPorterFilterFactory" language="Russian"/>
+                <!-- less aggressive: <filter class="solr.RussianLightStemFilterFactory"/> -->
+            </analyzer>
+        </fieldType>
+
+        <!-- Swedish -->
+        <fieldType name="text_stopped_sv" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_sv.txt" format="snowball"
+                />
+                <filter class="solr.SnowballPorterFilterFactory" language="Swedish"/>
+                <!-- less aggressive: <filter class="solr.SwedishLightStemFilterFactory"/> -->
+            </analyzer>
+        </fieldType>
+
+        <!-- Thai -->
+        <fieldType name="text_stopped_th" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.ThaiTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_th.txt"
+                />
+            </analyzer>
+        </fieldType>
+
+        <!-- Turkish -->
+        <fieldType name="text_stopped_tr" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.TurkishLowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="false" words="lang/stopwords_tr.txt"
+                />
+                <filter class="solr.SnowballPorterFilterFactory" language="Turkish"/>
+            </analyzer>
+        </fieldType>
+
+
+        <fieldType name="text_ar" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- for any non-arabic -->
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.ArabicNormalizationFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Bulgarian -->
+        <fieldType name="text_bg" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Catalan -->
+        <fieldType name="text_ca" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- removes l', etc -->
+                <filter class="solr.ElisionFilterFactory" ignoreCase="true" articles="lang/contractions_ca.txt"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+        <fieldType name="text_zh" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- normalize width before bigram, as e.g. half-width dakuten combine  -->
+                <filter class="solr.CJKWidthFilterFactory"/>
+                <!-- for any non-CJK -->
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.CJKBigramFilterFactory"/>
+            </analyzer>
+        </fieldType>
+        <fieldType name="text_ko" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- normalize width before bigram, as e.g. half-width dakuten combine  -->
+                <filter class="solr.CJKWidthFilterFactory"/>
+                <!-- for any non-CJK -->
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.CJKBigramFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Czech -->
+        <fieldType name="text_cz" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Danish -->
+        <fieldType name="text_da" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- German -->
+        <fieldType name="text_de" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.GermanNormalizationFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Greek -->
+        <fieldType name="text_el" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- greek specific lowercase for sigma -->
+                <filter class="solr.GreekLowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Spanish -->
+        <fieldType name="text_es" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Basque -->
+        <fieldType name="text_eu" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Persian -->
+        <fieldType name="text_fa" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <!-- for ZWNJ -->
+                <charFilter class="solr.PersianCharFilterFactory"/>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.ArabicNormalizationFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Finnish -->
+        <fieldType name="text_fi" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- French -->
+        <fieldType name="text_fr" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- removes l', etc -->
+                <filter class="solr.ElisionFilterFactory" ignoreCase="true" articles="lang/contractions_fr.txt"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Irish -->
+        <fieldType name="text_ga" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- removes d', etc -->
+                <filter class="solr.ElisionFilterFactory" ignoreCase="true" articles="lang/contractions_ga.txt"/>
+                <!-- removes n-, etc. position increments is intentionally false! -->
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/hyphenations_ga.txt"/>
+                <filter class="solr.IrishLowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Galician -->
+        <fieldType name="text_gl" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Hindi -->
+        <fieldType name="text_hi" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <!-- normalizes unicode representation -->
+                <filter class="solr.IndicNormalizationFilterFactory"/>
+                <!-- normalizes variation in spelling -->
+                <filter class="solr.HindiNormalizationFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Hungarian -->
+        <fieldType name="text_hu" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Armenian -->
+        <fieldType name="text_hy" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Indonesian -->
+        <fieldType name="text_id" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+
+            </analyzer>
+        </fieldType>
+
+        <!-- Italian -->
+        <fieldType name="text_it" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- removes l', etc -->
+                <filter class="solr.ElisionFilterFactory" ignoreCase="true" articles="lang/contractions_it.txt"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+
+                <!-- more aggressive: <filter class="solr.SnowballPorterFilterFactory" language="Italian"/> -->
+            </analyzer>
+        </fieldType>
+
+        <!-- Japanese using morphological analysis (see text_cjk for a configuration using bigramming)
+
+             NOTE: If you want to optimize search for precision, use default operator AND in your query
+             parser config with <solrQueryParser defaultOperator="AND"/> further down in this file.  Use
+             OR if you would like to optimize for recall (default).
+        -->
+        <fieldType name="text_ja" class="solr.TextField" positionIncrementGap="100" autoGeneratePhraseQueries="false">
+            <analyzer>
+                <!-- Kuromoji Japanese morphological analyzer/tokenizer (JapaneseTokenizer)
+
+                   Kuromoji has a search mode (default) that does segmentation useful for search.  A heuristic
+                   is used to segment compounds into its parts and the compound itself is kept as synonym.
+
+                   Valid values for attribute mode are:
+                      normal: regular segmentation
+                      search: segmentation useful for search with synonyms compounds (default)
+                    extended: same as search mode, but unigrams unknown words (experimental)
+
+                   For some applications it might be good to use search mode for indexing and normal mode for
+                   queries to reduce recall and prevent parts of compounds from being matched and highlighted.
+                   Use <analyzer type="index"> and <analyzer type="query"> for this and mode normal in query.
+
+                   Kuromoji also has a convenient user dictionary feature that allows overriding the statistical
+                   model with your own entries for segmentation, part-of-speech tags and readings without a need
+                   to specify weights.  Notice that user dictionaries have not been subject to extensive testing.
+
+                   User dictionary attributes are:
+                             userDictionary: user dictionary filename
+                     userDictionaryEncoding: user dictionary encoding (default is UTF-8)
+
+                   See lang/userdict_ja.txt for a sample user dictionary file.
+
+                   See http://wiki.apache.org/solr/JapaneseLanguageSupport for more on Japanese language support.
+                -->
+                <tokenizer class="solr.JapaneseTokenizerFactory" mode="search"/>
+                <!--<tokenizer class="solr.JapaneseTokenizerFactory" mode="search" userDictionary="lang/userdict_ja.txt"/>-->
+                <!-- Reduces inflected verbs and adjectives to their base/dictionary forms (辞書形) -->
+                <filter class="solr.JapaneseBaseFormFilterFactory"/>
+                <!-- Removes tokens with certain part-of-speech tags -->
+                <filter class="solr.JapanesePartOfSpeechStopFilterFactory" tags="lang/stoptags_ja.txt"
+                />
+                <!-- Normalizes full-width romaji to half-width and half-width kana to full-width (Unicode NFKC subset) -->
+                <filter class="solr.CJKWidthFilterFactory"/>
+                <!-- Removes common tokens typically not useful for search, but have a negative effect on ranking -->
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_ja.txt"
+                />
+                <!-- Normalizes common katakana spelling variations by removing any last long sound character (U+30FC) -->
+                <filter class="solr.JapaneseKatakanaStemFilterFactory" minimumLength="4"/>
+                <!-- Lower-cases romaji characters -->
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Latvian -->
+        <fieldType name="text_lv" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Dutch -->
+        <fieldType name="text_nl" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Norwegian -->
+        <fieldType name="text_no" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Portuguese -->
+        <fieldType name="text_pt" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Romanian -->
+        <fieldType name="text_ro" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Russian -->
+        <fieldType name="text_ru" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Swedish -->
+        <fieldType name="text_sv" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Thai -->
+        <fieldType name="text_th" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Turkish -->
+        <fieldType name="text_tr" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.TurkishLowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Fields for indextime synonyms -->
+        <fieldType name="text_synonym_en" class="solr.TextField" positionIncrementGap="100">
+            <analyzer type="index">
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.SynonymFilterFactory" synonyms="lang/synonyms_en.txt" ignoreCase="true"
+                        expand="true"/>
+
+                <!-- <filter class="solr.PorterStemFilterFactory"/> -->
+            </analyzer>
+            <analyzer type="query">
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <!--<filter class="solr.EnglishPossessiveFilterFactory"/>-->
+            </analyzer>
+        </fieldType>
+        <fieldType name="text_synonym_ar" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- for any non-arabic -->
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.ArabicNormalizationFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Bulgarian -->
+        <fieldType name="text_synonym_bg" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Catalan -->
+        <fieldType name="text_synonym_ca" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- removes l', etc -->
+                <filter class="solr.ElisionFilterFactory" ignoreCase="true" articles="lang/contractions_ca.txt"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+        <fieldType name="text_synonym_zh" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- normalize width before bigram, as e.g. half-width dakuten combine  -->
+                <filter class="solr.CJKWidthFilterFactory"/>
+                <!-- for any non-CJK -->
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.CJKBigramFilterFactory"/>
+            </analyzer>
+        </fieldType>
+        <fieldType name="text_synonym_ko" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- normalize width before bigram, as e.g. half-width dakuten combine  -->
+                <filter class="solr.CJKWidthFilterFactory"/>
+                <!-- for any non-CJK -->
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.CJKBigramFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Czech -->
+        <fieldType name="text_synonym_cz" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Danish -->
+        <fieldType name="text_synonym_da" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- German -->
+        <fieldType name="text_synonym_de" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.GermanNormalizationFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Greek -->
+        <fieldType name="text_synonym_el" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- greek specific lowercase for sigma -->
+                <filter class="solr.GreekLowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Spanish -->
+        <fieldType name="text_synonym_es" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Basque -->
+        <fieldType name="text_synonym_eu" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Persian -->
+        <fieldType name="text_synonym_fa" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <!-- for ZWNJ -->
+                <charFilter class="solr.PersianCharFilterFactory"/>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.ArabicNormalizationFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Finnish -->
+        <fieldType name="text_synonym_fi" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- French -->
+        <fieldType name="text_synonym_fr" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- removes l', etc -->
+                <filter class="solr.ElisionFilterFactory" ignoreCase="true" articles="lang/contractions_fr.txt"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Irish -->
+        <fieldType name="text_synonym_ga" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- removes d', etc -->
+                <filter class="solr.ElisionFilterFactory" ignoreCase="true" articles="lang/contractions_ga.txt"/>
+                <!-- removes n-, etc. position increments is intentionally false! -->
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/hyphenations_ga.txt"
+                />
+                <filter class="solr.IrishLowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Galician -->
+        <fieldType name="text_synonym_gl" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Hindi -->
+        <fieldType name="text_synonym_hi" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <!-- normalizes unicode representation -->
+                <filter class="solr.IndicNormalizationFilterFactory"/>
+                <!-- normalizes variation in spelling -->
+                <filter class="solr.HindiNormalizationFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Hungarian -->
+        <fieldType name="text_synonym_hu" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Armenian -->
+        <fieldType name="text_synonym_hy" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Indonesian -->
+        <fieldType name="text_synonym_id" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+
+            </analyzer>
+        </fieldType>
+
+        <!-- Italian -->
+        <fieldType name="text_synonym_it" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- removes l', etc -->
+                <filter class="solr.ElisionFilterFactory" ignoreCase="true" articles="lang/contractions_it.txt"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+
+                <!-- more aggressive: <filter class="solr.SnowballPorterFilterFactory" language="Italian"/> -->
+            </analyzer>
+        </fieldType>
+
+        <!-- Japanese using morphological analysis (see text_synonym_cjk for a configuration using bigramming)
+
+             NOTE: If you want to optimize search for precision, use default operator AND in your query
+             parser config with <solrQueryParser defaultOperator="AND"/> further down in this file.  Use
+             OR if you would like to optimize for recall (default).
+        -->
+        <fieldType name="text_synonym_ja" class="solr.TextField" positionIncrementGap="100"
+                   autoGeneratePhraseQueries="false">
+            <analyzer>
+                <!-- Kuromoji Japanese morphological analyzer/tokenizer (JapaneseTokenizer)
+
+                   Kuromoji has a search mode (default) that does segmentation useful for search.  A heuristic
+                   is used to segment compounds into its parts and the compound itself is kept as synonym.
+
+                   Valid values for attribute mode are:
+                      normal: regular segmentation
+                      search: segmentation useful for search with synonyms compounds (default)
+                    extended: same as search mode, but unigrams unknown words (experimental)
+
+                   For some applications it might be good to use search mode for indexing and normal mode for
+                   queries to reduce recall and prevent parts of compounds from being matched and highlighted.
+                   Use <analyzer type="index"> and <analyzer type="query"> for this and mode normal in query.
+
+                   Kuromoji also has a convenient user dictionary feature that allows overriding the statistical
+                   model with your own entries for segmentation, part-of-speech tags and readings without a need
+                   to specify weights.  Notice that user dictionaries have not been subject to extensive testing.
+
+                   User dictionary attributes are:
+                             userDictionary: user dictionary filename
+                     userDictionaryEncoding: user dictionary encoding (default is UTF-8)
+
+                   See lang/userdict_ja.txt for a sample user dictionary file.
+
+                   See http://wiki.apache.org/solr/JapaneseLanguageSupport for more on Japanese language support.
+                -->
+                <tokenizer class="solr.JapaneseTokenizerFactory" mode="search"/>
+                <!--<tokenizer class="solr.JapaneseTokenizerFactory" mode="search" userDictionary="lang/userdict_ja.txt"/>-->
+                <!-- Reduces inflected verbs and adjectives to their base/dictionary forms (辞書形) -->
+                <filter class="solr.JapaneseBaseFormFilterFactory"/>
+                <!-- Removes tokens with certain part-of-speech tags -->
+                <filter class="solr.JapanesePartOfSpeechStopFilterFactory" tags="lang/stoptags_ja.txt"
+                />
+                <!-- Normalizes full-width romaji to half-width and half-width kana to full-width (Unicode NFKC subset) -->
+                <filter class="solr.CJKWidthFilterFactory"/>
+                <!-- Removes common tokens typically not useful for search, but have a negative effect on ranking -->
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_ja.txt"
+                />
+                <!-- Normalizes common katakana spelling variations by removing any last long sound character (U+30FC) -->
+                <filter class="solr.JapaneseKatakanaStemFilterFactory" minimumLength="4"/>
+                <!-- Lower-cases romaji characters -->
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Latvian -->
+        <fieldType name="text_synonym_lv" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Dutch -->
+        <fieldType name="text_synonym_nl" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Norwegian -->
+        <fieldType name="text_synonym_no" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Portuguese -->
+        <fieldType name="text_synonym_pt" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Romanian -->
+        <fieldType name="text_synonym_ro" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Russian -->
+        <fieldType name="text_synonym_ru" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Swedish -->
+        <fieldType name="text_synonym_sv" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Thai -->
+        <fieldType name="text_synonym_th" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Turkish -->
+        <fieldType name="text_synonym_tr" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.TurkishLowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <fieldType name="text_stemmed_synonym_en" class="solr.TextField" positionIncrementGap="100">
+            <analyzer type="index">
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- in this example, we will only use synonyms at query time
+                <filter class="solr.SynonymFilterFactory" synonyms="index_synonyms.txt" ignoreCase="true" expand="false"/>
+                -->
+                <!-- Case insensitive stop word removal.
+                  add enablePositionIncrements=true in both the index and query
+                  analyzers to leave a 'gap' for more accurate phrase queries.
+                -->
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.SynonymFilterFactory" synonyms="lang/synonyms_en.txt" ignoreCase="true"
+                        expand="true"/>
+
+                <filter class="solr.EnglishPossessiveFilterFactory"/>
+                <filter class="solr.KeywordMarkerFilterFactory" protected="protwords.txt"/>
+                <!-- Optionally you may want to use this less aggressive stemmer instead of PorterStemFilterFactory:
+            <filter class="solr.EnglishMinimalStemFilterFactory"/>
+        -->
+                <filter class="solr.PorterStemFilterFactory"/>
+            </analyzer>
+            <analyzer type="query">
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.EnglishPossessiveFilterFactory"/>
+                <filter class="solr.KeywordMarkerFilterFactory" protected="protwords.txt"/>
+                <!-- Optionally you may want to use this less aggressive stemmer instead of PorterStemFilterFactory:
+            <filter class="solr.EnglishMinimalStemFilterFactory"/>
+        -->
+                <filter class="solr.PorterStemFilterFactory"/>
+            </analyzer>
+        </fieldType>
+        <!-- Arabic -->
+        <fieldType name="text_stemmed_synonym_ar" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- for any non-arabic -->
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_ar.txt"
+                />
+                <!-- normalizes ﻯ to ﻱ, etc -->
+                <filter class="solr.ArabicNormalizationFilterFactory"/>
+                <filter class="solr.ArabicStemFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Bulgarian -->
+        <fieldType name="text_stemmed_synonym_bg" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_bg.txt"
+                />
+                <filter class="solr.BulgarianStemFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Catalan -->
+        <fieldType name="text_stemmed_synonym_ca" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- removes l', etc -->
+                <filter class="solr.ElisionFilterFactory" ignoreCase="true" articles="lang/contractions_ca.txt"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_ca.txt"
+                />
+                <filter class="solr.SnowballPorterFilterFactory" language="Catalan"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- CJK bigram (see text_ja for a Japanese configuration using morphological analysis) -->
+        <fieldType name="text_stemmed_synonym_zh" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- normalize width before bigram, as e.g. half-width dakuten combine  -->
+                <filter class="solr.CJKWidthFilterFactory"/>
+                <!-- for any non-CJK -->
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.CJKBigramFilterFactory"/>
+            </analyzer>
+        </fieldType>
+        <fieldType name="text_stemmed_synonym_ko" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- normalize width before bigram, as e.g. half-width dakuten combine  -->
+                <filter class="solr.CJKWidthFilterFactory"/>
+                <!-- for any non-CJK -->
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.CJKBigramFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Czech -->
+        <fieldType name="text_stemmed_synonym_cz" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_cz.txt"
+                />
+                <filter class="solr.CzechStemFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Danish -->
+        <fieldType name="text_stemmed_synonym_da" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_da.txt" format="snowball"
+                />
+                <filter class="solr.SnowballPorterFilterFactory" language="Danish"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- German -->
+        <fieldType name="text_stemmed_synonym_de" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_de.txt" format="snowball"
+                />
+                <filter class="solr.GermanNormalizationFilterFactory"/>
+                <filter class="solr.GermanLightStemFilterFactory"/>
+                <!-- less aggressive: <filter class="solr.GermanMinimalStemFilterFactory"/> -->
+                <!-- more aggressive: <filter class="solr.SnowballPorterFilterFactory" language="German2"/> -->
+            </analyzer>
+        </fieldType>
+
+        <!-- Greek -->
+        <fieldType name="text_stemmed_synonym_el" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- greek specific lowercase for sigma -->
+                <filter class="solr.GreekLowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="false" words="lang/stopwords_el.txt"
+                />
+                <filter class="solr.GreekStemFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Spanish -->
+        <fieldType name="text_stemmed_synonym_es" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_es.txt" format="snowball"
+                />
+                <filter class="solr.SpanishLightStemFilterFactory"/>
+                <!-- more aggressive: <filter class="solr.SnowballPorterFilterFactory" language="Spanish"/> -->
+            </analyzer>
+        </fieldType>
+
+        <!-- Basque -->
+        <fieldType name="text_stemmed_synonym_eu" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_eu.txt"
+                />
+                <filter class="solr.SnowballPorterFilterFactory" language="Basque"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Persian -->
+        <fieldType name="text_stemmed_synonym_fa" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <!-- for ZWNJ -->
+                <charFilter class="solr.PersianCharFilterFactory"/>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.ArabicNormalizationFilterFactory"/>
+                <filter class="solr.PersianNormalizationFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_fa.txt"
+                />
+            </analyzer>
+        </fieldType>
+
+        <!-- Finnish -->
+        <fieldType name="text_stemmed_synonym_fi" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_fi.txt" format="snowball"
+                />
+                <filter class="solr.SnowballPorterFilterFactory" language="Finnish"/>
+                <!-- less aggressive: <filter class="solr.FinnishLightStemFilterFactory"/> -->
+            </analyzer>
+        </fieldType>
+
+        <!-- French -->
+        <fieldType name="text_stemmed_synonym_fr" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- removes l', etc -->
+                <filter class="solr.ElisionFilterFactory" ignoreCase="true" articles="lang/contractions_fr.txt"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_fr.txt" format="snowball"
+                />
+                <filter class="solr.FrenchLightStemFilterFactory"/>
+                <!-- less aggressive: <filter class="solr.FrenchMinimalStemFilterFactory"/> -->
+                <!-- more aggressive: <filter class="solr.SnowballPorterFilterFactory" language="French"/> -->
+            </analyzer>
+        </fieldType>
+
+        <!-- Irish -->
+        <fieldType name="text_stemmed_synonym_ga" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- removes d', etc -->
+                <filter class="solr.ElisionFilterFactory" ignoreCase="true" articles="lang/contractions_ga.txt"/>
+                <!-- removes n-, etc. position increments is intentionally false! -->
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/hyphenations_ga.txt"
+                />
+                <filter class="solr.IrishLowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_ga.txt"
+                />
+                <filter class="solr.SnowballPorterFilterFactory" language="Irish"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Galician -->
+        <fieldType name="text_stemmed_synonym_gl" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_gl.txt"
+                />
+                <filter class="solr.GalicianStemFilterFactory"/>
+                <!-- less aggressive: <filter class="solr.GalicianMinimalStemFilterFactory"/> -->
+            </analyzer>
+        </fieldType>
+
+        <!-- Hindi -->
+        <fieldType name="text_stemmed_synonym_hi" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <!-- normalizes unicode representation -->
+                <filter class="solr.IndicNormalizationFilterFactory"/>
+                <!-- normalizes variation in spelling -->
+                <filter class="solr.HindiNormalizationFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_hi.txt"
+                />
+                <filter class="solr.HindiStemFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Hungarian -->
+        <fieldType name="text_stemmed_synonym_hu" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_hu.txt" format="snowball"
+                />
+                <filter class="solr.SnowballPorterFilterFactory" language="Hungarian"/>
+                <!-- less aggressive: <filter class="solr.HungarianLightStemFilterFactory"/> -->
+            </analyzer>
+        </fieldType>
+
+        <!-- Armenian -->
+        <fieldType name="text_stemmed_synonym_hy" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_hy.txt"
+                />
+                <filter class="solr.SnowballPorterFilterFactory" language="Armenian"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Indonesian -->
+        <fieldType name="text_stemmed_synonym_id" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_id.txt"
+                />
+                <!-- for a less aggressive approach (only inflectional suffixes), set stemDerivational to false -->
+                <filter class="solr.IndonesianStemFilterFactory" stemDerivational="true"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Italian -->
+        <fieldType name="text_stemmed_synonym_it" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <!-- removes l', etc -->
+                <filter class="solr.ElisionFilterFactory" ignoreCase="true" articles="lang/contractions_it.txt"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_it.txt" format="snowball"
+                />
+                <filter class="solr.ItalianLightStemFilterFactory"/>
+                <!-- more aggressive: <filter class="solr.SnowballPorterFilterFactory" language="Italian"/> -->
+            </analyzer>
+        </fieldType>
+
+        <fieldType name="text_markup_en" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <fieldType name="text_markup_ar" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <!-- for any non-arabic -->
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.ArabicNormalizationFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <fieldType name="text_markup_bg" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Catalan -->
+        <fieldType name="text_markup_ca" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <!-- removes l', etc -->
+                <filter class="solr.ElisionFilterFactory" ignoreCase="true" articles="lang/contractions_ca.txt"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- CJK bigram (see text_ja for a Japanese configuration using morphological analysis) -->
+        <fieldType name="text_markup_zh" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <!-- normalize width before bigram, as e.g. half-width dakuten combine  -->
+                <filter class="solr.CJKWidthFilterFactory"/>
+                <!-- for any non-CJK -->
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.CJKBigramFilterFactory"/>
+            </analyzer>
+        </fieldType>
+        <fieldType name="text_markup_ja" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <!-- normalize width before bigram, as e.g. half-width dakuten combine  -->
+                <filter class="solr.CJKWidthFilterFactory"/>
+                <!-- for any non-CJK -->
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.CJKBigramFilterFactory"/>
+            </analyzer>
+        </fieldType>
+        <fieldType name="text_markup_ko" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <!-- normalize width before bigram, as e.g. half-width dakuten combine  -->
+                <filter class="solr.CJKWidthFilterFactory"/>
+                <!-- for any non-CJK -->
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.CJKBigramFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Czech -->
+        <fieldType name="text_markup_cz" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Danish -->
+        <fieldType name="text_markup_da" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- German -->
+        <fieldType name="text_markup_de" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.GermanNormalizationFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Greek -->
+        <fieldType name="text_markup_el" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <!-- greek specific lowercase for sigma -->
+                <filter class="solr.GreekLowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Spanish -->
+        <fieldType name="text_markup_es" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Basque -->
+        <fieldType name="text_markup_eu" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Persian -->
+        <fieldType name="text_markup_fa" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <!-- for ZWNJ -->
+                <charFilter class="solr.PersianCharFilterFactory"/>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.ArabicNormalizationFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Finnish -->
+        <fieldType name="text_markup_fi" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- French -->
+        <fieldType name="text_markup_fr" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <!-- removes l', etc -->
+                <filter class="solr.ElisionFilterFactory" ignoreCase="true" articles="lang/contractions_fr.txt"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Irish -->
+        <fieldType name="text_markup_ga" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <!-- removes d', etc -->
+                <filter class="solr.ElisionFilterFactory" ignoreCase="true" articles="lang/contractions_ga.txt"/>
+                <!-- removes n-, etc. position increments is intentionally false! -->
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/hyphenations_ga.txt"/>
+                <filter class="solr.IrishLowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Galician -->
+        <fieldType name="text_markup_gl" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Hindi -->
+        <fieldType name="text_markup_hi" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <!-- normalizes unicode representation -->
+                <filter class="solr.IndicNormalizationFilterFactory"/>
+                <!-- normalizes variation in spelling -->
+                <filter class="solr.HindiNormalizationFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Hungarian -->
+        <fieldType name="text_markup_hu" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Armenian -->
+        <fieldType name="text_markup_hy" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Indonesian -->
+        <fieldType name="text_markup_id" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+
+            </analyzer>
+        </fieldType>
+
+        <!-- Italian -->
+        <fieldType name="text_markup_it" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <!-- removes l', etc -->
+                <filter class="solr.ElisionFilterFactory" ignoreCase="true" articles="lang/contractions_it.txt"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+
+                <!-- more aggressive: <filter class="solr.SnowballPorterFilterFactory" language="Italian"/> -->
+            </analyzer>
+        </fieldType>
+
+        <!-- Japanese using morphological analysis (see text_cjk for a configuration using bigramming)
+
+             NOTE: If you want to optimize search for precision, use default operator AND in your query
+             parser config with <solrQueryParser defaultOperator="AND"/> further down in this file.  Use
+             OR if you would like to optimize for recall (default).
+        -->
+
+
+        <!-- Latvian -->
+        <fieldType name="text_markup_lv" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Dutch -->
+        <fieldType name="text_markup_nl" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Norwegian -->
+        <fieldType name="text_markup_no" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Portuguese -->
+        <fieldType name="text_markup_pt" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Romanian -->
+        <fieldType name="text_markup_ro" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Russian -->
+        <fieldType name="text_markup_ru" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Swedish -->
+        <fieldType name="text_markup_sv" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Thai -->
+        <fieldType name="text_markup_th" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Turkish -->
+        <fieldType name="text_markup_tr" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="com.hitorro.basetext.NERMarkupFilterFactory"/>
+                <filter class="solr.TurkishLowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Japanese using morphological analysis (see text_cjk for a configuration using bigramming)
+
+             NOTE: If you want to optimize search for precision, use default operator AND in your query
+             parser config with <solrQueryParser defaultOperator="AND"/> further down in this file.  Use
+             OR if you would like to optimize for recall (default).
+        -->
+        <fieldType name="text_stemmed_synonym_ja" class="solr.TextField" positionIncrementGap="100"
+                   autoGeneratePhraseQueries="false">
+            <analyzer>
+                <!-- Kuromoji Japanese morphological analyzer/tokenizer (JapaneseTokenizer)
+
+                   Kuromoji has a search mode (default) that does segmentation useful for search.  A heuristic
+                   is used to segment compounds into its parts and the compound itself is kept as synonym.
+
+                   Valid values for attribute mode are:
+                      normal: regular segmentation
+                      search: segmentation useful for search with synonyms compounds (default)
+                    extended: same as search mode, but unigrams unknown words (experimental)
+
+                   For some applications it might be good to use search mode for indexing and normal mode for
+                   queries to reduce recall and prevent parts of compounds from being matched and highlighted.
+                   Use <analyzer type="index"> and <analyzer type="query"> for this and mode normal in query.
+
+                   Kuromoji also has a convenient user dictionary feature that allows overriding the statistical
+                   model with your own entries for segmentation, part-of-speech tags and readings without a need
+                   to specify weights.  Notice that user dictionaries have not been subject to extensive testing.
+
+                   User dictionary attributes are:
+                             userDictionary: user dictionary filename
+                     userDictionaryEncoding: user dictionary encoding (default is UTF-8)
+
+                   See lang/userdict_ja.txt for a sample user dictionary file.
+
+                   See http://wiki.apache.org/solr/JapaneseLanguageSupport for more on Japanese language support.
+                -->
+                <tokenizer class="solr.JapaneseTokenizerFactory" mode="search"/>
+                <!--<tokenizer class="solr.JapaneseTokenizerFactory" mode="search" userDictionary="lang/userdict_ja.txt"/>-->
+                <!-- Reduces inflected verbs and adjectives to their base/dictionary forms (辞書形) -->
+                <filter class="solr.JapaneseBaseFormFilterFactory"/>
+                <!-- Removes tokens with certain part-of-speech tags -->
+                <filter class="solr.JapanesePartOfSpeechStopFilterFactory" tags="lang/stoptags_ja.txt"
+                />
+                <!-- Normalizes full-width romaji to half-width and half-width kana to full-width (Unicode NFKC subset) -->
+                <filter class="solr.CJKWidthFilterFactory"/>
+                <!-- Removes common tokens typically not useful for search, but have a negative effect on ranking -->
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_ja.txt"
+                />
+                <!-- Normalizes common katakana spelling variations by removing any last long sound character (U+30FC) -->
+                <filter class="solr.JapaneseKatakanaStemFilterFactory" minimumLength="4"/>
+                <!-- Lower-cases romaji characters -->
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Latvian -->
+        <fieldType name="text_stemmed_synonym_lv" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_lv.txt"
+                />
+                <filter class="solr.LatvianStemFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Dutch -->
+        <fieldType name="text_stemmed_synonym_nl" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_nl.txt" format="snowball"
+                />
+                <filter class="solr.StemmerOverrideFilterFactory" dictionary="lang/stemdict_nl.txt" ignoreCase="false"/>
+                <filter class="solr.SnowballPorterFilterFactory" language="Dutch"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Norwegian -->
+        <fieldType name="text_stemmed_synonym_no" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_no.txt" format="snowball"
+                />
+                <filter class="solr.SnowballPorterFilterFactory" language="Norwegian"/>
+                <!-- less aggressive: <filter class="solr.NorwegianLightStemFilterFactory"/> -->
+                <!-- singular/plural: <filter class="solr.NorwegianMinimalStemFilterFactory"/> -->
+            </analyzer>
+        </fieldType>
+
+        <!-- Portuguese -->
+        <fieldType name="text_stemmed_synonym_pt" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_pt.txt" format="snowball"
+                />
+                <filter class="solr.PortugueseLightStemFilterFactory"/>
+                <!-- less aggressive: <filter class="solr.PortugueseMinimalStemFilterFactory"/> -->
+                <!-- more aggressive: <filter class="solr.SnowballPorterFilterFactory" language="Portuguese"/> -->
+                <!-- most aggressive: <filter class="solr.PortugueseStemFilterFactory"/> -->
+            </analyzer>
+        </fieldType>
+
+        <!-- Romanian -->
+        <fieldType name="text_stemmed_synonym_ro" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_ro.txt"
+                />
+                <filter class="solr.SnowballPorterFilterFactory" language="Romanian"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- Russian -->
+        <fieldType name="text_stemmed_synonym_ru" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_ru.txt" format="snowball"
+                />
+                <filter class="solr.SnowballPorterFilterFactory" language="Russian"/>
+                <!-- less aggressive: <filter class="solr.RussianLightStemFilterFactory"/> -->
+            </analyzer>
+        </fieldType>
+
+        <!-- Swedish -->
+        <fieldType name="text_stemmed_synonym_sv" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_sv.txt" format="snowball"
+                />
+                <filter class="solr.SnowballPorterFilterFactory" language="Swedish"/>
+                <!-- less aggressive: <filter class="solr.SwedishLightStemFilterFactory"/> -->
+            </analyzer>
+        </fieldType>
+
+        <!-- Thai -->
+        <fieldType name="text_stemmed_synonym_th" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.ThaiTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_th.txt"
+                />
+            </analyzer>
+        </fieldType>
+
+        <!-- Turkish -->
+        <fieldType name="text_stemmed_synonym_tr" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.TurkishLowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="false" words="lang/stopwords_tr.txt"
+                />
+                <filter class="solr.SnowballPorterFilterFactory" language="Turkish"/>
+            </analyzer>
+        </fieldType>
+
+        <!-- note the pair together -->
+        <fieldType name="location" class="solr.LatLonType" subFieldSuffix=".coordinate"/>
+
+        <fieldtype name="ignored" stored="false" indexed="false" multiValued="true" class="solr.StrField"/>
+
+        <fieldType name="elong" keyField="id.id.identifier_s" defVal="0" stored="true" indexed="false"
+                   class="com.hitorro.obj.core.solr.LongExternalFeatureField"/>
+
+        <fieldType name="efloat" keyField="id.id.identifier_s" defVal="0" stored="true" indexed="false"
+                   class="com.hitorro.obj.core.solr.FloatExternalFeatureField"/>
+
+        <fieldType name="einteger" keyField="id.id.identifier_s" defVal="0" stored="true" indexed="false"
+                   class="com.hitorro.obj.core.solr.IntExternalFeatureField"/>
+
+        <fieldType name="string_email" class="solr.TextField" sortMissingLast="true" omitNorms="true">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.WordDelimiterFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+    </types>
+
+
+    <fields>
+        <!-- Valid attributes for fields:
+          name: mandatory - the name for the field
+          type: mandatory - the name of a previously defined type from the <types> section
+          indexed: true if this field should be indexed (searchable or sortable)
+          stored: true if this field should be retrievable
+          compressed: [false] if this field should be stored using gzip compression
+            (this will only apply if the field type is compressable; among
+            the standard field types, only TextField and StrField are)
+          multiValued: true if this field may contain multiple values per document
+          omitNorms: (expert) set to true to omit the norms associated with
+            this field (this disables length normalization and index-time
+            boosting for the field, and saves some memory).  Only full-text
+            fields or fields that need an index-time boost need norms.
+          termVectors: [false] set to true to store the term vector for a given field.
+            When using MoreLikeThis, fields used for similarity should be stored for
+            best performance.
+        -->
+
+        <!-- required SOLR Fields -->
+        <field name="id.id.identifier_s" type="string" indexed="true" stored="true" required="true"/>
+        <field name="_version_" type="long" indexed="true" stored="true" multiValued="false"/>
+        <field name="signatureField" type="string" indexed="true" stored="false"/>
+        <field name="fefefefe" type="text_en" indexed="true" stored="false"/>
+
+
+        <dynamicField name="*.elong" type="elong" indexed="true" stored="true" multiValued="false"/>
+        <dynamicField name="*.efloat" type="efloat" indexed="true" stored="true" multiValued="false"/>
+        <dynamicField name="*.einteger" type="einteger" indexed="true" stored="true" multiValued="false"/>
+
+        <dynamicField name="*.double" type="double" indexed="true" stored="true" multiValued="true"/>
+
+
+        <!-- for location NOTE _coordinate is NEEDED by location-->
+        <dynamicField name="*.coordinate" type="tdouble" indexed="true" stored="false"/>
+        <dynamicField name="*.location_s" type="location" indexed="true" stored="false"/>
+        <dynamicField name="*.email" type="string_email" indexed="true" stored="false"/>
+
+        ${dynamic_insert}
+
+    </fields>
+    <uniqueKey>id.id.identifier_s</uniqueKey>
+</schema>

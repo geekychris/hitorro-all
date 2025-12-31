@@ -1,0 +1,133 @@
+<!DOCTYPE squeeze_project>
+<Project StartOnLoad="False" Version="4.0">
+    <Job Name="Job [18:26:10.300 - 04:09:07]" OutputDirectory="">
+        <Source FileName="/pthome/transcoding/flash">
+            <DisplayAspectRatio Value="0"/>
+            <IsCustomDestination Value="False"/>
+            <Output DefaultName="Custom_2.xss" Id="78029312" IsMBR="False" Name="flv_podtech"
+                    OutputFormat="FLVOutputFormat" SubOutputFormat="None" UsingCustomFilter="False">
+                <FileName Value="/pthome/transcoding/flash/CompressedOutput/_flv_podtech.flv"/>
+                <Status Value="Ready"/>
+                <UseCustomVideo Value="False"/>
+                <UseCustomAudio Value="False"/>
+                <UseCustomFilter Value="False"/>
+                <UseCustomPlayerOptions Value="False"/>
+                <UseCustomDestinations Value="Global"/>
+                <UseCustomMarkers Value="False"/>
+                <UseCustomMarkers Value="False"/>
+                <EncodeVideo Value="True"/>
+                <EncodeAudio Value="True"/>
+                <UsePreFilter Value="True"/>
+                <UsePlaybackConfiguration Value="False"/>
+                <UseFilesizeConstraint Value="False"/>
+                <FileSizeConstraint Value="0"/>
+                <Broadcast Enable="True" Port="9999"/>
+                <Filter name="">
+                </Filter>
+                <PlayerOptions Name="" OutputFormat="FLVOutputFormat">
+                    <VideoLocation Value="LinkedFlv"/>
+                    <LinkedFlvPath Value=""/>
+                </PlayerOptions>
+                <AudioCompressor codec="Fraunhofer MP3">
+                    <DataRate Value="16000"/>
+                    <SampleRate Value="11025"/>
+                    <SampleSize Value="16"/>
+                    <ChannelMode Value="ChannelModeMono"/>
+                    <CodecFourCC Value="1836253269"/>
+                    <PacketSizeEnable Value="False"/>
+                    <PacketSize Value="1450"/>
+                    <MediaKeyEnable Value="False"/>
+                    <MediaKey Value=""/>
+                </AudioCompressor>
+                <VideoCompressor codec="SPARKVideoCodec">
+                    <MaintainSourceAspectRatioEnable Value="True"/>
+                    <LetterBoxOrPillarEnable Value="False"/>
+                    <BitRateMode Value="BitRateModeOnePassCBR"/>
+                    <NumDisposableFrames Value="0"/>
+                    <CompressionSpeed Value="0"/>
+                    <DropFramesEnable Value="False"/>
+                    <AutoKeyFrameEnable Value="True"/>
+                    <AutoKeyFrameSensitivity Value="50"/>
+                    <MinQualityEnable Value="False"/>
+                    <MinQualityValue Value="50"/>
+                    <ImageSmoothingEnable Value="False"/>
+                </VideoCompressor>
+            </Output>
+        </Source>
+        <Source FileName="/pthome/transcoding/ipod_quicktime">
+            <DisplayAspectRatio Value="0"/>
+            <IsCustomDestination Value="False"/>
+            <Output DefaultName="Custom_3.xss" Id="78298624" IsMBR="False" Name="mov_pt" OutputFormat="MOVOutputFormat"
+                    SubOutputFormat="None" UsingCustomFilter="False">
+                <FileName Value="/pthome/transcoding/ipod_quicktime/CompressedOutput/_mov_pt.mov"/>
+                <Status Value="Ready"/>
+                <UseCustomVideo Value="False"/>
+                <UseCustomAudio Value="False"/>
+                <UseCustomFilter Value="False"/>
+                <UseCustomPlayerOptions Value="False"/>
+                <UseCustomDestinations Value="Global"/>
+                <UseCustomMarkers Value="False"/>
+                <UseCustomMarkers Value="False"/>
+                <EncodeVideo Value="True"/>
+                <EncodeAudio Value="True"/>
+                <UsePreFilter Value="True"/>
+                <UsePlaybackConfiguration Value="False"/>
+                <UseFilesizeConstraint Value="False"/>
+                <FileSizeConstraint Value="0"/>
+                <Broadcast Enable="True" Port="9998"/>
+                <Filter name="">
+                </Filter>
+                <PlayerOptions Name="" OutputFormat="MOVOutputFormat">
+                    <AddHintTrack Value="False"/>
+                    <VideoLocation Value="LinkedFlv"/>
+                    <LinkedFlvPath Value=""/>
+                </PlayerOptions>
+                <AudioCompressor codec="Fraunhofer MP3">
+                    <DataRate Value="16000"/>
+                    <SampleRate Value="11025"/>
+                    <SampleSize Value="16"/>
+                    <ChannelMode Value="ChannelModeMono"/>
+                    <CodecFourCC Value="1836253269"/>
+                    <PacketSizeEnable Value="False"/>
+                    <PacketSize Value="1450"/>
+                    <MediaKeyEnable Value="False"/>
+                    <MediaKey Value=""/>
+                </AudioCompressor>
+                <VideoCompressor codec="SMISV3ProVideoCodec">
+                    <MaintainSourceAspectRatioEnable Value="True"/>
+                    <LetterBoxOrPillarEnable Value="False"/>
+                    <BitRateMode Value="BitRateModeOnePassCBR"/>
+                    <NumberOfBFrames Value="0"/>
+                    <CompressionSpeed Value="0"/>
+                    <DropFramesEnable Value="False"/>
+                    <AutoKeyFrameEnable Value="True"/>
+                    <AutoKeyFrameSensitivity Value="50"/>
+                    <MinQualityEnable Value="False"/>
+                    <MinQualityValue Value="0"/>
+                    <ImageSmoothingEnable Value="True"/>
+                    <MediaKeyEnable Value="False"/>
+                    <MediaKey Value=""/>
+                    <StreamingEnable Value="False"/>
+                    <PacketSizeEnable Value="False"/>
+                    <PacketSize Value="1425"/>
+                    <BlockRefreshRateEnable Value="False"/>
+                    <BlockRefreshRate Value="5"/>
+                    <MaskingEnable Value="False"/>
+                    <MaskingMethod Value="MaskingMethodRect"/>
+                    <MaskingQuality Value="MaskingQualityHigh"/>
+                    <MaskingSource Value="MaskingSourceInputVideo"/>
+                    <MaskingFile Value=""/>
+                    <MaskingRGB Blue="0" Green="0" Red="0"/>
+                    <MaskingColorSpread Value="40"/>
+                    <MaskingMaxOpacity Value="255"/>
+                    <FeatherEffectsEnable Value="False"/>
+                    <FeatherDistance Value="0"/>
+                    <WatermarkEnable Value="False"/>
+                    <WatermarkPosition Value="WatermarkPositionLowerRight"/>
+                    <WatermarkOffset Value="10"/>
+                    <WatermarkOpacity Value="50"/>
+                </VideoCompressor>
+            </Output>
+        </Source>
+    </Job>
+</Project>

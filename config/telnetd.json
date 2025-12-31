@@ -1,0 +1,44 @@
+{
+  "telnetd": {
+    "listeners": "std",
+    "shell": {
+      "commandshell": {
+        "class": "com.hitorro.util.commandandcontrol.TelnetCommandSession"
+      },
+      "dummy": {
+        "class": "net.wimpi.telnetd.shell.DummyShell"
+      }
+    },
+    "shells": "commandshell",
+    "std": {
+      "connectionfilter": "none",
+      "floodprotection": "5",
+      "housekeepinginterval": "1000",
+      "inputmode": "character",
+      "loginshell": "commandshell",
+      "maxcon": "25",
+      "port": "6666",
+      "time_to_timedout": "60000",
+      "time_to_warning": "3600000"
+    },
+    "term": {
+      "ansi": {
+        "aliases": "color-xterm,xterm-color,vt320,vt220,linux,screen",
+        "class": "net.wimpi.telnetd.io.terminal.ansi"
+      },
+      "vt100": {
+        "aliases": "default,vt100-am,vt102,dec-vt100",
+        "class": "net.wimpi.telnetd.io.terminal.vt100"
+      },
+      "windoof": {
+        "aliases": "",
+        "class": "net.wimpi.telnetd.io.terminal.Windoof"
+      },
+      "xterm": {
+        "aliases": "",
+        "class": "net.wimpi.telnetd.io.terminal.xterm"
+      }
+    },
+    "terminals": "vt100,ansi,windoof,xterm"
+  }
+}

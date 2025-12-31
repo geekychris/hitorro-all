@@ -1,0 +1,9 @@
+C make an appointment to meet with carol at 9:30 at Pete's in belmont
+C setup a meeting with frank, bob and alice in my office at 12:30 thursday
+V what is the lady wearing
+v describe the room
+v describe the scene
+r what does this say
+r read me the menu
+r what does the sign say
+d guide me to the kitchen

@@ -1,0 +1,25 @@
+{
+  "importing": {
+    "twitter": {
+      "importerhandler": "com.hitorro.dataaquisition.importing.twitter.TwitterImporterServiceHandler",
+      "inputqueue": "file://twitter_queue",
+      "partitioner": {
+        "idfield": "twitterid"
+      },
+      "queuedir": "file://hthome/queue/bag/twitter"
+    },
+    "twitterwithsort": {
+      "importerhandler": "com.hitorro.dataaquisition.importing.twitter.TwitterImporterServiceHandler",
+      "inputqueue": "file://twitter_queue",
+      "merger": {
+        "factory": "com.hitorro.dataaquisition.twitter.TwitterUtil#twitterHTSerBagFactory",
+        "inputmap": "com.hitorro.util.file.fs.BaseFileUtil#bf2htser"
+      },
+      "queuedir": "file://hthome/queue/bag/twitter",
+      "sorter": {
+        "factory": "com.hitorro.dataaquisition.twitter.TwitterUtil#twitterHTSerBagFactory",
+        "inputmap": "com.hitorro.util.file.fs.BaseFileUtil#bf2htser"
+      }
+    }
+  }
+}

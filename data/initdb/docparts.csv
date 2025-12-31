@@ -1,0 +1,6 @@
+domain,value,displayname,parent
+docparts,body,"Body",
+docparts,bodyfrompermalink,"Body from permalink",
+docparts,elink,"External Link",
+docparts,originator,"Originating Source",
+docparts,reflinks,"Reference Links",

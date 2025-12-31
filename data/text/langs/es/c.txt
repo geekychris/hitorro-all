@@ -1,0 +1,20 @@
+Un filtro nebular es un accesorio para telescopios de aficionado que se enrosca en la parte posterior del ocular del telescopio y que filtra el brillo de la atmósfera terrestre, y sobre todo la luz del alumbrado público, permitiendo así la observación de objetos de cielo profundo incluso bajo malas condiciones de contaminación lumínica, aunque también son usados en lugares dónde no la hay o es muy baja para observar mejor los objetos mencionados.
+
+Los principales tipos existentes en el mercado -cuyos nombres pueden variar, sobre todo en los dos primeros casos, según el fabricante- son los siguientes:
+
+Índice
+
+    1 Filtros de banda ancha
+    2 Filtros de banda estrecha
+    3 Filtros OIII
+    4 Filtros H-Beta
+    5 Enlaces externos
+
+Filtros de banda ancha
+
+El filtro de banda ancha permite el paso de todas las longitudes de onda, excepto las situadas alrededor de 560 nanómetros, que corresponden a la luz emitidas por las lámparas de sodio y mercurio, permitiendo así una mejor observación y fotografía de todo tipo de objetos de cielo profundo. No tiene la capacidad de contraste de los tipos siguientes, pero puede ser utilizado con pupilas de salida pequeñas, y apenas extingue la luz de las estrellas, por lo que también es útil para observar cúmulos estelares o galaxias (y no sólo nebulosas, a diferencia de los que siguen).
+Filtros de banda estrecha
+
+El filtro de banda estrecha es mucho más restrictivo; sólo deja pasar las longitudes de onda emitidas por el hidrógeno ionizado y el oxígeno ionizado, por lo que es ideal para la observación de nebulosas de emisión y nebulosas planetarias. Sin embargo, las estrellas son afectadas perdiendo brillo y con pupilas de salida pequeñas el objeto observado puede ser invisible, incluso con el filtro debido a la gran cantidad de luz que absorbe. Tampoco sirve de mucho para fotografía convencional por el mismo motivo.
+Filtros OIII
+El filtro OIII sólo deja pasar la luz emitida por el oxígeno doblemente ionizado -que es emitida sobre todo por las nebulosas planetarias-, por lo que sobresale sobre todo para la observación de ésos objetos, aunque también es muy útil para la observación de otros tipos de nebulosa. Es aún más restrictivo que el anterior y tiene sus mismos inconvenientes, aunque a mayor escala, siendo prácticamente inservible para fotografía al además bloquear las longitudes de onda a las que son sensibles numerosas películas.

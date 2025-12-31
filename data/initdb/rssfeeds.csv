@@ -1,0 +1,894 @@
+Name,WebSite,ContactName,ContactEmail,RssUrl,StartGroup,forumname,priority,feedtype
+"GameSpot","http://www.gamespot.com","","","http://rss.gamespot.com/misc/rss/gamespot_updates_news.xml","Gaming","Gaming","10","1"
+"IGN.com","http://www.ign.com","","","http://feeds.ign.com/ignfeeds/all","Gaming","Gaming","10","1"
+"GameTab","http://www.gametab.com","","","http://www.gametab.com/services/rss/topnews-past6hrs.php","Gaming","Gaming","10","1"
+"Gametrailers.com","http://www.gametrailers.com","","","http://www.gametrailers.com/rssgenform.php?s1=&favplats%5Bwii%5D=wii&favplats%5Bxb360%5D=xb360&favplats%5Bps3%5D=ps3&vidformat%5Bmov%5D=on&type%5Breview%5D=on&type%5Bpreview%5D=on&quality%5Beither%5D=on&orderby=newest&limit=20","Gaming","Gaming","10","1"
+"Xbox Live's Major Nelson","http://www.majornelson.com/","","","http://feeds.feedburner.com/MajorNelson","Gaming","Gaming","10","1"
+"FiringSquad","http://www.firingsquad.com","","","http://www.firingsquad.com/news_rss.xml","Gaming","Gaming","10","1"
+"GameDaily","http://www.gamedaily.com","","","http://feeds.gamedaily.com/rss/news.rss","Gaming","Gaming","10","1"
+"GamesIndustry.biz","http://www.gamesindustry.biz","","","http://www.gamesindustry.biz/rss/gamesindustry_news_feed.rss","Gaming","Gaming","10","1"
+"Frag Dolls","http://fragdolls.com","","","http://fragdolls.com/us/rss.php","Gaming","Gaming","10","1"
+"Joystiq","http://www.joystiq.com","","","http://www.joystiq.com/rss.xml","Gaming","Gaming","10","1"
+"WiiGamer","http://www.wiigamer.com/","","","http://www.wiigamer.com/?feed=rss2","Gaming","Gaming","10","1"
+"PlayStation.Blog","http://blog.us.playstation.com/","","","http://feeds.feedburner.com/psblog","Gaming","Gaming","10","1"
+"Kotaku Comments","http://www.kotaku.com","","","http://www.kotaku.com/xml/comments","Gaming","Gaming","10","1"
+"DESTRUCTOID","http://www.destructoid.com","","","http://www.destructoid.com/elephant/index.phtml?mode=atom","Gaming","Gaming","10","1"
+"Slashdot","http://www.games.slashdot.org","","","http://rss.slashdot.org/Slashdot/slashdot","Gaming","Gaming","10","1"
+"Gamasutra Jobs","http://www.gamasutra.com","","","http://feeds.feedburner.com/GamasutraJobs/","Gaming","Gaming","10","1"
+"Penny Arcade","http://www.penny-arcade.com","","","http://www.penny-arcade.com/rss.xml","Gaming","Gaming","10","1"
+"ScrewAttack Features","http://www.screwattack.com","","craig@screwattack.com","http://www.screwattack.com/sidescrollers.xml","Gaming","Gaming","10","1"
+"PS3 Fanboy","http://www.ps3fanboy.com","","","http://www.ps3fanboy.com/rss.xml","Gaming","Gaming","10","1"
+"WOW Insider","http://www.wowinsider.com","","","http://www.wowinsider.com/rss.xml","Gaming","Gaming","10","1"
+"Xbox 360 Fanboy","http://www.xbox360fanboy.com","","","http://www.xbox360fanboy.com/rss.xml","Gaming","Gaming","10","1"
+"Engadget","http://www.engadget.com","","","http://www.engadget.com/rss.xml","Gaming","Gaming","10","1"
+"Paul Sherer",,"Paul Sherer","paul@hitorro.net","http://www.google.com/reader/public/atom/user/06091404070609761025/state/com.google/broadcast","Technology","TechOne",10,1
+"Chris Haaker","www.geekswithblogs.net/ntpro/Default.aspx","MS Geek Blog",,"http://www.google.com/reader/public/atom/user/06670232348548200401/state/com.google/broadcast","Technology","TechOne",10,1
+"Scott Beal","www.laughingsquid.com/","Scott Beal","andy.beal@gmail.com","http://www.google.com/reader/public/atom/user/11358106792276634699/state/com.google/broadcast","Technology","TechOne",10,1
+"Andy Beale","www.marketingpilgrim.com/","Andy Beale",,"http://www.google.com/reader/public/atom/user/05696026800398748487/state/com.google/broadcast","Technology","TechOne",10,1
+"Marshall Kirkpatrick","www.marshallk.com/","Marshall Kirkpatrick","marshall@marshallk.com","http://feeds.feedburner.com/MarshallsBlogAndSharedItems ","Technology","TechOne",10,1
+"Jeremiah Owyang","www.web-strategist.com/blog","Jeremiah Owyang",,"http://www.google.com/reader/public/atom/user/06306193368892082886/state/com.google/broadcast","Technology","TechOne",10,1
+"Valerie Cunningham",,"Valerie Cunningham","valerie@hitorro.net","http://www.google.com/reader/public/atom/user/05531971524045781012/state/com.google/broadcast","Technology","TechOne",10,1
+"Steve Wilhelm","www.siliconvalleymusings.com","Steve Wilhelm","steve@hitorro.net","http://www.google.com/reader/public/atom/user/17160562772460425408/state/com.google/broadcast","Technology","TechOne",10,1
+"Tom Foremski","www.siliconvalleywatcher.com","Tom Foremski","tom@siliconvalleywatcher.com","http://www.google.com/reader/public/atom/user/16783276545632931567/state/com.google/broadcast","Technology","TechOne",10,1
+"Sebastian Keil",,"Sebastian Keil",,"http://www.google.com/reader/public/atom/user/07701301184241544513/state/com.google/broadcast","Technology","TechOne",10,1
+"Alberto Escarlate",,"Alberto Escarlate",,"http://www.google.com/reader/public/atom/user/03845521535364536530/state/com.google/broadcast","Technology","TechOne",10,1
+"Tim Kersey",,"Tim Kersey",,"http://www.google.com/reader/public/atom/user/04401125713471922613/state/com.google/broadcast","Technology","TechOne",10,1
+"Sean McCune",,"Sean McCune",,"http://www.google.com/reader/public/atom/user/13435648567287126966/state/com.google/broadcast","Technology","TechOne",10,1
+"Adam Green",,"Adam Green",,"http://www.google.com/reader/public/atom/user/07314666484669814172/state/com.google/broadcast","Technology","TechOne",10,1
+"Jonathan Rauch",,"Jonathan Rauch",,"http://www.google.com/reader/public/atom/user/16685230716868531188/state/com.google/broadcast","Technology","TechOne",10,1
+"Francine Hardaway","http://blog.stealthmode.com","Francine Hardaway",,"http://www.google.com/reader/public/atom/user/17245262944426042192/state/com.google/broadcast","Technology","TechOne",10,1
+"Pete Mauro",,"Pete Mauro",,"http://www.google.com/reader/public/atom/user/17813535763333674998/state/com.google/broadcast","Technology","TechOne",10,1
+"Steve Giovannetti",,"Steve Giovannetti",,"http://www.google.com/reader/public/atom/user/11284691508835487996/state/com.google/broadcast","Technology","TechOne",10,1
+"Hamish MacEwan",,"Hamish MacEwan",,"http://www.google.com/reader/public/atom/user/03481927077933424531/state/com.google/broadcast","Technology","TechOne",10,1
+"Aron Michalski",,"Aron Michalski",,"http://www.google.com/reader/public/atom/user/07111664264319197393/state/com.google/broadcast","Technology","TechOne",10,1
+"Chris Brogan",,"Chris Brogan",,"http://www.google.com/reader/public/atom/user/18272680621619796472/state/com.google/broadcast","Technology","TechOne",10,1
+"chris Boyle",,"chris Boyle",,"http://www.google.com/reader/public/atom/user/00219022123701600480/state/com.google/broadcast","Technology","TechOne",10,1
+"Paul Bonsall",,"Paul Bonsall",,"http://www.google.co.uk/reader/public/atom/user/11899478250180454976/state/com.google/broadcast","Technology","TechOne",10,1
+"Frank O'Grady",,"Frank O'Grady",,"http://www.google.com/reader/public/atom/user/17390214849908926626/state/com.google/broadcast","Technology","TechOne",10,1
+"Tim Lough",,"Tim Lough",,"https://www.google.com/reader/public/atom/user/06981978698912490836/state/com.google/broadcast","Technology","TechOne",10,1
+"Tree Shapiro",,"Tree Shapiro",,"http://www.google.com/reader/public/atom/user/04164215953312182771/state/com.google/broadcast","Technology","TechOne",10,1
+"Paul Walk",,"Paul Walk",,"http://www.google.com/reader/public/atom/user/02899290875052803979/state/com.google/broadcast","Technology","TechOne",10,1
+"Nick Reynolds",,"Nick Reynolds",,"http://www.google.com/reader/public/atom/user/10526243516945059590/state/com.google/broadcast","Technology","TechOne",10,1
+"Robert Scoble","www.scobleizer.com","Robert Scoble","robertscoble@hotmail.com","http://www.google.com/reader/public/atom/user/14480565058256660224/state/com.google/broadcast","Technology","Scoble",10,1
+"Steve Gillmor",,"Steve Gillmor","steve@gillmor.com","http://www.google.com/reader/public/atom/user/13747508670878331681/state/com.google/broadcast","Technology"
+*michael parekh on IT*,http://mp.blogs.com/mp/,,,http://mp.blogs.com/mp/index.rdf,Technology
+.. † .. S i M p L e t o N .. † ..,http://simpl3ton.bloInsgspot.com/index.html,,,http://simpl3ton.blogspot.com/feeds/posts/default?alt=rss,Sewing
+1938Media,http://www.1938media.com,,,http://www.1938media.com/feed/,Technology
+27B Stroke 6,http://blog.wired.com/27bstroke6/,,,http://blog.wired.com/27bstroke6/index.rdf,Technology
+3pointD.com,http://www.3pointd.com,,,http://www.3pointd.com/feed/,Technology
+3quarksdaily,http://3quarksdaily.blogs.com/3quarksdaily/,,,http://3quarksdaily.blogs.com/3quarksdaily/index.rdf,News
+901am,http://www.901am.com,,,http://www.901am.com/feed/,Technology
+:+:chenghao:+:,http://hchenghao.blogspot.com,,,http://hchenghao.blogspot.com/rss.xml,Poetry
+:: Link Building Blog ::,http://www.linkbuildingblog.com/,,,http://www.linkbuildingblog.com/index.rdf,Technology
+A Bundle of Biases,http://nicsebastian.blogspot.com,,,http://nicsebastian.blogspot.com/rss.xml,Poetry
+A Dress A Day,http://www.dressaday.com/dressaday.html,,,http://www.dressaday.com/rss.xml,Sewing
+A Good Yarn,http://goodyarn.blogspot.com,,,http://goodyarn.blogspot.com/rss.xml,Sewing
+A Page of Woe Absolved,http://pageofwoeabsolved.blogspot.com/index.html,,,http://pageofwoeabsolved.blogspot.com/feeds/posts/default?alt=rss,Poetry
+A Shel of My Former Self,http://blog.holtz.com/,Shel Holtz,none,http://blog.holtz.com/index.php/weblog/rss_1.0/,Technology
+A WALK IN THE PARK (TM),http://jayflemma.blogspot.com,,,http://jayflemma.blogspot.com/rss.xml,Golf
+a7tigtag,http://a7tigag.blogspot.com,,,http://a7tigag.blogspot.com/rss.xml,Poetry
+ABC News: Top Stories,http://abcnews.go.com/,,,http://my.abcnews.go.com/rsspublic/fp_rss20.xml,News
+About Today,http://www.about.com,,,http://z.about.com/6/nl/rss/todaysl.xml,Golf
+AccMan,http://www.accmanpro.com,,,http://www.accmanpro.com/feed/,Technology
+ACT - Protecting Small Business Innovation,http://blog.actonline.org/,,,http://blog.actonline.org/index.rdf,Technology
+Adactio,http://adactio.com/journal/,,,http://adactio.com/journal/1260/journal/rss,Technology
+AdJab,http://www.adjab.com,,,http://www.adjab.com/rss.xml,Technology
+AdMoolah News and Views,http://www.admoolah.com/blog,,,http://www.admoolah.com/blog/index.php/feed/,Technology
+Adnans Sysadmin/Dev Blog,http://sysadmin.adnanwasim.com/index.html,,,http://sysadmin.adnanwasim.com/feeds/posts/default?alt=rss,Technology
+Advertising Age - Digital,http://adage.com/digital/,,,http://adage.com/rss-feed?section_id=32,Technology
+Advertising Age - Homepage,http://adage.com/,,,http://adage.com/rss-feed?section_id=301,Technology
+AEI,http://blogs.mercurynews.com/aei/,,,http://feeds.feedburner.com/aei,Technology
+Aimlessly Chasing Amy,http://aimlesslyca.blogspot.com,,,http://aimlesslyca.blogspot.com/rss.xml,Poker
+Alex Ross: The Rest Is Noise,http://www.therestisnoise.com/,,,http://www.therestisnoise.com/index.rdf,News
+Alexa - Web Discovery Machine,http://awis.blogspot.com/index.html,,,http://awis.blogspot.com/feeds/posts/default?alt=rss,Technology
+Alfred Thompson the Cyberspace People Watcher,http://act2.spaces.live.com/,,,http://act2.spaces.live.com/feed.rss,Technology
+Alice Hill's Real Tech News - Independent Tech,http://www.realtechnews.com,,,http://www.realtechnews.com/feed/,Technology
+All about Microsoft,http://blogs.zdnet.com/microsoft,,,http://blogs.zdnet.com/microsoft/?feed=rss2,Technology
+ALLIED  by Jeneane Sessum,http://allied.blogspot.com,,,http://allied.blogspot.com/rss/allied.xml,Technology
+Alliterative,http://allitera.tive.org/,,,http://allitera.tive.org/index.rdf,Sewing
+Alpha Golf Clubs,http://alphagolfclubs.com/blog,,,http://alphagolfclubs.com/blog/?feed=rss2,Golf
+AmericanHeritage.com,http://www.americanheritage.com,,,http://www.americanheritage.com/rss/topstories.rss,News
+Analyst Weblog: Nate Elliott,http://weblogs.jupiterresearch.com/analysts/elliott,Nate Elliot,nelliott@jupitermedia.com,http://weblogs.jupiterresearch.com/analysts/elliott/index.rdf,Technology
+Andrew Eisner,http://blog.retrevo.com/,Andrew Eisner,andrew@retrevo.com,http://retrevo.com/blog/?feed=rss2,Technology
+Andrew Sullivan - The Daily Dish,http://time.blogs.com/daily_dish/,,,http://feeds.feedburner.com/andrewsullivan/rApM,News
+andrewcoyne.com,http://andrewcoyne.com/index.php,,,http://andrewcoyne.com/rss.xml,News
+Andy Beal's Marketing Pilgrim - Internet Marketing Blog & Consultant,http://www.marketingpilgrim.com,,,http://feeds.feedburner.com/marketing-pilgrim,Technology
+Andy Walker,http://Labrats.tv,Andy Walker,andy@labrats.tv,http://feeds.feedburner.com/LabRats,Technology
+Anecdotal Evidence,http://evidenceanecdotal.blogspot.com,,,http://evidenceanecdotal.blogspot.com/rss.xml,Poetry
+Anything But iPod,http://www.anythingbutipod.com/,,,http://feeds.feedburner.com/anythingbutipod,Technology
+apophenia,http://www.zephoria.org/thoughts/,,,http://www.zephoria.org/thoughts/index.rdf,Technology
+Apple Gazette,http://www.applegazette.com,,,http://feeds.feedburner.com/AppleGazette,Technology
+Are You Paying Attention?,http://www.touchstonelive.com/blog/index.htm,,,http://feeds.feedburner.com/TheUniversalGadget,Technology
+Armavirumque,http://www.newcriterion.com/weblog/armavirumque.html,,,http://www.newcriterion.com/weblog/blogger_rss.xml,News
+ARMCHAIR GOLF BLOG,http://armchairgolfblog.blogspot.com,,,http://armchairgolfblog.blogspot.com/rss.xml,Golf
+Ars Technica,http://arstechnica.com,,,http://arstechnica.com/index.ars/rss,Technology
+ArtsJournal: Daily Arts News,http://www.artsjournal.com/artsjournal1/,,,http://www.artsjournal.com/artsjournal1/index.rdf,News
+Ash Nallawalla,http://noclickfraud.blogspot.com,Ash Nallawalla,ash@melbpc.org.au,http://noclickfraud.blogspot.com/feeds/posts/default,Technology
+Atelier,http://alisabenay.blogspot.com,,,http://alisabenay.blogspot.com/rss.xml,Sewing
+Avoiding the Muse,http://avoidmuse.blogspot.com,,,http://avoidmuse.blogspot.com/rss.xml,Poetry
+B.L. Ochman's weblog,http://www.whatsnextblog.com/,,,http://www.whatsnextblog.com/index.xml,Technology
+Bad Astronomy Blog,http://www.badastronomy.com/bablog,,,http://www.badastronomy.com/bablog/feed/,Technology
+Bad Golf,http://badgolf.blogspot.com/index.html,,,http://badgolf.blogspot.com/feeds/posts/default?alt=rss,Golf
+"Balls, Sticks, & Stuff",http://www.ballssticksstuff.com/,,,http://www.ballssticksstuff.com/index.rdf,Golf
+Bambi Franciso,http://blogs.marketwatch.com/bambi/,,,http://feeds.marketwatch.com/marketwatch/blogs/bambi,Technology
+Barb Bowman,http://blogs.digitalmediaphile.com/barb/default.aspx,Barb Bowman,barbbowman@comcast.net,http://blogs.digitalmediaphile.com/barb/SyndicationService.asmx/GetRss,Technology
+Barb's Blog,http://sewingblog.sawyerbrook.com/barb/,,,http://sewingblog.sawyerbrook.com/barb/index.rdf,Sewing
+Barbara's bleeuugh!,http://intendednot2b.blogspot.com/index.html,,,http://intendednot2b.blogspot.com/feeds/posts/default?alt=rss,Poetry
+Barnako.com,http://barnako.typepad.com/barnakocom/,Frank Barnako,fbarnako@marketwatch.com,http://barnako.typepad.com/barnakocom/index.rdf,Technology
+BARRONS.com: Tech Trader Daily - Barron's Online,http://blogs.barrons.com/techtraderdaily,,,http://blogs.barrons.com/techtraderdaily/feed/,Technology
+BBC News  - UK Edition,http://news.bbc.co.uk/go/rss/-/1/hi/uk/default.stm,,,http://newsrss.bbc.co.uk/rss/newsonline_uk_edition/uk/rss.xml,News
+BBC News - Europe,http://news.bbc.co.uk/go/rss/-/1/hi/world/europe/default.stm,,,http://newsrss.bbc.co.uk/rss/newsonline_uk_edition/world/europe/rss.xml,News
+BBC News - Science/Nature,http://news.bbc.co.uk/go/rss/-/1/hi/sci/tech/default.stm,,,http://newsrss.bbc.co.uk/rss/newsonline_uk_edition/sci/tech/rss.xml,News
+BBC News - Technology - UK Edition,http://news.bbc.co.uk/go/rss/-/1/hi/technology/default.stm,,,http://newsrss.bbc.co.uk/rss/newsonline_uk_edition/technology/rss.xml,Technology
+BBC News - Technology - World Edition,http://news.bbc.co.uk/go/rss/-/2/hi/technology/default.stm,,,http://newsrss.bbc.co.uk/rss/newsonline_world_edition/technology/rss.xml,Technology
+BBC News - World Edition,http://news.bbc.co.uk/go/rss/-/2/hi/default.stm,,,http://newsrss.bbc.co.uk/rss/newsonline_world_edition/front_page/rss.xml,News
+Becoming Amethyst,http://becomingamethyst.blogspot.com/index.html,,,http://becomingamethyst.blogspot.com/feeds/posts/default?alt=rss,Poetry
+Beet.TV,http://www.beet.tv/,,,http://www.beet.tv/index.rdf,Technology
+Behind The Seams,http://gigisews.blogspot.com,,,http://gigisews.blogspot.com/rss.xml,Sewing
+ben barren - rss'ing down under,http://benbarren.blogspot.com,,,http://benbarren.blogspot.com/rss.xml,Technology
+Benjamin Higginbotham,http://www.technologyevangelist.com,Benjamin Higginbotham,benjaminhigginbotham@technologyevangelist.com,http://feeds.feedburner.com/technologyevangelist/bkxI,Technology
+Berlind's Testbed,http://blogs.zdnet.com/Berlind,,,http://blogs.zdnet.com/Berlind/?feed=rss2,Technology
+Betsy Weber,http://visuallounge.techsmith.com,Betsy Weber,b.weber@TechSmith.com,http://www.techsmith.com/community/techsmithrss.asp,Technology
+Better Golf With Fitness,http://fitnessforbettergolf.typepad.com/better_golf_with_fitness/,,,http://fitnessforbettergolf.typepad.com/better_golf_with_fitness/index.rdf,Golf
+Between the Lines,http://blogs.zdnet.com/BTL,,,http://blogs.zdnet.com/BTL/?feed=rss2,Technology
+between you and me,http://moonie71.blogspot.com,,,http://moonie71.blogspot.com/rss.xml,Poetry
+Beyond the Bleeding Edge,http://beyondthebleedingedge.blogspot.com/index.html,,,http://beyondthebleedingedge.blogspot.com/feeds/posts/default?alt=rss,Technology
+Big in Japan,http://www.communityguy.com/,Jake McKee,jake@countersinkdg.com,http://www.communityguy.com/feeds/rss2-0.cfm?blogid=1,Technology
+Bill's Poker Blog,http://www.billrini.com,,,http://www.billrini.com/feed/,Poker
+billknott,http://billknott.typepad.com/billknott/,,,http://billknott.typepad.com/billknott/index.rdf,Poetry
+Blackwater Park,http://blackwaterpark.blogs.com/blackwater_park/,,,http://blackwaterpark.blogs.com/blackwater_park/index.rdf,Sewing
+Blithering Bunny,http://blitheringbunny.com,,,http://blitheringbunny.com/feed/,News
+Blog Business Summit,http://blogbusinesssummit.com/,,,http://blogbusinesssummit.com/index.rdf,Technology
+Blogging Stocks,http://msft.bloggingstocks.com,,,http://msft.bloggingstocks.com/rss.xml,Technology
+BloggingHeads.tv,http://bloggingheads.tv,,,http://bloggingheads.tv/rss.php,News
+BlogHer - Where the women bloggers are,http://blogher.org,,,http://blogher.org/node/feed,Technology
+Blogspotting,http://www.businessweek.com/the_thread/blogspotting/,Heather Green,heather_green@businessweek.com,http://www.businessweek.com/the_thread/blogspotting/index.rdf,Technology
+BlogWorld & New Media Expo,http://www.blogworldexpo.com/blog/,Rick Calvert,rick@blogworldexpo.com,http://feeds.feedburner.com/BlogWorldBlog,Technology
+Blue Whale Labs,http://www.socialtwister.com/,Greg Narain,,http://www.socialtwister.com/feed/,Technology
+BogeyLounge,http://www.bogeylounge.tv/,,,http://www.bogeylounge.tv/index.xml,Golf
+Boing Boing,http://www.boingboing.net/,,,http://www.boingboing.net/index.rdf,Technology
+Book Beat with Kay Day,http://bookbeat.blogspot.com/index.html,,,http://bookbeat.blogspot.com/feeds/posts/default?alt=rss,Poetry
+"Books, Inq.",http://booksinq.blogspot.com,,,http://booksinq.blogspot.com/rss.xml,Poetry
+Boston Globe -- Alex Beam columns,http://www.boston.com/news/globe/living/beam,,,http://syndication.boston.com/news/globe/living/beam?mode=rss_10,News
+Boston Globe -- Ellen Goodman,http://www.boston.com/news/globe/editorial_opinion/oped/goodman,,,http://syndication.boston.com/news/globe/editorial_opinion/oped/goodman?mode=rss_10,News
+Boston Globe -- Ideas Section,http://www.boston.com/news/globe/ideas,,,http://syndication.boston.com/news/globe/ideas?mode=rss_10,News
+Boston Globe -- Jeff Jacoby columns,http://www.boston.com/news/globe/editorial_opinion/oped/jacoby,,,http://syndication.boston.com/news/globe/editorial_opinion/oped/jacoby?mode=rss_10,News
+Boston.com / A&E / Books,http://www.boston.com/ae/books,,,http://syndication.boston.com/ae/books?mode=rss_10,News
+botanizing,http://botanizing.typepad.com/botanizing/,,,http://botanizing.typepad.com/botanizing/index.rdf,Other
+Boycott Novell,http://boycottnovell.com,,,http://boycottnovell.com/feed/,Technology
+brainwagon,http://brainwagon.org,,,http://brainwagon.org/feed/,Technology
+Brandon LeBlanc,http://www.mstechtoday.com,Brandon LeBlanc,brandon@mstechtoday.com,http://feeds.feedburner.com/mstechtoday,Technology
+Brandon Live!,http://brandonlive.com,,,http://brandonlive.com/feed/,Technology
+Brett Thomas,http://www.bit-tech.net,Brett Thomas,brett.thomas@bit-tech.net,http://www.bit-tech.net/xml/bittech.rss,Technology
+Brier Dudley,http://blog.seattletimes.nwsource.com/brierdudley/,Brier Dudley,bdudley@seattletimes.com,http://blog.seattletimes.nwsource.com/brierdudley/index.xml,Technology
+broadbandreports.com,http://www.dslreports.com,,,http://www.dslreports.com/rss20.xml,Technology
+broadstuff,http://broadstuff.com/,,,http://broadstuff.com/feeds/index.rss2,Technology
+BrothersJudd Blog,http://brothersjudd.com/blog/,,,http://feeds.feedburner.com/BrothersjuddBlog,News
+Bud Bloom Poetry,http://budbloom.blogspot.com/index.html,,,http://budbloom.blogspot.com/feeds/posts/default?alt=rss,Poetry
+Burst Blog,http://www.burstblog.com,,,http://www.burstblog.com/feed/,Sewing
+Business 360,http://www.marketersstudio.com/,David Berkowitz,,http://www.marketersstudio.com/index.rdf,Technology
+BusinessWeek Online,http://www.businessweek.com//index.html,,,http://www.businessweek.com/rss/bwdaily.rss,News
+BuzzMachine,http://www.buzzmachine.com,,,http://www.buzzmachine.com/index.xml,Technology
+bynkii.com,http://www.bynkii.com/,,,http://www.bynkii.com/index.xml,Technology
+C'mon anticipation mule,http://immaculateconniption.blogspot.com,,,http://immaculateconniption.blogspot.com/rss.xml,Poetry
+C. E. Chaffin's Blog,http://cechaffin.blogspot.com/index.html,,,http://cechaffin.blogspot.com/feeds/posts/default?alt=rss,Poetry
+Carter's Little Pill,http://juliecarter.blogspot.com/index.html,,,http://juliecarter.blogspot.com/feeds/posts/default?alt=rss,Poetry
+Cathode Tan,http://cathodetan.blogspot.com,,,http://cathodetan.blogspot.com/rss.xml,Technology
+Cato Unbound,http://www.cato-unbound.org,,,http://www.cato-unbound.org/feed/,News
+Caydel's SEO Blog,http://www.caydel.com,,,http://www.caydel.com/feed/,Technology
+CBC - Top Stories News,http://www.cbc.ca/news/,,,http://rss.cbc.ca/topstoriesnews.xml,News
+CenterNetworks,http://www.centernetworks.com,,,http://www.centernetworks.com/rss.xml,Technology
+CFR.org - Iraq,http://www.cfr.org,,,http://feeds.cfr.org/region/iraq,News
+cgm,http://notetaker.typepad.com/cgm/,,,http://notetaker.typepad.com/cgm/index.rdf,Technology
+Channel 9,http://channel9.msdn.com,,,http://channel9.msdn.com/rss.aspx,Technology
+Channel 9: The Coffeehouse,http://channel9.msdn.com/ShowForum.aspx?ForumID=15,,,http://channel9.msdn.com/rss.aspx?threadid=269587,Technology
+Charlene Li's Blog,http://blogs.forrester.com/charleneli/,Charlene Li,cli@forrester.com,http://blogs.forrester.com/charleneli/index.rdf,Technology
+Cheap Ass Gamer,http://www.cheapassgamer.com/,,,http://www.cheapassgamer.com/index.rdf,Technology
+Cheesecloth Moon,http://cheeseclothmoon.blogspot.com,,,http://Cheeseclothmoon.blogspot.com/rss.xml,Poetry
+Chip Griffin,http://www.pardonthedisruption.com,Chip Griffin,chipgriffin@gmail.com,http://feeds.feedburner.com/PardonTheDisruption,Technology
+Chip Griffin: Pardon the Disruption,http://www.pardonthedisruption.com/,,,http://www.pardonthedisruption.com/index.rdf,Technology
+Chris Brogan,http://chrisbrogan.com,Chris Brogan,chris@network2.tv,http://feeds.feedburner.com/chrisbrogandotcom,Technology
+Chris Holland: The Blog.,http://chrisholland.blogspot.com,,,http://chrisholland.blogspot.com/rss.xml,Technology
+Chris Webb,http://blog.ziffdavis.com/etbooks,Chris Webb,CWebb@wiley.com,http://blog.ziffdavis.com/etbooks/rss.aspx,Technology
+Christian Science Monitor - Top Stories,http://csmonitor.com,,,http://www.csmonitor.com/rss/top.rss,News
+CinemaTechBlog,http://www.boston.com/business/technology/kirsner/,Scott Kirsner,,http://syndication.boston.com/business/technology/kirsner?mode=rss_10,Technology
+"City Comforts, temporarily known as Viaduct, The Blog",http://citycomfortsblog.typepad.com/cities/,,,http://citycomfortsblog.typepad.com/cities/index.rdf,News
+City Journal Eye on the News,http://www.city-journal.org,,,http://www.city-journal.org/cjeon.xml,News
+Click-Clack,http://www.click-clack.net/,,,http://www.click-clack.net/index.xml,Sewing
+Clickety Clack: Online Ad Blog,http://ecpm.typepad.com/clickety_clack/,,,http://ecpm.typepad.com/clickety_clack/index.rdf,Technology
+clivejames.com,http://www.clivejames.com,,,http://www.clivejames.com/?q=rss.xml,News
+Close to my Heart,http://brenda.typepad.com/close_to_my_heart/,,,http://brenda.typepad.com/close_to_my_heart/index.rdf,Sewing
+clothesaholic,http://clothesaholic.blogspot.com/index.html,,,http://clothesaholic.blogspot.com/feeds/posts/default?alt=rss,Sewing
+ClothesPeg,http://clothespeg.blogspot.com/index.html,,,http://clothespeg.blogspot.com/feeds/posts/default?alt=rss,Sewing
+CNET News.com,http://news.com.com/,,,http://news.com.com/2547-1_3-0-20.xml,Technology
+Communications From Elsewhere,http://www.elsewhere.org/journal,,,http://www.elsewhere.org/journal/feed/,News
+Computer Science Teacher - Thoughts and Information from Alfred Thompson,http://blogs.msdn.com/alfredth/default.aspx,,,http://blogs.msdn.com/alfredth/rss.xml,Technology
+Computerworld Breaking News,http://www.computerworld.com,,,http://feeds.computerworld.com/Computerworld/TopNews,Technology
+Constantine Spathis,http://www.spathis.com/blog,Constantine Spathis,gus@spathis.com,http://blog.spathis.com/feed/,Technology
+Control4,http://darrenjohnson.blogspot.com,Darren Johnson,djohnson@control4.com,http://darrenjohnson.blogspot.com/feeds/posts/default,Technology
+"Conversion Rater - web analytics, online advertising, and website publishing.",http://www.conversionrater.com,,,http://feeds.feedburner.com/Conversionrater,Technology
+Coolfer,http://www.coolfer.com/blog/,,,http://www.coolfer.com/blog/index.xml,Technology
+Courtesy of Vintage Grace,http://www.vintagegrace.com,,,http://www.vintagegrace.com/index2.php?option=com_rss&amp;feed=RSS2.0&amp;no_html=1,Sewing
+crabwalk,http://www.crabwalk.com/,,,http://feeds.feedburner.com/crabwalk,Sewing
+CraftLit: A Podcast for Crafters Who Love Books,http://craftlit.blogspot.com/index.html,,,http://craftlit.blogspot.com/feeds/posts/default?alt=rss,Sewing
+Craig Walker,http://blog.grandcentral.com,Craig Walker,Craig@corp.grandcentral.com,http://blog.grandcentral.com/?feed=rss2,Technology
+Crave at CNET.co.uk,http://crave.cnet.co.uk/,,,http://www.cnet.co.uk/feeds/public/rss_crave.htm,Technology
+Crave RSS,http://crave.cnet.com/?part=rss&tag=feed&subj=Crave,,,http://crave.cnet.com/8300-1_105-1-0.xml,Technology
+Creative Weblogging Inc,http://www.coolpicking.com/,Sonja Schweigert,sonja.schweigert@gmail.com,http://www.coolpicking.com/index.rdf,Technology
+Crooked Timber,http://crookedtimber.org,,,http://crookedtimber.org/feed/,News
+Crossroads Dispatches,http://evelynrodriguez.typepad.com/crossroads_dispatches/,,,http://evelynrodriguez.typepad.com/crossroads_dispatches/index.rdf,Technology
+CrunchGear,http://crunchgear.com,,,http://feeds.feedburner.com/crunchgear,Technology
+CrunchNotes,http://www.crunchnotes.com,,,http://feeds.feedburner.com/crunchnotes,Technology
+Cult of Mac,http://blog.wired.com/cultofmac/,,,http://blog.wired.com/cultofmac/index.rdf,Technology
+Cyber-Knowledge.net,http://cyber-knowledge.net/blog,,,http://cyber-knowledge.net/blog/feed/,Technology
+CyberNet Technology News,http://tech.cybernetnews.com,,,http://tech.cybernetnews.com/feed/,Technology
+Daily Kos,http://www.dailykos.com,,,http://feeds.dailykos.com/dailykos/index.xml,News
+Daily.GigaOM,http://daily.gigaom.com,,,http://daily.gigaom.com/feed/,Technology
+dailywireless.org,http://www.dailywireless.org,,,http://www.dailywireless.org/feed/,Technology
+DancesWithWool,http://lenealve.blogspot.com/index.html,,,http://lenealve.blogspot.com/feeds/posts/default?alt=rss,Sewing
+Danvillegirl Sewing Diary,http://danvillegirl.blogspot.com/index.html,,,http://danvillegirl.blogspot.com/feeds/posts/default?alt=rss,Sewing
+Dare Obasanjo aka Carnage4Life,http://www.25hoursaday.com/weblog/,,,http://www.25hoursaday.com/weblog/SyndicationService.asmx/GetRss,Technology
+Daring Fireball,http://daringfireball.net/,,,http://daringfireball.net/index.xml,Technology
+Darla Mack,http://darlamack.blogs.com,Darla Mack,darla@darlamack.com,http://feeds.feedburner.com/blogs/darlamack,Technology
+Darwinian Conservatism by Larry Arnhart,http://darwinianconservatism.blogspot.com,,,http://darwinianconservatism.blogspot.com/rss.xml,News
+"Data Mining: Text Mining, Visualization and Social Media",http://datamining.typepad.com/data_mining/,,,http://datamining.typepad.com/data_mining/index.rdf,Technology
+Dave Botherway,http://melbpc.blogspot.com/,Dave Botherway,daveb@melbpc.org.au,http://feeds.feedburner.com/MelbournePcUserGroupBlog,Technology
+Dave Zatz,http://www.zatznotfunny.com,Dave Zatz,davezatz@yahoo.com,http://www.zatznotfunny.com/feed/,Technology
+David Aaronovitch - Times Online,http://timesonline.typepad.com/david_aaronovitch/,,,http://timesonline.typepad.com/david_aaronovitch/index.rdf,News
+David Newberger - Blogs,http://www.davidnewberger.com,,,http://www.davidnewberger.com/feed/,Technology
+David Strom's Web Informant,http://strom.wordpress.com,,,http://strom.wordpress.com/feed/,Technology
+Deadspin,http://www.deadspin.com,,,http://www.deadspin.com/index.xml,Other
+deal architect,http://dealarchitect.typepad.com/deal_architect/,,,http://dealarchitect.typepad.com/deal_architect/index.rdf,Technology
+Deep Jive Interests,http://www.deepjiveinterests.com,,,http://feeds.feedburner.com/DeepJiveInterests,Technology
+del.icio.us/kathleen_fasanella,http://del.icio.us/kathleen_fasanella,,,http://del.icio.us/rss/kathleen_fasanella,Sewing
+Dennis Rice,http://www.gottabemobile.com,Dennis Rice,dennis@gottabemobile.com,http://www.gottabemobile.com/SyndicationService.asmx/GetRss,Technology
+Design Loft,http://designloft.blogspot.com/index.html,,,http://designloft.blogspot.com/feeds/posts/default?alt=rss,Sewing
+DeStash - Cash For Your Stash!,http://destash.blogspot.com,,,http://destash.blogspot.com/rss.xml,Sewing
+Destroy my Sweater,http://shepurls.blogspot.com/index.html,,,http://shepurls.blogspot.com/feeds/posts/default?alt=rss,Sewing
+diaryofasewingfanatic,http://sewingfantaticdiary.blogspot.com,,,http://sewingfantaticdiary.blogspot.com/rss.xml,Sewing
+Dictionary.com Word of the Day,http://www.dictionary.com/wordoftheday/,,,http://dictionary.reference.com/wordoftheday/wotd.rss,Other
+digg,http://digg.com/,,,http://digg.com/rss/index.xml,Technology
+Digital Inspiration,http://labnol.blogspot.com,,,http://feeds.feedburner.com/labnol,Technology
+Digital Markets,http://blogs.zdnet.com/micro-markets,,,http://blogs.zdnet.com/micro-markets/?feed=rss2,Technology
+Dion Hinchcliffe's Web 2.0 Blog,http://web2.wsj2.com/,,,http://web2.wsj2.com/index.rss,Technology
+Direct2Dell,http://www.direct2dell.com/one2one/default.aspx,Lionel Menchaca,lionel_menchaca@dell.com,http://www.direct2dell.com/one2one/rss.aspx,Technology
+Don Dodge on The Next Big Thing,http://dondodge.typepad.com/the_next_big_thing/,,,http://dondodge.typepad.com/the_next_big_thing/index.rdf,Technology
+Donna's SecurityFlash,http://msmvps.com/blogs/donna/default.aspx,,,http://msmvps.com/blogs/donna/rss.aspx,Technology
+Double-Tongued Word Wrester Citations,http://www.doubletongued.org/index.php,,,http://feeds.feedburner.com/Double-tonguedWordWresterDictionaryAll,Sewing
+Download Squad,http://www.downloadsquad.com,,,http://www.downloadsquad.com/rss.xml,Technology
+DS Fanboy,http://www.dsfanboy.com,,,http://www.dsfanboy.com/rss.xml,Technology
+duncanriley.com,http://www.duncanriley.com,,,http://www.duncanriley.com/feed/,Technology
+"EarthLink, Inc.",http://blogs.earthlink.net,Dave Coustan,coustanda@corp.earthlink.net,http://feeds.feedburner.com/EarthlingBlog,Technology
+Eat Golf,http://www.eatgolf.com/,,,http://www.eatgolf.com/eatgolf.php,Golf
+eBay Strategies,http://ebaystrategies.blogs.com/ebay_strategies/,,,http://ebaystrategies.blogs.com/ebay_strategies/index.rdf,Technology
+Ed Bott's Microsoft Report,http://blogs.zdnet.com/Bott,,,http://blogs.zdnet.com/Bott/?feed=rss2,Technology
+Ed Holloway,http://www.edholloway.com,Ed Holloway,ed@edholloway.com,http://www.edholloway.com/rss.aspx,Technology
+EdCone.com,http://edcone.typepad.com/wordup/,,,http://edcone.typepad.com/wordup/index.rdf,Technology
+edgeio - search the world's listings,http://blog.edgeio.com,,,http://feeds.feedburner.com/EdgeioBlog,Technology
+Ego Food,http://egofood.blogspot.com,,,http://egofood.blogspot.com/rss.xml,Technology
+ekebodesign blog,http://ekebodesign.eu/blog,,,http://ekebodesign.eu/blog/index.php/feed/,Sewing
+El blog de Frankie,http://frankieonline.blogspot.com/index.html,,,http://frankieonline.blogspot.com/feeds/posts/default?alt=rss,Poetry
+Ellen Lee,http://sfgate.com/cgi-bin/blogs/sfgate/indexn?blogid=19,Ellen Lee,elee@sfchronicle.com,http://feeds.sfgate.com/sfgate/rss/feeds/blogs/sfgate/techchron/index_rss1,Technology
+Emma & Co.,http://emma.prettyposies.com/,,,http://emma.prettyposies.com/index.rdf,Sewing
+Enchanting Juno,http://enchantingjuno.typepad.com/knit/,,,http://enchantingjuno.typepad.com/knit/index.rdf,Sewing
+Engadget,http://www.engadget.com/,Peter Rojas,,http://www.engadget.com/rss.xml,Technology
+english cut: bespoke savile row tailors,http://www.englishcut.com/,,,http://www.englishcut.com/index.rdf,Sewing
+Ensight - Jeremy Wright's Personal Blog,http://www.ensight.org,,,http://www.ensight.org/feed/,Technology
+Enterprise Web 2.0,http://www.enterpriseweb2.com,,,http://www.enterpriseweb2.com/?feed=rss2,Technology
+Environmental Republican,http://environmentalrepublican.blogspot.com,,,http://environmentalrepublican.blogspot.com/rss.xml,Other
+Eric Rice,http://www.ericrice.com/blog/,Eric Rice,emrice@mac.com,http://feeds.feedburner.com/ericrice,Technology
+Eric Strauss,http://ericmstrauss.com/,Eric Strauss,Eric.M.Strauss@abc.com,http://ericstrauss.blogspot.com/atom.xml,Technology
+Erik Herz,http://podslug.com/blog,Erik Herz,podslug@gmail.com,http://podslug.com/blog/?feed=rss2,Technology
+Europe - International Herald Tribune,http://www.iht.com/pages/europe/index.php,,,http://www.iht.com/rss/europe.xml,News
+Eurozine articles,http://www.eurozine.com,,,http://www.eurozine.com/rss.xml,News
+Even Par Round,http://evenparround.blogspot.com,,,http://evenparround.blogspot.com/rss.xml,Golf
+everybuddy.org,http://everybuddy.org,,,http://everybuddy.org/feed/,Technology
+eWEEK Security,http://security.eweek.com,,,http://rssnewsapps.ziffdavis.com/eweeksecurity.xml,Technology
+eWEEK Technology News,http://www.eweek.com,,,http://rssnewsapps.ziffdavis.com/tech.xml,Technology
+EYEWEAR,http://toddswift.blogspot.com/index.html,,,http://toddswift.blogspot.com/feeds/posts/default?alt=rss,Poetry
+fadtastic - a multi-author web design trends journal,http://fadtastic.net,,,http://fadtastic.net/?feed=rss2,Sewing
+Fashion Solutions,http://fashionsolutions.blogspot.com/index.html,,,http://fashionsolutions.blogspot.com/feeds/posts/default?alt=rss,Sewing
+Fashion-Incubator,http://WWW.fashion-incubator.com/mt/,,,http://WWW.fashion-incubator.com/mt/index.rdf,Sewing
+Fashioned,http://fashioned.blogspot.com/index.html,,,http://fashioned.blogspot.com/feeds/posts/default?alt=rss,Sewing
+Fast Company Now,http://blog.fastcompany.com/,,,http://blog.fastcompany.com/index.xml,Technology
+Feedonomics,http://feedonomics.grazr.com,,,http://feedonomics.grazr.com/index.php/feed/,Technology
+Feld Thoughts,http://www.feld.com/blog/,,,http://feeds.feedburner.com/FeldThoughts,Technology
+fey,http://www.fey.ca/,,,http://www.fey.ca/index.rdf,Sewing
+Fiberphile,http://fiberphile.typepad.com/fiberphile/,,,http://fiberphile.typepad.com/fiberphile/index.rdf,Sewing
+Fibre Addict,http://www.fibreaddict.com/blog,,,http://www.fibreaddict.com/blog/feed/,Sewing
+final fashion,http://finalfashion.ca,,,http://finalfashion.ca/?feed=rss2,Sewing
+FIRST THINGS: On the Square,http://www.firstthings.com/onthesquare,,,http://www.firstthings.com/onthesquare/wp-rdf.php,News
+FOXNews,http://www.foxnews.com/,,,"http://www.foxnews.com/xmlfeed/rss/0,4313,0,00.rss",News
+Fractals of Change,http://blog.tomevslin.com/,,,http://blog.tomevslin.com/index.rdf,Technology
+Fraggle Knits,http://fraggleknits.blogspot.com,,,http://fraggleknits.blogspot.com/rss.xml,Sewing
+Frank Barnako,http://blogs.marketwatch.com/barnako/,,,http://feeds.marketwatch.com/marketwatch/blogs/barnako,Technology
+Fred Destin,http://www.freddestin.com/blog/,,,http://www.freddestin.com/blog/index.rdf,Technology
+Froggie Meanie,http://froggiemeanie.blogspot.com,,,http://froggiemeanie.blogspot.com/rss.xml,Sewing
+From Istanbul To Sand Hill Road,http://baris.typepad.com/venture_capitalist/,,,http://baris.typepad.com/venture_capitalist/index.rdf,Technology
+From the Mind of the Dawnie,http://dawnie.com,,,http://dawnie.com/?feed=rss2,Sewing
+fusionknitting.com,http://fusionknitting.com,,,http://fusionknitting.com/wp-rss2.php,Sewing
+Future Works,http://www.briansolis.com/,Brian Solis,brian@future-works.com,http://briansolis.com/rss.xml,Technology
+Gadget Lab,http://blog.wired.com/gadgets/,,,http://blog.wired.com/gadgets/index.rdf,Technology
+Gadgetell.com,http://www.gadgetell.com/,Adam Berger,,http://www.gadgetell.com/feed/,Technology
+"Gallery by the Bay & PromoteWorks, Inc",http://gallerybythebay.com,Gayle Picken,gayle@gallerybythebay.com,http://www.gallerybythebay.com/feed/,Technology
+Gamasutra Feature Articles,http://www.gamasutra.com/features,,,http://feeds.feedburner.com/GamasutraFeatureArticles/,Technology
+"Game - Life",http://blog.wired.com/games/,,,http://blog.wired.com/games/index.rdf,Technology
+GamesIndustry.biz,http://www.gamesindustry.biz,,,http://www.gamesindustry.biz/rss/gamesindustry_news_feed.rss,Technology
+gapingvoid: cartoons drawn on the back of business cards,http://www.gapingvoid.com/,,,http://www.gapingvoid.com/index.rdf,Technology
+Gear Live,http://www.gearlive.com,Andru Edwards,andru@gearlive.com,http://www.pheedo.com/f/gear_live626,Technology
+Geek News Central,http://www.geeknewscentral.com/,Todd Cochrane,geek@geeknewscentral.com,http://www.geeknewscentral.com/index.xml,Technology
+Geeking with Greg,http://glinden.blogspot.com,,,http://glinden.blogspot.com/rss.xml,Technology
+Gene Expression,http://www.gnxp.com/blog/,,,http://www.gnxp.com/blog/rss.xml,News
+Geo Perdis,http://Labrats.tv,Geo Perdis,geo@labrats.tv,http://www.labrats.tv/blog/?feed=rss2,Technology
+Getting To Scratch,http://www.gettingtoscratch.com,,,http://www.gettingtoscratch.com/feed/,Golf
+GigaGamez,http://gigagamez.com,,,http://gigagamez.com/feed/,Technology
+Gizmodo,http://www.gizmodo.com/,Brian Lam,"blam@gizmodo.com, travis@gizmodo.com, charlie@gizmodo.com, jchen@gizmodo.com, ndeleon@gizmodo.com, mark@gizmodo.com, blam@gizmodo.com, travis@gizmodo.com, charlie@gizmodo.com, jchen@gizmodo.com, ndeleon@gizmodo.com, mark@gizmodo.com",http://www.gizmodo.com/index.xml,Technology
+"Gizmodo: BitTorrent, bittorrent entertainment network emerges from seedier side of intarwebs on monday 239494.php",http://www.gizmodo.com,,,http://gizmodo.com/gadgets/bittorrent/bittorrent-entertainment-network-emerges-from-seedier-side-of-intarwebs-on-monday-239494.php/index.xml,Technology
+Gizmos for Geeks,http://www.gizmosforgeeks.com/,Doug Felteau,,http://www.gizmosforgeeks.com/?theme=rss,Technology
+Glass House,http://glasshouse.waggeneredstrom.com/blogs/frankshaw/default.aspx,,,http://glasshouse.waggeneredstrom.com/blogs/frankshaw/rss.aspx,Technology
+Global Nerdy,http://globalnerdy.com,,,http://feeds.feedburner.com/GlobalNerdy,Technology
+Go Fug Yourself,http://gofugyourself.typepad.com/go_fug_yourself/,,,http://gofugyourself.typepad.com/go_fug_yourself/index.rdf,Sewing
+Go Nintendo,http://gonintendo.com,,,http://gonintendo.com/?feed=rss2,Technology
+Gods of Commerce,http://phillips.blogs.com/goc/,,,http://phillips.blogs.com/goc/index.rdf,News
+Golf Blogger,http://www.golfblogger.com/index.php/golf/index/,,,http://www.golfblogger.com/index.php/golf/rss_2.0/,Golf
+Golf Gear News,http://golfgearcenter.blogspot.com/index.html,,,http://golfgearcenter.blogspot.com/feeds/posts/default?alt=rss,Golf
+GolfDash,http://golfdash.blogspot.com,,,http://golfdash.blogspot.com/rss.xml,Golf
+Good Morning Silicon Valley,http://blogs.siliconvalley.com/gmsv/,,,http://blogs.siliconvalley.com/gmsv/index.rdf,Technology
+Google Blogoscoped,http://blog.outer-court.com,,,http://blog.outer-court.com/rss.xml,Technology
+Google Code - Updates,http://google-code-updates.blogspot.com/index.html,,,http://google-code-updates.blogspot.com/feeds/posts/default?alt=rss,Technology
+Googlified,http://googlified.com,,,http://googlified.com/feed/,Technology
+Googling Google,http://blogs.zdnet.com/Google,,,http://blogs.zdnet.com/Google/?feed=rss2,Technology
+Gorgeous Things' Blog,http://gorgeousthings.blogspot.com/index.html,,,http://gorgeousthings.blogspot.com/feeds/posts/default?alt=rss,Sewing
+Graywolf's SEO Blog,http://www.wolf-howl.com,,,http://www.wolf-howl.com/feed/,Technology
+Greg Boser - Search Marketing Consultant - aka WebGuerrilla,http://www.webguerrilla.com,,,http://www.webguerrilla.com/feed/,Technology
+Grouchy Golf Blog,http://grouchygolf.blogspot.com,,,http://grouchygolf.blogspot.com/rss.xml,Golf
+gSpy,http://gspy.blogspot.com/index.html,,,http://gspy.blogspot.com/feeds/posts/default?alt=rss,Technology
+Guardian Unlimited: Technology blog,http://blogs.guardian.co.uk/technology/,,,http://blogs.guardian.co.uk/technology/index.xml,Technology
+Guinea Pig TV,http://guineapigtv.blogspot.com,,,http://guineapigtv.blogspot.com/rss.xml,Technology
+Hans Veldhuizen,http://hansveld.wordpress.com,Hans Veldhuizen,hans@indictis.com,http://hansveld.wordpress.com/feed/,Technology
+Happy Sewing,http://happysewing.blogspot.com,,,http://happysewing.blogspot.com/rss.xml,Sewing
+Hard Drive Life,http://harddrivelife.com,,,http://harddrivelife.com/feed/,Technology
+Hardware 2.0,http://blogs.zdnet.com/hardware,,,http://blogs.zdnet.com/hardware/?feed=rss2,Technology
+Harry Chen Thinks Aloud,http://harry.hchen1.com,,,http://harry.hchen1.com/feed/,Technology
+Health Benefits of Green Tea,http://healthbenefitsofgreentea.blogspot.com/index.html,,,http://healthbenefitsofgreentea.blogspot.com/feeds/posts/default?alt=rss,Other
+Heaneyland!,http://www.yarnivore.com/francis/,,,http://www.yarnivore.com/francis/index.rdf,Sewing
+Heraclitean Fire,http://heracliteanfire.net,,,http://heracliteanfire.net/feed/,Poetry
+Hiten Parmer,http://blog.madh.org,Hiten Parmer,hrparmar@gmail.com,http://blog.madh.org/feed/,Technology
+Hook & Needles,http://boundbymyhook.blogspot.com/index.html,,,http://boundbymyhook.blogspot.com/feeds/posts/default?alt=rss,Sewing
+Hooked On Golf Blog,http://www.hookedongolfblog.com,,,http://www.hookedongolfblog.com/feed/,Golf
+Howard Lindzon,http://howardlindzon.com,,,http://howardlindzon.com/?feed=rss2,Technology
+howardowens.com: media blog,http://www.howardowens.com,,,http://www.howardowens.com/feed/,Technology
+hubbub,http://hubbub.typepad.com/blog/,,,http://hubbub.typepad.com/blog/index.rdf,Technology
+hypebot,http://hypebot.typepad.com/hypebot/,,,http://hypebot.typepad.com/hypebot/index.rdf,Technology
+Ian Dixon,http://iandixon.co.uk/blog,Ian Dixon,isdixon@gmail.com,http://iandixon.spaces.live.com/feed.rss,Technology
+Idiom Savant,http://idiomsavant.typepad.com/blog/,,,http://idiomsavant.typepad.com/blog/index.rdf,Sewing
+"iLounge - All Things iPod, iTunes and beyond",http://www.iLounge.com,,,http://www.ilounge.com/index.php/ilounge/rss_1.0/,Technology
+Ilounge News,http://ilounge.com/index.php/news/,,,http://www.ilounge.com/index.php/news/rss_1.0/,Technology
+Improbable Research,http://improbable.com,,,http://improbable.com/feed/,News
+In Absentia,http://amc-ausencia.blogspot.com/index.html,,,http://amc-ausencia.blogspot.com/feeds/posts/default?alt=rss,Golf
+In the Pipeline,http://pipeline.corante.com/,,,http://pipeline.corante.com/index.xml,News
+In These Times,http://www.inthesetimes.com/,,,http://feeds.feedburner.com/InTheseTimes,News
+In-Feltradas,http://infeltradas.blogspot.com,,,http://infeltradas.blogspot.com/rss.xml,Poetry
+Incremental Blogger,http://journals.tuxreports.com/lch/,Loren Heiny,,http://journals.tuxreports.com/lch/index.rdf,Technology
+Indianapols 500 News,http://www.indy500.com/news/,,,http://www.indy500.com/rss.php,Other
+inessential.com,http://inessential.com/,,,http://inessential.com/xml/rss.xml,Technology
+Infinite Loop,http://arstechnica.com/journals/apple.ars,,,http://arstechnica.com/journals/apple.rssx,Technology
+Infothought,http://sethf.com/infothought/blog/,,,http://sethf.com/infothought/blog/index.rdf,Technology
+InfoWorld Tech Watch,http://weblog.infoworld.com/techwatch/,,,http://weblog.infoworld.com/techwatch/rss.xml,Technology
+InfoWorld: Top News,http://www.infoworld.com/news/index.html,,,http://www.infoworld.com/rss/news.xml,Technology
+Innovation in College Media,http://www.collegemediainnovation.org/blog,,,http://www.collegemediainnovation.org/blog/feed/,Technology
+Inside AdSense,http://adsense.blogspot.com/index.html,,,http://adsense.blogspot.com/feeds/posts/default?alt=rss,Technology
+InsideGoogle,http://google.blognewschannel.com,,,http://google.blognewschannel.com/feed/,Technology
+Instapundit.com (v.2),http://instapundit.com/,,,http://feeds.feedburner.com/instapundit/main,News
+InsureMe,http://www.insuremeblog.com/affiliate/,James Omdahl,jomdahl@insureme.com,http://www.insuremeblog.com/affiliate/index.xml,Technology
+InterActive Home,http://blog.activehome.co.uk/,,,http://blog.activehome.co.uk/index.rdf,Technology
+Intermountain Healthcare,http://donseamons.blogspot.com/,Don Seamons,drseamons@gmail.com,http://donseamons.blogspot.com/rss.xml,Technology
+Internet Outsider,http://www.internetoutsider.com/,,,http://www.internetoutsider.com/index.rdf,Technology
+Intuitive Systems,http://www.askdavetaylor.com/,Dave Taylor,taylor@intuitive.com,http://www.askdavetaylor.com/index.xml,Technology
+IP Democracy,http://www.ipdemocracy.com/,,,http://www.ipdemocracy.com/index.rdf,Technology
+"IP Telephony, VoIP, Broadband",http://blogs.zdnet.com/ip-telephony,,,http://blogs.zdnet.com/ip-telephony/?feed=rss2,Technology
+IPcentral Weblog,http://weblog.ipcentral.info/,,,http://weblog.ipcentral.info/index.rdf,Technology
+IR Web Report Blog,http://www.irwebreport.com/daily,,,http://www.irwebreport.com/daily/feed/,Technology
+Irishknits,http://irishknits.blogspot.com/index.html,,,http://irishknits.blogspot.com/feeds/posts/default?alt=rss,Sewing
+Is it a sweater yet?,http://cast.off.net/,,,http://cast.off.net/index.rdf,Sewing
+IT Garage,http://garage.docsearls.com/,Doc Searls,doc@ssc.com,http://www.itgarage.com/rss.xml,Technology
+It is Rocket Science!,http://itisrocketscience.typepad.com/knitting/,,,http://itisrocketscience.typepad.com/knitting/index.rdf,Sewing
+It's Not About Your Stuff,http://www.its-not-about-your-stuff.com/,Jessica Duquette,jessica@inperfectorder.com,http://www.its-not-about-your-stuff.com/index.rdf,Technology
+IT-Redux,http://itredux.com/blog,,,http://itredux.com/blog/feed/,Technology
+iTWire - Latest Headlines,http://www.itwire.com.au,,,http://www.itwire.com.au/index2.php?option=com_rss&amp;feed=RSS2.0&amp;no_html=1,Technology
+Jacquie's Journal,http://jacquie.typepad.com/my_weblog/,,,http://jacquie.typepad.com/my_weblog/index.rdf,Sewing
+Jake Ludington,http://www.jakeludington.com,Jake Ludington,jake@jakeludington.com,http://feeds.jakeludington.com/mediablab,Technology
+James Bowman's RSS,http://www.jamesbowman.net/rss/jamesbowman.xml,,,http://www.jamesbowman.net/rss/jamesbowman.xml,News
+James Wolcott's Blog,http://www.vanityfair.com/politics/blogs/wolcott/,,,http://www.vanityfair.com/politics/blogs/wolcott/index.rdf,News
+Jason Unger,http://jasonunger.com,Jason Unger,junger@ehpub.com,http://feeds.feedburner.com/jungerpants,Technology
+JD on EP,http://weblogs.macromedia.com/jd/,,,http://weblogs.macromedia.com/jd/index.rdf,Technology
+Jeff McMillen,http://quietcompany.blogspot.com/,Jeff McMillen,jeff@somepants.com,http://quietcompany.blogspot.com/feeds/posts/default,Technology
+Jeffrey McManus,http://mcmanus.typepad.com/grind/,,,http://mcmanus.typepad.com/grind/index.rdf,Technology
+Jeremy Toeman,http://www.livedigitally.com,Jeremy Toeman,jeremy@livedigitally.com,http://www.livedigitally.com/feed/,Technology
+Jeremy Zawodny's Blog,http://jeremy.zawodny.com/blog,Jeremy Zawodny,jeremy@zawodny.com,http://jeremy.zawodny.com/blog/rss2.xml,Technology
+Jim Courtney,http://skypejournal.com,Jim Courtney,jim.courtney@dicx.com,http://www.skypejournal.com/atom.xml,Technology
+jkOnTheRun,http://jkontherun.blogs.com/jkontherun/,,,http://jkontherun.blogs.com/jkontherun/index.rdf,Technology
+Joe Duck,http://joeduck.wordpress.com,,,http://joeduck.wordpress.com/feed/,Technology
+Joe Walker's Blog,http://getahead.ltd.uk:80/blog/joe/,,,http://getahead.ltd.uk:80/blog/joe/rss.xml,Technology
+John Battelle's Searchblog,http://battellemedia.com/,,,http://battellemedia.com/index.xml,Technology
+John Chow,http://johnchow.com,John Chow,april@thetechzone.com,http://feeds.feedburner.com/JohnChowDotCom,Technology
+John Chow dot Com,http://www.johnchow.com,,,http://www.johnchow.com/feed/,Technology
+John Tokash's Blog,http://blog.tokash.org,,,http://feeds.feedburner.com/JohnTokash,Technology
+Joho the Blog,http://www.hyperorg.com/blogger/,,,http://www.hyperorg.com/blogger/index.rdf,Technology
+Jon Udell's Weblog,http://weblog.infoworld.com/udell,Jon Udell,jon_udell@infoworld.com,http://weblog.infoworld.com/udell/rss.xml,Technology
+Josh Phillips,http://windowsconnected.com,Josh Phillips,josh@windowsconnected.com,http://feeds.feedburner.com/WindowsConnected,Technology
+journal writing <br> and other ways to talk to myself,http://arleneang.blogspot.com/index.html,,,http://arleneang.blogspot.com/feeds/posts/default?alt=rss,Poetry
+Journalistopia,http://journalistopia.com,,,http://journalistopia.com/feed/,Technology
+Journerdism,http://www.journerdism.com/index.php,,,http://www.journerdism.com/index.php/feed/,Technology
+Joystiq,http://www.joystiq.com,,,http://www.joystiq.com/rss.xml,Technology
+JPost.com Headlines,http://www.jpost.com/,,,http://www.jpost.com/servlet/Satellite?pagename=JPost/Page/RSS&cid=1123495333389,News
+Julie Leung: Seedlings & Sprouts,http://www.julieleung.com/,,,http://www.julieleung.com/index.rdf,Technology
+Jumping off cliffs,http://earthshoes41.blogspot.com/index.html,,,http://earthshoes41.blogspot.com/feeds/posts/default?alt=rss,Poetry
+Just Another Army Wife,http://shelsmom.blogspot.com/index.html,,,http://shelsmom.blogspot.com/feeds/posts/default?alt=rss,Sewing
+Karina's Sewing Journal,http://kaybeeunique.blogspot.com/index.html,,,http://kaybeeunique.blogspot.com/feeds/posts/default?alt=rss,Sewing
+Kathen Knits,http://kathen.blogspot.com,,,http://kathen.blogspot.com/rss.xml,Sewing
+Keith Teare's Weblog,http://www.teare.com,,,http://www.teare.com/feed/,Technology
+Kevin Burton's Feed Blog,http://www.feedblog.org/,,,http://feeds.feedburner.com/Feedblog,Technology
+Kevin Hsieh,http://1000words.kodak.com/,Kevin Hsieh,khsieh@kodakgallery.com,http://1000words.kodak.com/community/feeds/rss.asp,Technology
+kittycafe,http://kittycafe.typepad.com/kittycafe/,,,http://kittycafe.typepad.com/kittycafe/index.rdf,Sewing
+knit lit,http://knitlit.blogspot.com,,,http://knitlit.blogspot.com/rss.xml,Sewing
+Knitman,http://colinknits.blogspot.com/index.html,,,http://colinknits.blogspot.com/feeds/posts/default?alt=rss,Sewing
+KnitMe,http://www.mamaliz.org/blogs/pinktea/,,,http://www.mamaliz.org/blogs/pinktea/index.rdf,Sewing
+Knits Well With Others,http://knitswellwithothers.blogspot.com/index.html,,,http://knitswellwithothers.blogspot.com/feeds/posts/default?alt=rss,Sewing
+Knitting Blogs,http://www.boogaj.com/knitting_blogs/,,,http://www.boogaj.com/knitting_blogs/index.rdf,Sewing
+"Know It All - Ed Cone, CIO Insight Magazine",http://blog.eweek.com/blogs/knowitall/default.aspx,,,http://blog.eweek.com/blogs/knowitall/rss.aspx,Technology
+Know More Media,http://www.knowmoremedia.com/,Tim Stay,timstay@gmail.com,http://feeds.feedburner.com/KMM,Technology
+Kotaku,http://www.kotaku.com,,,http://www.kotaku.com/index.xml,Technology
+"Kotaku: Chocolate, a wiimote you can eat 237272.php",http://www.kotaku.com,,,http://kotaku.com/gaming/chocolate/a-wiimote-you-can-eat-237272.php/index.xml,Technology
+kottke.org,http://www.kottke.org/,,,http://feeds.kottke.org/main,Technology
+larry borsato,http://larryborsato.com/blog/,,,http://larryborsato.com/blog/index.rdf,Technology
+Las Vegas Blog,http://www.lasvegasvegas.com/,,,http://www.lasvegasvegas.com/index.xml,Poker
+Laughing Squid,http://laughingsquid.com,,,http://feeds.laughingsquid.com/laughingsquid,Technology
+Layne Heiny,http://www.umpcbuzz.com,Layne Heiny,,http://www.umpcbuzz.com/blogs/MainFeed.aspx,Technology
+Le Mini-gloB,http://lemini-glob.blogspot.com,,,http://lemini-glob.blogspot.com/rss.xml,Sewing
+LeeAnn Prescott - Hitwise US,http://weblogs.hitwise.com/leeann-prescott/,,,http://weblogs.hitwise.com/leeann-prescott/index.xml,Technology
+Legal Pad,http://legalpad.typepad.com/my_weblog/,,,http://legalpad.typepad.com/my_weblog/index.rdf,Technology
+Legal Theory Blog,http://lsolum.typepad.com/legaltheory/,,,http://lsolum.typepad.com/legaltheory/index.rdf,Other
+Leiter Reports:  A Group Blog,http://leiterreports.typepad.com/blog/,,,http://leiterreports.typepad.com/blog/index.rdf,News
+LEWIS 360°,http://www.lewis360.com/,,,http://www.lewis360.com/index.rdf,Technology
+Lifehacker,http://www.lifehacker.com,,,http://lifehacker.com/index.xml,Technology
+LiveSide - Windows Live news and interviews,http://liveside.net/blogs/default.aspx,,,http://feeds.feedburner.com/liveside,Technology
+Lockergnome,http://chris.pirillo.com/,Chris Pirillo,chris@lockergnome.com,http://feeds.pirillo.com/ChrisPirillo,Technology
+Long Zheng,http://www.istartedsomething.com,Long Zheng,long.zheng@gmail.com,http://feeds.feedburner.com/istartedsomething,Technology
+Lora Heiny,http://www.whatisnew.com,Lora Heiny,ljheiny@hotmail.com,http://www.whatisnew.com/rss.aspx,Technology
+Lorelle on WordPress,http://lorelle.wordpress.com,,,http://lorelle.wordpress.com/feed/,Technology
+Los Angeles Times - Commentary,http://www.latimes.com/news/opinion/commentary/?track=rss,,,http://feeds.latimes.com/latimes/news/opinion/commentary,Technology
+Lost Remote,http://www.lostremote.com,,,http://www.lostremote.com/feed/,Technology
+Luta por um Objectivo,http://compesoemedida.blogspot.com/index.html,,,http://compesoemedida.blogspot.com/feeds/posts/default?alt=rss,Sewing
+M-Dollar,http://arstechnica.com/journals/microsoft.ars,,,http://arstechnica.com/journals/microsoft.rssx,Technology
+m-trends.org,http://www.m-trends.org,,,http://www.m-trends.org/feed/,Technology
+Macbook Random Shutdown,http://www.macbookrandomshutdown.com,,,http://www.macbookrandomshutdown.com/feed/,Technology
+Machine Knitting WebRing,http://machineknittingring.blogspot.com/index.html,,,http://machineknittingring.blogspot.com/feeds/posts/default?alt=rss,Sewing
+MacRumors : Mac News and Rumors,http://www.macrumors.com,,,http://www.macrumors.com/macrumors.xml,Technology
+Macworld UK,http://www.macworld.co.uk,,,http://www.macworld.co.uk/rss/macworld.xml,Technology
+making things,http://andreatung.blogspot.com,,,http://andreatung.blogspot.com/rss.xml,Sewing
+Manolo's Shoe Blog,http://shoeblogs.com/wordpress,,,http://shoeblogs.com/wordpress/feed/,Sewing
+Manthan,http://amanthan.blogspot.com/index.html,,,http://amanthan.blogspot.com/feeds/posts/default?alt=rss,Technology
+Marginal Revolution,http://www.marginalrevolution.com/marginalrevolution/,,,http://www.marginalrevolution.com/marginalrevolution/index.rdf,News
+Mark Evans,http://markevanstech.com,,,http://markevanstech.com/?feed=rss2,Technology
+Marketing Blog Bent On Market Research & Advertising Technology,http://www.marketingshift.com/,,,http://feeds.marketingshift.com/marketingshift,Technology
+MarketingVOX - The Voice of Online Marketing,http://www.marketingvox.com,,,http://feeds.marketingvox.com/marketingvox/rss,Technology
+MarketWatch.com - Top Stories – Sponsored by: CyberTrader,http://www.marketwatch.com/news/default.asp?dist=rss,,,http://feeds.marketwatch.com/marketwatch/topstories/,News
+"Mary Grabar, Unlimited",http://marygrabar.blogspot.com,,,http://marygrabar.blogspot.com/rss.xml,News
+Mary's Blog,http://www.maryschmidt.com,,,http://www.maryschmidt.com/feed/,Technology
+Maryam,http://maryamie.spaces.live.com/,Maryam Scoble,maryam@hitorro.net,http://maryamie.spaces.live.com/feed.rss,Technology
+Mashable,http://www.mashable.com/journal/,Pete Cashmore,petecashmore@gmail.com,http://feeds.feedburner.com/MashableJournal,Technology
+Mashable!,http://mashable.com,,,http://feeds.feedburner.com/Mashable,Technology
+Mathew Ingram: mathewingram.com/work,http://www.mathewingram.com/work,,,http://feeds.feedburner.com/Mathewingramcom/work,Technology
+Mathieu Nouzareth,http://boonty.typepad.com/boonty/,Mathieu Nouzareth,mathieu@boonty.com,http://boonty.typepad.com/boonty/atom.xml,Technology
+"Matt Cutts: Gadgets, Google, and SEO",http://www.mattcutts.com/blog,,,http://www.mattcutts.com/blog/feed/,Technology
+Matthew Miller,http://blogs.zdnet.com/mobile-gadgeteer/,Matthew Miller,palmsolo@gmail.com,http://feeds.feedburner.com/zdnet/mobile-gadgeteer,Technology
+Mauricio Freitas,http://www.geekzone.co.nz/freitasm,Mauricio Freitas,freitasm@geekzone.co.nz,http://feeds.feedburner.com/gzfreitasm,Technology
+Media Matters for America,http://mediamatters.org/,,,http://mediamatters.org/tools/syndication/latest.rss,News
+Medialoper,http://www.medialoper.com,,,http://www.medialoper.com/feed/,Technology
+Melody Yarns Knits,http://melodyyarns.blogspot.com,,,http://melodyyarns.blogspot.com/rss.xml,Sewing
+Memex 1.1,http://memex.naughtons.org,,,http://memex.naughtons.org/feed/,News
+MEN.STYLE.COM: NEW FEATURES,http://men.style.com/?mbid=rss_msnf,,,http://men.style.com/services/rss/feeds/mens_features.xml,Sewing
+Message,http://www.stoweboyd.com/message/,,,http://feeds.feedburner.com/stoweboyd/wpeL,Technology
+Metia Group,http://rockettscience.blogspot.com/,Wade Rockett,wade.rockett@write-image.com,http://rockettscience.blogspot.com/feeds/posts/default?alt=rss,Technology
+Michael Coates,http://blog.opsan.com/,Michael Coates,Michael.Coates@microsoft.com,http://blog.opsan.com/rss.aspx,Technology
+Michael Gartenberg,http://weblogs.jupiterresearch.com/analysts/gartenberg/,,,http://weblogs.jupiterresearch.com/analysts/gartenberg/index.rdf,Technology
+Michael Geist's Blog,http://www.michaelgeist.ca,,,http://www.michaelgeist.ca/rssf_gist.php,Technology
+Michael Greene,http://blogs.technet.com/migreene,Michael Greene,Michael.greene@microsoft.com,http://blogs.technet.com/migreene/rss.xml,Technology
+Michael Moncur,http://www.gadgetspage.com,Michael Moncur,moncur@gmail.com,http://www.gadgetspage.com/feed/,Technology
+Mickeleh's Take,http://mickeleh.blogspot.com,,,http://mickeleh.blogspot.com/rss.xml,Technology
+Micro Persuasion,http://www.micropersuasion.com/,Steve Rubel,steverubel@gmail.com,http://www.micropersuasion.com/index.rdf,Technology
+Microsoft,http://blogs.msdn.com/betsya/,Betsy Aoki,betsya@microsoft.com,http://blogs.msdn.com/betsya/rss.xml,Technology
+Microsoft 10,http://on10.net/,,,http://www.on10.net/feeds/rss/,Technology
+Microsoft News Tracker,http://www.hunterstrat.com/news,,,http://www.hunterstrat.com/news/feed/,Technology
+Ministry of Tech,http://www.ministryoftech.com,,,http://www.ministryoftech.com/feed/,Technology
+Miscellanea,http://gloriaoriggi.blogspot.com,,,http://gloriaoriggi.blogspot.com/rss.xml,News
+MissMalaprop.com - indie finds for your uncommon life,http://www.missmalaprop.com,,,http://www.missmalaprop.com/feed/,Sewing
+mitchell's blog,http://weblogs.mozillazine.org/mitchell/,,,http://weblogs.mozillazine.org/mitchell/index.rdf,Technology
+MIU MIU KNITS,http://miumiuknits.blogspirit.com/,,,http://miumiuknits.blogspirit.com/index.rss,Sewing
+MobileCrunch,http://mobilecrunch.com,,,http://feeds.feedburner.com/Mobilecrunch,Technology
+MondoMode,http://mondomode.blogspot.com,,,http://MondoMode.blogspot.com/rss.xml,Sewing
+Monica Betancourt,http://www.geektastik.com,Monica Betancourt,geektastik@gmail.com,http://geektastik42.blogspot.com/feeds/posts/default,Technology
+Monkey Bites,http://blog.wired.com/monkeybites/,,,http://blog.wired.com/monkeybites/index.rdf,Technology
+Monkey on Wordpress,http://addmonkey.wordpress.com,,,http://addmonkey.wordpress.com/feed/,Technology
+Mostly Sewing,http://mostlysewing.lucidway.org,,,http://mostlysewing.lucidway.org/feed/,Sewing
+mozilla links,http://mozillalinks.org/wp,,,http://feeds.feedburner.com/mozillalinks,Technology
+Ms. Magazine Online,http://www.msmagazine.com,,,http://feeds.feedburner.com/MsMagazine,News
+MSDN Blogs,http://blogs.msdn.com/default.aspx,,,http://blogs.msdn.com/MainFeed.aspx,Technology
+MultiVu General News,http://www.multivu.com,,,http://www.prnewswire.com/broadcast/rss/anr-rss.xml,News
+My Daily Slice of Golf Blog,http://mydailyslice.blogspot.com/index.html,,,http://mydailyslice.blogspot.com/feeds/posts/default?alt=rss,Golf
+My Sewing and KnittAntics,http://knittantics.blogspot.com,,,http://knittantics.blogspot.com/rss.xml,Sewing
+myFeedz Development Blog,http://blog.myfeedz.com,,,http://blog.myfeedz.com/feed/,Technology
+MySQL Performance Blog,http://www.mysqlperformanceblog.com,,,http://www.mysqlperformanceblog.com/feed/,Technology
+nachtwachemachtmuede,http://naechstenliebe.blogspot.com,,,http://naechstenliebe.blogspot.com/rss.xml,Sewing
+NancyKay Shapiro,http://nancykayshapiro.livejournal.com/,,,http://nancykayshapiro.livejournal.com/data/rss,Sewing
+NationMaster Stats Feed,http://www.nationmaster.com,,,http://www.nationmaster.com/rss-stats.php,News
+Navel Orange,http://navelorange.blogspot.com/index.html,,,http://navelorange.blogspot.com/feeds/posts/default?alt=rss,Poetry
+Needles and Wool,http://www.needlesandwool.com/,,,http://www.needlesandwool.com/index.rdf,Sewing
+Needles of Steel,http://needlesofsteel.blogspot.com/index.html,,,http://needlesofsteel.blogspot.com/feeds/posts/default?alt=rss,Sewing
+Neowin.net,http://www.neowin.net,Tom Warren,tomw@neowin.net,http://www.neowin.net/fb.php?page=all,Technology
+NevOn,http://nevon.typepad.com/,Neville Hobson,neville.hobson@gmail.com,http://www.nevon.net/nevon/index.rdf,Technology
+New Partisan,http://www.newpartisan.com/home/,,,http://www.newpartisan.com/home/rss.xml,News
+Newman's Needle,http://newmansneedle.blogspot.com,,,http://newmansneedle.blogspot.com/rss.xml,Sewing
+Niall Kennedy's Weblog,http://www.niallkennedy.com/blog/,,,http://www.niallkennedy.com/blog/index.xml,Technology
+Noo's Knits & Other Bits,http://auntienoo.blogspot.com/index.html,,,http://auntienoo.blogspot.com/feeds/posts/default?alt=rss,Sewing
+Norge Thingy,http://glacia.blogspot.com,,,http://glacia.blogspot.com/rss.xml,Sewing
+normblog,http://normblog.typepad.com/normblog/,,,http://normblog.typepad.com/normblog/index.rdf,News
+Not a Fish,http://imshin.net,,,http://imshin.net/wp-rss2.php,News
+NOT Cheaper By The Dozen,http://notcheaperbythedozen.blogspot.com,,,http://notcheaperbythedozen.blogspot.com/rss.xml,Sewing
+notgartner,http://notgartner.wordpress.com,,,http://notgartner.wordpress.com/feed/,Technology
+Now Norma Knits,http://nownormaknits2.typepad.com/now_norma_knits_2/,,,http://nownormaknits2.typepad.com/now_norma_knits_2/index.rdf,Sewing
+NPR Topics: News,http://www.npr.org/templates/topics/topic.php?topicId=1001&ft=1&f=1001,,,http://www.npr.org/rss/rss.php?id=1001,News
+NVIDIA Podcast,http://www.nvidia.com/page/technology_vista_community.html,,,http://www.nvidia.com/content/rss/nvidia_podcast.xml,Technology
+Nyquist Capital,http://www.nyquistcapital.com/,Andrew Schmitt,schmitt@nyquistcapital.com,http://feeds.feedburner.com/NyquistCapital,Technology
+O'Reilly Emerging Telephony,http://www.oreillynet.com/etel/blog/,,,http://www.oreillynet.com/etel/blog/index.xml,Technology
+O'Reilly ONLamp Blog,http://www.oreillynet.com/onlamp/blog/,,,http://www.oreillynet.com/onlamp/blog/index.xml,Technology
+OakLeaf Systems,http://oakleafblog.blogspot.com/index.html,,,http://oakleafblog.blogspot.com/feeds/posts/default?alt=rss,Technology
+Obsessed with Embellishment,http://ilovetrim.blogspot.com,,,http://ilovetrim.blogspot.com/rss.xml,Sewing
+Off On A Tangent,http://offonatangent.blogspot.com,,,http://offonatangent.blogspot.com/rss/offonatangent.xml,Technology
+Off The Cuff,http://off-the-cuff-style.blogspot.com,,,http://off-the-cuff-style.blogspot.com/rss.xml,Sewing
+Office Evolution,http://blogs.zdnet.com/Orchant,,,http://blogs.zdnet.com/Orchant/?feed=rss2,Technology
+Official Google Blog,http://googleblog.blogspot.com,,,http://googleblog.blogspot.com/rss.xml,Technology
+Official Google Mac Blog,http://googlemac.blogspot.com,,,http://googlemac.blogspot.com/rss.xml,Technology
+Official Google Reader Blog,http://googlereader.blogspot.com/index.html,,,http://googlereader.blogspot.com/feeds/posts/default?alt=rss,Technology
+Official Google Research Blog,http://googleresearch.blogspot.com,,,http://googleresearch.blogspot.com/rss.xml,Technology
+Ogle Earth,http://www.ogleearth.com/,,,http://feeds.ogleearth.com/ogleearth,Technology
+OhGizmo!,http://www.ohgizmo.com,,,http://www.ohgizmo.com/feed/,Technology
+Oluf Nissen,http://www.geektieguy.com,Oluf Nissen,geektieguy@geektieguy.com,http://www.geektieguy.com/feed/,Technology
+Open Access News,http://www.earlham.edu/~peters/fos/fosblog.html,,,http://feeds.feedburner.com/earlham/dGCQ,Technology
+Open Sources,http://weblog.infoworld.com/openresource/,,,http://weblog.infoworld.com/openresource/rss.xml,Technology
+openDemocracy.net,http://www.opendemocracy.net,,,http://www.opendemocracy.net/xml/rss/home/index.xml,Other
+Opposable Thumbs,http://arstechnica.com/journals/thumbs.ars,,,http://arstechnica.com/journals/thumbs.rssx,Technology
+Orbitcast,http://www.orbitcast.com/,,,http://www.orbitcast.com/index.xml,Technology
+Overlawyered,http://www.overlawyered.com/,,,http://www.overlawyered.com/index.xml,Other
+OxBlog,http://oxblog.blogspot.com,,,http://oxblog.blogspot.com/rss.xml,News
+P2P Blog,http://www.p2p-blog.com/,,,http://feeds.feedburner.com/p2pblog,Technology
+pants poochie,http://btpsmom.blogspot.com/index.html,,,http://btpsmom.blogspot.com/feeds/posts/default?alt=rss,Sewing
+Party Poker Blog,http://guinnessandpoker.blogspot.com,,,http://guinnessandpoker.blogspot.com/atom.xml,Poker
+"Patterns, Fabric and Thread - Oh My!",http://patternfabricandthread.blogspot.com/index.html,,,http://patternfabricandthread.blogspot.com/feeds/posts/default?alt=rss,Sewing
+Paul Colligan,http://www.PaulColligan.com,Paul Colligan,colligan@gmail.com,http://feeds.feedburner.com/ThePaulColliganBlog,Technology
+Paul Colligan's Profitable Podcasting,http://www.paulcolligan.com,,,http://www.paulcolligan.com/feed/,Technology
+Paul Kedrosky's Infectious Greed,http://paul.kedrosky.com/,,,http://paul.kedrosky.com/index.rdf,Technology
+Paul Mooney,http://dotnetjunkies.com/WebLog/paul/default.aspx,Paul Mooney,paul@intune.net,http://dotnetjunkies.com/WebLog/paul/rss.aspx,Technology
+Paul Thurrott's Internet Nexus,http://www.internet-nexus.com/default.htm,,,http://www.internet-nexus.com/rss.xml,Technology
+pensamientos,http://pinceladasdeactualidad.blogspot.com,,,http://pinceladasdeactualidad.blogspot.com/rss.xml,Sewing
+Perform Better Golf Blog,http://www.performbettergolf.com/blog,,,http://www.performbettergolf.com/blog/feed/,Golf
+Phil Morle: Adventures in Entertainment and Technology,http://www.morle.net/phil/,,,http://feeds.feedburner.com/PhilMorleAdventuresInParticipation,Technology
+photo WordPress.com Tag Feed,http://wordpress.com/tag/photo/,,,http://wordpress.com/tag/photo/feed/,Technology
+PhysOrg.com - latest science and technology news,http://www.physorg.com,,,http://www.physorg.com/physorg.rss,News
+Pink Flamingo Swizzle Stick,http://pinkflamingoswizzlestick.blogspot.com/index.html,,,http://pinkflamingoswizzlestick.blogspot.com/feeds/posts/default?alt=rss,Sewing
+Pins and Needles,http://scpbanks.blogspot.com/index.html,,,http://scpbanks.blogspot.com/feeds/posts/default?alt=rss,Sewing
+Pito's Blog,http://salas.com/,,,http://salas.com/index.xml,Technology
+PlanetJoni,http://planetjoni.blogspot.com,,,http://planetjoni.blogspot.com/rss.xml,Sewing
+Podcasting News,http://www.podcastingnews.com,,,http://www.podcastingnews.com/feed/,Technology
+HiTorro CES Coverage,http://www.hitorro.net,HiTorro,,http://www.hitorro.net/home/CES+Las+Vegas+2007/feed,Technology
+PodTech.net: Blog,http://www.hitorro.net/blog,,,http://www.hitorro.net/blog/feed/,Technology
+"PodTech.net: Technology, Business, Media, and News Podcasts",http://www.hitorro.net/home,,,http://www.hitorro.net/home/feed/,Technology
+Poetry Is,http://poetry-is.blogspot.com,,,http://poetry-is.blogspot.com/rss.xml,Poetry
+Poetry Thursday,http://poetrythursday.blogspot.com,,,http://poetrythursday.blogspot.com/rss.xml,Poetry
+Pokerati - Texas hold'em blog,http://pokerati.com,,,http://pokerati.com/feed/,Poker
+Positive Golf,http://theheartofgolf.blogspot.com,,,http://theheartofgolf.blogspot.com/rss.xml,Golf
+Possum,http://splintering.blogspot.com/index.html,,,http://splintering.blogspot.com/feeds/posts/default?alt=rss,Poetry
+Powell's Books: Overview,http://www.powells.com,,,http://www.powells.com/rss/powells_content.xml,Other
+ProBlogger Blog Tips,http://www.problogger.net,,,http://www.problogger.net/feed/,Technology
+Profy.Com,http://www.profy.com,,,http://www.profy.com/feed/,Technology
+ProgrammableWeb,http://blog.programmableweb.com,,,http://feeds.feedburner.com/ProgrammableWeb,Technology
+Project Management For Everyone,http://intelligantt.blogspot.com/index.html,,,http://intelligantt.blogspot.com/feeds/posts/default?alt=rss,Technology
+Project: Rungay - Project Runway from a VERY gay perspective.,http://projectrungay.blogspot.com/index.html,,,http://projectrungay.blogspot.com/feeds/posts/default?alt=rss,Sewing
+Pronet Advertising,http://www.pronetadvertising.com/,,,http://feeds.feedburner.com/PronetAdvertising,Technology
+PRWeb,http://www.prweb.com/,David McInnis,david@emediawire.com,http://www.prweb.com/xml/daily.xml,News
+Publishing 2.0,http://publishing2.com,,,http://feeds.feedburner.com/Publishing20,Technology
+purlsandmurmers,http://www.purlsandmurmurs.com/,,,http://www.purlsandmurmurs.com/index.rdf,Sewing
+Quoderat,http://www.megginson.com/blogs/quoderat,,,http://www.megginson.com/blogs/quoderat/feed/,Technology
+Quoi? L'Eternité,http://quoileternite.blogspot.com,,,http://quoileternite.blogspot.com/rss.xml,Poetry
+Rafe Blandford,http://www.allaboutsymbian.com,Rafe Blandford,rafe@allaboutsymbian.com,http://rss.allaboutsymbian.com/news/rss2all.xml,Technology
+ranchero.com,http://ranchero.com/,,,http://ranchero.com/xml/rss.xml,Technology
+Random Knits,http://www.randomknits.net/,,,http://www.randomknits.net/index.rdf,Sewing
+random mellifluousness and literary exhibitionism,http://kristybowen.blogspot.com,,,http://kristybowen.blogspot.com/rss.xml,Poetry
+Raph's Website,http://www.raphkoster.com,,,http://www.raphkoster.com/feed/,Technology
+Rational rants,http://blogs.zdnet.com/Ratcliffe,,,http://blogs.zdnet.com/Ratcliffe/?feed=rss2,Technology
+raving lunacy,http://theheadlemur.typepad.com/ravinglunacy/,,,http://theheadlemur.typepad.com/ravinglunacy/index.rdf,Technology
+Read/WriteWeb,http://www.readwriteweb.com/,,,http://www.readwriteweb.com/rss.xml,Technology
+reBang weblog,http://blog.rebang.com,,,http://blog.rebang.com/?feed=rss2,Technology
+rebelutionary,http://blogs.atlassian.com/rebelutionary/,,,http://feeds.feedburner.com/rebelutionary,Technology
+Redcouch,http://redcouch.typepad.com/,Shel Israel,shel@itseemstome.net,http://redcouch.typepad.com/weblog/index.rdf,Technology
+Redeye VC,http://redeye.firstround.com/,,,http://redeye.firstround.com/index.rdf,Technology
+Reel Pop,http://www.reelpopblog.com/,,,http://www.reelpopblog.com/index.rdf,Technology
+Renee Blodgett,http://www.downtheavenue.com,Renee Blodgett,renee@blodgettcomm.com,http://feeds.feedburner.com/DownTheAvenue,Technology
+ResourceShelf,http://www.resourceshelf.com,,,http://www.resourceshelf.com/feed/,Technology
+rev2.org,http://www.rev2.org,,,http://feeds.feedburner.com/Rev2org,Technology
+rexblog.com: Rex Hammock's weblog,http://www.rexblog.com,,,http://www.rexblog.com/feed/,Technology
+Riding Centuries with Big Mark,http://ultracyclist.blogspot.com/index.html,,,http://ultracyclist.blogspot.com/feeds/posts/default?alt=rss,Other
+Ring Nokia,http://www.ringnokia.com/,Stefan Constantinescu,devilsrejection@gmail.com,http://www.ringnokia.com/index.rdf,Technology
+Robert McLaws: Windows Vista Edition,http://www.windows-now.com/blogs/robert/default.aspx,,,http://www.windows-now.com/blogs/robert/rss.aspx,Technology
+robhyndman.com,http://www.robhyndman.com,,,http://feeds.feedburner.com/Robhyndmancom,Technology
+Rocket Kids,http://dacusrocket.blogspot.com,,,http://dacusrocket.blogspot.com/rss.xml,Poetry
+Ross Mayfield's Weblog,http://ross.typepad.com/,Ross Mayfield,goobox@gmail.com,http://ross.typepad.com/blog/index.rdf,Technology
+Rough Type: Nicholas Carr's Blog,http://www.roughtype.com/,,,http://feeds.feedburner.com/roughtype/unGc,Technology
+"RSS - Regulations, Statutes and Standards",http://blog.tmcnet.com/regulations/,,,http://blog.tmcnet.com/regulations/index.xml,Technology
+RUWT?blog,http://www.areyouwatchingthis.com/blog,,,http://www.areyouwatchingthis.com/blog/feed/,Technology
+chris Hoffman,http://www.extended64.com,chris Hoffman,rhoffman@extended64.com,http://extended64.com/blogs/MainFeed.aspx,Technology
+chris Stewart - Rich Internet Application Mountaineer,http://blog.digitalbackcountry.com,,,http://blog.digitalbackcountry.com/?feed=rss2,Technology
+"Sadagopan's weblog on Emerging Technologies,Thoughts, Ideas,Trends and Cyberworld",http://123suds.blogspot.com,,,http://123suds.blogspot.com/atom.xml,Technology
+Salon,http://www.salon.com/?source=rss,,,http://feeds.salon.com/salon/index,News
+sam of the ten thousand things,http://samofthetenthousandthings.blogspot.com/index.html,,,http://samofthetenthousandthings.blogspot.com/feeds/posts/default?alt=rss,Poetry
+San Francisco Chronicle - Tech,http://www.sfgate.com/cgi-bin/blogs/sfgate/author?blogid=19&auth=61,Ellen Lee,,http://www.sfgate.com/rss/feeds/blogs/sfgate/techchron/index_rss1.xml,Technology
+Sandi Hardmeier,http://www.msmvps.com/spywaresucks,Sandi Hardmeier,sandi@mvps.org,http://msmvps.com/blogs/spywaresucks/rss.aspx,Technology
+Sandy's Knitting,http://www.sandysknitting.com/,,,http://www.sandysknitting.com/index.rdf,Sewing
+Sarah and Elizabeth Heiny,http://www.tabletpcblogs.com/blogs/neek_talk/,Sarah and Elizabeth Heiny,,http://www.tabletpcblogs.com/blogs/neek_talk/rss.aspx,Technology
+Scavella's Blogsphere,http://scavella.wordpress.com,,,http://scavella.wordpress.com/feed/,Poetry
+SCI FI Tech,http://blog.scifi.com/tech/,,,http://blog.scifi.com/tech/index.rdf,Technology
+Scobleizer,http://scobleizer.com/,Robert Scoble,robert@hitorro.net,http://scobleizer.com/feed/,Technology
+"ScobleShow: Videoblog about geeks, technology, and developers",http://www.hitorro.net/scobleshow,,,http://www.hitorro.net/scobleshow/feed/,Technology
+Scotsman.com Living - Books,http://living.scotsman.com/books.cfm,,,http://living.scotsman.com/books.cfm?format=rss,News
+Scotsman.com News - Opinion,http://news.scotsman.com/opinion.cfm,,,http://news.scotsman.com/opinion.cfm?format=rss,Sewing
+Scott Rosenberg's Wordyard,http://www.wordyard.com,,,http://www.wordyard.com/feed/,Technology
+Screenwerk,http://gesterling.wordpress.com,,,http://gesterling.wordpress.com/feed/,Technology
+Scripting,http://www.scripting.com/,Dave Winer,,http://www.scripting.com/rss.xml,Technology
+Sean Garrett,http://463.blogs.com,Sean Garrett,sean.garrett@463.com,http://feeds.feedburner.com/blogs/dnxf,Technology
+Search Engine Journal,http://www.searchenginejournal.com,,,http://www.searchenginejournal.com/?feed=rss2,Technology
+Search Engine Land: News About Search Engines & Search Marketing,http://searchengineland.com/,,,http://feeds.searchengineland.com/searchengineland,Technology
+"Search Marketing Gurus Search Marketing Tips, Advice, Strategies & Tactics",http://www.searchmarketinggurus.com/search_marketing_gurus/,,,http://www.searchmarketinggurus.com/search_marketing_gurus/index.rdf,Technology
+SearchViews,http://searchviews.com/,,,http://searchviews.com/index.rdf,Technology
+Second Life Herald,http://www.secondlifeherald.com/slh/,,,http://www.secondlifeherald.com/slh/index.rdf,Technology
+Seeking Alpha,http://seekingalpha.com/seekingalpha/feed/,,,http://seekingalpha.com/feed/,Technology
+SeekingAlpha CE Stocks,http://ce.seekingalpha.com/ce/by/site/ce/feed/,,,http://ce.seekingalpha.com/feed/,Technology
+SeekingAlpha Internet Stocks,http://internet.seekingalpha.com/internet/by/site/internet/feed/,,,http://internet.seekingalpha.com/feed/,Technology
+SeekingAlpha Software Stocks,http://software.seekingalpha.com/software/by/site/software/feed/,,,http://software.seekingalpha.com/feed/,Technology
+SEOrefugee Blog,http://www.seorefugee.com/seoblog,,,http://www.seorefugee.com/seoblog/feed/,Technology
+Sew Every Day!,http://seweveryday.blogspot.com/index.html,,,http://seweveryday.blogspot.com/feeds/posts/default?alt=rss,Sewing
+Sew Intriguing,http://sewintriguing.blogspot.com/index.html,,,http://sewintriguing.blogspot.com/feeds/posts/default?alt=rss,Sewing
+Sew Random,http://sewrandom.blogspot.com/index.html,,,http://sewrandom.blogspot.com/feeds/posts/default?alt=rss,Sewing
+sewdistracted,http://www.sewdistracted.com/,,,http://www.sewdistracted.com/index.rdf,Sewing
+SewWest,http://sewwest.blogspot.com/index.html,,,http://sewwest.blogspot.com/feeds/posts/default?alt=rss,Sewing
+SFGate: Lazarus at Large,http://www.sfgate.com/cgi-bin/search/columnists.cgi?waisdbname=/chronicle/&byline=David+Lazarus,,,http://www.sfgate.com/rss/feeds/dlazarus.xml,News
+SFGate: Mark Morford,http://www.sfgate.com/columnists/morford/archive/,,,http://www.sfgate.com/rss/feeds/morford.xml,News
+SharkJumping,http://www.sharkjumping.com/,,,http://www.sharkjumping.com/index.rdf,Technology
+Sharon Sews (with sew little time),http://sharonsews.blogspot.com/index.html,,,http://sharonsews.blogspot.com/feeds/posts/default?alt=rss,Sewing
+sheep in the city,http://www.sheepinthecity.prettyposies.com/,,,http://www.sheepinthecity.prettyposies.com/index.rdf,Sewing
+Shoemoney - Skills To Pay The Bills,http://www.shoemoney.com,,,http://www.shoemoney.com/feed/,Technology
+Shoewawa,http://www.shoewawa.com/,,,http://www.shoewawa.com/index.rdf,Sewing
+Shunra's Shanty,http://shunra.livejournal.com/,,,http://shunra.livejournal.com/data/rss,Sewing
+Silicon Valley Watcher--reporting on the business and culture of disruption,http://www.siliconvalleywatcher.com/,,,http://www.siliconvalleywatcher.com/index.xml,Technology
+Silicon Valley Watcher--reporting on the business and culture of innovation,http://www.siliconvalleywatcher.com/,Tom Foremski,tom@siliconvalleywatcher.com,http://feeds.feedburner.com/siliconvalleywatcher/oLcd,Technology
+Six Apart News,http://www.sixapart.com/,,,http://feeds.feedburner.com/SixApartNews,Technology
+Six Kids and a Full Time Job,http://sixkidsandafulltimejob.blogspot.com,,,http://sixkidsandafulltimejob.blogspot.com/rss.xml,Technology
+Skrentablog,http://www.skrenta.com/,,,http://www.skrenta.com/index.xml,Technology
+Small Business SEM,http://www.smallbusinesssem.com,,,http://feeds.feedburner.com/SmallBusinessSem,Technology
+Smart Mobs,http://www.smartmobs.com/,,,http://www.smartmobs.com/feeds/feed.xml,Technology
+SMS Text News,http://www.smstextnews.com,,,http://www.smstextnews.com/feed/,Technology
+SmugBlog: Don MacAskill,http://blogs.smugmug.com/onethumb,,,http://blogs.smugmug.com/onethumb/feed/,Technology
+SnapStream Media,http://blogs.snapstream.com/,Rakesh Agrawal,rakesh@snapstream.com,http://feeds.feedburner.com/Snapstream,Technology
+Snipperoo,http://blog.snipperoo.com/,,,http://blog.snipperoo.com/index.rdf,Technology
+Social Media,http://www.socialmedia.biz/,,,http://feeds.feedburner.com/typepad/social_media,Technology
+Social Media in Australia,http://www.breakawaycontent.com/blog,,,http://www.breakawaycontent.com/blog/feed/,Technology
+Social Signal,http://socialsignal.com,Alexandra Samuel,alex@socialsignal.com,http://feeds.feedburner.com/SocialSignal,Technology
+Software Soapbox,http://bbenz.typepad.com/softwaresoapbox/,,,http://bbenz.typepad.com/softwaresoapbox/index.rdf,Technology
+Some Call Them Sticks and String... I Call Them Sanity.,http://somecallthemsticks.blogspot.com,,,http://somecallthemsticks.blogspot.com/rss.xml,Sewing
+Song of a Reformed Headhunter,http://jeeleong.blogspot.com/index.html,,,http://jeeleong.blogspot.com/feeds/posts/default?alt=rss,Poetry
+Sounds & Fury,http://www.soundsandfury.com/soundsandfury/,,,http://www.soundsandfury.com/soundsandfury/index.rdf,News
+Special K's Place,http://specialksplace.blogspot.com/index.html,,,http://specialksplace.blogspot.com/feeds/posts/default?alt=rss,Poker
+SPIEGEL ONLINE,http://www.spiegel.de,,,http://www.spiegel.de/schlagzeilen/rss/index.xml,News
+Splashcast,http://splashcast.wordpress.com,Alex Williams,alex@splashcast.net,http://splashcast.wordpress.com/feed/,Technology
+splashcastmedia.com,http://splashcastmedia.com,,,http://feeds.feedburner.com/SplashCast,Technology
+StartupSquad,http://startupsquad.com,,,http://feeds.feedburner.com/StartupSquad,Technology
+Steve Newson DOT net,http://stevenewson.blogspot.com/index.html,,,http://stevenewson.blogspot.com/feeds/posts/default?alt=rss,Technology
+Steven Bink,http://bink.nu,Steven Bink,bink@bink.nu,http://bink.nu/rss.aspx,Technology
+Steven Hughes,http://www.bostonpocketpc.com,Steven Hughes,fyiguy@bhighlymobile.com,http://www.bostonpocketpc.com/SyndicationService.asmx/GetRss,Technology
+stevenberlinjohnson.com,http://www.stevenberlinjohnson.com/,,,http://www.stevenberlinjohnson.com/index.rdf,News
+StevenLevy.com,http://www.stevenlevy.com,,,http://www.stevenlevy.com/index.php/feed/,Technology
+Stewtopia,http://blog.stewtopia.com/,Randy Stewart,randy@stewtopia.com,http://feeds.feedburner.com/Stewtopia,Technology
+Stitcher's Guild,http://artisanssquare.com/sg/index.php,,,http://artisanssquare.com/sg/index.php?type=rss;action=.xml,Sewing
+Stitches and Seams,http://stitchesandseams.blogspot.com/index.html,,,http://stitchesandseams.blogspot.com/feeds/posts/default?alt=rss,Sewing
+Straight Up - Jan Herman,http://www.artsjournal.com/herman/,,,http://www.artsjournal.com/herman/index.rdf,News
+Sue's Place,http://sue.polinsky.com,,,http://sue.polinsky.com/?feed=rss2,Technology
+Surroundings,http://robmack.blogspot.com/index.html,,,http://robmack.blogspot.com/feeds/posts/default?alt=rss,Poetry
+Swagger Design,http://swaggerdesign.blogspot.com/index.html,,,http://swaggerdesign.blogspot.com/feeds/posts/default?alt=rss,Sewing
+Synnex,http://kevinbaggs.com/,Kevin Baggs,KevinB@synnex.com,http://feeds.feedburner.com/inovation,Technology
+Talking Points Memo: by Joshua Micah Marshall,http://www.talkingpointsmemo.com/,,,http://www.talkingpointsmemo.com/index.xml,News
+Team Canada,http://teamcanada2006.blogspot.com,,,http://teamcanada2006.blogspot.com/rss.xml,Sewing
+Tech Beat,http://www.businessweek.com/the_thread/techbeat/,,,http://www.businessweek.com/the_thread/techbeat/index.rdf,Technology
+TechBlog,http://blogs.chron.com/techblog/,,,http://blogs.chron.com/techblog/index.rdf,Technology
+Techcrunch,http://techcrunch.com,Michael Arrington,Marshall@techcrunch.com.,http://feeds.feedburner.com/TechCrunch,Technology
+Techdirt,http://www.techdirt.com/,,,http://www.techdirt.com/techdirt_rss.xml,Technology
+TechEffect,http://techeffect.thedealblogs.com/,,,http://techeffect.thedealblogs.com/index.xml,Technology
+Techie Diva,http://www.techiediva.com/,Gina Hughes,,http://www.techiediva.com/weblog/index.rdf,Technology
+Teching It Easy,http://adacosta.spaces.live.com/,,,http://adacosta.spaces.live.com/feed.rss,Technology
+Techmeme,http://www.techmeme.com,,,http://www.techmeme.com/index.xml,Technology
+TechNet Blogs,http://blogs.technet.com/default.aspx,,,http://blogs.technet.com/MainFeed.aspx,Technology
+Technically Speaking,http://rexdixon.wordpress.com,,,http://rexdixon.wordpress.com/feed/,Technology
+TechSpot,http://www.techspot.com,,,http://www.techspot.com/backend.xml,Technology
+Tech_Space,http://blogs.usatoday.com/techspace/,,,http://blogs.usatoday.com/techspace/index.rdf,Technology
+Tech~Surf~Blog,http://graemethickins.typepad.com/graeme_blogs_here/,,,http://graemethickins.typepad.com/graeme_blogs_here/index.rdf,Technology
+Ten Forward,http://tenforward.spaces.live.com/,,,http://tenforward.spaces.live.com/feed.rss,Technology
+Teresa Centric,http://teresacentric.typepad.com/,Teresa Valdez Klein,teresa@blogbusinesssummit.com,http://teresacentric.typepad.com/files/index.rdf,Technology
+Terra Nova,http://terranova.blogs.com/terra_nova/,,,http://terranova.blogs.com/terra_nova/index.rdf,Technology
+Terri Stratton,http://www.thetabletpc.net,Terri Stratton,terri@thetabletpc.net,http://www.thetabletpc.net/The%20Tablet%20PC.xml,Technology
+Texas Golf,http://texasgolf.blogspot.com/index.html,,,http://texasgolf.blogspot.com/feeds/posts/default?alt=rss,Golf
+Texas Startup Blog: Web 2.0 and Social Media,http://www.texasstartupblog.com,,,http://www.texasstartupblog.com/feed/,Technology
+The 463:  Inside Tech Policy,http://463.blogs.com/the_463/,,,http://463.blogs.com/the_463/index.rdf,Technology
+The Apple Blog,http://theappleblog.com,,,http://theappleblog.com/feed/,Technology
+The Apple Core,http://blogs.zdnet.com/Apple,,,http://blogs.zdnet.com/Apple/?feed=rss2,Technology
+The Bag Lady,http://www.thebaglady.tv/,,,http://www.thebaglady.tv/index.rdf,Sewing
+The Becker-Posner Blog,http://www.becker-posner-blog.com/,,,http://www.becker-posner-blog.com/index.rdf,News
+The Blog Herald,http://www.blogherald.com,,,http://www.blogherald.com/feed/,Technology
+The Blogging Journalist,http://www.thebloggingjournalist.com/,,,http://www.thebloggingjournalist.com/index.rdf,Technology
+The Blogging Times,http://www.thebloggingtimes.com/content,,,http://www.thebloggingtimes.com/content/?feed=rss2,Technology
+The Boogie Knits,http://theboogerblog.blogspot.com,,,http://theboogerblog.blogspot.com/atom.xml,Sewing
+The Bookish Girl,http://thebookishgirl.com,,,http://thebookishgirl.com/feed/,Sewing
+The Cards Speak - A Poker Blog,http://cardsspeak.servebeer.com/,,,http://cardsspeak.servebeer.com/index.rdf,Poker
+The Cat Flap,http://petersirr.blogspot.com/index.html,,,http://petersirr.blogspot.com/feeds/posts/default?alt=rss,Poetry
+The Compost Heap,http://compost-hedgie.blogspot.com,,,http://compost-hedgie.blogspot.com/rss.xml,Poetry
+The Frog Prince,http://scotty-thefrogprince.blogspot.com/index.html,,,http://scotty-thefrogprince.blogspot.com/feeds/posts/default?alt=rss,Poetry
+The Galloping Beaver,http://thegallopingbeaver.blogspot.com/index.html,,,http://thegallopingbeaver.blogspot.com/feeds/posts/default?alt=rss,Sewing
+The Golf Drill Guru,http://thegolfdrillguru.netfirms.com/nfblog,,,http://thegolfdrillguru.netfirms.com/nfblog/?feed=rss2,Golf
+The Gong Show,http://blog.andrewparker.net,,,http://feeds.feedburner.com/TheGongShow/,Technology
+The Huggies Files,http://thehuggiesfiles.blogspot.com/index.html,,,http://thehuggiesfiles.blogspot.com/feeds/posts/default?alt=rss,Poetry
+the j. botter weblog,http://jbotter.com,,,http://jbotter.com/feed/,Technology
+The Jackdaw's Nest,http://hedgeguard.blogspot.com,,,http://hedgeguard.blogspot.com/rss.xml,Poetry
+The Jason Calacanis Weblog,http://www.calacanis.com,,,http://www.calacanis.com/rss.xml,Technology
+The Jeff Pulver Blog,http://pulverblog.pulver.com/,,,http://pulverblog.pulver.com/index.xml,Poker
+The Library Princess,http://lessonsinidentity.blogspot.com/index.html,,,http://lessonsinidentity.blogspot.com/feeds/posts/default?alt=rss,Poetry
+The Loom,http://scienceblogs.com/loom/,,,http://scienceblogs.com/loom/index.xml,Poetry
+The MObinoDE {MODE} ????,http://www.mobinode.com,,,http://feeds.feedburner.com/TheMobinodemode,Technology
+The Nation: Top Stories,http://www.thenation.com/,,,http://feeds.feedburner.com/TheNationEdPicks,News
+The New Criterion,http://newcriterion.com,,,http://newcriterion.com/feed/,News
+The New Pantagruel,http://www.newpantagruel.com/,,,http://www.newpantagruel.com/tnpfeeds/index.rdf,News
+The Next Net,http://business2.blogs.com/business2blog/,Erick Schonfeld,erick@business2.com,http://blogs.business2.com/business2blog/index.rdf,Technology
+The Onion,http://www.theonion.com/content,,,http://feeds.theonion.com/theonion/daily,Other
+The Organic Cotton Story,http://theorganiccottonstory.com/occstory,,,http://theorganiccottonstory.com/occstory/?feed=rss2,Sewing
+"The Page - Poetry, essays, ideas",http://thepage.name/index.htm,,,http://thepage.name/rss.xml,News
+The Panopticon,http://the-panopticon.blogspot.com,,,http://the-panopticon.blogspot.com/rss.xml,Sewing
+The Poker Chronicles,http://www.thepokerchronicles.com/,,,http://feeds.feedburner.com/ThePokerChronicles,Poker
+The Rain in My Purse,http://theraininmypurse.blogspot.com,,,http://theraininmypurse.blogspot.com/rss.xml,Poetry
+The Raw Feed,http://www.therawfeed.com/index.html,,,http://therawfeed.com/therawfeed.xml,Technology
+The Register,http://www.theregister.co.uk/,,,http://www.theregister.co.uk/headlines.rss,Technology
+The Reluctant Jam Boy,http://jam-boy.blogspot.com,,,http://jam-boy.blogspot.com/rss.xml,Golf
+The Revealer,http://www.therevealer.org/,,,http://www.therevealer.org/index.rdf,News
+The Rik Files,http://rikfiles.blogspot.com/index.html,,,http://rikfiles.blogspot.com/feeds/posts/default?alt=rss,Poetry
+The Rusty Bobbin: Inklings,http://www.rustybobbin.com/blog/index.html,,,http://www.rustybobbin.com/blog/rss.xml,Sewing
+The Sand Trap,http://thesandtrap.com/,,,http://thesandtrap.com/index.xml,Golf
+The Sartorialist,http://thesartorialist.blogspot.com,,,http://thesartorialist.blogspot.com/rss.xml,Sewing
+The Secret Diary of Steve Jobs,http://fakesteve.blogspot.com/index.html,,,http://fakesteve.blogspot.com/feeds/posts/default?alt=rss,Technology
+The Sewing Divas,http://thesewingdivas.wordpress.com,,,http://thesewingdivas.wordpress.com/feed/,Sewing
+The Sewist,http://thesewist.blogspot.com,,,http://thesewist.blogspot.com/rss.xml,Sewing
+The Social Web,http://blogs.zdnet.com/social,,,http://blogs.zdnet.com/social/?feed=rss2,Technology
+The SouthernSewa,http://thesouthernsewa.blogspot.com/index.html,,,http://thesouthernsewa.blogspot.com/feeds/posts/default?alt=rss,Sewing
+The Stitchery,http://thestitchery.wordpress.com,,,http://thestitchery.wordpress.com/feed/,Sewing
+The Tao of Mac,http://the.taoofmac.com/space,,,http://feeds.feedburner.com/taoofmac/full,Technology
+The Technology Liberation Front,http://www.techliberation.com/,,,http://feeds.feedburner.com/techliberation,Technology
+The Test Bed,http://labs.pcw.co.uk/,,,http://labs.pcw.co.uk/index.rdf,Technology
+The unbearable lightness of knitting,http://nsk-knitting.blogspot.com,,,http://nsk-knitting.blogspot.com/rss.xml,Sewing
+The Universal Desktop,http://blogs.zdnet.com/Stewart,,,http://blogs.zdnet.com/Stewart/?feed=rss2,Technology
+The Unofficial Apple Weblog (TUAW),http://www.tuaw.com,,,http://www.tuaw.com/rss.xml,Technology
+The Utube Blog,http://theutubeblog.com,,,http://theutubeblog.com/feed/,Technology
+The Valve,http://www.thevalve.org/go/valve/index/,,,http://www.thevalve.org/go/valve/rss_1.0/,News
+The Walrus Magazine,http://www.walrusmagazine.com/,,,http://www.walrusmagazine.com/index.xml,News
+The Woolen Rabbit,http://thewoolenrabbit.typepad.com/thewoolenrabbit/,,,http://thewoolenrabbit.typepad.com/thewoolenrabbit/index.rdf,Sewing
+Theobroma Cacao,http://theocacao.com/,,,http://theocacao.com/index.rss,Technology
+TheSewingDivas,http://thesewingdivas.blogspot.com,,,http://thesewingdivas.blogspot.com/rss.xml,Sewing
+Things That ... Make You Go Hmm,http://www.makeyougohmm.com,,,http://www.makeyougohmm.com/wp-rss2.php,Technology
+Think Denk,http://jeremydenk.blogspot.com/index.html,,,http://jeremydenk.blogspot.com/feeds/posts/default?alt=rss,Sewing
+This Blog Sits at the,http://www.cultureby.com/trilogy/,,,http://www.cultureby.com/trilogy/index.rdf,News
+Thoughts of ttd,http://diva27406.blogspot.com/index.html,,,http://diva27406.blogspot.com/feeds/posts/default?alt=rss,Sewing
+Threadbared,http://www.threadbared.com/,,,http://www.threadbared.com/index.rdf,Sewing
+TIME: Top Stories,http://www.time.com,,,http://rss.time.com/web/time/rss/top/index.xml,News
+Tinfinger,http://tinfinger.blogspot.com/index.html,,,http://tinfinger.blogspot.com/feeds/posts/default?alt=rss,Technology
+tini's world of fibre arts,http://tininaeht.blogspot.com/index.html,,,http://tininaeht.blogspot.com/feeds/posts/default?alt=rss,Sewing
+Tom Hume,http://www.tomhume.org/,,,http://www.tomhume.org/index.rdf,Technology
+TomRaftery,http://www.tomrafteryit.net/,Tom Raftery,,http://www.tomrafteryit.net/feed/,Technology
+Too Much Wool,http://cassiana.typepad.com/too_much_wool/,,,http://cassiana.typepad.com/too_much_wool/index.rdf,Sewing
+Top Stories -- MercuryNews.com,http://www.mercurynews.com/mld/mercurynews/rss/?source=rss&channel=mercurynews_rss,,,http://www.bayarea.com/mld/mercurynews/rss/rss.xml,News
+Torrentfreak,http://torrentfreak.com,,,http://feeds.feedburner.com/Torrentfreak,Technology
+Traffick,http://www.traffick.com/,,,http://feeds.feedburner.com/Traffickdotcom,Technology
+Travelling Golfer,http://travellinggolfer.com,,,http://travellinggolfer.com/feed/,Golf
+Trevor Claiborne,http://www.studenttabletpc.com,Trevor Claiborne,tclaiborne@gmail.com,http://studenttabletpc.com/feed/,Technology
+try the veal,http://theveal.blogspot.com,,,http://theveal.blogspot.com/rss.xml,Golf
+tsaiware,http://tsaiware.blogspot.com,,,http://tsaiware.blogspot.com/rss.xml,Sewing
+twopointouch,http://twopointouch.com,,,http://twopointouch.com/feed/,Technology
+Ubergizmo,http://www.ubergizmo.com/,,,http://www.ubergizmo.com/index.xml,Technology
+UMBC eBiquity,http://ebiquity.umbc.edu/blogger,,,http://ebiquity.umbc.edu/blogger/feed/,Technology
+Uncle Leona's Day Camp,http://www.uncleleona.net/blog/,,,http://www.uncleleona.net/blog/index.rdf,Sewing
+UNEASYsilence,http://uneasysilence.com,,,http://feeds.uneasysilence.com/uneasysilence/blog/,Technology
+unnecessary,http://jameskyton.wordpress.com,,,http://jameskyton.wordpress.com/feed/,Technology
+unstruc chitchatting about information delivery,http://danielabarbosa.blogspot.com/index.html,,,http://danielabarbosa.blogspot.com/feeds/posts/default?alt=rss,Technology
+USATODAY.com News - Top Stories,http://www.usatoday.com/news/digest.htm,,,http://rssfeeds.usatoday.com/usatoday-NewsTopStories,News
+"Vacuum - Edward Vielmetti in Ann Arbor, Michigan 48104",http://vielmetti.typepad.com/vacuum/,,,http://vielmetti.typepad.com/vacuum/index.rdf,Technology
+Vagablogging,http://www.vagablogging.net/,,,http://www.vagablogging.net/index.xml,News
+Valleywag,http://www.valleywag.com,,,http://www.valleywag.com/index.xml,Technology
+Vardan Tiwari,http://seon1.blogspot.com,Vardan Tiwari,seo.space@gmail.com,http://seon1.blogspot.com/atom.xml,Technology
+Variety.com,http://www.variety.com,,,http://www.variety.com/RSS.asp,Technology
+VCMike's Blog,http://vcmike.wordpress.com,,,http://vcmike.wordpress.com/feed/,Technology
+Vecosys - tracking the european virtual ecosystem.,http://www.vecosys.com,,,http://feeds.feedburner.com/vecosys,Technology
+Venture Chronicles,http://jeffnolan.com/wp,,,http://jeffnolan.com/wp/feed/,Technology
+VentureBeat,http://www.venturebeat.com/,Matt Marshall,mmarshall@mercurynews.com,http://venturebeat.com/?feed=rss,Technology
+Very Like A Whale,http://verylikeawhale.wordpress.com,,,http://verylikeawhale.wordpress.com/feed/,Poetry
+Vickram Dendi,http://viks.org,Vickram Dendi,vik@india.com,http://viks.org/feed/,Technology
+Village Voice Most Recent,http://villagevoice.com/most_recent,,,http://villagevoice.com/rss/Most_Recent.rss.xml,News
+Village Voice News,http://villagevoice.com/news,,,http://villagevoice.com/rss/news.rss.xml,News
+Vincent Everts,http://www.marketingfacts.nl,Vincent Everts,Vincent@everts.net,http://feeds.feedburner.com/MarketingFacts/,Technology
+Vintage Fashion Guild,http://vintagefashionguild.blogspot.com/index.html,,,http://vintagefashionguild.blogspot.com/feeds/posts/default?alt=rss,Sewing
+virtual philosopher,http://nigelwarburton.typepad.com/virtualphilosopher/,,,http://nigelwarburton.typepad.com/virtualphilosopher/index.rdf,News
+VoIP & Gadgets Blog,http://blog.tmcnet.com/blog/tom-keating/,,,http://blog.tmcnet.com/blog/tom-keating/index.xml,Technology
+VoIP Watch,http://andyabramson.blogs.com/voipwatch/,,,http://andyabramson.blogs.com/voipwatch/index.rdf,Technology
+washingtonpost.com,http://www.washingtonpost.com/wp-dyn/content/linkset/2005/03/25/LI2005032502159.html?nav=rss_opinion/columns,,,http://www.washingtonpost.com/wp-dyn/rss/linkset/2005/03/25/LI2005032502159.xml,News
+washingtonpost.com - Anne Applebaum,http://www.washingtonpost.com/wp-dyn/content/linkset/2005/03/24/LI2005032401432.html?nav=rss_opinion/columns,,,http://www.washingtonpost.com/wp-dyn/rss/linkset/2005/03/24/LI2005032401432.xml,News
+washingtonpost.com - E.J. Dionne Jr.,http://www.washingtonpost.com/wp-dyn/content/linkset/2005/04/22/LI2005042201099.html?nav=rss_opinion/columns,,,http://www.washingtonpost.com/wp-dyn/rss/linkset/2005/04/22/LI2005042201099.xml,News
+washingtonpost.com - Jonathan Yardley,http://www.washingtonpost.com/wp-dyn/content/linkset/2005/03/25/LI2005032502370.html?nav=rss_opinion/columns,,,http://www.washingtonpost.com/wp-dyn/rss/linkset/2005/03/25/LI2005032502370.xml,News
+Web Strategy,http://web-strategist.com/blog,Jeremiah Owyang,jeremiah@hitorro.net,http://www.web-strategist.com/blog/feed/,Technology
+Web Worker Daily,http://webworkerdaily.com,,,http://feeds.feedburner.com/Webworkerdaily,Technology
+Weblog Tools Collection,http://weblogtoolscollection.com,,,http://weblogtoolscollection.com/feed/,Technology
+WebMetricsGuru,http://www.webmetricsguru.com/,,,http://feeds.feedburner.com/WebMetricsGuru,Technology
+Webomatica,http://www.webomatica.com/wordpress,,,http://feeds.feedburner.com/webomatica,Technology
+WebProBlog - Internet Business and Marketing Trends,http://blogs.webpronews.com,,,http://blogs.webpronews.com/feed/,Technology
+WebProNews Feed,http://www.webpronews.com/index.xml,,,http://feeds.feedburner.com/webpronews/all,Technology
+Webware.com,http://www.webware.com/?part=rss&tag=feed&subj=Webware,,,http://www.webware.com/8300-1_109-2-0.xml,Technology
+Weirdness Evaluation Engine,http://weetest.blogspot.com/index.html,,,http://weetest.blogspot.com/feeds/posts/default?alt=rss,Poetry
+What's Up - 365 Days of Skywatching,http://www.astrowhatsup.com,,,http://www.astrowhatsup.com/feed/,Other
+Wi-Fi Networking News,http://wifinetnews.com/,,,http://wifinetnews.com/rss.xml,Technology
+Wicked Chops Poker,http://wickedchopspoker.blogs.com/my_weblog/,,,http://wickedchopspoker.blogs.com/my_weblog/index.rdf,Poker
+Wil Harris,http://www.wilharris.co.uk,Wil Harris,wil.harris@bit-tech.net,http://wilharris.blogspot.com/feeds/posts/default,Technology
+Will Wilkinson / The Fly Bottle,http://www.willwilkinson.net/flybottle,,,http://feeds.feedburner.com/willwilkinson/VeUZ,News
+William Kapes,http://williamk.vox.com,William Kapes,william@kapes.org,http://williamk.vox.com/library/posts/atom.xml,Technology
+Windows Vista Team Blog,http://windowsvistablog.com/blogs/windowsvista/default.aspx,,,http://windowsvistablog.com/blogs/windowsvista/rss.aspx,Technology
+Wingtips,http://paulagrenside.typepad.com/wingtips/,,,http://paulagrenside.typepad.com/wingtips/index.rdf,Poetry
+WIRED,http://www.wired.com/storylist/1340-0-0.html,Evan Hansen,,http://www.wired.com/rss/index.xml,Technology
+Wonkette,http://www.wonkette.com,,,http://www.wonkette.com/index.xml,News
+WoolWorks,http://theartofwool.blogspot.com/index.html,,,http://theartofwool.blogspot.com/feeds/posts/default?alt=rss,Sewing
+WordPress.com Blog,http://wordpress.com,,,http://wordpress.com/feed/,Technology
+Worker Bees Blog,http://workerbeesblog.blogspot.com,,,http://workerbeesblog.blogspot.com/rss.xml,Technology
+Wounded Duck,http://woundedquacker.blogspot.com,,,http://woundedquacker.blogspot.com/rss.xml,Golf
+WOW Insider,http://www.wowinsider.com,,,http://www.wowinsider.com/rss.xml,Technology
+Writing Blind,http://writing-blind.blogspot.com/index.html,,,http://writing-blind.blogspot.com/feeds/posts/default?alt=rss,Poetry
+WSJ.com: What's News US,http://online.wsj.com,,,http://feeds.wsjonline.com/wsj/xml/rss/3_7011.xml,Technology
+WWdN: In Exile,http://wilwheaton.typepad.com/wwdnbackup/,,,http://wilwheaton.typepad.com/wwdnbackup/index.rdf,Poker
+Xavier Lanier,http://www.notebooks.com,Xavier Lanier,xavier@notebooks.com,http://feeds.feedburner.com/notebooksnewsreviews,Technology
+Xbox 360 Fanboy,http://www.xbox360fanboy.com,,,http://www.xbox360fanboy.com/rss.xml,Technology
+Xbox Live's Major Nelson,http://www.majornelson.com/default.aspx,,,http://feeds.feedburner.com/MajorNelson,Technology
+XYZcomputing.com,http://arghyle.com,Sal Cangeloso,admin@xyzcomputing.com,http://feeds.feedburner.com/arghyle,Technology
+Yahoo! Picks,http://picks.yahoo.com/picks/,,,http://picks.yahoo.com/picks/index.xml,Other
+Yarn Harlot,http://www.yarnharlot.ca/blog/,,,http://www.yarnharlot.ca/blog/index.rdf,Sewing
+Yarnivorous,http://yarnivorous.blogspot.com,,,http://yarnivorous.blogspot.com/rss.xml,Sewing
+You Knit What??,http://youknitwhat.blogspot.com,,,http://youknitwhat.blogspot.com/rss.xml,Sewing
+You NEWB,http://www.younewb.com,,,http://feeds.feedburner.com/YouNewb,Technology
+YouTube Videos,http://all-youtube.blogspot.com/index.html,,,http://all-youtube.blogspot.com/feeds/posts/default?alt=rss,Other
+ZDNet India Top Stories,http://zdnetindia.com/,,,http://www.zdnetindia.com/topstoriesfeeds.xml,Technology
+ZDNet: apple,http://blogs.zdnet.com/Apple/,Jason D. O'Grady,,http://blogs.zdnet.com/Apple/?feed=rss2,Technology
+ZDNet: Briefings,http://blogs.zdnet.com/Gardner/,Dana Gardner,,http://blogs.zdnet.com/Gardner/?feed=rss2,Technology
+ZDNet: Greenbaum,http://blogs.zdnet.com/Greenbaum/,Joshua Greenbaum,,http://blogs.zdnet.com/Greenbaum/?feed=rss2,Technology
+ZDNet: hardware,http://blogs.zdnet.com/hardware/,Adrian Kingsley-Hughes,,http://blogs.zdnet.com/hardware/?feed=rss2,Technology
+ZDNET: ip telephony,http://blogs.zdnet.com/ip-telephony/,Russel Shaw,,http://blogs.zdnet.com/ip-telephony/?feed=rss2,Technology
+ZDNet: law,http://blogs.zdnet.com/Howell/,Denise Howell,,http://blogs.zdnet.com/Howell/?feed=rss2,Technology
+ZDNet: micromarkets,http://blogs.zdnet.com/micro-markets/,Donna Bogatin,,http://blogs.zdnet.com/micro-markets/?feed=rss2,Technology
+ZDNet: microsoft,http://blogs.zdnet.com/microsoft/,Mary Jo Foley,,http://blogs.zdnet.com/microsoft/?feed=rss2,Technology
+ZDNet: Orchant,http://blogs.zdnet.com/Orchant/,Marc Orchant,,http://blogs.zdnet.com/Orchant/?feed=rss2,Technology
+ZDNet: over the horizon,http://blogs.zdnet.com/OverTheHorizon/,Justin Rattner,,http://blogs.zdnet.com/OverTheHorizon/?feed=rss2,Technology
+ZDNet: processors,http://blogs.zdnet.com/processors/,John Spooner,,http://blogs.zdnet.com/processors/?feed=rss2,Technology
+ZDNet: real world it,http://blogs.zdnet.com/Ou/,George Ou,,http://blogs.zdnet.com/Ou/?feed=rss2,Technology
+ZDNet: security,http://blogs.zdnet.com/security/,chris Naraine,,http://blogs.zdnet.com/security/?feed=rss2,Technology
+ZDNet: threatchaos,http://blogs.zdnet.com/threatchaos/,Richard Stiennon,,http://blogs.zdnet.com/threatchaos/?feed=rss2,Technology
+Zero Day,http://blogs.zdnet.com/security,,,http://blogs.zdnet.com/security/?feed=rss2,Technology
+Zooomr,http://thomashawk.com/,Thomas Hawk,tom@thomashawk.com,http://thomashawk.com/rss.xml,Technology
+~Sew Exciting~  FASHION SEWING SUPPLY,http://sewexciting.blogspot.com,,,http://sewexciting.blogspot.com/rss.xml,Sewing
+Make,http://www.makezine.com/blog/,Phillip Torrone,,http://www.makezine.com/blog/index.xml,Technology
+ABC News - Amanda,http://www.abcnews.go.com/Amanda,Amanda Congdon,,http://my.abcnews.go.com/rsspublic/fp_rss20.xml,Technology
