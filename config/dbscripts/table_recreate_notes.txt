@@ -1,0 +1,26 @@
+CREATE DATABASE htcms CHARACTER SET utf8 COLLATE utf8_general_ci;
+GRANT ALL PRIVILEGES ON htcms.* TO htcms@'localhost' IDENTIFIED BY 'Htcms@1htcms';
+GRANT SELECT ON htcms.* TO htcms@'localhost' IDENTIFIED BY 'Htcms@1htcms';
+GRANT ALL PRIVILEGES ON *.* TO htcms@'localhost' IDENTIFIED BY 'Htcms@1htcms';
+
+    
+CREATE DATABASE conversationtracker CHARACTER SET utf8 COLLATE utf8_general_ci;
+GRANT ALL PRIVILEGES ON conversationtracker.* TO conversationtracker@'localhost' IDENTIFIED BY 'conversationtracker';
+GRANT SELECT ON conversationtracker.* TO conversationtracker@'localhost' IDENTIFIED BY 'conversationtracker';
+GRANT ALL PRIVILEGES ON *.* TO conversationtracker@'localhost' IDENTIFIED BY 'conversationtracker';
+
+
+CREATE DATABASE testdb CHARACTER SET utf8 COLLATE utf8_general_ci;
+GRANT ALL PRIVILEGES ON testdb.* TO testdb@'localhost' IDENTIFIED BY 'testdb';
+GRANT SELECT ON testdb.* TO testdb@'localhost' IDENTIFIED BY 'testdb';
+GRANT ALL PRIVILEGES ON *.* TO testdb@'localhost' IDENTIFIED BY 'testdb';
+
+
+
+
+// As of 2024 the above grance didnt seem
+
+CREATE DATABASE htcms CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE USER 'htcms'@'host' IDENTIFIED BY 'htcms';
+GRANT CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT, REFERENCES, RELOAD ON *.* TO 'htcms'@'host';
+FLUSH PRIVILEGES;
