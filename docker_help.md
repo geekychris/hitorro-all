@@ -43,3 +43,21 @@ docker run --name mysql-server \
 -v /home/chris/data/mysql:/var/lib/mysql \
 -d mysql:latest
 ```
+
+```mysql
+-- Create the database
+CREATE DATABASE htcms
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_general_ci;
+
+-- Create the user (local access)
+CREATE USER 'htcms'@'localhost'
+  IDENTIFIED BY 'htcms';
+
+-- Grant full privileges on the htcms database
+GRANT ALL PRIVILEGES ON htcms.* TO 'htcms'@'localhost';
+
+-- Apply privileges
+FLUSH PRIVILEGES;
+
+```
