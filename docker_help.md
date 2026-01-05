@@ -50,12 +50,13 @@ CREATE DATABASE htcms
   CHARACTER SET utf8mb4
   COLLATE utf8mb4_general_ci;
 
--- Create the user (local access)
-CREATE USER 'htcms'@'localhost'
+-- Create the user (external access from host machine)
+-- Note: Use '%' instead of 'localhost' when connecting from outside the Docker container
+CREATE USER 'htcms'@'%'
   IDENTIFIED BY 'htcms';
 
 -- Grant full privileges on the htcms database
-GRANT ALL PRIVILEGES ON htcms.* TO 'htcms'@'localhost';
+GRANT ALL PRIVILEGES ON htcms.* TO 'htcms'@'%';
 
 -- Apply privileges
 FLUSH PRIVILEGES;
