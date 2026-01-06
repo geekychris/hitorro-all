@@ -31,8 +31,8 @@ MODULES=(
     "hitorro-test"
 )
 
-# Default branch
-DEFAULT_BRANCH="${1:-3.0.0}"
+# Default branch (changed from 3.0.0 to main to match current repository state)
+DEFAULT_BRANCH="${1:-main}"
 
 echo -e "${BLUE}Updating all Hitorro modules to branch: $DEFAULT_BRANCH${NC}"
 echo ""
