@@ -29,16 +29,10 @@
         <property name="show_sql">true</property>
 
         <!-- Drop and re-create the database schema on startup (other options) -->
+        <!-- DISABLED: Using JPA schema-generation instead to avoid repeated drops -->
         <!-- <property name="hbm2ddl.auto">create</property> -->
 
-        <mapping resource="ht/dms/baseobjects/Document.hbm.xml"/>
-		<mapping resource="ht/dms/baseobjects/Content.hbm.xml"/>
-		<mapping resource="ht/dms/baseobjects/ContentType.hbm.xml"/>
-		<mapping resource="ht/dms/baseobjects/Extension.hbm.xml"/>
-		<mapping resource="ht/dms/baseobjects/Store.hbm.xml"/>
-		<mapping resource="ht/dms/baseobjects/Blog.hbm.xml"/>
-		<!--<mapping resource="ht/dms/baseobjects/BlogEntry.hbm.xml"/>-->
-		<!--<mapping resource="ht/dms/baseobjects/Comment.hbm.xml"/>-->
+        <!-- All entity mappings now use JPA annotations - no XML mappings needed -->
     </session-factory>
 
 </hibernate-configuration>
