@@ -36,6 +36,8 @@ MODULES=(
     "hitorro-dataaquisition|git@github.com:geekychris/hitorro-dataaquisition.git"
     "hitorro-conversation|git@github.com:geekychris/hitorro-conversation.git"
     "hitorro-baseui|git@github.com:geekychris/hitorro-baseui.git"
+    "hitorro-spring-boot|git@github.com:geekychris/hitorro-spring-boot.git"
+    "hitorro-example-springboot|git@github.com:geekychris/hitorro-example-springboot.git"
     "hitorro-test|git@github.com:geekychris/hitorro-test.git"
 )
 

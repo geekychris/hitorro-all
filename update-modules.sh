@@ -28,6 +28,8 @@ MODULES=(
     "hitorro-dataaquisition"
     "hitorro-conversation"
     "hitorro-baseui"
+    "hitorro-spring-boot"
+    "hitorro-example-springboot"
     "hitorro-test"
 )
 
