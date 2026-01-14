@@ -100,8 +100,10 @@ The parent POM (`pom.xml`) provides:
 
 ## Technology Stack
 
-- **Java 19**
+- **Java 19+**
 - **Maven** for build management
+- **Hibernate 6.x** for ORM
+- **Jakarta Persistence (JPA 3.x)** for data persistence
 - **JUnit 5** for testing
 - **Mockito** for mocking
 - **AssertJ** for fluent assertions
@@ -126,6 +128,16 @@ Common dependency versions are managed in the parent POM's `<dependencyManagemen
 
 1. Update the version property in the parent POM
 2. The change will cascade to all modules using that dependency
+
+## Important Notes
+
+### Hibernate 6 Migration
+
+This project has been migrated from Hibernate 5 to Hibernate 6. Key changes:
+
+- **Entity Name Resolution**: HQL queries now require simple entity names (e.g., `Role`) instead of fully-qualified class names (e.g., `com.hitorro.base.objects.Role`)
+- **Fixed in**: `GuidAccessor.initAux()` - Changed from `getCanonicalName()` to `getSimpleName()` for entity name resolution
+- This fix resolves `SemanticException: Could not interpret path expression 'name'` errors during CSV loading at startup
 
 ## License
 
