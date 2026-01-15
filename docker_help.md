@@ -21,8 +21,19 @@ docker run -d \
 -p 9001:9001 \
 --name minio \
 -e "MINIO_ROOT_USER=admin" \
--e "MINIO_ROOT_PASSWORD=YourPassword" \
+-e "MINIO_ROOT_PASSWORD=mypassword" \
 -v /home/chris/data/minio:/data \
+quay.io/minio/minio server /data --console-address ":9001"
+```
+
+```` sh
+docker run -d \
+-p 9000:9000 \
+-p 9001:9001 \
+--name minio \
+-e "MINIO_ROOT_USER=admin" \
+-e "MINIO_ROOT_PASSWORD=mypassword" \
+-v /Users/chris/data/s3:/data \
 quay.io/minio/minio server /data --console-address ":9001"
 ```
 
