@@ -120,7 +120,7 @@
         "integrator": "com.hitorro.basedms.integrationevents.CSVHibernateIntegrator"
       }
     },
-    "initdblist": "users, permissions, roles, rolepermissionlist, userrolelist, testhierarchycat, docparts, htcategory, conversationtype, htcontentassettype, client, rssinfeeds, personalities, htanchor, htposttype"
+    "initdblist": "stores, domaininfo, users, permissions, roles, rolepermissionlist, userrolelist, testhierarchycat, docparts, htcategory, conversationtype, htcontentassettype, client, rssinfeeds, personalities, htanchor, htposttype"
   },
   "monitor": {
     "email": {

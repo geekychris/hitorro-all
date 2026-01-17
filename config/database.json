@@ -4,14 +4,19 @@
     "url": "jdbc:mysql://localhost/htcms?autoReconnect=true&useUnicode=yes&characterEncoding=UTF-8&serverTimezone=UTC",
     "username": "htcms"
   },
+  "h2file": {
+    "password": "hitorro",
+    "url": "jdbc:h2:file:./data/hitorrodb;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE",
+    "username": "sa"
+  },
   "derbydb": {
     "password": "Htcms@1htcms",
     "url": "jdbc:derby:${db.embedded.name};create=true",
     "username": "htcms"
   },
   "testdb": {
-    "password": "htcms",
-    "url": "jdbc:mysql://localhost/htcms_test?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8",
-    "username": "htcms"
+    "password": "",
+    "url": "jdbc:h2:mem:testdb;MODE=MySQL;CASE_INSENSITIVE_IDENTIFIERS=TRUE;DB_CLOSE_DELAY=-1",
+    "username": "sa"
   }
 }

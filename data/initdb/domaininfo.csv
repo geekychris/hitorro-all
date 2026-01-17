@@ -11,3 +11,6 @@ htanchor,"HiTorro Anchor Channels","","com.hitorro.util.core.valuemap.FlatValueM
 htposttype,"HiTorro Post Types","","com.hitorro.util.core.valuemap.FlatValueMap"
 htcontentassettype,"Type of asset a piece of content is","","com.hitorro.util.core.valuemap.FlatValueMap"
 persisted,"persisted stuff","persisted stuff","com.hitorro.util.core.valuemap.NonValidatedFlatValueMap"
+images,"Image Categories","Categories for image content","com.hitorro.util.core.valuemap.NonValidatedFlatValueMap"
+links,"Link Categories","Categories for link content","com.hitorro.util.core.valuemap.NonValidatedFlatValueMap"
+attachments,"Attachment Categories","Categories for attachment content","com.hitorro.util.core.valuemap.NonValidatedFlatValueMap"
