@@ -1,0 +1,53 @@
+{
+  "name": "product",
+  "description": "E-commerce product with specifications, pricing, and inventory",
+  "super": "sysobject",
+  "fields": [
+    {
+      "name": "sku",
+      "type": "core_string"
+    },
+    {
+      "name": "brand",
+      "type": "core_string"
+    },
+    {
+      "name": "category",
+      "type": "core_string",
+      "vector": true
+    },
+    {
+      "name": "price",
+      "type": "core_long"
+    },
+    {
+      "name": "currency",
+      "type": "core_string"
+    },
+    {
+      "name": "in_stock",
+      "type": "core_boolean"
+    },
+    {
+      "name": "quantity",
+      "type": "core_long"
+    },
+    {
+      "name": "specifications",
+      "type": "core_mls"
+    },
+    {
+      "name": "images",
+      "type": "core_url",
+      "vector": true
+    },
+    {
+      "name": "reviews_count",
+      "type": "core_long"
+    },
+    {
+      "name": "rating",
+      "type": "core_long"
+    }
+  ]
+}
