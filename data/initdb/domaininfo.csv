@@ -14,3 +14,5 @@ persisted,"persisted stuff","persisted stuff","com.hitorro.util.core.valuemap.No
 images,"Image Categories","Categories for image content","com.hitorro.util.core.valuemap.NonValidatedFlatValueMap"
 links,"Link Categories","Categories for link content","com.hitorro.util.core.valuemap.NonValidatedFlatValueMap"
 attachments,"Attachment Categories","Categories for attachment content","com.hitorro.util.core.valuemap.NonValidatedFlatValueMap"
+rendition,"rendition types","content rendition types","com.hitorro.util.core.valuemap.NonValidatedFlatValueMap"
+
