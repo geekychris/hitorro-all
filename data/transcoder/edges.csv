@@ -2,6 +2,26 @@ MimeFrom,MimeTo,Transformer,Method,MethodArgs
 *, video/mp4, sorenson, ipod_mp4,
 *, application/x-shockwave-flash, sorenson, 512K_FLV,
 *, audio/mpeg, sorenson, 128K_MP3,
+application/pdf, image/jpeg, pdf2image, pdf_to_image, "format=jpeg,dpi=150,quality=85"
+application/pdf, image/png, pdf2image, pdf_to_image, "format=png,dpi=150"
+application/pdf, image/tiff, pdf2image, pdf_to_image, "format=tiff,dpi=300"
+application/msword, application/pdf, libreoffice, libreoffice_convert, format=pdf
+application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/pdf, libreoffice, libreoffice_convert, format=pdf
+application/vnd.ms-excel, application/pdf, libreoffice, libreoffice_convert, format=pdf
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/pdf, libreoffice, libreoffice_convert, format=pdf
+application/vnd.ms-powerpoint, application/pdf, libreoffice, libreoffice_convert, format=pdf
+application/vnd.openxmlformats-officedocument.presentationml.presentation, application/pdf, libreoffice, libreoffice_convert, format=pdf
+application/vnd.oasis.opendocument.text, application/pdf, libreoffice, libreoffice_convert, format=pdf
+application/vnd.oasis.opendocument.spreadsheet, application/pdf, libreoffice, libreoffice_convert, format=pdf
+application/vnd.oasis.opendocument.presentation, application/pdf, libreoffice, libreoffice_convert, format=pdf
+image/*, image/jpeg, imagemagick, imagemagick_convert, "format=jpg,quality=85"
+image/*, image/png, imagemagick, imagemagick_convert, format=png
+image/*, image/gif, imagemagick, imagemagick_convert, format=gif
+image/*, image/bmp, imagemagick, imagemagick_convert, format=bmp
+image/*, image/tiff, imagemagick, imagemagick_convert, format=tiff
+image/jpeg, image/png, imagemagick, imagemagick_convert, format=png
+image/png, image/jpeg, imagemagick, imagemagick_convert, "format=jpg,quality=90"
+text/plain, application/pdf, libreoffice, libreoffice_convert, format=pdf
 
 
 
