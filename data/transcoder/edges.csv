@@ -59,3 +59,6 @@ text/html, text/plain, HTMLToTextTransformer, com.hitorro.basedms.transformer.me
 # Markdown to HTML conversion
 text/markdown, text/html, MarkdownToHTMLTransformer, com.hitorro.basedms.transformer.methods.MarkdownToHTMLTransformer, markdown_to_html, "standalone=true,toc=false"
 text/x-markdown, text/html, MarkdownToHTMLTransformer, com.hitorro.basedms.transformer.methods.MarkdownToHTMLTransformer, markdown_to_html, "standalone=true,toc=false"
+
+# PDF injection/templating
+application/pdf, application/pdf, PDFTemplateTransformer, com.hitorro.basedms.transformer.methods.PDFTemplateTransformer, pdf_template, "flatten=true"
