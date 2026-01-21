@@ -2,9 +2,19 @@ MimeFrom,MimeTo,Transformer,Method,MethodArgs
 *, video/mp4, sorenson, ipod_mp4,
 *, application/x-shockwave-flash, sorenson, 512K_FLV,
 *, audio/mpeg, sorenson, 128K_MP3,
+
+# PDF to Image conversions
 application/pdf, image/jpeg, PDFToImageTransformer, pdf_to_image, "format=jpeg,dpi=150,quality=85"
 application/pdf, image/png, PDFToImageTransformer, pdf_to_image, "format=png,dpi=150"
 application/pdf, image/tiff, PDFToImageTransformer, pdf_to_image, "format=tiff,dpi=300"
+
+# PDF to Text conversion (NEW)
+application/pdf, text/plain, PDFToTextTransformer, pdf_to_text, "layout=true,encoding=utf-8"
+
+# PostScript to PDF conversion (NEW)
+application/postscript, application/pdf, PostScriptToPDFTransformer, ps_to_pdf, "quality=ebook,compatibility=1.4"
+
+# LibreOffice conversions (Office documents to PDF)
 application/msword, application/pdf, libreoffice, libreoffice_convert, format=pdf
 application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/pdf, libreoffice, libreoffice_convert, format=pdf
 application/vnd.ms-excel, application/pdf, libreoffice, libreoffice_convert, format=pdf
@@ -14,6 +24,9 @@ application/vnd.openxmlformats-officedocument.presentationml.presentation, appli
 application/vnd.oasis.opendocument.text, application/pdf, libreoffice, libreoffice_convert, format=pdf
 application/vnd.oasis.opendocument.spreadsheet, application/pdf, libreoffice, libreoffice_convert, format=pdf
 application/vnd.oasis.opendocument.presentation, application/pdf, libreoffice, libreoffice_convert, format=pdf
+text/plain, application/pdf, libreoffice, libreoffice_convert, format=pdf
+
+# ImageMagick conversions (image format conversions)
 image/*, image/jpeg, imagemagick, imagemagick_convert, "format=jpg,quality=85"
 image/*, image/png, imagemagick, imagemagick_convert, format=png
 image/*, image/gif, imagemagick, imagemagick_convert, format=gif
@@ -21,7 +34,28 @@ image/*, image/bmp, imagemagick, imagemagick_convert, format=bmp
 image/*, image/tiff, imagemagick, imagemagick_convert, format=tiff
 image/jpeg, image/png, imagemagick, imagemagick_convert, format=png
 image/png, image/jpeg, imagemagick, imagemagick_convert, "format=jpg,quality=90"
-text/plain, application/pdf, libreoffice, libreoffice_convert, format=pdf
 
+# OCR conversions (NEW)
+image/jpeg, text/plain, OCRTransformer, ocr, "lang=eng,output=txt,psm=3"
+image/png, text/plain, OCRTransformer, ocr, "lang=eng,output=txt,psm=3"
+image/tiff, text/plain, OCRTransformer, ocr, "lang=eng,output=txt,psm=3"
+image/jpeg, application/pdf, OCRTransformer, ocr, "lang=eng,output=pdf,psm=3"
+image/png, application/pdf, OCRTransformer, ocr, "lang=eng,output=pdf,psm=3"
+image/tiff, application/pdf, OCRTransformer, ocr, "lang=eng,output=pdf,psm=3"
 
+# Video thumbnail generation (NEW)
+video/mp4, image/jpeg, VideoThumbnailTransformer, video_thumbnail, "timestamp=00:00:05,width=640,format=jpg"
+video/avi, image/jpeg, VideoThumbnailTransformer, video_thumbnail, "timestamp=00:00:05,width=640,format=jpg"
+video/quicktime, image/jpeg, VideoThumbnailTransformer, video_thumbnail, "timestamp=00:00:05,width=640,format=jpg"
+video/x-matroska, image/jpeg, VideoThumbnailTransformer, video_thumbnail, "timestamp=00:00:05,width=640,format=jpg"
+video/webm, image/jpeg, VideoThumbnailTransformer, video_thumbnail, "timestamp=00:00:05,width=640,format=jpg"
 
+# PDF compression (NEW - Tier 2)
+application/pdf, application/pdf, PDFCompressTransformer, pdf_compress, "quality=ebook,grayscale=false"
+
+# HTML to text conversion (NEW - Tier 2)
+text/html, text/plain, HTMLToTextTransformer, html_to_text, "width=80,links=inline"
+
+# Markdown to HTML conversion (NEW - Tier 2)
+text/markdown, text/html, MarkdownToHTMLTransformer, markdown_to_html, "standalone=true,toc=false"
+text/x-markdown, text/html, MarkdownToHTMLTransformer, markdown_to_html, "standalone=true,toc=false"
