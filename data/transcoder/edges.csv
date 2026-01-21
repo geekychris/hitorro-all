@@ -2,9 +2,9 @@ MimeFrom,MimeTo,Transformer,Method,MethodArgs
 *, video/mp4, sorenson, ipod_mp4,
 *, application/x-shockwave-flash, sorenson, 512K_FLV,
 *, audio/mpeg, sorenson, 128K_MP3,
-application/pdf, image/jpeg, pdf2image, pdf_to_image, "format=jpeg,dpi=150,quality=85"
-application/pdf, image/png, pdf2image, pdf_to_image, "format=png,dpi=150"
-application/pdf, image/tiff, pdf2image, pdf_to_image, "format=tiff,dpi=300"
+application/pdf, image/jpeg, PDFToImageTransformer, pdf_to_image, "format=jpeg,dpi=150,quality=85"
+application/pdf, image/png, PDFToImageTransformer, pdf_to_image, "format=png,dpi=150"
+application/pdf, image/tiff, PDFToImageTransformer, pdf_to_image, "format=tiff,dpi=300"
 application/msword, application/pdf, libreoffice, libreoffice_convert, format=pdf
 application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/pdf, libreoffice, libreoffice_convert, format=pdf
 application/vnd.ms-excel, application/pdf, libreoffice, libreoffice_convert, format=pdf
