@@ -141,4 +141,5 @@ video/x-msvideo					avi
 
 # Additional MIME types for common file formats
 application/json				json
+application/pdf					pdf
 text/markdown					md markdown
