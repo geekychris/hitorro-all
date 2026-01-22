@@ -62,3 +62,26 @@ text/x-markdown, text/html, MarkdownToHTMLTransformer, com.hitorro.basedms.trans
 
 # PDF injection/templating
 application/pdf, application/pdf, PDFTemplateTransformer, com.hitorro.basedms.transformer.methods.PDFTemplateTransformer, pdf_template, "flatten=true"
+
+# Document embedding preprocessing (text cleaning for AI/vector databases)
+text/plain, text/plain, DocumentEmbeddingPreprocessor, com.hitorro.basedms.transformer.methods.DocumentEmbeddingPreprocessor, embedding_preprocessor, "remove_urls=true,remove_emails=true"
+text/html, text/plain, DocumentEmbeddingPreprocessor, com.hitorro.basedms.transformer.methods.DocumentEmbeddingPreprocessor, embedding_preprocessor, "remove_urls=true,remove_emails=true"
+
+# Spreadsheet to JSON conversions
+application/vnd.ms-excel, application/json, SpreadsheetToJSONTransformer, com.hitorro.basedms.transformer.methods.SpreadsheetToJSONTransformer, spreadsheet_to_json, "format=array,sheet=0,header=true"
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/json, SpreadsheetToJSONTransformer, com.hitorro.basedms.transformer.methods.SpreadsheetToJSONTransformer, spreadsheet_to_json, "format=array,sheet=0,header=true"
+text/csv, application/json, SpreadsheetToJSONTransformer, com.hitorro.basedms.transformer.methods.SpreadsheetToJSONTransformer, spreadsheet_to_json, "format=array,header=true"
+
+# Presentation to HTML conversions
+application/vnd.ms-powerpoint, text/html, PresentationToHTMLTransformer, com.hitorro.basedms.transformer.methods.PresentationToHTMLTransformer, presentation_to_html, "slides=all,navigation=true"
+application/vnd.openxmlformats-officedocument.presentationml.presentation, text/html, PresentationToHTMLTransformer, com.hitorro.basedms.transformer.methods.PresentationToHTMLTransformer, presentation_to_html, "slides=all,navigation=true"
+application/vnd.oasis.opendocument.presentation, text/html, PresentationToHTMLTransformer, com.hitorro.basedms.transformer.methods.PresentationToHTMLTransformer, presentation_to_html, "slides=all,navigation=true"
+
+# AI-powered transformations (require Ollama/LLM service)
+text/plain, application/json, DocumentSummarizerTransformer, com.hitorro.basedms.transformer.methods.DocumentSummarizerTransformer, document_summarizer, "format=json,style=executive,max_words=200"
+text/html, application/json, DocumentSummarizerTransformer, com.hitorro.basedms.transformer.methods.DocumentSummarizerTransformer, document_summarizer, "format=json,style=executive,max_words=200"
+application/pdf, application/json, DocumentSummarizerTransformer, com.hitorro.basedms.transformer.methods.DocumentSummarizerTransformer, document_summarizer, "format=json,style=executive,max_words=200"
+
+# AI-powered Q&A (requires Ollama/LLM service and questions parameter)
+text/plain, application/json, DocumentQATransformer, com.hitorro.basedms.transformer.methods.DocumentQATransformer, document_qa, "questions=[],confidence=true"
+text/html, application/json, DocumentQATransformer, com.hitorro.basedms.transformer.methods.DocumentQATransformer, document_qa, "questions=[],confidence=true"
