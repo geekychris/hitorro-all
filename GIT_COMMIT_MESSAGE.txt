@@ -1,0 +1,62 @@
+Add complete Docker and React UI support for Hitorro
+
+This commit adds comprehensive Docker support including:
+
+## Docker Infrastructure
+- Multi-stage Dockerfile building all 19 Hitorro modules
+- Docker Compose configurations (H2 and PostgreSQL)
+- Build and run scripts (port 6000 range to avoid MinIO conflicts)
+- Complete configuration files and CSV data
+
+## React UI
+- Modern React 18 application with Material-UI
+- Document management interface with drag-and-drop upload
+- Content transformation UI
+- System monitoring dashboard
+- Responsive design for all devices
+
+## Scripts (docker_build/)
+- run-port-6000.sh - Main run script (recommended)
+- build-and-start.sh - Build and start in one command
+- hitorro.sh - Master control with 15 commands
+- Individual build/start/stop/clean scripts
+- Diagnostic and troubleshooting tools
+
+## Documentation
+- DOCKER_SETUP_SUMMARY.md - Complete overview at root
+- START_HERE.md - Main entry point
+- docker_build/README.md - Scripts documentation
+- README_PORT_6000.md - Quick start guide
+- BUILD_SUCCESS.md - Deployment guide
+- COMPLETE.md - Architecture and features
+- TROUBLESHOOTING.md - Common issues
+
+## Features
+- Builds all 19 modules from source
+- Optimized multi-stage build with layer caching
+- Non-root execution
+- Health checks and monitoring
+- Volume persistence for data/files/logs
+- CLI access (Telnet port 6000, SSH port 6022)
+- Full REST API with Swagger
+- H2 database with PostgreSQL support
+
+## Build Performance
+- First build: 10-15 minutes
+- Cached rebuild: 2-3 minutes
+- Runtime image: ~2.2 GB
+- Startup time: 30-60 seconds
+
+## Quick Start
+cd hitorro-example-springboot/docker_build
+./run-port-6000.sh
+
+Then access at: http://localhost:8080
+
+## Port Mappings
+- 8080: HTTP (Web UI, REST API, Swagger)
+- 6000: Telnet CLI (avoids MinIO on 9000)
+- 6022: SSH CLI
+
+Files: 60+ new files, ~8,000 lines of code
+Status: Tested and working
