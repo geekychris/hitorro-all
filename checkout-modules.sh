@@ -26,6 +26,7 @@ MODULES=(
     "hitorro-unittime|git@github.com:geekychris/hitorro-unittime.git"
     "hitorro-features|git@github.com:geekychris/hitorro-features.git"
     "hitorro-jsonsql|git@github.com:geekychris/hitorro-jsonsql.git"
+    "hitorro-jsonts-mongo|git@github.com:geekychris/hitorro-jsonts-mongo.git"
     "hitorro-objretrieval|git@github.com:geekychris/hitorro-objretrieval.git"
     "hitorro-text-core|git@github.com:geekychris/hitorro-text-core.git"
     "hitorro-text-persistence|git@github.com:geekychris/hitorro-text-persistence.git"

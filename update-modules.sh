@@ -18,6 +18,7 @@ MODULES=(
     "hitorro-unittime"
     "hitorro-features"
     "hitorro-jsonsql"
+    "hitorro-jsonts-mongo"
     "hitorro-objretrieval"
     "hitorro-text-core"
     "hitorro-text-persistence"

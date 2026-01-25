@@ -20,6 +20,7 @@ MODULES=(
     "hitorro-unittime"
     "hitorro-features"
     "hitorro-jsonsql"
+    "hitorro-jsonts-mongo"
     "hitorro-objretrieval"
     "hitorro-text-core"
     "hitorro-text-persistence"
@@ -30,6 +31,8 @@ MODULES=(
     "hitorro-dataaquisition"
     "hitorro-conversation"
     "hitorro-baseui"
+    "hitorro-spring-boot"
+    "hitorro-example-springboot"
     "hitorro-test"
 )
 
