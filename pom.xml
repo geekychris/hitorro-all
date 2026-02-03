@@ -45,6 +45,7 @@
         <opennlp.version>2.5.0</opennlp.version>
         <lucene.version>9.12.0</lucene.version>
         <asm.version>9.7.1</asm.version>
+        <rocksdb.version>10.4.2</rocksdb.version>
         
         <!-- Deployment repository path -->
         <hitorro.deploy.repo.path>${user.home}/code/hitorro-maven</hitorro.deploy.repo.path>
@@ -78,6 +79,7 @@
         <module>hitorro-conversation</module>
         <module>hitorro-baseui</module>
         <module>hitorro-test</module>
+        <module>hitorro-kvstore</module>
         <module>hitorro-app</module>
     </modules>
 
@@ -194,6 +196,18 @@
                 <groupId>com.hitorro</groupId>
                 <artifactId>hitorro-app</artifactId>
                 <version>${hitorro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.hitorro</groupId>
+                <artifactId>hitorro-kvstore</artifactId>
+                <version>${hitorro.version}</version>
+            </dependency>
+
+            <!-- RocksDB -->
+            <dependency>
+                <groupId>org.rocksdb</groupId>
+                <artifactId>rocksdbjni</artifactId>
+                <version>${rocksdb.version}</version>
             </dependency>
 
             <!-- Jackson -->

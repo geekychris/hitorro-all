@@ -21,6 +21,7 @@
         <module name="hitorro-util" />
         <module name="hitorro-baseui" />
         <module name="hitorro-index" />
+        <module name="hitorro-kvstore" />
         <module name="hitorro-unittime" />
         <module name="hitorro-jsonts-mongo" />
         <module name="hitorro-text-core" />
