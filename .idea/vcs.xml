@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-analysis" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-base" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-basedms" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-baseui" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-conversation" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-dataaquisition" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-dedupe" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-example-springboot" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-features" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-index" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-jsonsql" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-jsonts-mongo" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-logdigest" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-objretrieval" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-spring-boot" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-test" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-text-core" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-text-persistence" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-unittime" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-util" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/wiki-staging" vcs="Git" />
+  </component>
+</project>

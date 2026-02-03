@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="hitorro-conversation" />
+        <module name="hitorro-base" />
+        <module name="hitorro-jsonsql" />
+        <module name="hitorro-analysis" />
+        <module name="hitorro-basedms" />
+        <module name="hitorro-objretrieval" />
+        <module name="hitorro-dedupe" />
+        <module name="hitorro-app" />
+        <module name="hitorro-text-persistence" />
+        <module name="hitorro-spring-boot-autoconfigure" />
+        <module name="hitorro-spring-boot-starter" />
+        <module name="hitorro-dataaquisition" />
+        <module name="hitorro-util" />
+        <module name="hitorro-baseui" />
+        <module name="hitorro-index" />
+        <module name="hitorro-unittime" />
+        <module name="hitorro-jsonts-mongo" />
+        <module name="hitorro-text-core" />
+        <module name="hitorro-features" />
+        <module name="hitorro-logdigest" />
+        <module name="hitorro-test" />
+        <module name="hitorro-example-springboot" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="hitorro-all" target="19" />
+      <module name="hitorro-parent" target="19" />
+      <module name="hitorro-parent (1)" target="19" />
+      <module name="thirdpartysource" target="19" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="hitorro-example-springboot" options="-parameters" />
+    </option>
+  </component>
+</project>

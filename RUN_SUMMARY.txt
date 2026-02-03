@@ -1,0 +1,41 @@
+HiTorro Copyright Removal - Execution Summary
+==============================================
+
+Date: $(date)
+Files Processed: 698
+
+What was done:
+------------
+- Removed all lines containing "HiTorro All rights reserved" from Java files
+- Preserved the main copyright notice: "Copyright (c) 2006-2025 Chris Collins"
+- Kept all other Javadoc comment content intact
+
+Example changes:
+------------
+Before:
+    /**
+     * Copyright (c) 2003 - present HiTorro All rights reserved. User: chris Date: Jan 2, 2008 Time: 1:35:26 PM
+     * <p/>
+     * Load the definition of an index into the system.
+     */
+
+After:
+    /**
+     * <p/>
+     * Load the definition of an index into the system.
+     */
+
+Backup Directory:
+----------------
+A backup of all modified files is stored in:
+  .backup-java-files-20260107_194914/
+
+To restore from backup:
+  cp -r .backup-java-files-20260107_194914/* ./
+
+To verify changes:
+  diff -r hitorro-text-persistence .backup-java-files-20260107_194914/hitorro-text-persistence | head -50
+
+Verification:
+-------------
+0 Java files in the main codebase now contain "HiTorro All rights reserved"

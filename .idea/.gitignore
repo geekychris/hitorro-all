@@ -1,0 +1,17 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+# Zeppelin ignored files
+/ZeppelinRemoteNotebooks/
+/firebender/chat_history.db
+/firebender/chat_history.db-shm
+/firebender/chat_history.db-wal
+/encodings.xml
+/runConfigurations/HitorroExampleSpringBoot.xml
+/misc.xml
+/jarRepositories.xml

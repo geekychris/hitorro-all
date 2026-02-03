@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="HitorroExampleSpringBoot" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <option name="ALTERNATIVE_JRE_PATH" value="23" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <module name="hitorro-example-springboot" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.hitorro.example.HitorroExampleApplication" />
+    <option name="VM_PARAMETERS" value="-server -DHT_BIN=$PROJECT_DIR$/ -DHT_HOME=&quot;$PROJECT_DIR$/../hthome&quot; -Xmx2010M --add-opens java.base/java.lang=ALL-UNNAMED" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hitorro-example-springboot" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
