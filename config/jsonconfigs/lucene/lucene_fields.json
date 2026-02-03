@@ -1,0 +1,76 @@
+{
+  "fields": {
+    "text": {
+      "name": "text",
+      "indexed": true,
+      "tokenized": true,
+      "stored": true,
+      "docValues": false,
+      "i18n": true,
+      "isid": false
+    },
+    "textmarkup": {
+      "name": "textmarkup",
+      "indexed": true,
+      "tokenized": true,
+      "stored": true,
+      "docValues": false,
+      "i18n": true,
+      "isid": false
+    },
+    "identifier": {
+      "name": "identifier",
+      "indexed": true,
+      "tokenized": false,
+      "stored": true,
+      "docValues": true,
+      "i18n": false,
+      "isid": true
+    },
+    "long": {
+      "name": "long",
+      "indexed": true,
+      "tokenized": false,
+      "stored": true,
+      "docValues": true,
+      "i18n": false,
+      "isid": false
+    },
+    "int": {
+      "name": "int",
+      "indexed": true,
+      "tokenized": false,
+      "stored": true,
+      "docValues": true,
+      "i18n": false,
+      "isid": false
+    },
+    "double": {
+      "name": "double",
+      "indexed": true,
+      "tokenized": false,
+      "stored": true,
+      "docValues": true,
+      "i18n": false,
+      "isid": false
+    },
+    "date": {
+      "name": "date",
+      "indexed": true,
+      "tokenized": false,
+      "stored": true,
+      "docValues": true,
+      "i18n": false,
+      "isid": false
+    },
+    "boolean": {
+      "name": "boolean",
+      "indexed": true,
+      "tokenized": false,
+      "stored": true,
+      "docValues": false,
+      "i18n": false,
+      "isid": false
+    }
+  }
+}

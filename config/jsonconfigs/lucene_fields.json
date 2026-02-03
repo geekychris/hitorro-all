@@ -1,0 +1,67 @@
+{
+  "fields": [
+    {
+      "i18n": true,
+      "isid": true,
+      "name": "text",
+      "stored": true,
+      "indexed": true,
+      "tokenized": true,
+      "docValues": false
+    },
+    {
+      "i18n": false,
+      "isid": false,
+      "name": "identifier",
+      "stored": true,
+      "indexed": true,
+      "tokenized": false,
+      "docValues": true
+    },
+    {
+      "i18n": false,
+      "isid": false,
+      "name": "long",
+      "stored": true,
+      "indexed": true,
+      "tokenized": false,
+      "docValues": true
+    },
+    {
+      "i18n": false,
+      "isid": false,
+      "name": "int",
+      "stored": true,
+      "indexed": true,
+      "tokenized": false,
+      "docValues": true
+    },
+    {
+      "i18n": false,
+      "isid": false,
+      "name": "double",
+      "stored": true,
+      "indexed": true,
+      "tokenized": false,
+      "docValues": true
+    },
+    {
+      "i18n": false,
+      "isid": false,
+      "name": "date",
+      "stored": true,
+      "indexed": true,
+      "tokenized": false,
+      "docValues": true
+    },
+    {
+      "i18n": true,
+      "isid": false,
+      "name": "textmarkup",
+      "stored": true,
+      "indexed": true,
+      "tokenized": true,
+      "docValues": false
+    }
+  ]
+}
