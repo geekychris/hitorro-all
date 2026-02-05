@@ -32,6 +32,9 @@ MODULES=(
     "hitorro-spring-boot"
     "hitorro-example-springboot"
     "hitorro-test"
+    "hitorro-index"
+    "hitorro-kvstore"
+    "hitorro-luceneviewer"
 )
 
 echo -e "${BLUE}╔════════════════════════════════════════════════════════════════╗${NC}"

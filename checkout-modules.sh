@@ -40,6 +40,9 @@ MODULES=(
     "hitorro-spring-boot|git@github.com:geekychris/hitorro-spring-boot.git"
     "hitorro-example-springboot|git@github.com:geekychris/hitorro-example-springboot.git"
     "hitorro-test|git@github.com:geekychris/hitorro-test.git"
+    "hitorro-index|git@github.com:geekychris/hitorro-index.git"
+    "hitorro-kvstore|git@github.com:geekychris/hitorro-kvstore.git"
+    "hitorro-luceneviewer|git@github.com:geekychris/hitorro-luceneviewer.git"
 )
 
 # Default branch to use (leave empty to use repository default)

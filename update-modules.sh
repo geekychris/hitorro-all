@@ -32,6 +32,9 @@ MODULES=(
     "hitorro-spring-boot"
     "hitorro-example-springboot"
     "hitorro-test"
+    "hitorro-index"
+    "hitorro-kvstore"
+    "hitorro-luceneviewer"
 )
 
 # Default branch (changed from 3.0.0 to main to match current repository state)
