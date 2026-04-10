@@ -10,7 +10,7 @@
           "instanceName": "QuartzScheduler"
         },
         "threadPool": {
-          "class": "com.hitorro.util.core.thread.QuartzCompatibleThreadPool",
+          "class": "org.quartz.simpl.SimpleThreadPool",
           "threadCount": "7",
           "threadPriority": "5"
         }

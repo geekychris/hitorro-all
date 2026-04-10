@@ -1,4 +1,7 @@
 {
+  "transcoder": {
+    "config": "${HT_BIN}/data/transcoder/edges.csv"
+  },
   "conversationtracker": {
     "conv1": {
       "class": "com.hitorro.sampleapp.ConversationCalculationJob",

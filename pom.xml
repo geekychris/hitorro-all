@@ -63,7 +63,9 @@
     </properties>
 
     <modules>
+        <module>hitorro-core</module>
         <module>hitorro-util</module>
+        <module>hitorro-jsontypesystem</module>
         <module>hitorro-base</module>
         <module>hitorro-unittime</module>
         <module>hitorro-features</module>
@@ -114,7 +116,17 @@
             <!-- Hitorro internal modules -->
             <dependency>
                 <groupId>com.hitorro</groupId>
+                <artifactId>hitorro-core</artifactId>
+                <version>${hitorro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.hitorro</groupId>
                 <artifactId>hitorro-util</artifactId>
+                <version>${hitorro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.hitorro</groupId>
+                <artifactId>hitorro-jsontypesystem</artifactId>
                 <version>${hitorro.version}</version>
             </dependency>
             <dependency>

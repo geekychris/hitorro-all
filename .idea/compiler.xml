@@ -7,32 +7,35 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="hitorro-conversation" />
-        <module name="hitorro-base" />
-        <module name="hitorro-jsonsql" />
-        <module name="hitorro-analysis" />
         <module name="hitorro-basedms" />
-        <module name="hitorro-objretrieval" />
         <module name="hitorro-dedupe" />
-        <module name="hitorro-app" />
         <module name="hitorro-text-persistence" />
         <module name="hitorro-spring-boot-autoconfigure" />
-        <module name="hitorro-spring-boot-starter" />
         <module name="hitorro-dataaquisition" />
         <module name="hitorro-util" />
-        <module name="hitorro-baseui" />
         <module name="hitorro-index" />
         <module name="hitorro-kvstore" />
         <module name="hitorro-unittime" />
         <module name="hitorro-jsonts-mongo" />
-        <module name="hitorro-text-core" />
         <module name="hitorro-features" />
         <module name="hitorro-logdigest" />
-        <module name="hitorro-test" />
         <module name="hitorro-example-springboot" />
+        <module name="hitorro-base" />
+        <module name="hitorro-jsonsql" />
+        <module name="hitorro-analysis" />
+        <module name="hitorro-objretrieval" />
+        <module name="hitorro-app" />
+        <module name="hitorro-spring-boot-starter" />
+        <module name="hitorro-baseui" />
+        <module name="hitorro-jsontypesystem" />
+        <module name="hitorro-core" />
+        <module name="hitorro-text-core" />
+        <module name="hitorro-test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="hitorro-all" target="19" />
+      <module name="hitorro-jvs" target="21" />
       <module name="hitorro-parent" target="19" />
       <module name="hitorro-parent (1)" target="19" />
       <module name="thirdpartysource" target="19" />

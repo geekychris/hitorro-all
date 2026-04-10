@@ -15,7 +15,7 @@
       "name": "full_name",
       "type": "core_string",
       "dynamic": {
-        "class": "com.hitorro.jsontypesystem.dynamic.MultiValueMergerDM",
+        "class": "multivalue-merger",
         "fields": [
           ".first_name",
           ".last_name"
