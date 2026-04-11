@@ -15,6 +15,8 @@ NC='\033[0m'
 
 # All Hitorro modules
 MODULES=(
+    "hitorro-core"
+    "hitorro-jsontypesystem"
     "hitorro-util"
     "hitorro-base"
     "hitorro-unittime"
@@ -33,6 +35,7 @@ MODULES=(
     "hitorro-baseui"
     "hitorro-spring-boot"
     "hitorro-example-springboot"
+    "hitorro-jvs-example-springboot"
     "hitorro-test"
     "hitorro-index"
     "hitorro-kvstore"

@@ -21,6 +21,8 @@ NC='\033[0m' # No Color
 # Module configuration format: MODULE_NAME|GIT_URL
 # Using SSH URLs to leverage your configured SSH key authentication
 MODULES=(
+    "hitorro-core|git@github.com:geekychris/hitorro-core.git"
+    "hitorro-jsontypesystem|git@github.com:geekychris/hitorro-jsontypesystem.git"
     "hitorro-util|git@github.com:geekychris/hitorro-util.git"
     "hitorro-base|git@github.com:geekychris/hitorro-base.git"
     "hitorro-unittime|git@github.com:geekychris/hitorro-unittime.git"
@@ -39,6 +41,7 @@ MODULES=(
     "hitorro-baseui|git@github.com:geekychris/hitorro-baseui.git"
     "hitorro-spring-boot|git@github.com:geekychris/hitorro-spring-boot.git"
     "hitorro-example-springboot|git@github.com:geekychris/hitorro-example-springboot.git"
+    "hitorro-jvs-example-springboot|git@github.com:geekychris/hitorro-jvs-example-springboot.git"
     "hitorro-test|git@github.com:geekychris/hitorro-test.git"
     "hitorro-index|git@github.com:geekychris/hitorro-index.git"
     "hitorro-kvstore|git@github.com:geekychris/hitorro-kvstore.git"
