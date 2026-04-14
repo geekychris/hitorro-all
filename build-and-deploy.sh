@@ -55,6 +55,16 @@ fi
 echo "========================================="
 echo "Building and deploying Hitorro modules"
 echo "========================================="
+
+# Download ONNX NER model if not present
+if [ ! -f data/opennlpmodels-onnx/ner-multilingual/model.onnx ]; then
+    if [ -x ./download-onnx-models.sh ]; then
+        echo "Downloading ONNX NER model (one-time setup)..."
+        ./download-onnx-models.sh || echo "WARNING: ONNX model download failed — DL NER will be disabled"
+        echo ""
+    fi
+fi
+
 echo "Command: $MVN_CMD"
 echo ""
 

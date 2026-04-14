@@ -24,6 +24,9 @@ mvn test -pl hitorro-jsontypesystem -Dtest=JVSTest
 # Run a single test method
 mvn test -pl hitorro-jsontypesystem -Dtest=JVSTest#shouldCreateEmptyJvs
 
+# Download ONNX NER model (one-time, requires Python 3.8+)
+./download-onnx-models.sh
+
 # Version management
 ./bump-patch-version.sh   # 3.0.0 → 3.0.1
 ./bump-minor-version.sh   # 3.0.0 → 3.1.0
@@ -59,11 +62,11 @@ hitorro-app                     Application entry point (CommandLine)
 | Module | Purpose |
 |--------|---------|
 | **hitorro-core** | Foundation utilities: Propaccess path navigation, JSON processing (Jackson), file I/O (local/HDFS/S3), caching, iteration framework, HTTP clients |
-| **hitorro-jsontypesystem** | JSON Type System: JVS documents, Type/Field/Group definitions, projection executors, Groovy data mappers, JSON Schema support, NLP (OpenNLP, Snowball stemming, WordNet), classifiers |
+| **hitorro-jsontypesystem** | JSON Type System: JVS documents, Type/Field/Group definitions, projection executors, Groovy data mappers, JSON Schema support, NLP (OpenNLP MaxEnt + ONNX transformer NER, Snowball stemming, WordNet), classifiers |
 | **hitorro-util** | Application infrastructure: command framework, state machines, ZooKeeper, Redis, mail, scheduling, telnet/SSH servers, service counters |
 | **hitorro-base** | Core abstractions: document processing pipelines, type management, XML-RPC networking, PDFBox |
-| **hitorro-index** | Lucene integration: fielded search, faceting, multi-language tokenization, streaming NDJson |
-| **hitorro-kvstore** | RocksDB key-value store |
+| **hitorro-index** | Lucene integration: fielded search, faceting, multi-language tokenization, streaming NDJson, optional `_source` storage, `storeSource(false)` for KV-backed retrieval |
+| **hitorro-kvstore** | RocksDB key-value store with typed/untyped APIs, batch operations, prefix scanning, WAL-based replication |
 | **hitorro-text-core** | Text processing: NER filters, sentence enhancement, Lucene analyzers |
 | **hitorro-text-persistence** | Full-text indexing and search persistence |
 | **hitorro-basedms** | Document Management System with Hibernate persistence |
@@ -87,6 +90,7 @@ hitorro-app                     Application entry point (CommandLine)
 - **Data Mapping**: Groovy DSL for transforming documents between types. Scripts in `config/transforms/`, generators in `config/generators/`.
 - **ServiceContext/ServiceContextManager**: Custom dependency injection used in standalone mode (non-Spring).
 - **Configuration-driven**: Type definitions, Groovy transform scripts, CSV generators, service implementation mappings (`config/implementations.json`), and `config/generalconfig.json`.
+- **NLP models**: OpenNLP MaxEnt models in `data/opennlpmodels1.5/` (9 languages). ONNX transformer NER model in `data/opennlpmodels-onnx/ner-multilingual/` (optional, requires `./download-onnx-models.sh`). NER falls back from MaxEnt → ONNX automatically when `.bin` models are unavailable for a language.
 - **Module independence**: Each module can be a separate git repo. Use `./checkout-modules.sh` to clone them, `./update-modules.sh` to sync.
 
 ## Testing
