@@ -191,7 +191,7 @@ DEBUG:   ht_data: /Users/chris/hitorro/data
 Many Hitorro classes use `FileProperty`:
 
 ```java
-public static final FileProperty IsoLangTable = 
+public static FileProperty IsoLangTable = 
     new FileProperty("i18n.langs", "", "${ht_data}/iso639.psv");
 ```
 

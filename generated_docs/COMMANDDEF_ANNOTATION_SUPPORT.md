@@ -22,7 +22,7 @@ The command was defined in `Env.java` but never registered:
 ```java
 // In com.hitorro.util.core.Env
 @CommandDef(command = "quit", description = "exit the session")
-public static final boolean quit(@DebugArgAno(...) CommandSession session) {
+public static boolean quit(@DebugArgAno(...) CommandSession session) {
     session.exitSession();
     return true;
 }

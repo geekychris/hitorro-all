@@ -312,7 +312,7 @@ import com.hitorro.util.basefile.fs.BaseFile;
 import java.io.IOException;
 
 public class MyTransformer implements TransformMethod {
-    public static final String METHOD_NAME = "my_transformer";
+    public static String METHOD_NAME = "my_transformer";
     
     @Override
     public String getMethodName() {
