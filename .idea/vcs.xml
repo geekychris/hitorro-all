@@ -21,6 +21,7 @@
     <mapping directory="$PROJECT_DIR$/hitorro-logdigest" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-luceneviewer" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-objretrieval" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-retrieval" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-spring-boot" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-test" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-text-core" vcs="Git" />
