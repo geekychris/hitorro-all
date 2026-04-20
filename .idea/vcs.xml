@@ -12,6 +12,7 @@
     <mapping directory="$PROJECT_DIR$/hitorro-dedupe" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-example-springboot" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-features" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-gittools" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-index" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-jsonsql" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-jsonts-mongo" vcs="Git" />
@@ -21,6 +22,7 @@
     <mapping directory="$PROJECT_DIR$/hitorro-logdigest" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-luceneviewer" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-objretrieval" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-pr-bench" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-retrieval" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-spring-boot" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-test" vcs="Git" />
