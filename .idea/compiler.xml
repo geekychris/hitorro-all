@@ -24,12 +24,14 @@
         <module name="hitorro-jsonsql" />
         <module name="hitorro-analysis" />
         <module name="hitorro-objretrieval" />
+        <module name="hitorro-basefile" />
         <module name="hitorro-app" />
         <module name="hitorro-spring-boot-starter" />
         <module name="hitorro-baseui" />
         <module name="hitorro-jsontypesystem" />
         <module name="hitorro-core" />
         <module name="hitorro-text-core" />
+        <module name="hitorro-streams" />
         <module name="hitorro-test" />
       </profile>
     </annotationProcessing>

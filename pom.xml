@@ -64,6 +64,8 @@
 
     <modules>
         <module>hitorro-core</module>
+        <module>hitorro-streams</module>
+        <module>hitorro-basefile</module>
         <module>hitorro-util</module>
         <module>hitorro-jsontypesystem</module>
         <module>hitorro-base</module>

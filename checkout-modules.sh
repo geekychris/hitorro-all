@@ -22,6 +22,7 @@ NC='\033[0m' # No Color
 # Using SSH URLs to leverage your configured SSH key authentication
 MODULES=(
     "hitorro-core|git@github.com:geekychris/hitorro-core.git"
+    "hitorro-basefile|git@github.com:geekychris/hitorro-basefile.git"
     "hitorro-jsontypesystem|git@github.com:geekychris/hitorro-jsontypesystem.git"
     "hitorro-util|git@github.com:geekychris/hitorro-util.git"
     "hitorro-base|git@github.com:geekychris/hitorro-base.git"

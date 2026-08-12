@@ -5,6 +5,7 @@
     <mapping directory="$PROJECT_DIR$/hitorro-analysis" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-base" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-basedms" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-basefile" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-baseui" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-conversation" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-core" vcs="Git" />
@@ -25,6 +26,7 @@
     <mapping directory="$PROJECT_DIR$/hitorro-pr-bench" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-retrieval" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-spring-boot" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-streams" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-test" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-text-core" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-text-persistence" vcs="Git" />
