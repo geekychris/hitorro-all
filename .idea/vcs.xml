@@ -19,6 +19,7 @@
     <mapping directory="$PROJECT_DIR$/hitorro-jsonts-mongo" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-jsontypesystem" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-jvs-example-springboot" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-jvssql" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-kvstore" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-logdigest" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-luceneviewer" vcs="Git" />

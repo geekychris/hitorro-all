@@ -33,6 +33,7 @@
         <module name="hitorro-text-core" />
         <module name="hitorro-streams" />
         <module name="hitorro-test" />
+        <module name="hitorro-jvssql" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
