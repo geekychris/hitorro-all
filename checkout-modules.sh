@@ -23,6 +23,8 @@ NC='\033[0m' # No Color
 MODULES=(
     "hitorro-core|git@github.com:geekychris/hitorro-core.git"
     "hitorro-basefile|git@github.com:geekychris/hitorro-basefile.git"
+    "hitorro-streams-kafka|git@github.com:geekychris/hitorro-streams-kafka.git"
+    "hitorro-streams-nats|git@github.com:geekychris/hitorro-streams-nats.git"
     "hitorro-jsontypesystem|git@github.com:geekychris/hitorro-jsontypesystem.git"
     "hitorro-util|git@github.com:geekychris/hitorro-util.git"
     "hitorro-base|git@github.com:geekychris/hitorro-base.git"

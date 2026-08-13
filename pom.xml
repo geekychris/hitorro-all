@@ -65,6 +65,8 @@
     <modules>
         <module>hitorro-core</module>
         <module>hitorro-streams</module>
+        <module>hitorro-streams-kafka</module>
+        <module>hitorro-streams-nats</module>
         <module>hitorro-basefile</module>
         <module>hitorro-util</module>
         <module>hitorro-jsontypesystem</module>
