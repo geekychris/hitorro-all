@@ -75,6 +75,7 @@
         <module>hitorro-features</module>
         <module>hitorro-jsonsql</module>
         <module>hitorro-jvssql</module>
+        <module>hitorro-jsonts-mongo</module>
         <module>hitorro-objretrieval</module>
         <module>hitorro-text-core</module>
         <module>hitorro-text-persistence</module>
@@ -87,6 +88,10 @@
         <module>hitorro-baseui</module>
         <module>hitorro-test</module>
         <module>hitorro-kvstore</module>
+        <module>hitorro-index</module>
+        <module>hitorro-retrieval</module>
+        <module>hitorro-luceneviewer</module>
+        <module>hitorro-gittools</module>
         <module>hitorro-app</module>
     </modules>
 

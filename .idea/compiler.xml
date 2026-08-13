@@ -7,7 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="hitorro-conversation" />
+        <module name="hitorro-streams-nats" />
         <module name="hitorro-basedms" />
+        <module name="hitorro-streams-kafka" />
         <module name="hitorro-dedupe" />
         <module name="hitorro-text-persistence" />
         <module name="hitorro-spring-boot-autoconfigure" />

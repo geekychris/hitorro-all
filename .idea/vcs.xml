@@ -28,6 +28,8 @@
     <mapping directory="$PROJECT_DIR$/hitorro-retrieval" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-spring-boot" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-streams" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-streams-kafka" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-streams-nats" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-test" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-text-core" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-text-persistence" vcs="Git" />
