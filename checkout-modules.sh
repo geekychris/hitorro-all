@@ -62,6 +62,7 @@ MODULES=(
     "hitorro-mesh-streaming-nats|git@github.com:geekychris/hitorro-mesh-streaming-nats.git"
     "hitorro-mesh-orion|git@github.com:geekychris/hitorro-mesh-orion.git"
     "hitorro-mesh-k8s|git@github.com:geekychris/hitorro-mesh-k8s.git"
+    "hitorro-mesh-datasets|git@github.com:geekychris/hitorro-mesh-datasets.git"
 )
 
 # Default branch to use (leave empty to use repository default)
