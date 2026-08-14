@@ -2,6 +2,22 @@
 
 HiTorro is a modular Java 21 framework (Maven multi-module, currently v3.0.1) for building type-aware JSON processing systems with NLP capabilities, full-text search, and multi-language document processing. It can operate standalone or integrate with Spring Boot 3.2 via optional auto-configuration.
 
+## 🌐 Hitorro Mesh — distributed SQL over NATS
+
+Built on top of the HiTorro stack, **[Hitorro Mesh](https://github.com/geekychris/hitorro-mesh-core)** is a Spark-like distributed query engine using `jvssql` for per-partition execution and NATS for the wire transport. 29 shipped phases cover:
+
+- Every SQL join variant (broadcast + shuffle-hash × INNER/LEFT/RIGHT/FULL)
+- Distributed GROUP BY / aggregates with per-side WHERE pushdown
+- LIMIT + ORDER BY with pushdown + N-way merge
+- Multi-partition windowed streaming (watermark heartbeats + idle-timeout)
+- TLS + mTLS transport, query timeouts, explicit cancel, whole-query retry
+- Prometheus metrics + backpressure + typed error responses
+- Docker + Helm production-hardened deploys
+
+**Start here:** [`hitorro-mesh-core/GETTING_STARTED.md`](https://github.com/geekychris/hitorro-mesh-core/blob/main/GETTING_STARTED.md) walks through four deployment tiers (in-JVM → local NATS → docker-compose → K8s) with a query cheat sheet and troubleshooting guide.
+
+Mesh sub-repos: [`hitorro-mesh-core`](https://github.com/geekychris/hitorro-mesh-core) · [`-agent`](https://github.com/geekychris/hitorro-mesh-agent) · [`-driver`](https://github.com/geekychris/hitorro-mesh-driver) · [`-nats`](https://github.com/geekychris/hitorro-mesh-nats) · [`-agent-app`](https://github.com/geekychris/hitorro-mesh-agent-app) · [`-driver-app`](https://github.com/geekychris/hitorro-mesh-driver-app) · [`-examples`](https://github.com/geekychris/hitorro-mesh-examples) · [`-streaming-kafka`](https://github.com/geekychris/hitorro-mesh-streaming-kafka) · [`-streaming-nats`](https://github.com/geekychris/hitorro-mesh-streaming-nats) · [`-orion`](https://github.com/geekychris/hitorro-mesh-orion) · [`-k8s`](https://github.com/geekychris/hitorro-mesh-k8s)
+
 ## Getting Started
 
 ### Prerequisites
