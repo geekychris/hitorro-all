@@ -50,6 +50,18 @@ MODULES=(
     "hitorro-index|git@github.com:geekychris/hitorro-index.git"
     "hitorro-kvstore|git@github.com:geekychris/hitorro-kvstore.git"
     "hitorro-luceneviewer|git@github.com:geekychris/hitorro-luceneviewer.git"
+    # Hitorro Mesh — Spark-like distributed SQL over JVS + NATS.
+    "hitorro-mesh-core|git@github.com:geekychris/hitorro-mesh-core.git"
+    "hitorro-mesh-agent|git@github.com:geekychris/hitorro-mesh-agent.git"
+    "hitorro-mesh-driver|git@github.com:geekychris/hitorro-mesh-driver.git"
+    "hitorro-mesh-nats|git@github.com:geekychris/hitorro-mesh-nats.git"
+    "hitorro-mesh-agent-app|git@github.com:geekychris/hitorro-mesh-agent-app.git"
+    "hitorro-mesh-driver-app|git@github.com:geekychris/hitorro-mesh-driver-app.git"
+    "hitorro-mesh-examples|git@github.com:geekychris/hitorro-mesh-examples.git"
+    "hitorro-mesh-streaming-kafka|git@github.com:geekychris/hitorro-mesh-streaming-kafka.git"
+    "hitorro-mesh-streaming-nats|git@github.com:geekychris/hitorro-mesh-streaming-nats.git"
+    "hitorro-mesh-orion|git@github.com:geekychris/hitorro-mesh-orion.git"
+    "hitorro-mesh-k8s|git@github.com:geekychris/hitorro-mesh-k8s.git"
 )
 
 # Default branch to use (leave empty to use repository default)

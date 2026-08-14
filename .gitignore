@@ -10,3 +10,17 @@ pids/
 
 # TLS smoke test artifacts (dev-only self-signed certs)
 **/certs/
+
+# Mesh modules — each is its own git repo, cloned via checkout-modules.sh.
+# Don't double-track their content in the parent hitorro-all repo.
+/hitorro-mesh-core/
+/hitorro-mesh-agent/
+/hitorro-mesh-driver/
+/hitorro-mesh-nats/
+/hitorro-mesh-agent-app/
+/hitorro-mesh-driver-app/
+/hitorro-mesh-examples/
+/hitorro-mesh-streaming-kafka/
+/hitorro-mesh-streaming-nats/
+/hitorro-mesh-orion/
+/hitorro-mesh-k8s/
