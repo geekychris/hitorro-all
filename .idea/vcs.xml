@@ -23,6 +23,17 @@
     <mapping directory="$PROJECT_DIR$/hitorro-kvstore" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-logdigest" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-luceneviewer" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-mesh-agent" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-mesh-agent-app" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-mesh-core" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-mesh-driver" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-mesh-driver-app" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-mesh-examples" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-mesh-k8s" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-mesh-nats" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-mesh-orion" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-mesh-streaming-kafka" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hitorro-mesh-streaming-nats" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-objretrieval" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-pr-bench" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/hitorro-retrieval" vcs="Git" />
