@@ -1,2 +1,12 @@
 /softwareversion/rpc
 hitorro-example-springboot/
+
+# build + local scratch
+target/
+logs/
+pids/
+.DS_Store
+.claude/
+
+# TLS smoke test artifacts (dev-only self-signed certs)
+**/certs/

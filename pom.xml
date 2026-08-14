@@ -93,6 +93,15 @@
         <module>hitorro-luceneviewer</module>
         <module>hitorro-gittools</module>
         <module>hitorro-app</module>
+        <module>hitorro-mesh-core</module>
+        <module>hitorro-mesh-agent</module>
+        <module>hitorro-mesh-driver</module>
+        <module>hitorro-mesh-nats</module>
+        <module>hitorro-mesh-orion</module>
+        <module>hitorro-mesh-k8s</module>
+        <module>hitorro-mesh-streaming-kafka</module>
+        <module>hitorro-mesh-streaming-nats</module>
+        <module>hitorro-mesh-examples</module>
     </modules>
 
     <repositories>

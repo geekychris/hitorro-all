@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.hitorro</groupId>
+    <artifactId>hitorro-mesh-streaming-nats</artifactId>
+    <version>3.0.1</version>
+    <packaging>jar</packaging>
+
+    <name>hitorro-mesh-streaming-nats</name>
+    <description>NATS JetStream streaming source adapter for the Hitorro Mesh. A ~100-line LocalTable that wraps hitorro-streams-nats's NatsJetStreamSource so agents can serve streaming partitions from JetStream subjects. Optional module — pull it in only when agents actually consume from JetStream.</description>
+
+    <properties>
+        <hitorro.deploy.repo.path>${user.home}/code/hitorro-maven</hitorro.deploy.repo.path>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.hitorro</groupId>
+            <artifactId>hitorro-mesh-agent</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.hitorro</groupId>
+            <artifactId>hitorro-streams-nats</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.10.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.24.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>hitorro-local</id>
+            <url>file://${hitorro.deploy.repo.path}</url>
+        </repository>
+    </distributionManagement>
+</project>
