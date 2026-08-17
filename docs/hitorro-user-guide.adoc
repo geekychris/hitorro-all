@@ -215,6 +215,58 @@ Zoomed-out picture of the moving parts and how they talk:
 _Full mesh depth (wire protocol, plan variants, K8s topology) is in
 xref:../hitorro-mesh-core/docs/user-guide/mesh-user-guide.adoc[Mesh User Guide]._
 
+=== Storage layer — local vs MinIO / S3
+
+The mesh reads datasets + pipeline outputs through
+xref:../hitorro-basefile/README.md[hitorro-basefile]'s protocol
+adapters. By default, everything is a local file (`file:` URIs). When
+`hitorro.storage.s3.endpoint` is set (or its `HITORRO_STORAGE_S3_*`
+env-var equivalents), `S3StorageAutoConfig` on both the driver + agent
+registers a `MinioProtocolAdapter` — `s3://bucket/key` URIs then route
+through the configured endpoint.
+
+Local dev with the bundled MinIO container:
+
+[source,bash]
+----
+cd hitorro-mesh-examples/scripts/minio
+./minio-up.sh                       # docker-compose MinIO on :9000
+./minio-sync-datasets.sh            # upload ~/.hitorro/datasets/*
+
+export HITORRO_STORAGE_S3_ENDPOINT="http://localhost:9000"
+export HITORRO_STORAGE_S3_BUCKET="hitorro"
+export HITORRO_STORAGE_S3_ACCESS_KEY="hitorro"
+export HITORRO_STORAGE_S3_SECRET_KEY="hitorro-dev-only"
+export HITORRO_DATASETS_S3_ENDPOINT="http://localhost:9000"   # agents load NDJson from S3
+
+cd .. && ./mesh-down.sh && ./mesh-up.sh
+----
+
+`GET /mesh/storage` and the UI's Cluster → **Storage layer** card
+show which backend is active plus a per-dataset local/S3 presence
+matrix so operators can see what's synced.
+
+K8s deployment — enable the bundled subchart in
+`hitorro-mesh-k8s/helm/hitorro-mesh/values.yaml`:
+
+[source,yaml]
+----
+minio:
+  enabled: true
+  rootUser: hitorro
+  rootPassword: change-me       # OVERRIDE in prod
+  bucket: hitorro
+  storage: { size: 100Gi }
+----
+
+Driver + agent pods pick up `HITORRO_STORAGE_S3_*` env from the
+Helm-managed Secret and route s3:// URIs to `{name}-minio:9000`
+in-cluster. For real production S3 (AWS, Wasabi, R2, Backblaze B2),
+point the same env variables at your endpoint — no code differs.
+
+Full walkthrough:
+xref:../hitorro-mesh-examples/scripts/minio/README.md[hitorro-mesh-examples/scripts/minio/README.md].
+
 === Federated retrieval across multiple fleet instances
 
 For document-shape retrieval that scales past a single fleet's KV +
