@@ -1,0 +1,245 @@
+= Extending HiTorro
+:toc: left
+:toclevels: 3
+:sectnums:
+:source-highlighter: rouge
+
+Every extension point is a `ServiceLoader` interface. Drop a jar with
+the right `META-INF/services/` file on the classpath and your
+extension registers automatically — no core changes, no rebuilds of
+the mesh runtime.
+
+== Quick reference — what's extensible
+
+[cols="2,3,4", options="header"]
+|===
+| Extension              | Interface                                                                 | Registered as
+| Row-by-row transform   | `com.hitorro.mesh.pipelines.runtime.StepAdapter`                          | `META-INF/services/…runtime.StepAdapter`
+| Sink                   | `com.hitorro.mesh.pipelines.sinks.SinkAdapter`                            | `META-INF/services/…sinks.SinkAdapter`
+| Source                 | `com.hitorro.mesh.pipelines.sources.SourceAdapter`                        | `META-INF/services/…sources.SourceAdapter`
+| Dynamic field mapper   | `com.hitorro.jsontypesystem.dynamic.DynamicFieldMapper`                   | Referenced by class name from a type's `Group.dynamic.class`
+| Retrieval stage        | `com.hitorro.retrieval.pipeline.Retriever`                                | Wired in `RetrievalPipelineBuilder` (no ServiceLoader — explicit)
+| Lucene field type      | `com.hitorro.index.config.LuceneFieldType`                                | Add to `$HT_BIN/config/jsonconfigs/lucene/lucene_fields.json`
+| Lucene analyzer        | Any Lucene `Analyzer`                                                     | `LuceneAnalyzerRegistry.registerLanguageAnalyzer("xx", instance)`
+| AI provider            | `com.hitorro.jsontypesystem.datamapper.AIOperations`                      | Constructor-injected or Spring-injected
+| Dataset               | Install script + manifest + type JSON in `hitorro-mesh-datasets`          | Auto-discovered by `mesh-init-data.sh`
+|===
+
+****
+For deep detail on each extension point, see the per-repo docs — this
+page is the fast index.
+****
+
+[[transforms]]
+== Add a row-by-row transform (StepAdapter)
+
+**Full walkthrough**:
+xref:../hitorro-mesh-pipelines/docs/pipeline-framework.adoc#extending-transforms[Pipeline Framework → Extending Transforms].
+
+**TL;DR** — 4 files:
+
+[cols="1,3", options="header"]
+|===
+| File                                                                       | What goes in it
+| `hitorro-mesh-pipelines/…/model/StepSpec.java`                             | Add `@JsonSubTypes.Type` + record for your kind
+| `<your-adapter-module>/…/MyStepAdapter.java`                               | `implements StepAdapter` — `handles` + `compile`
+| `<your-adapter-module>/src/main/resources/META-INF/services/com.hitorro.mesh.pipelines.runtime.StepAdapter` | one line: your adapter's fully-qualified class name
+| `hitorro-mesh-driver-app/…/ui/app.js`                                      | Add to `PL_STEP_KINDS` (form) + `PL_DOCS.categories.Steps` (docs). Optional but recommended.
+|===
+
+**Even faster** — if you don't need distribution and it's a one-off
+transformation, use `kind: groovy-map` in your YAML with a Groovy
+script inline. Zero code changes:
+
+[source,yaml]
+----
+- kind: groovy-map
+  script: |
+    row.upper = row.name?.toUpperCase()
+    return row
+----
+
+For JVS-typed transforms (access to `AIOperations`, `EnrichOperations`,
+`DataGenerators`), use `kind: jvs-groovy` — same DSL, wraps
+`GroovyTransformMapper`. See
+xref:../hitorro-util/docs/DATA_MAPPER.md[Data Mapper DSL] for the
+full DSL reference.
+
+**Full worked example**: xref:../hitorro-mesh-pipelines/docs/pipeline-framework.adoc#extending-transforms[Pipeline
+Framework → Extending — add a row-by-row mapping function].
+
+[[sinks]]
+== Add a sink (SinkAdapter)
+
+**Full walkthrough**:
+xref:../hitorro-mesh-pipelines/docs/pipeline-framework.adoc#extending-sinks[Pipeline Framework → Extending Sinks].
+
+**TL;DR** — 4 files:
+
+[cols="1,3", options="header"]
+|===
+| File                                                                       | What goes in it
+| `hitorro-mesh-pipelines/…/model/SinkSpec.java`                             | Add `@JsonSubTypes.Type` + record for your kind
+| `<your-adapter-module>/…/MySink.java`                                      | `implements Sink` — `open`, `add(row)`, `count`, `close`. Override `addIdempotent` if the sink is durable.
+| `<your-adapter-module>/…/MySinkAdapter.java`                               | `implements SinkAdapter` — `handles` + `create(spec, home)`
+| `<your-adapter-module>/src/main/resources/META-INF/services/com.hitorro.mesh.pipelines.sinks.SinkAdapter` | one line: your adapter's fully-qualified class name
+|===
+
+**Existing sinks** as reference implementations:
+
+[cols="2,4", options="header"]
+|===
+| Sink kind          | Reference implementation
+| `memory-table`     | `hitorro-mesh-pipelines/…/sinks/MemoryTableSink.java`
+| `ndjson-file`      | `hitorro-mesh-pipelines/…/sinks/NdjsonFileSink.java`
+| `counting`         | `hitorro-mesh-pipelines/…/sinks/CountingSink.java`
+| `nats`             | `hitorro-mesh-pipelines/…/sinks/NatsSink.java`
+| `kafka`            | `hitorro-mesh-pipelines/…/sinks/KafkaSinkImpl.java`
+| `shuffle-fanout`   | `hitorro-mesh-pipelines/…/sinks/ShuffleFanoutSink.java`
+| `kvstore` (RocksDB)| `hitorro-mesh-pipelines-kvstore/…/RocksDbKvStoreSink.java`
+| `lucene` (generic) | `hitorro-mesh-pipelines-lucene/…/LuceneIndexSink.java`
+| `jvs-lucene`       | `hitorro-mesh-pipelines-jvstype/…/JvsLuceneSink.java`
+|===
+
+**Full worked example** (an `elasticsearch` sink): xref:../hitorro-mesh-pipelines/docs/pipeline-framework.adoc#extending-sinks[Pipeline
+Framework → Extending — add a sink].
+
+== Add an enrichment mapper (DynamicFieldMapper)
+
+**Full walkthrough**:
+xref:../hitorro-jsontypesystem/docs/enrichment.adoc[Enrichment → Extension recipe].
+
+**TL;DR** — one class + one config edit:
+
+1. Implement `DynamicFieldMapper.map(jvs, pa, depth)` returning a
+   `JsonNode` (your computed value)
+2. Reference from a JVS type's Group:
++
+[source,json]
+----
+{ "name": "sentiment_score", "method": "double", "tags": ["sentiment"],
+  "dynamic": {
+    "class": "com.example.SentimentScorer",
+    "fields": [".clean", ".lang"]
+  } }
+----
+3. Run enrichment with your tag in the caller's tag set
+
+The `fields[]` are the mapper's inputs — leading-dot names resolve
+relative to the current path (e.g. `.clean` on a `title.mls[i]` entry
+resolves to `title.mls[i].clean`).
+
+Existing mappers as reference: `hitorro-jsontypesystem/…/dynamic/`
+(NERMarkupMapper, SentenceSegmenter, POSTokenizer, NormalizedText,
+TranslationMapper).
+
+== Add a retrieval stage (Retriever)
+
+**Full walkthrough**:
+xref:../hitorro-retrieval/docs/retrieval-pipeline.adoc[Retrieval → Extending].
+
+**TL;DR** — one class + wire into the builder:
+
+[source,java]
+----
+public class MyStage implements Retriever {
+    @Override
+    public boolean participate(RetrievalContext ctx) {
+        return ctx.getQuery().exists("myStage.enabled");
+    }
+    @Override
+    public void execute(JVS query, RetrievalContext ctx, RetrievalResult result) {
+        // ... mutate result.getDocuments() ...
+        ctx.markStageUsed("MyStage");
+    }
+}
+----
+
+Then in `RetrievalService.buildPipeline`:
+
+[source,java]
+----
+RetrievalPipeline pipeline = RetrievalPipelineBuilder
+        .stage(new IndexRetriever(searchProvider))
+        .stage(new DocumentRetriever(kvStore))
+        .stage(new MyStage())                     // NEW
+        .stage(new PaginationRetriever())
+        .build();
+----
+
+Order matters — read the query response's `stagesUsed` array to
+verify your stage ran.
+
+== Add an AI provider (AIOperations)
+
+**Interface** (in `hitorro-jsontypesystem`):
+
+[source,java]
+----
+public interface AIOperations {
+    String translate(String text, String sourceLang, String targetLang);
+    String summarize(String text, int maxWords);
+    String ask(String text, String question);
+    boolean isAvailable();
+}
+----
+
+Shipped implementations:
+
+* `HttpOllamaClient` in `hitorro-jsontypesystem` — direct HTTP to
+  Ollama, no Spring dependency. Good default for standalone or
+  pipeline-step use.
+* `OllamaAIService` in `hitorro-spring-boot-autoconfigure` — uses
+  Spring AI's `ChatClient` for streaming, function calling,
+  observability. Good default for Spring Boot hosts.
+
+Add your own (OpenAI, Anthropic, local vLLM, etc.):
+
+[source,java]
+----
+public class OpenAIOperations implements AIOperations {
+    private final String apiKey;
+    private final HttpClient http = HttpClient.newHttpClient();
+
+    public OpenAIOperations(String apiKey) { this.apiKey = apiKey; }
+
+    @Override
+    public String translate(String text, String src, String tgt) {
+        // ... POST to https://api.openai.com/v1/chat/completions ...
+    }
+
+    // summarize, ask, isAvailable
+}
+----
+
+Inject wherever `AIOperations` is consumed:
+
+* `GroovyTransformMapper.withAI(ops)` — for `jvs-groovy` steps
+* `JvsTranslateStepAdapter` — currently constructs `HttpOllamaClient`
+  from spec fields; a StepAdapter that accepts an injected
+  `AIOperations` provider would replace this
+* `SummarizationRetriever` — constructor takes `AIOperations`
+
+== Add a dataset
+
+**Full walkthrough**:
+xref:../hitorro-mesh-datasets/docs/authoring-datasets.adoc[Authoring Datasets].
+
+**TL;DR** — three files:
+
+* `hitorro-mesh-datasets/scripts/install-<id>.sh` — fetch + convert + `finalize_ndjson`
+* `src/main/resources/manifests/<id>.yaml` — describes it
+* `src/main/resources/types/<id_snake>.json` — JVS type
+
+Run `./scripts/install-<id>.sh`. Restart the mesh with
+`./mesh-down.sh && ./mesh-up.sh` — the auto-regenerator picks it up.
+
+== Where to read more
+
+* xref:hitorro-user-guide.adoc[HiTorro User Guide] — the top-level index
+* xref:../hitorro-mesh-pipelines/docs/pipeline-framework.adoc[Pipeline Framework] — full transform + sink recipes with worked examples
+* xref:../hitorro-jsontypesystem/docs/enrichment.adoc[Enrichment] — dynamic mappers and the projection engine
+* xref:../hitorro-jsontypesystem/docs/jvs-types.adoc[JVS Types] — the type model everything else keys off
+* xref:../hitorro-retrieval/docs/retrieval-pipeline.adoc[Retrieval Pipeline] — stage-based search + fetch
+* xref:../hitorro-index/docs/lucene-integration.adoc[Lucene Integration] — the indexer + searcher wrapping Lucene
+* xref:../hitorro-mesh-datasets/docs/authoring-datasets.adoc[Authoring Datasets] — full dataset walkthrough

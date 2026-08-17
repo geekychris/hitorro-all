@@ -1,0 +1,760 @@
+= HiTorro User Guide
+:toc: left
+:toclevels: 3
+:sectnums:
+:sectanchors:
+:icons: font
+:source-highlighter: rouge
+:experimental:
+
+An end-to-end guide to installing, running, querying, ingesting, extending,
+and operating a HiTorro deployment. This document is the top-level index —
+it stitches together per-repo docs via `include::` directives, so each
+concern lives with the code that owns it and stays evergreen as modules
+evolve independently.
+
+If a section is empty in your local checkout, the module it references
+may not be pulled in yet. Run `./checkout-modules.sh` at the repo root to
+clone every optional module.
+
+== Colophon
+
+****
+This guide follows the pattern established by the
+xref:../hitorro-mesh-core/docs/user-guide/mesh-user-guide.adoc[Mesh User
+Guide] — long-form, opinionated, with concrete examples over abstract
+prose. Read that guide alongside this one for mesh-specific depth.
+
+Docs source is AsciiDoc so it can be rendered by `asciidoctor` into HTML
+or PDF. The `include::` directives resolve at render time — no
+duplication, no drift.
+****
+
+== At a glance
+
+HiTorro is a Java 21 framework for building type-aware, JSON-shaped data
+systems that scale from one JVM to a distributed mesh. The moving parts:
+
+[cols="1,3,3", options="header"]
+|===
+| Layer            | Modules                                   | What it does
+| Foundation       | `hitorro-core`, `hitorro-basefile`, `hitorro-streams`, `hitorro-util`
+                   | Iterator/Sink framework, file abstraction (local/HDFS/S3, transparent compression), Propaccess path navigation
+| Type system      | `hitorro-jsontypesystem`
+                   | JVS (typed JSON documents), Type/Field/Group definitions, projection engine, dynamic-field mappers (NER, POS, sentence-segmentation), JSON Schema roundtrip, Groovy transform DSL
+| Indexing / search| `hitorro-index`, `hitorro-text-core`, `hitorro-text-persistence`, `hitorro-objretrieval`
+                   | Type-aware Lucene indexer (`JVSLuceneIndexWriter`), multi-language analyzer registry, `_source` retention, KV-backed retrieval fallback
+| Retrieval        | `hitorro-retrieval`
+                   | `RetrievalPipelineBuilder` — IndexRetriever → DocumentRetriever → FixupRetriever → PaginationRetriever → FacetRetriever → SummarizationRetriever
+| Storage          | `hitorro-kvstore`
+                   | RocksDB key-value store with typed/untyped APIs, batch ops, WAL replication
+| Mesh runtime     | `hitorro-mesh-driver{,-app}`, `hitorro-mesh-agent{,-app}`, `hitorro-mesh-core`
+                   | Distributed SQL over NATS: driver plans, agents execute, wire protocol lives in `hitorro-mesh-core`
+| Datasets         | `hitorro-mesh-datasets`
+                   | Shipped reference data — 30 broadcast/partitioned datasets with install scripts, manifests, semantic-join relationships
+| Pipelines        | `hitorro-mesh-pipelines{,-jvstype,-lucene,-kvstore}`
+                   | DAG job runtime: source → steps → sinks, ServiceLoader-based adapters, YAML/Groovy specs
+| Fleet services   | `hitorro-fleet-retrieval`
+                   | Dual-mode Spring Boot retrieval — standalone (owns the index) or shared (read-only via `RocksDB.openAsSecondary`)
+| Spring Boot glue | `hitorro-spring-boot-{autoconfigure,starter}`
+                   | Auto-config beans; the type system + retrieval work with or without Spring
+|===
+
+== Reading paths
+
+_Not everyone needs everything._ Pick your entry point:
+
+New user, want to try it::
+  → <<quickstart>> → <<sample-data>> → <<querying>>
+
+I want to add my own data::
+  → <<ingest>> → <<jvs-types>> → <<indexing>>
+
+I'm operating this in production::
+  → xref:../hitorro-mesh-core/docs/user-guide/mesh-user-guide.adoc[Mesh User Guide]
+  → <<debugging>> → <<architecture>>
+
+I want to extend it (new step, new sink, custom NER)::
+  → xref:extending.adoc[Extending guide] (dedicated top-level doc — fastest path)
+  → <<pipelines-framework>> → <<jvs-enrichment>>
+
+[TIP]
+====
+**Two of the most common extensions have their own quick recipes:**
+
+* xref:extending.adoc#transforms[Add a row-by-row transform (mapping
+  function)]  — 4 files, or 0 files with `kind: groovy-map` inline
+* xref:extending.adoc#sinks[Add a sink] — 4 files, all worked examples
+  in the pipeline framework doc
+
+Every extension point is a ServiceLoader — no core changes, no mesh
+runtime rebuild.
+====
+
+I'm on a team already building on this::
+  → <<architecture>> for orientation → skip to the module doc for your concern
+
+[[quickstart]]
+== Quickstart
+
+Everything below assumes you're in the repo root at
+`/Users/chris/hitorro` (or wherever you cloned).
+
+=== Build
+
+[source,bash]
+----
+# Full build with tests
+mvn clean install
+
+# Or without tests (faster iteration)
+mvn clean install -DskipTests
+
+# Or install into the file-based Maven repo used by consumers
+./build-and-deploy.sh --clean --skip-tests
+----
+
+=== Start the local mesh
+
+[source,bash]
+----
+# Ensures NATS is on your PATH
+export PATH="$HOME/.orion/bin:$PATH"
+
+# Boot NATS + driver + 2 agents (auto-regenerates agent configs from
+# whatever datasets are installed under $HITORRO_DATASETS_HOME).
+cd hitorro-mesh-examples/scripts
+./mesh-up.sh
+----
+
+You should see:
+
+....
+started nats (pid ...)
+started driver (pid ...)
+started agent-us (pid ...)
+started agent-eu (pid ...)
+
+mesh is up. try:
+  ./mesh-status.sh
+  ./mesh-query.sh "SELECT id, title FROM docs WHERE lang = 'en'"
+  ./mesh-down.sh
+....
+
+Point your browser at http://localhost:8085/ui/ for the driver UI.
+
+=== Install reference data
+
+The datasets ship as install scripts under `hitorro-mesh-datasets/scripts/`.
+Each fetches its raw data, converts to NDJson, writes a manifest, and
+copies a JVS type JSON into the install directory.
+
+[source,bash]
+----
+cd hitorro-mesh-datasets
+./scripts/install-all.sh          # ~30 datasets, ~200 MB installed
+# ... or one at a time:
+./scripts/install-iso-currencies.sh
+./scripts/install-iso-3166-2.sh
+----
+
+After any install completes, `mesh-init-data.sh` (invoked automatically
+by `mesh-up.sh`) will pick up the new dataset the next time you restart
+the mesh. The install script prints a warning if the mesh is currently
+running — the freshly-installed dataset won't be visible to agents
+until you restart them.
+
+=== Run your first query
+
+Once agents are up with datasets loaded:
+
+[source,bash]
+----
+./mesh-query.sh "SELECT alpha3, reference_name FROM iso_639_3 WHERE alpha2 = 'en'"
+----
+
+Or open the Playground tab in the UI, pick `iso_639_3` from the schema
+list, and click a suggested query.
+
+[[architecture]]
+== Runtime architecture
+
+Zoomed-out picture of the moving parts and how they talk:
+
+....
+                              ┌─ Browser UI ──────────────┐
+                              │  (Cluster · Datasets ·    │
+                              │   Pipelines · Playground) │
+                              └──────────┬────────────────┘
+                                         │ HTTP+SSE
+                                         ▼
+        ┌────────────────────── Driver JVM ────────────────────┐
+        │                                                      │
+        │   MeshRestController ──▶ QueryDispatcher             │
+        │   PipelinesController ─▶ JobRunner / JobScheduler    │
+        │   DatasetCatalogCtl   ─▶ DatasetRegistry             │
+        │                                                      │
+        │   DistributedTableRegistry (broadcast + partitioned) │
+        │   FleetProcessManager (spawns fleet-retrieval, ...)  │
+        └────────────┬─────────────┬───────────────┬───────────┘
+                     │ NATS         │ HTTP           │ spawn
+                     ▼              ▼                ▼
+        ┌── Agent JVMs (n) ──┐  ┌── Fleet:retrieval (1..n) ──┐  ┌── K8s / Orion ──┐
+        │  TaskExecutor      │  │  ReadOnlyIndexSvc          │  │  Deployments    │
+        │  JvsSqlEngine      │  │  ReadOnlyKvStore           │  │  Services       │
+        │  LocalTable[]      │  │  RetrievalService          │  │  ConfigMaps     │
+        │  (broadcast+partit)│  │  DocumentRetriever         │  │                 │
+        └────────────────────┘  └────────────▲───────────────┘  └─────────────────┘
+                                             │ HTTP (Composite/RemoteSearchProvider)
+                                             │
+                          FleetEndpointRegistry (static | k8s | orion)
+                          → FederatedRetrievalService (score | rrf | field-sort)
+                          → POST /mesh/retrieval/federated
+....
+
+_Full mesh depth (wire protocol, plan variants, K8s topology) is in
+xref:../hitorro-mesh-core/docs/user-guide/mesh-user-guide.adoc[Mesh User Guide]._
+
+=== Federated retrieval across multiple fleet instances
+
+For document-shape retrieval that scales past a single fleet's KV +
+Lucene footprint, the driver federates across N `hitorro-fleet-retrieval`
+instances. Discovery is platform-aware:
+
+[cols="1,3,3", options="header"]
+|===
+| Platform | How endpoints are discovered | Impl
+| Local dev / any | Static list from `hitorro.fleet.endpoints: [http://X, http://Y]` | `StaticFleetEndpointRegistry`
+| Kubernetes | Auto-watches Services labeled `app=hitorro-fleet-retrieval` in the driver's namespace | `KubernetesFleetEndpointRegistry` (fabric8 client)
+| Orion | Auto-queries the Orion API for services declaring the `fleet-retrieval` capability | `OrionFleetEndpointRegistry`
+|===
+
+Auto-discovery and static config union via `CompositeFleetEndpointRegistry`
+— the driver federates over every endpoint from any registered layer.
+
+Query API — search:
+
+[source,http]
+----
+POST /mesh/retrieval/federated
+{
+  "indexName": "articles",
+  "query":     "London Heathrow",
+  "limit":     20,
+  "facets":    ["country", "category"],
+  "merger":    "rrf"       // score | rrf | field:asof_date:desc
+}
+----
+
+Each fleet runs the search in parallel via `RemoteSearchProvider`;
+`CompositeSearchProvider` merges per-fleet results with the selected
+`ResultMerger`. Response includes `fleetsQueried` + `mergerUsed` so
+operators can see the fan-out.
+
+Query API — KV federation (symmetric with search):
+
+[source,http]
+----
+# Single-key first-match fetch
+GET /mesh/retrieval/federated/kv/articles/articles%2Fa1
+
+# Prefix scan streamed as NDJson from every fleet that supports it
+GET /mesh/retrieval/federated/kv/articles/scan?prefix=articles%2F
+----
+
+Powered by `RemoteKvStore` (HTTP client implementing `KVStore`) wrapped
+in a `CompositeKvStore` — fans `get(key)` across every fleet in
+parallel via `CompletableFuture` and returns the first non-null hit.
+Prefix scans merge results from every fleet that exposes
+`GET /api/retrieval/kv/{index}/scan`.
+
+=== Health-aware endpoint filtering
+
+`HealthyFleetEndpointRegistry` wraps the discovery layer and polls
+each endpoint's `/actuator/health` every 10s. Endpoints failing 3
+consecutive probes are dropped from the composite; restored on the
+first successful probe. Prevents futile fan-out during rolling
+restarts.
+
+Tuning:
+
+[source,yaml]
+----
+hitorro:
+  fleet:
+    endpoints: "http://X:8087,http://Y:8087"
+    health:
+      enabled: true                     # opt out for debugging
+      check-interval-seconds: 10        # probe cadence
+      probe-timeout-seconds:  2         # per-probe HTTP timeout
+      failure-threshold:      3         # consecutive failures before drop
+----
+
+`GET /mesh/retrieval/federated/status` surfaces per-endpoint
+`{consecutiveFailures, healthy}` so operators see degradation live.
+
+**K8s deployment** — `helm/hitorro-mesh/values.yaml`:
+
+[source,yaml]
+----
+fleetRetrieval:
+  enabled: true          # opt-in
+  replicas: 3
+  mode: shared           # ReadOnlyIndex/Kv secondaries
+  storage:
+    size: 50Gi
+    accessMode: ReadWriteOnce
+----
+
+**Orion deployment** — `hitorro-mesh-orion/templates/fleet-retrieval.yaml`,
+one file per replica (change `${REPLICA}`), declares the
+`fleet-retrieval` capability so `OrionFleetEndpointRegistry` picks it up.
+
+=== Data flow: install → query
+
+....
+1. install script          →  $HITORRO_DATASETS_HOME/<id>/{data,types,manifest}
+2. mesh-init-data.sh (auto) →  agent-us.yml / agent-eu.yml (tables: [...])
+3. mesh-up.sh              →  agents load NDJson into memory (LocalTable)
+                              driver's DatasetRegistry auto-registers with
+                              the DistributedTableRegistry
+4. UI SELECT … FROM x      →  driver plans (SimplePlan / BroadcastJoin /
+                              ShuffleJoin), dispatches TaskDescriptor(s)
+                              over NATS to agent(s)
+5. agent runs JvsSqlEngine →  publishes rows on the query's result subject
+6. driver aggregates       →  responds to UI with rows + timings
+....
+
+=== The type system underneath
+
+Every document in HiTorro is a `JVS` — a typed JSON wrapper. `Type`
+declares the fields; `Field` declares the sub-type; `Group` decorates
+fields with roles (`identifier`, `text`, `mls`, `long`, ...) that tell
+the indexer, retriever, and enrichment engine what to do.
+
+....
+   Type: sysobject
+   ├─ id: core_id       (Group: identifier)
+   ├─ title: core_mls   (Group: text)
+   │  └─ mls[]: core_mlselem
+   │     ├─ lang        (Group: identifier)
+   │     ├─ text        (Group: text)
+   │     ├─ clean       (dynamic: NormalizedText)
+   │     ├─ segmented   (dynamic: SentenceSegmenter)
+   │     ├─ pos         (dynamic: POSTokenizer)
+   │     └─ segmented_ner (dynamic: NERMarkupMapper)
+   ├─ body: core_mls    (same shape as title)
+   └─ times: core_dates
+....
+
+The dynamic sub-fields aren't stored in JSON — they're computed on
+demand by the enrichment projection. Full detail:
+xref:../hitorro-jsontypesystem/docs/jvs-types.adoc[JVS Types] +
+and xref:../hitorro-jsontypesystem/docs/enrichment.adoc[Enrichment].
+
+[[sample-data]]
+== Sample data
+
+The `hitorro-mesh-datasets` module ships 30+ real-world reference
+datasets grouped into six semantic categories:
+
+[cols="1,3,3", options="header"]
+|===
+| Category         | Datasets                                                     | Example use
+| Geographic       | geonames-{cities500,cities15000,country-info}, natural-earth-countries, osm-airports, noaa-ghcnd-stations, wikidata-{cities,countries,city-sitelinks}, un-locode
+                   | "cities > 1M within 500km of Rome"
+| Codification     | iso-{3166-2,639-3,currencies,languages}, fips-counties, naics-2022, un-m49-areas, us-states
+                   | "map ISO-3166 alpha-2 → alpha-3 → UN M.49 subregion"
+| Scholarly        | openalex-institutions, wikipedia-pageviews
+                   | "top-cited institutions by country"
+| Reference        | coingecko-crypto, github-top-repos, huggingface-top-models, npm-top-packages, pypi-top-packages, nasa-apod, retro-computers, reg-test-cities
+                   | "trending packages by ecosystem"
+| Time-series      | owid-co2-latest, usgs-earthquakes, worldbank-indicators
+                   | "world CO2 emissions by year"
+| Other            | (unmapped installers land here)                              | catch-all
+|===
+
+Each dataset is a `manifest.yaml` describing its identifiers, relationships,
+partitioning strategy (`null` = broadcast, otherwise a partition key), and
+JSON Schema-ish fields. See
+xref:../hitorro-mesh-datasets/docs/DESIGN.md[dataset design] and
+xref:../hitorro-mesh-datasets/docs/SEMANTIC_JOINS.md[semantic joins] for
+the identity-graph model that lets you write `JOIN … USING PLACE`.
+
+The Cluster tab's *Dataset catalog* shows every dataset grouped by
+category, with 🟠 = installed / ⚪ = catalog-only, jump-to-Playground and
+"How to install" buttons per row.
+
+[[querying]]
+== Querying
+
+Two query surfaces, both backed by the same `JvsSqlEngine`:
+
+=== 1. Driver SQL (mesh)
+
+Standard SQL over the union of every broadcast + partitioned table:
+
+[source,sql]
+----
+SELECT c.iso3, c.name, s.name AS subdivision
+FROM   geonames_country_info c
+JOIN   iso_3166_2 s ON s.country_code = c.iso2
+WHERE  c.continent = 'AF'
+LIMIT 20
+----
+
+The driver plans this as a broadcast-JOIN (both sides live on every
+agent — no shuffle). Ask for the plan without executing via
+`POST /mesh/queries/explain`.
+
+Semantic JOINs — `JOIN … USING PLACE` — get rewritten by the
+`PlaceJoinRewriter` before dispatch based on the identity graph in each
+manifest's `identifiers.produces` / `identifiers.maps`. See
+xref:../hitorro-mesh-datasets/docs/SEMANTIC_JOINS.md[semantic joins].
+
+=== 2. Retrieval (index + fetch)
+
+For document-shape retrieval (search + rank + fetch full JVS), use the
+fleet-retrieval service:
+
+[source,http]
+----
+POST /api/retrieval/execute
+{
+  "indexName": "articles",
+  "query": {
+    "search": { "query": "London Heathrow", "limit": 10, "lang": "en" },
+    "fetch":  {}
+  }
+}
+----
+
+`fetch: {}` triggers `DocumentRetriever` — pulls the full enriched JVS
+from the KV store. Add `fixup: {tags: [basic, segmented]}` to run
+selected enrichment projections on the fetched doc.
+
+Full stage reference:
+xref:../hitorro-retrieval/docs/retrieval-pipeline.adoc[Retrieval Pipeline].
+
+[[ingest]]
+== Adding your own data
+
+Two paths depending on what you're adding:
+
+=== A. Ship a reference dataset (shared, installable)
+
+Author an install script under `hitorro-mesh-datasets/scripts/install-<id>.sh`.
+
+Minimum viable install script:
+
+[source,bash]
+----
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(dirname "$0")"
+source ./common.sh
+
+DATASET_ID="my-dataset"
+URL="https://example.com/data.tsv"
+
+INSTALL_DIR="$HITORRO_DATASETS_HOME/$DATASET_ID"
+mkdir -p "$INSTALL_DIR/raw" "$INSTALL_DIR/data" "$INSTALL_DIR/types"
+
+fetch "$URL" "$INSTALL_DIR/raw/data.tsv"
+
+# TSV → NDJSON with a column list
+COLS="col1,col2,col3"
+tsv_to_ndjson "$INSTALL_DIR/raw/data.tsv" \
+              "$INSTALL_DIR/data/rows.ndjson" \
+              "$COLS" ""
+
+# Copy the JVS type + manifest out of the classpath resources
+cp "$MODULE_ROOT/src/main/resources/types/my_dataset.json" \
+   "$INSTALL_DIR/types/"
+cp "$MODULE_ROOT/src/main/resources/manifests/my-dataset.yaml" \
+   "$INSTALL_DIR/manifest.yaml"
+----
+
+Plus:
+
+* `src/main/resources/types/my_dataset.json` — JVS Type declaration
+  (see xref:../hitorro-jsontypesystem/docs/jvs-types.adoc[JVS Types])
+* `src/main/resources/manifests/my-dataset.yaml` — manifest with
+  `partitionBy` (null for broadcast), `identifiers`, `record.fields[]`,
+  optional `relationships[]`, `category`
+
+`common.sh` handles compression (`HITORRO_DATASETS_COMPRESS=bz2|gz|0`),
+row-count reporting, and warns you when the mesh is running that
+agents won't see the new data until you restart them.
+
+Full walkthrough:
+xref:../hitorro-mesh-datasets/docs/authoring-datasets.adoc[Authoring datasets].
+
+=== B. Feed data through a pipeline
+
+If your data lands as a stream or file and you want to enrich +
+index it — use the pipeline framework:
+
+[source,yaml]
+----
+job: my-ingest
+version: "1"
+nodes:
+  - id: articles
+    pipeline:
+      source: {kind: ndjson-file, url: "file:./articles.ndjson"}
+      steps:
+        - kind: jvs-enrich
+          typeJsonResource: "classpath:/types/my_article.json"
+          tags: [basic, segmented, pos, ner]
+        - kind: jvs-translate
+          sourceLang: en
+          targetLangs: [es, fr, de]
+          mlsFields: [title, body]
+      sinks:
+        - {kind: jvs-lucene, name: articles, typeJsonResource: "classpath:/types/my_article.json", storeSource: false}
+        - {kind: kvstore, name: articles, keyExpr: "id.id"}
+----
+
+`POST /mesh/jobs/run` with this YAML → the driver runs it locally, or
+`/mesh/jobs/run-distributed` fans nodes out across agents that
+advertise the `pipeline-node` capability.
+
+The Pipelines tab in the UI has a form-based DAG builder for this;
+see the *Docs* sub-tab for every kind's YAML shape.
+
+Full reference:
+xref:../hitorro-mesh-pipelines/docs/pipeline-framework.adoc[Pipeline
+Framework].
+
+[[jvs-types]]
+== JVS type system
+
+_Full detail in
+xref:../hitorro-jsontypesystem/docs/jvs-types.adoc[hitorro-jsontypesystem/docs/jvs-types.adoc]._
+
+Every typed document is a `JVS(jsonNode, type)`. The `Type` says what
+fields exist; each `Field` declares its sub-`Type` (recursive) plus
+`Group`s that decorate it with roles the indexer/enricher/retriever
+key off of.
+
+Types live in `config/types/*.json` and get loaded into the singleton
+`JsonTypeSystem` at startup. Author your own by dropping a JSON file
+in that directory, or referencing it via `classpath:/types/…` from a
+pipeline spec.
+
+Key primitives:
+
+* `core_string`, `core_long`, `core_boolean`, `core_double` — scalars
+* `core_id` — `{domain, did, id}` compound identifier
+* `core_mls` — multi-language string with `{mls: [{lang, text, ...}]}` shape
+* `core_dates` — `{created, modified}`
+* Your own `Type extends sysobject` — inherits id/title/body/description
+  slots that the indexer already knows how to handle
+
+[[jvs-enrichment]]
+== Enrichment (NER, POS, sentence segmentation, translation)
+
+_Full detail in
+xref:../hitorro-jsontypesystem/docs/enrichment.adoc[hitorro-jsontypesystem/docs/enrichment.adoc]._
+
+The enrichment projection walks every `Group` in the type tree tagged
+with the caller's tag set (e.g. `[basic, segmented, pos, ner]`) and
+runs the group's `DynamicFieldMapper`. Standard mappers:
+
+* `SentenceSegmenter` — OpenNLP `.sent.bin` models per lang
+* `POSTokenizer` — OpenNLP `.pos-maxent.bin` models
+* `NERMarkupMapper` — emits inline `<LOCATION>London</LOCATION>` markup
+* `TranslationMapper` (via `HttpOllamaClient`) — Ollama-backed
+  translate() into a target language
+
+Adding your own dynamic mapper: implement `DynamicFieldMapper`, register
+in `config/implementations.json`, reference by class name in the type's
+`Group.dynamic` field.
+
+[[indexing]]
+== Indexing & object retrieval
+
+_Full detail in
+xref:../hitorro-index/docs/lucene-integration.adoc[hitorro-index/docs/lucene-integration.adoc]._
+
+`JVSLuceneIndexWriter` takes a `JVS` and projects each field into a
+Lucene document per the type's `Group.method` (identifier →
+`StringField`, text → analyzed `TextField`, long → `LongPoint`, etc).
+Two mutually exclusive modes:
+
+* `storeSource(true)` — the whole JVS JSON is stored as `_source`
+  and search-hits carry the round-trippable document
+* `storeSource(false)` — only the projected fields land in the index;
+  full document lives in the KV store and gets fetched by
+  `DocumentRetriever` on demand
+
+`JVSLuceneSearcher` uses `LuceneAnalyzerRegistry` for
+multi-language stemming/stopword handling. `FieldPatternAnalyzerWrapper`
+routes analyzers per field pattern (e.g. `.pos` → whitespace-only).
+
+Full retrieval pipeline (index → fetch → fixup → paginate → facet →
+summarize):
+xref:../hitorro-retrieval/docs/retrieval-pipeline.adoc[Retrieval Pipeline].
+
+[[pipelines-framework]]
+== Pipeline framework
+
+_Full detail in
+xref:../hitorro-mesh-pipelines/docs/pipeline-framework.adoc[hitorro-mesh-pipelines/docs/pipeline-framework.adoc]._
+
+`hitorro-mesh-pipelines` is a small DAG runtime. A `JobSpec` is a list of
+`NodeSpec`s wired via `depends[]`. Each `NodeSpec.pipeline` is
+`source → steps → reduce? → sinks[]`.
+
+Adapters register via `ServiceLoader`:
+
+* `SinkAdapter` — jvs-lucene, kvstore, generic lucene, nats, kafka, ...
+* `SourceAdapter` — lucene search results, kvstore range, ...
+* `StepAdapter` — jvs-enrich, jvs-translate, groovy-map, ...
+
+Drop the corresponding jar (`hitorro-mesh-pipelines-{jvstype,lucene,
+kvstore}`) on the classpath to enable it. Missing adapter jars →
+`SinkRegistry` throws a clear "add jar X" message instead of silently
+producing wrong output.
+
+[[extending]]
+== Extending HiTorro
+
+Common extension points:
+
+=== Add a pipeline step
+
+1. Add a case to `StepSpec` (sealed interface + `@JsonSubTypes.Type`)
+2. Implement `StepAdapter` — `handles(spec)` + `compile(spec) : Function<JsonNode, JsonNode>`
+3. Register via `META-INF/services/com.hitorro.mesh.pipelines.runtime.StepAdapter`
+4. Document in the Docs sub-tab (`PL_DOCS` in `app.js`)
+
+Reference:
+`hitorro-mesh-pipelines-jvstype/src/main/java/.../JvsEnrichStepAdapter.java`.
+
+=== Add a sink
+
+Same shape as a step — `SinkAdapter` + `Sink` implementation + service
+registration. Reference:
+`hitorro-mesh-pipelines-kvstore/src/main/java/.../RocksDbKvStoreAdapter.java`.
+
+=== Add an NER model / dynamic field
+
+1. Implement `com.hitorro.jsontypesystem.dynamic.DynamicFieldMapper`
+2. Register in `config/implementations.json`
+3. Reference from a type's `Group.dynamic` field
+
+Reference:
+`hitorro-jsontypesystem/src/main/java/.../dynamic/NERMarkupMapper.java`.
+
+=== Add a retrieval stage
+
+1. Implement `com.hitorro.retrieval.pipeline.Retriever`
+2. Add `participate(ctx)` returning true when the stage should run
+3. Wire into `RetrievalPipelineBuilder`
+
+Reference:
+`hitorro-retrieval/src/main/java/.../pipeline/stages/SummarizationRetriever.java`.
+
+=== Add an AI provider
+
+Implement `com.hitorro.jsontypesystem.datamapper.AIOperations`. Two
+ships today:
+
+* `HttpOllamaClient` (in `hitorro-jsontypesystem`) — direct HTTP to
+  Ollama, no Spring
+* `OllamaAIService` (in `hitorro-spring-boot-autoconfigure`) — via
+  Spring AI's `ChatClient`
+
+[[debugging]]
+== Debugging
+
+=== JDWP debug ports
+
+Every process boots with JDWP on a distinct port so you can attach
+IntelliJ or `jdb`:
+
+[cols="1,1,3", options="header"]
+|===
+| Component | Port | How to attach
+| driver           | 5085 | `Run → Edit Configurations → + → Remote JVM Debug → localhost:5085`
+| fleet-retrieval  | 5090 | same, port 5090
+| agent-us         | 5091 | same, port 5091
+| agent-eu         | 5092 | same, port 5092
+|===
+
+The Fleet tab in the UI shows a copy-pasteable JDWP connect string per
+running process.
+
+=== Common failures
+
+`agent X does not hold partition broadcast of table Y`::
+  Dataset installed after last mesh restart — regenerate agent configs
+  via `./mesh-init-data.sh` and restart agents. `mesh-up.sh` does this
+  automatically on next boot.
+
+`SinkRegistry: jvs-lucene sink needs hitorro-mesh-pipelines-jvstype on the classpath`::
+  Add the adapter jar to the deployment. mesh-driver-app pulls this in
+  by default.
+
+`LockObtainFailedException: /Users/…/write.lock`::
+  Another JVM has the Lucene index open for writing. Either close the
+  writer or use `ReadOnlyIndexService` (opens via `DirectoryReader` — no
+  write.lock).
+
+`[jvs-translate] Ollama HTTP unreachable`::
+  Local Ollama isn't running. `brew install ollama; ollama serve; ollama pull llama3.2`.
+  The translate step gracefully skips — pipeline still succeeds.
+
+Dynamic-field traces (segmented/pos/ner not populating)::
+  Run with `-Dhitorro.dynamic.trace=1` to see per-field `getValues`
+  and `Field.visit` traces from the enrichment engine. Also see
+  xref:../hitorro-jsontypesystem/docs/enrichment.adoc[enrichment docs].
+
+=== Tailing agent + driver logs
+
+The Mesh tab in the UI has a click-to-tail action on every process
+node. Or directly:
+
+[source,bash]
+----
+tail -f /tmp/hitorro-mesh-smoke/logs/{driver,agent-us,agent-eu}.log
+----
+
+=== Reading the job history
+
+Every pipeline run persists an entry in
+`~/.hitorro/pipelines/jobs.ndjson`. Survives driver restarts. The
+Pipelines → History sub-tab reads this file.
+
+== Where to read more
+
+Per-repo documentation (author-tracked, evergreen, deep):
+
+[cols="1,4", options="header"]
+|===
+| Repo                                | Docs
+| hitorro-mesh-core                   | xref:../hitorro-mesh-core/docs/user-guide/mesh-user-guide.adoc[Mesh User Guide] — architecture, wire protocol, plan variants, K8s
+| hitorro-mesh-datasets               | xref:../hitorro-mesh-datasets/docs/CATALOG.md[Catalog] · xref:../hitorro-mesh-datasets/docs/DESIGN.md[Design] · xref:../hitorro-mesh-datasets/docs/SEMANTIC_JOINS.md[Semantic Joins] · xref:../hitorro-mesh-datasets/docs/LICENSE_ALGEBRA.md[License algebra] · xref:../hitorro-mesh-datasets/docs/authoring-datasets.adoc[Authoring]
+| hitorro-jsontypesystem              | xref:../hitorro-jsontypesystem/docs/jvs-types.adoc[JVS Types] · xref:../hitorro-jsontypesystem/docs/enrichment.adoc[Enrichment] · xref:../hitorro-util/docs/DATA_MAPPER.md[Data Mapper DSL] · xref:../hitorro-util/docs/TYPE_SYSTEM.md[Type System]
+| hitorro-index                       | xref:../hitorro-index/docs/lucene-integration.adoc[Lucene Integration]
+| hitorro-retrieval                   | xref:../hitorro-retrieval/docs/retrieval-pipeline.adoc[Retrieval Pipeline]
+| hitorro-mesh-pipelines              | xref:../hitorro-mesh-pipelines/docs/pipeline-framework.adoc[Pipeline Framework]
+| hitorro-util                        | xref:../hitorro-util/docs/ITERATOR_INFRASTRUCTURE.md[Iterator infrastructure] · xref:../hitorro-util/docs/TYPE_SYSTEM.md[Type system deep-dive]
+|===
+
+External references:
+
+* Apache Lucene 9.x — https://lucene.apache.org/core/9_11_1/
+* Apache Groovy — https://groovy-lang.org/single-page-documentation.html
+* NATS JetStream — https://docs.nats.io/
+* Ollama HTTP API — https://github.com/ollama/ollama/blob/main/docs/api.md
+* OpenNLP models — https://opennlp.apache.org/models.html
+* JSON Schema Draft 2020-12 — https://json-schema.org/draft/2020-12/schema
+
+== License
+
+See individual module `LICENSE` files. Most modules ship under the MIT
+license; dataset licences vary per source and are enumerated in each
+manifest's `license` block.

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Renders every HiTorro AsciiDoc file (top-level guide + per-module
+    docs + the mesh runtime deep-dive) to both HTML and PDF.
+
+    NOT part of the reactor — invoke explicitly:
+
+        mvn -f docs/pom.xml package                 # HTML + PDF
+        mvn -f docs/pom.xml package -Ppdf-only      # PDF only
+        mvn -f docs/pom.xml package -Phtml-only     # HTML only
+
+    Outputs land under docs/target/generated-docs/.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.hitorro</groupId>
+    <artifactId>hitorro-docs</artifactId>
+    <version>3.0.1</version>
+    <packaging>pom</packaging>
+
+    <name>HiTorro Documentation</name>
+    <description>
+        AsciiDoc → HTML + PDF renderer for the whole HiTorro doc set.
+        Every module owns its own docs/ AsciiDoc files; this module
+        assembles them via docs/hitorro-book.adoc (top-level orchestrator
+        with include:: directives).
+    </description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <asciidoctor.maven.version>3.1.1</asciidoctor.maven.version>
+        <asciidoctorj.version>3.0.0</asciidoctorj.version>
+        <asciidoctorj.pdf.version>2.3.19</asciidoctorj.pdf.version>
+        <jruby.version>9.4.9.0</jruby.version>
+    </properties>
+
+    <build>
+        <defaultGoal>process-resources</defaultGoal>
+        <plugins>
+            <plugin>
+                <groupId>org.asciidoctor</groupId>
+                <artifactId>asciidoctor-maven-plugin</artifactId>
+                <version>${asciidoctor.maven.version}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.asciidoctor</groupId>
+                        <artifactId>asciidoctorj-pdf</artifactId>
+                        <version>${asciidoctorj.pdf.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.jruby</groupId>
+                        <artifactId>jruby</artifactId>
+                        <version>${jruby.version}</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <!-- Base dir = this pom's dir; source dir = same. -->
+                    <sourceDirectory>${project.basedir}</sourceDirectory>
+                    <!-- Only render the book — individual docs are pulled in via include::. -->
+                    <sourceDocumentName>hitorro-book.adoc</sourceDocumentName>
+                    <preserveDirectories>false</preserveDirectories>
+                    <attributes>
+                        <source-highlighter>rouge</source-highlighter>
+                        <icons>font</icons>
+                        <sectnums>true</sectnums>
+                        <sectanchors>true</sectanchors>
+                        <toc>left</toc>
+                        <toclevels>3</toclevels>
+                        <docinfo>shared</docinfo>
+                        <revdate>${maven.build.timestamp}</revdate>
+                    </attributes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>render-html</id>
+                        <phase>process-resources</phase>
+                        <goals><goal>process-asciidoc</goal></goals>
+                        <configuration>
+                            <backend>html5</backend>
+                            <outputDirectory>${project.build.directory}/generated-docs/html</outputDirectory>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>render-pdf</id>
+                        <phase>process-resources</phase>
+                        <goals><goal>process-asciidoc</goal></goals>
+                        <configuration>
+                            <backend>pdf</backend>
+                            <outputDirectory>${project.build.directory}/generated-docs/pdf</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>pdf-only</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.asciidoctor</groupId>
+                        <artifactId>asciidoctor-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>render-html</id>
+                                <phase>none</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>html-only</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.asciidoctor</groupId>
+                        <artifactId>asciidoctor-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>render-pdf</id>
+                                <phase>none</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <!-- Fast native path — uses the local asciidoctor gem instead of the
+             ~40s JRuby JVM startup. Requires:  brew install asciidoctor && gem install asciidoctor-pdf. -->
+        <profile>
+            <id>native</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>3.5.0</version>
+                        <executions>
+                            <execution>
+                                <id>native-render</id>
+                                <phase>process-resources</phase>
+                                <goals><goal>exec</goal></goals>
+                                <configuration>
+                                    <executable>${project.basedir}/build.sh</executable>
+                                    <workingDirectory>${project.basedir}</workingDirectory>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.asciidoctor</groupId>
+                        <artifactId>asciidoctor-maven-plugin</artifactId>
+                        <executions>
+                            <execution><id>render-html</id><phase>none</phase></execution>
+                            <execution><id>render-pdf</id> <phase>none</phase></execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>

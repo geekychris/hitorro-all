@@ -1,0 +1,118 @@
+= HiTorro — Complete User Guide
+Chris Collins
+:doctype: book
+:toc: left
+:toclevels: 3
+:sectnums:
+:sectanchors:
+:icons: font
+:source-highlighter: rouge
+:pdf-page-size: Letter
+:pdf-theme: default
+:experimental:
+:docinfo: shared
+:revdate: {docdate}
+
+// Master book — assembles the top-level guide plus every per-module doc
+// into one PDF. Individual .adoc files stay their own composable units;
+// this file just orchestrates the ordering.
+//
+// Render with:  ./docs/build.sh   OR   mvn -f docs/pom.xml package
+
+[preface]
+== About this book
+
+This is the composable HiTorro user guide, assembled from documents
+that live with the code they describe. Each part below is the exact
+AsciiDoc file used by that module's own `docs/` directory — no
+duplication, no drift.
+
+If you want to read one part standalone, open the file listed in that
+part's header directly.
+
+// -----------------------------------------------------------------------
+// PART I — orientation
+// -----------------------------------------------------------------------
+:leveloffset: +1
+
+include::hitorro-user-guide.adoc[]
+
+:leveloffset: -1
+
+// -----------------------------------------------------------------------
+// PART II — extending
+// -----------------------------------------------------------------------
+:leveloffset: +1
+
+include::extending.adoc[]
+
+:leveloffset: -1
+
+// -----------------------------------------------------------------------
+// PART III — type system
+// -----------------------------------------------------------------------
+= Part III — JVS Type System
+
+:leveloffset: +1
+
+include::../hitorro-jsontypesystem/docs/jvs-types.adoc[]
+
+include::../hitorro-jsontypesystem/docs/enrichment.adoc[]
+
+:leveloffset: -1
+
+// -----------------------------------------------------------------------
+// PART IV — streams, sinks, KV
+// -----------------------------------------------------------------------
+= Part IV — Streams, Sinks, Storage
+
+:leveloffset: +1
+
+include::../hitorro-streams/docs/README.adoc[]
+
+include::../hitorro-streams-kafka/docs/README.adoc[]
+
+include::../hitorro-streams-nats/docs/README.adoc[]
+
+include::../hitorro-kvstore/docs/README.adoc[]
+
+:leveloffset: -1
+
+// -----------------------------------------------------------------------
+// PART V — indexing + retrieval + streaming SQL
+// -----------------------------------------------------------------------
+= Part V — Indexing, Retrieval & Streaming SQL
+
+:leveloffset: +1
+
+include::../hitorro-index/docs/lucene-integration.adoc[]
+
+include::../hitorro-retrieval/docs/retrieval-pipeline.adoc[]
+
+include::../hitorro-jvssql/docs/streaming-queries.adoc[]
+
+:leveloffset: -1
+
+// -----------------------------------------------------------------------
+// PART VI — pipelines + datasets
+// -----------------------------------------------------------------------
+= Part VI — Pipelines & Datasets
+
+:leveloffset: +1
+
+include::../hitorro-mesh-pipelines/docs/pipeline-framework.adoc[]
+
+include::../hitorro-mesh-datasets/docs/authoring-datasets.adoc[]
+
+:leveloffset: -1
+
+// -----------------------------------------------------------------------
+// PART VII — mesh runtime (pre-existing deep-dive)
+// -----------------------------------------------------------------------
+= Part VII — Mesh Runtime Deep-Dive
+
+:leveloffset: +1
+
+include::../hitorro-mesh-core/docs/user-guide/mesh-user-guide.adoc[]
+
+:leveloffset: -1
