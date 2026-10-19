@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/logo.png" alt="Hitorro All logo" width="180">
+</p>
+
 # HiTorro
 
 HiTorro is a modular Java 21 framework (Maven multi-module, currently v3.0.1) for building type-aware JSON processing systems with NLP capabilities, full-text search, and multi-language document processing. It can operate standalone or integrate with Spring Boot 3.2 via optional auto-configuration.
