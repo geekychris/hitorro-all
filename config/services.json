@@ -3,8 +3,7 @@
     "dms": [
       "com.hitorro.basedms.RichDMSService",
       "com.hitorro.basetext.text.indexer.IndexerService",
-      "com.hitorro.ui.tapestry.TapestryService",
-      "com.hitorro.network.servlet.xmlrpchandlers.XmlRPCService"
+      "com.hitorro.ui.tapestry.TapestryService"
     ],
     "dmsmax": [
       "com.hitorro.basedms.transformer.TransformerService",
@@ -41,7 +40,6 @@
       "com.hitorro.ui.tapestry.TapestryService"
     ],
     "notest": [
-      "com.hitorro.network.servlet.xmlrpchandlers.XmlRPCService",
       "com.hitorro.basedms.ssh.FileTransferService",
       "com.hitorro.basedms.scheduler.SchedulerService",
       "com.hitorro.ui.tapestry.TapestryService",
@@ -95,7 +93,6 @@
       "com.hitorro.features.FeatureService",
       "com.hitorro.language.PartsOfSpeechService",
       "com.hitorro.ui.tapestry.TapestryService",
-      "com.hitorro.network.servlet.xmlrpchandlers.XmlRPCService",
       "com.hitorro.unittime.UnitTimeService",
       "com.hitorro.basedms.sshdaemon.SshDaemonService",
       "com.hitorro.dataaquisition.BaseDataAquisitionService"
