@@ -66,7 +66,8 @@ def scan(root):
             for f in fn:
                 if f.endswith(".java"):
                     try:
-                        if "com.fasterxml.jackson" in open(os.path.join(dp, f), errors="ignore").read():
+                        # Jackson 2 proper: com.fasterxml.jackson.annotation is shared with Jackson 3
+                        if re.search(r"com\.fasterxml\.jackson\.(?!annotation\b)", open(os.path.join(dp, f), errors="ignore").read()):
                             info["jackson"] += 1
                     except OSError:
                         pass
@@ -146,7 +147,7 @@ def main():
              "Release in layer order.")
     L.append("- **Needs**: the HiTorro repos it declares in its poms.")
     L.append("- **Affects**: how many repos depend on it directly or indirectly (what a release of it can break).")
-    L.append("- **Jackson**: main-source files importing `com.fasterxml.jackson` (Jackson 2).")
+    L.append("- **Jackson**: main-source files using Jackson 2 (`com.fasterxml.jackson`, except the annotations Jackson 3 shares).")
     if pub:
         L.append("- **Published**: latest version in hitorro-maven `origin/main`.")
     L.append("")

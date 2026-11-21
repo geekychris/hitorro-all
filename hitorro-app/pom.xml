@@ -6,7 +6,7 @@
 
     <groupId>com.hitorro</groupId>
     <artifactId>hitorro-app</artifactId>
-    <version>3.0.2</version>
+    <version>4.0.0</version>
     <packaging>jar</packaging>
 
     <name>Hitorro Application Runner</name>
@@ -17,19 +17,32 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
-        <hitorro.version>3.0.2</hitorro.version>
+        <hitorro.version>4.0.0</hitorro.version>
     </properties>
+
+    <!-- Jackson 2 only arrives through third parties (Solr via hitorro-objretrieval); pin it as the libraries do. -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.fasterxml.jackson</groupId>
+                <artifactId>jackson-bom</artifactId>
+                <version>2.21.8</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
             <groupId>com.hitorro</groupId>
             <artifactId>hitorro-streams</artifactId>
-            <version>3.0.2</version>
+            <version>4.0.0</version>
         </dependency>
         <dependency>
             <groupId>com.hitorro</groupId>
             <artifactId>hitorro-basefile</artifactId>
-            <version>3.0.2</version>
+            <version>4.0.0</version>
         </dependency>
         <!-- Include all Hitorro modules -->
         <dependency>
